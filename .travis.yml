@@ -1,0 +1,6 @@
+# reference: http://www.objc.io/issue-6/travis-ci.html
+
+language: objective-c
+before_install: pod install
+script:
+- xctool test -workspace DeepLinkSDK.xcworkspace -scheme DeepLinkSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
