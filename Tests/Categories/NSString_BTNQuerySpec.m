@@ -45,9 +45,9 @@ describe(@"Dictionary to Query String", ^{
     });
     
     it(@"should percent encode parameters from dictionary into the query string", ^{
-        NSDictionary *params = @{ @"one": @"a one", @"two": @"http://www.example.com" };
+        NSDictionary *params = @{ @"one": @"a one", @"two": @"http://www.example.com?foo=bar" };
         NSString *query = [NSString BTN_queryStringWithParameters:params];
-        expect(query).to.equal(@"one=a%20one&two=http%3A%2F%2Fwww.example.com");
+        expect(query).to.equal(@"one=a%20one&two=http%3A%2F%2Fwww.example.com%3Ffoo%3Dbar");
     });
 });
 
@@ -70,10 +70,10 @@ describe(@"Query String to Dictionary", ^{
     });
     
     it(@"should decode query parameters into a dictionary", ^{
-        NSString *query = @"one=a%20one&two=http%3A%2F%2Fwww.example.com";
+        NSString *query = @"one=a%20one&two=http%3A%2F%2Fwww.example.com%3Ffoo%3Dbar";
         NSDictionary *params = [query BTN_parametersFromQueryString];
         expect(params[@"one"]).to.equal(@"a one");
-        expect(params[@"two"]).to.equal(@"http://www.example.com");
+        expect(params[@"two"]).to.equal(@"http://www.example.com?foo=bar");
     });
 });
 
