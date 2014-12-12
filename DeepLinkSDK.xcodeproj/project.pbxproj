@@ -15,6 +15,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		7F8229675FB2A43B9DA4099B /* libPods-DeepLinkSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C158CD61209242366C8DA6 /* libPods-DeepLinkSDK.a */; };
 		92A72822FC29DE7EDE1DC1CE /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DB08E49D6A7624902B1229 /* libPods-Tests.a */; };
+		DE058E0A1A3B46FD00147C04 /* NSString_BTNQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E091A3B46FD00147C04 /* NSString_BTNQuerySpec.m */; };
 		DE3E610F1A3B4492008D6DFC /* NSString_BTNJSONSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */; };
 		DE669DEE19E33AB50044496B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEAD328219E079D3003C8D65 /* InfoPlist.strings */; };
 		DEAD328819E079D3003C8D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327519E079D3003C8D65 /* Main.storyboard */; };
@@ -49,6 +50,9 @@
 		8949A4E8F681A12A47C20775 /* DeepLinkSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = DeepLinkSDK.podspec; path = ./DeepLinkSDK.podspec; sourceTree = "<group>"; };
 		B3CB044233E227F87FCF2C46 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CA96D95537005A8952F63203 /* Pods-DeepLinkSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkSDK/Pods-DeepLinkSDK.release.xcconfig"; sourceTree = "<group>"; };
+		DE058E071A3B46F500147C04 /* NSString+BTNQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+BTNQuery.h"; sourceTree = "<group>"; };
+		DE058E081A3B46F500147C04 /* NSString+BTNQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BTNQuery.m"; sourceTree = "<group>"; };
+		DE058E091A3B46FD00147C04 /* NSString_BTNQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_BTNQuerySpec.m; sourceTree = "<group>"; };
 		DE3E61081A3B4485008D6DFC /* NSString+BTNJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+BTNJSON.h"; sourceTree = "<group>"; };
 		DE3E61091A3B4485008D6DFC /* NSString+BTNJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BTNJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_BTNJSONSpec.m; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 		DE3E61071A3B4485008D6DFC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				DE058E071A3B46F500147C04 /* NSString+BTNQuery.h */,
+				DE058E081A3B46F500147C04 /* NSString+BTNQuery.m */,
 				DE3E61081A3B4485008D6DFC /* NSString+BTNJSON.h */,
 				DE3E61091A3B4485008D6DFC /* NSString+BTNJSON.m */,
 			);
@@ -163,6 +169,7 @@
 		DE3E610C1A3B4492008D6DFC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				DE058E091A3B46FD00147C04 /* NSString_BTNQuerySpec.m */,
 				DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */,
 			);
 			path = Categories;
@@ -387,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE058E0A1A3B46FD00147C04 /* NSString_BTNQuerySpec.m in Sources */,
 				DE3E610F1A3B4492008D6DFC /* NSString_BTNJSONSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
