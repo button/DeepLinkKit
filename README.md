@@ -24,4 +24,4 @@ Button, Inc.
 
 ## License
 
-DeepLinkSDK is available under the MIT license. See the LICENSE file for more info.
+DeepLinkSDK is available under a private license. Contact Button for more info.
