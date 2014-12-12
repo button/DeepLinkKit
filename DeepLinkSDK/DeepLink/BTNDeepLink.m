@@ -15,6 +15,10 @@ NSString * const BTNDeepLinkReferrerPayloadKey = @"referer_app_link";
 @implementation BTNDeepLink
 
 - (instancetype)initWithURL:(NSURL *)url {
+    if (!url) {
+        return nil;
+    }
+    
     self = [super init];
     if (self) {
         _incomingURL             = url;
@@ -35,12 +39,10 @@ NSString * const BTNDeepLinkReferrerPayloadKey = @"referer_app_link";
 + (void)resolveURL:(NSURL *)url completionHandler:(BTNDeepLinkResolveCompletion)completionHandler {
     BTNDeepLink *deepLink = [[self alloc] initWithURL:url];
     
-    
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if (completionHandler) {
-            completionHandler(deepLink, nil);
+            completionHandler(deepLink, deepLink ? nil : [NSError errorWithDomain:@"BTN_ERROR" code:-1 userInfo:nil]);
         }
     });
 }

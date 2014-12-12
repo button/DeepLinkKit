@@ -32,6 +32,15 @@ describe(@"Resolving Deep Links", ^{
         });
     });
     
+    fit(@"resolving an invalid url completes with an error", ^{
+        waitUntil(^(DoneCallback done) {
+            [BTNDeepLink resolveURL:[NSURL URLWithString:@"derp\\"] completionHandler:^(BTNDeepLink *deepLink, NSError *error) {
+                expect(error).toNot.beNil();
+                done();
+            }];
+        });
+    });
+    
     pending(@"more tests", ^{
         
     });
