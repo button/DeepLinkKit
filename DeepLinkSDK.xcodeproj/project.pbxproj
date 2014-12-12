@@ -16,6 +16,7 @@
 		7F8229675FB2A43B9DA4099B /* libPods-DeepLinkSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C158CD61209242366C8DA6 /* libPods-DeepLinkSDK.a */; };
 		92A72822FC29DE7EDE1DC1CE /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DB08E49D6A7624902B1229 /* libPods-Tests.a */; };
 		DE058E0A1A3B46FD00147C04 /* NSString_BTNQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E091A3B46FD00147C04 /* NSString_BTNQuerySpec.m */; };
+		DE058E101A3B485500147C04 /* BTNDeepLinkSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E0F1A3B485500147C04 /* BTNDeepLinkSpec.m */; };
 		DE3E610F1A3B4492008D6DFC /* NSString_BTNJSONSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */; };
 		DE669DEE19E33AB50044496B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEAD328219E079D3003C8D65 /* InfoPlist.strings */; };
 		DEAD328819E079D3003C8D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327519E079D3003C8D65 /* Main.storyboard */; };
@@ -53,6 +54,9 @@
 		DE058E071A3B46F500147C04 /* NSString+BTNQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+BTNQuery.h"; sourceTree = "<group>"; };
 		DE058E081A3B46F500147C04 /* NSString+BTNQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BTNQuery.m"; sourceTree = "<group>"; };
 		DE058E091A3B46FD00147C04 /* NSString_BTNQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_BTNQuerySpec.m; sourceTree = "<group>"; };
+		DE058E0C1A3B484A00147C04 /* BTNDeepLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTNDeepLink.h; sourceTree = "<group>"; };
+		DE058E0D1A3B484A00147C04 /* BTNDeepLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTNDeepLink.m; sourceTree = "<group>"; };
+		DE058E0F1A3B485500147C04 /* BTNDeepLinkSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTNDeepLinkSpec.m; sourceTree = "<group>"; };
 		DE3E61081A3B4485008D6DFC /* NSString+BTNJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+BTNJSON.h"; sourceTree = "<group>"; };
 		DE3E61091A3B4485008D6DFC /* NSString+BTNJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BTNJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_BTNJSONSpec.m; sourceTree = "<group>"; };
@@ -155,6 +159,23 @@
 			name = "Pod Metadata";
 			sourceTree = "<group>";
 		};
+		DE058E0B1A3B484A00147C04 /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				DE058E0C1A3B484A00147C04 /* BTNDeepLink.h */,
+				DE058E0D1A3B484A00147C04 /* BTNDeepLink.m */,
+			);
+			path = DeepLink;
+			sourceTree = "<group>";
+		};
+		DE058E0E1A3B485500147C04 /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				DE058E0F1A3B485500147C04 /* BTNDeepLinkSpec.m */,
+			);
+			path = DeepLink;
+			sourceTree = "<group>";
+		};
 		DE3E61071A3B4485008D6DFC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +199,7 @@
 		DE5DD32C19E0643F007FD439 /* DeepLinkSDK */ = {
 			isa = PBXGroup;
 			children = (
+				DE058E0B1A3B484A00147C04 /* DeepLink */,
 				DE3E61071A3B4485008D6DFC /* Categories */,
 			);
 			path = DeepLinkSDK;
@@ -203,6 +225,7 @@
 		DEAD328119E079D3003C8D65 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DE058E0E1A3B485500147C04 /* DeepLink */,
 				DE3E610C1A3B4492008D6DFC /* Categories */,
 				DEC1B07F1A365213002BB838 /* SupportingFiles */,
 			);
@@ -394,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE058E101A3B485500147C04 /* BTNDeepLinkSpec.m in Sources */,
 				DE058E0A1A3B46FD00147C04 /* NSString_BTNQuerySpec.m in Sources */,
 				DE3E610F1A3B4492008D6DFC /* NSString_BTNJSONSpec.m in Sources */,
 			);

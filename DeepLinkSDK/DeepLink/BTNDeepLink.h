@@ -16,15 +16,6 @@ typedef void(^BTNDeepLinkResolveCompletion)(BTNDeepLink *deepLink, NSError *erro
 
 @interface BTNDeepLink : NSObject
 
-/// The incoming deep link received by the application.
-@property (nonatomic, copy, readonly) NSURL *incomingDeepLink;
-
-/// The query parameters of the incoming deep link.
-@property (nonatomic, strong, readonly) NSDictionary *incomingQueryParameters;
-
-/// The payload form the deep link URL parsed into an NSDictionary.
-@property (nonatomic, strong, readonly) NSDictionary *payload;
-
 /// The URL representing an action or some content.
 @property (nonatomic, copy, readonly) NSURL *targetURL;
 
@@ -42,6 +33,15 @@ typedef void(^BTNDeepLinkResolveCompletion)(BTNDeepLink *deepLink, NSError *erro
 
 /// A deep link to the referring app.
 @property (nonatomic, strong, readonly) BTNDeepLink *deepLinkReferrer;
+
+/// The incoming deep link received by the application.
+@property (nonatomic, copy, readonly) NSURL *incomingURL;
+
+/// The query parameters of the incoming deep link.
+@property (nonatomic, strong, readonly) NSDictionary *incomingQueryParameters;
+
+/// The payload form the deep link URL parsed into an NSDictionary.
+@property (nonatomic, strong, readonly) NSDictionary *payload;
 
 
 /**
