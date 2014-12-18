@@ -1,5 +1,6 @@
 #import "BTNReceiverAppDelegate.h"
 #import <DeepLinkSDK/BTNDeepLinkManager.h>
+#import <DeepLinkSDK/BTNDeepLink.h>
 
 @interface BTNReceiverAppDelegate ()
 
@@ -12,8 +13,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.deepLinkManager = [[BTNDeepLinkManager alloc] init];
-    self.deepLinkManager[@"table/book/1234"] = ^{
-        NSLog(@"deep link");
+    
+    self.deepLinkManager[@"/log"] = ^(BTNDeepLink *link) {
+        NSLog(@"%@", link.customData[@"message"]);
+    };
+    
+    __weak __typeof__(self) weakSelf = self;
+    self.deepLinkManager[@"/background"] = ^(BTNDeepLink *link) {
+        UIViewController *controller = weakSelf.window.rootViewController;
+        if ([controller conformsToProtocol:@protocol(BTNDeepLinkTarget)]) {
+            [(id)controller configureWithDeepLink:link];
+        }
     };
     
     [self.deepLinkManager handleDeepLink:launchOptions[UIApplicationLaunchOptionsURLKey]
