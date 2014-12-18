@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DeepLinkSDK"
-  s.version          = "0.1.0"
+  s.version          = "0.0.1"
   s.summary          = "A splendid way to handle DLC/AppLinks compliant deep links."
   s.description      = <<-DESC
                        Making deep linking easy. A splendid way to handle DLC/AppLinks compliant deep links.
