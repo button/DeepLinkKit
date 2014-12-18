@@ -37,7 +37,7 @@
     [BTNDeepLink resolveURL:url completionHandler:^(BTNDeepLink *deepLink, NSError *error) {
         if (error) {
             if (completionHandler) {
-                completionHandler(deepLink, error);
+                completionHandler(!!deepLink, error);
             }
             return;
         }

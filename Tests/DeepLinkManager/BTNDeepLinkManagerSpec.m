@@ -28,6 +28,7 @@ describe(@"Handling Deep Links", ^{
     it(@"calls completion after handling a deep link", ^{
         waitUntil(^(DoneCallback done) {
             BTNDeepLinkManager *manager = [[BTNDeepLinkManager alloc] init];
+            manager[@"ride/book/:id"] = ^{};
             [manager handleDeepLink:deepLinkURL completionHandler:^(BOOL displayed, NSError *error) {
                 expect(displayed).to.beTruthy();
                 expect(error).to.beNil();
