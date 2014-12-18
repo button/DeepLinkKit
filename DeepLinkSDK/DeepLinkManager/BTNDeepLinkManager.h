@@ -13,6 +13,7 @@ typedef void(^BTNDeepLinkCompletionHandler)(BOOL handled, NSError *error);
 
 @interface BTNDeepLinkManager : NSObject
 
+
 /// The display coordinator which determines the default presenting view controller.
 @property (nonatomic, strong) BTNDeepLinkDisplayCoordinator *displayCoordinator;
 
@@ -25,5 +26,13 @@ typedef void(^BTNDeepLinkCompletionHandler)(BOOL handled, NSError *error);
  @see BTNDeepLinkCompletionHandler
  */
 - (void)handleDeepLink:(NSURL *)url completionHandler:(BTNDeepLinkCompletionHandler)completionHandler;
+
+
+///--------------------------
+/// @name Object Subscripting
+///--------------------------
+
+- (id)objectForKeyedSubscript:(id <NSCopying>)key;
+- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
 
 @end

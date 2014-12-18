@@ -105,4 +105,9 @@
     }
 }
 
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    return self.router;
+}
+
 @end
