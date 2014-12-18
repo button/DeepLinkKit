@@ -4,7 +4,22 @@
 
 @interface BTNDeepLinkDisplayCoordinator : NSObject
 
-- (BOOL)shouldDisplayDeepLink:(BTNDeepLink *)deepLink;
+/**
+ Indicates whether your application is in a state to handle deep links. Default is YES.
+ @return YES if your app can handle deep links, otherwise NO.
+ @see BTNDeepLinkRouteHandler
+ */
+- (BOOL)canHandleDeepLinks;
+
+
+/**
+ Indicates whether the deep link should be handled. Default is YES.
+ @param deepLink A resolved deep link.
+ @return YES to proceed in handling the deep link, otherwise NO.
+ @see BTNDeepLinkRouteHandler
+ */
+- (BOOL)shouldHandleDeepLink:(BTNDeepLink *)deepLink;
+
 
 /**
  Returns the default view controller for use in presenting target view controllers specified your route handler class.

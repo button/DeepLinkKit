@@ -26,6 +26,14 @@
 
 
 - (void)handleDeepLink:(NSURL *)url completionHandler:(BTNDeepLinkCompletionHandler)completionHandler {
+    
+    if (![self.displayCoordinator canHandleDeepLinks]) {
+        if (completionHandler) {
+            completionHandler(NO, nil);
+        }
+        return;
+    }
+    
     [BTNDeepLink resolveURL:url completionHandler:^(BTNDeepLink *deepLink, NSError *error) {
         if (error) {
             if (completionHandler) {
@@ -42,6 +50,13 @@
 
 - (void)handleDeepLink:(BTNDeepLink *)link {
  
+    if (![self.displayCoordinator shouldHandleDeepLink:link]) {
+        if (self.completionHandler) {
+            self.completionHandler(NO, nil);
+            return;
+        }
+    }
+    
     id obj = nil;
     for (NSString *route in self.router.routes) {
         BTNDeepLinkRouteMatcher *matcher = [BTNDeepLinkRouteMatcher matcherWithRoute:route];

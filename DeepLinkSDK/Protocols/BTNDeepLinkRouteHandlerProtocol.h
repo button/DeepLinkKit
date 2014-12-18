@@ -13,6 +13,14 @@
 
 
 /**
+ Indicates whether the deep link should be handled.
+ @param deepLink A resolved deep link.
+ @return YES to proceed in handling the deep link, otherwise NO.
+ */
+- (BOOL)shouldHandleDeepLink:(BTNDeepLink *)deepLink;
+
+
+/**
  Indicates the view controller that will display the deep link.
  @return A view controller to be presented.
  */
@@ -20,14 +28,6 @@
 
 
 @optional
-
-/**
- Indicates whether the deep link should be handled.
- @param deepLink A resolved deep link.
- @return YES to proceed in handling the deep link, otherwise NO.
- */
-- (BOOL)shouldHandleDeepLink:(BTNDeepLink *)deepLink;
-
 
 /**
  Specifies the view controller from which to present a `targetViewController'.

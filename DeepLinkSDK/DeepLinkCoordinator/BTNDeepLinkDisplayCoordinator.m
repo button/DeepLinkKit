@@ -2,7 +2,12 @@
 
 @implementation BTNDeepLinkDisplayCoordinator
 
-- (BOOL)shouldDisplayDeepLink:(BTNDeepLink *)deepLink {
+- (BOOL)canHandleDeepLinks {
+    return YES;
+}
+
+
+- (BOOL)shouldHandleDeepLink:(BTNDeepLink *)deepLink {
     return YES;
 }
 

@@ -21,10 +21,9 @@ typedef void(^BTNDeepLinkCompletionHandler)(BOOL handled, NSError *error);
  Attempts to handle an incoming deep link URL.
  @param url The incoming URL from `application:didFinishLaunchingWithOptions:' or `application:openURL:sourceApplication:annotation:'
  @param completionHandler A block executed after the deep link has been handled.
- @return YES if the deep link can be handled, otherwise NO.
  
  @see BTNDeepLinkCompletionHandler
  */
-- (BOOL)handleDeepLink:(NSURL *)url completionHandler:(BTNDeepLinkCompletionHandler)completionHandler;
+- (void)handleDeepLink:(NSURL *)url completionHandler:(BTNDeepLinkCompletionHandler)completionHandler;
 
 @end
