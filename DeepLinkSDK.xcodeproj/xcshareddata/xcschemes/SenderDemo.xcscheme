@@ -22,15 +22,15 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
+            buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DEDB14A41A3F944D00A837F8"
-               BuildableName = "PlacementsTests.xctest"
-               BlueprintName = "PlacementsTests"
+               BlueprintIdentifier = "6003F5AD195388D20070C39A"
+               BuildableName = "Tests.xctest"
+               BlueprintName = "Tests"
                ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DEDB14A41A3F944D00A837F8"
-               BuildableName = "PlacementsTests.xctest"
-               BlueprintName = "PlacementsTests"
+               BlueprintIdentifier = "6003F5AD195388D20070C39A"
+               BuildableName = "Tests.xctest"
+               BlueprintName = "Tests"
                ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
             </BuildableReference>
          </TestableReference>

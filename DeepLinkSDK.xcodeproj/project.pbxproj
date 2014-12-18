@@ -497,7 +497,7 @@
 			dependencies = (
 			);
 			name = SenderDemo;
-			productName = Placements;
+			productName = SenderDemo;
 			productReference = DEDB148D1A3F944D00A837F8 /* SenderDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
