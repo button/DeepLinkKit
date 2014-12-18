@@ -26,7 +26,8 @@ NSString * const BTNDeepLinkReferrerPayloadKey = @"referer_app_link";
         _payload                 = [_incomingQueryParameters[BTNDeepLinkPayloadKey] BTN_JSONObject];
         _targetURL               = [NSURL URLWithString:_payload[BTNDeepLinkTargetURLKey]];
         _targetQueryParameters   = [[_targetURL query] BTN_parametersFromQueryString];
-
+        _customData              = _payload[BTNDeepLinkExtrasKey];
+        
         NSArray *pathComponents = [_targetURL pathComponents];
         _useCase  = ([pathComponents count] > 1) ? pathComponents[1] : nil;
         _action   = ([pathComponents count] > 2) ? pathComponents[2] : nil;
@@ -58,6 +59,7 @@ NSString * const BTNDeepLinkReferrerPayloadKey = @"referer_app_link";
             @"\t targetQueryParameters: \"%@\"\n"
             @"\t incomingURL: \"%@\"\n"
             @"\t incomingQueryParameters: \"%@\"\n"
+            @"\t customData: \"%@\"\n"
             @">",
             NSStringFromClass([self class]),
             self,
@@ -67,7 +69,8 @@ NSString * const BTNDeepLinkReferrerPayloadKey = @"referer_app_link";
             [self.targetURL description],
             [self.targetQueryParameters description],
             [self.incomingURL description],
-            [self.incomingQueryParameters description]];
+            [self.incomingQueryParameters description],
+            [self.customData description]];
 }
 
 @end

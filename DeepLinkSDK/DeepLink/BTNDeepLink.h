@@ -43,6 +43,8 @@ typedef void(^BTNDeepLinkResolveCompletion)(BTNDeepLink *deepLink, NSError *erro
 /// The payload form the deep link URL parsed into an NSDictionary.
 @property (nonatomic, strong, readonly) NSDictionary *payload;
 
+/// An NSDictionary of custom data found in the "extras" payload in the App Links standard.
+@property (nonatomic, strong, readonly) NSDictionary *customData;
 
 /**
  Resolves a deep link into a deep link action.
