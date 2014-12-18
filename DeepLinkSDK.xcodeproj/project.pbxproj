@@ -23,6 +23,7 @@
 		DE16E91E1A42733100077E18 /* NSString_BTNTrimSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E91D1A42733100077E18 /* NSString_BTNTrimSpec.m */; };
 		DE16E9281A42883B00077E18 /* BTNDeepLinkRouterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9231A42883B00077E18 /* BTNDeepLinkRouterSpec.m */; };
 		DE16E9291A42883B00077E18 /* BTNBookingRouteHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9261A42883B00077E18 /* BTNBookingRouteHandler.m */; };
+		DE16E9381A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9371A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m */; };
 		DE3E610F1A3B4492008D6DFC /* NSString_BTNJSONSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */; };
 		DE669DEE19E33AB50044496B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEAD328219E079D3003C8D65 /* InfoPlist.strings */; };
 		DEAD328819E079D3003C8D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327519E079D3003C8D65 /* Main.storyboard */; };
@@ -80,6 +81,9 @@
 		DE16E9251A42883B00077E18 /* BTNBookingRouteHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTNBookingRouteHandler.h; sourceTree = "<group>"; };
 		DE16E9261A42883B00077E18 /* BTNBookingRouteHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTNBookingRouteHandler.m; sourceTree = "<group>"; };
 		DE16E9271A42883B00077E18 /* BTNDeepLinkRouter_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTNDeepLinkRouter_Private.h; sourceTree = "<group>"; };
+		DE16E9341A4289D500077E18 /* BTNDeepLinkRouteMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTNDeepLinkRouteMatcher.h; sourceTree = "<group>"; };
+		DE16E9351A4289D500077E18 /* BTNDeepLinkRouteMatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTNDeepLinkRouteMatcher.m; sourceTree = "<group>"; };
+		DE16E9371A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTNDeepLinkRouteMatcherSpec.m; sourceTree = "<group>"; };
 		DE3E61081A3B4485008D6DFC /* NSString+BTNJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+BTNJSON.h"; sourceTree = "<group>"; };
 		DE3E61091A3B4485008D6DFC /* NSString+BTNJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BTNJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_BTNJSONSpec.m; sourceTree = "<group>"; };
@@ -260,6 +264,23 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		DE16E9331A4289D500077E18 /* DeepLinkRouteMatcher */ = {
+			isa = PBXGroup;
+			children = (
+				DE16E9341A4289D500077E18 /* BTNDeepLinkRouteMatcher.h */,
+				DE16E9351A4289D500077E18 /* BTNDeepLinkRouteMatcher.m */,
+			);
+			path = DeepLinkRouteMatcher;
+			sourceTree = "<group>";
+		};
+		DE16E9361A4289DF00077E18 /* DeepLinkRouteMatcher */ = {
+			isa = PBXGroup;
+			children = (
+				DE16E9371A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m */,
+			);
+			path = DeepLinkRouteMatcher;
+			sourceTree = "<group>";
+		};
 		DE3E61071A3B4485008D6DFC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +307,7 @@
 		DE5DD32C19E0643F007FD439 /* DeepLinkSDK */ = {
 			isa = PBXGroup;
 			children = (
+				DE16E9331A4289D500077E18 /* DeepLinkRouteMatcher */,
 				DE16E91F1A42882F00077E18 /* DeepLinkRouter */,
 				DE99EF6A1A3B6CDD00CE3449 /* Protocols */,
 				DE058E0B1A3B484A00147C04 /* DeepLink */,
@@ -339,6 +361,7 @@
 		DEAD328119E079D3003C8D65 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DE16E9361A4289DF00077E18 /* DeepLinkRouteMatcher */,
 				DE16E9221A42883B00077E18 /* DeepLinkRouter */,
 				DE058E0E1A3B485500147C04 /* DeepLink */,
 				DE3E610C1A3B4492008D6DFC /* Categories */,
@@ -619,6 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE16E9281A42883B00077E18 /* BTNDeepLinkRouterSpec.m in Sources */,
+				DE16E9381A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m in Sources */,
 				DE16E9291A42883B00077E18 /* BTNBookingRouteHandler.m in Sources */,
 				DE058E101A3B485500147C04 /* BTNDeepLinkSpec.m in Sources */,
 				DE058E0A1A3B46FD00147C04 /* NSString_BTNQuerySpec.m in Sources */,
