@@ -19,16 +19,19 @@
     };
     
     __weak __typeof__(self) weakSelf = self;
-    self.deepLinkManager[@"/background"] = ^(BTNDeepLink *link) {
+    self.deepLinkManager[@"/background"] = ^(NSDictionary *params, BTNDeepLink *deepLink) {
         UIViewController *controller = weakSelf.window.rootViewController;
         if ([controller conformsToProtocol:@protocol(BTNDeepLinkTarget)]) {
-            [(id)controller configureWithDeepLink:link];
+            [(id)controller configureWithDeepLink:deepLink];
         }
     };
     
-    [self.deepLinkManager handleDeepLink:launchOptions[UIApplicationLaunchOptionsURLKey]
-                       completionHandler:NULL];
     
+    if (launchOptions[UIApplicationLaunchOptionsURLKey]) {
+        [self.deepLinkManager handleDeepLink:launchOptions[UIApplicationLaunchOptionsURLKey]
+                           completionHandler:NULL];
+    }
+
     return YES;
 }
 

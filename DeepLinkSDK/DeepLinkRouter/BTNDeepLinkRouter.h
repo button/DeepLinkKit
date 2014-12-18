@@ -3,14 +3,22 @@
 @class    BTNDeepLink;
 @protocol BTNDeepLinkRouteHandler;
 
-typedef void(^BTNDeepLinkRouteHandlerBlock)(BTNDeepLink *deepLink);
+/**
+ The deep ling route handler block type.
+ @param params A dictionary of values keyed by their parameterized path component in the deep link.
+ @param deepLink The deep link to be handled.
+ 
+ @discussion The params dictionary is populated by an incoming url as follows:
+ Given a registered route of “table/book/:id/:time” and an incoming url of “http://table/book/abc123/1418931000”,
+ the params dictionary would be “{ @"id": @"abc123", @"time": @"1418931000" }”
+ */
+typedef void(^BTNDeepLinkRouteHandlerBlock)(NSDictionary *params, BTNDeepLink *deepLink);
 
 
 @interface BTNDeepLinkRouter : NSObject
 
 /// A set of registered deep link routes.
 @property (nonatomic, copy, readonly) NSOrderedSet *routes;
-
 
 
 ///-------------------------
@@ -71,7 +79,7 @@ typedef void(^BTNDeepLinkRouteHandlerBlock)(BTNDeepLink *deepLink);
  // or
  
  deepLinkRouter[@"table/book/:id"] = ^(BTNDeepLink *deepLink) {
- // Handle the link here.
+    // Handle the link here.
  }
  @endcode
  */

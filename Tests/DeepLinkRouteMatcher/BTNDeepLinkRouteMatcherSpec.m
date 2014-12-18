@@ -34,6 +34,12 @@ describe(@"Matching Routes", ^{
         BTNDeepLinkRouteMatcher *matcher = [BTNDeepLinkRouteMatcher matcherWithRoute:@"table/book/:id"];
         expect([matcher matchesPath:@"ride/book/12345"]).to.beFalsy();
     });
+    
+    it(@"processes parameterized components into a parameters dictionary", ^{
+        BTNDeepLinkRouteMatcher *matcher = [BTNDeepLinkRouteMatcher matcherWithRoute:@"table/book/:id/:time"];
+        expect([matcher matchesPath:@"table/book/12345/1418931000"]).to.beTruthy();
+        expect(matcher.params).to.equal(@{ @"id": @"12345", @"time": @"1418931000" });
+    });
 });
 
 SpecEnd

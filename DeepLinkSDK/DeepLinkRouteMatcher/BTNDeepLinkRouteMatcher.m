@@ -5,6 +5,7 @@
 
 @property (nonatomic, copy)   NSString *route;
 @property (nonatomic, strong) NSArray  *routeParts;
+@property (nonatomic, strong) NSMutableDictionary *mutableParams;
 
 @end
 
@@ -22,11 +23,16 @@
     
     self = [super init];
     if (self) {
-        _route            = route;
-        _routeParts       = [_route componentsSeparatedByString:@"/"];
+        _route      = route;
+        _routeParts = [_route componentsSeparatedByString:@"/"];
     }
     
     return self;
+}
+
+
+- (NSDictionary *)params {
+    return [NSDictionary dictionaryWithDictionary:self.mutableParams];
 }
 
 
@@ -44,6 +50,13 @@
         NSString *pathComponent = pathParts[idx];
         
         if ([routeComponent rangeOfString:@":"].location == 0) {
+            if (!self.mutableParams) {
+                self.mutableParams = [NSMutableDictionary dictionary];
+            }
+            
+            NSString *key = [routeComponent stringByReplacingOccurrencesOfString:@":" withString:@""];
+            self.mutableParams[key] = pathComponent;
+            
             isMatch = YES;
         }
         else if ([pathComponent isEqualToString:routeComponent]) {

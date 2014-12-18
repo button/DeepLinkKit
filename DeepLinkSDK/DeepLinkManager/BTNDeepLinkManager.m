@@ -58,17 +58,20 @@
     }
     
     id obj = nil;
+    NSDictionary *params;
+    
     for (NSString *route in self.router.routes) {
         BTNDeepLinkRouteMatcher *matcher = [BTNDeepLinkRouteMatcher matcherWithRoute:route];
         if ([matcher matchesPath:[link.targetURL path]]) {
             obj = self.router[route];
+            params = matcher.params;
             break;
         }
     }
     
     if ([obj isKindOfClass:NSClassFromString(@"NSBlock")]) {
         BTNDeepLinkRouteHandlerBlock routeHandlerBlock = obj;
-        routeHandlerBlock(link);
+        routeHandlerBlock(params, link);
         
         if (self.completionHandler) {
             self.completionHandler(link, nil);
