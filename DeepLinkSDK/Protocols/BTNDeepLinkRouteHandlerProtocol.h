@@ -5,21 +5,35 @@
 
 @protocol BTNDeepLinkRouteHandler <NSObject>
 
+/**
+ Indicates whether your application is in a state to handle deep links.
+ @return YES if your app can handle deep links, otherwise NO.
+ */
++ (BOOL)canHandleDeepLinks;
 
-+ (BOOL)canHandleDeepLink:(BTNDeepLink *)deepLink;
 
 /**
- Indicates whether the deep link should be displayed.
- @param deepLink A resolved deep link.
- @return YES if your application is in a state that can handle the passed deep link, otherwise NO.
+ Indicates the view controller that will display the deep link.
+ @return A view controller to be presented.
  */
-- (BOOL)shouldDisplayDeepLink:(BTNDeepLink *)deepLink;
+- (UIViewController <BTNDeepLinkTarget> *)targetViewController;
 
-
-- (id <BTNDeepLinkTarget>)targetViewController;
 
 @optional
 
+/**
+ Indicates whether the deep link should be handled.
+ @param deepLink A resolved deep link.
+ @return YES to proceed in handling the deep link, otherwise NO.
+ */
+- (BOOL)shouldHandleDeepLink:(BTNDeepLink *)deepLink;
+
+
+/**
+ Specifies the view controller from which to present a `targetViewController'.
+ @param deepLink A resolved deep link.
+ @return A view controller for presenting a deep link target view controller.
+ */
 - (UIViewController *)viewControllerForPresentingDeepLink:(BTNDeepLink *)deepLink;
 
 @end
