@@ -1,4 +1,8 @@
-target 'DeepLinkSDK', :exclusive => true do
+target 'SenderDemo', :exclusive => true do
+  pod "DeepLinkSDK", :path => "."
+end
+
+target 'ReceiverDemo', :exclusive => true do
   pod "DeepLinkSDK", :path => "."
 end
 
