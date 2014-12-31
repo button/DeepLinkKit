@@ -4,7 +4,7 @@
 @implementation BTNViewController
 
 - (void)configureWithDeepLink:(BTNDeepLink *)deepLink {
-    NSDictionary *colors = deepLink.customData;
+    NSDictionary *colors = deepLink.appLinkData[DLCAppLinkExtrasKey];
     
     if ([colors count] == 3) {
         UIColor *color = [UIColor colorWithRed:[colors[@"red"]   floatValue]

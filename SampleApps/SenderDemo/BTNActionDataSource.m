@@ -49,18 +49,15 @@
 #pragma mark - Action Construction
 
 - (BTNDemoAction *)logHelloWorldAction {
-    NSDictionary *payload = @{ BTNDeepLinkTargetURLKey:       @"http://dlc.button.com/log",
-                               BTNDeepLinkReferrerURLKey:     @"http://sender-demo",
-                               BTNDeepLinkReferrerAppNameKey: @"SenderDemo",
-                               BTNDeepLinkExtrasKey:          @{ @"message": @"Hello World!" }};
+    NSDictionary *payload = @{ DLCAppLinkTargetURLKey:       @"http://dlc.button.com/say/Congratulations/Button%20Team" };
     
     NSString *payloadString = [[NSString BTN_stringWithJSONObject:payload] BTN_stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *URLString     = [NSString stringWithFormat:@"dlc://deeplink?al_applink_data=%@", payloadString];
+    NSString *URLString     = [NSString stringWithFormat:@"dldemo://deeplink?al_applink_data=%@", payloadString];
     NSURL    *deepLinkURL   = [NSURL URLWithString:URLString];
     
     BTNDemoAction *action = [[BTNDemoAction alloc] init];
     action.actionURL = deepLinkURL;
-    action.actionName = @"Log “Hello World!” in Receiver Demo";
+    action.actionName = @"Today's Demo";
     return action;
 }
 
@@ -98,10 +95,8 @@
     CGFloat red, green, blue;
     [color getRed:&red green:&green blue:&blue alpha:NULL];
     
-    NSDictionary *payload = @{ BTNDeepLinkTargetURLKey:       @"http://dlc.button.com/background",
-                               BTNDeepLinkReferrerURLKey:     @"http://sender-demo",
-                               BTNDeepLinkReferrerAppNameKey: @"SenderDemo",
-                               BTNDeepLinkExtrasKey:          @{ @"red": @(red), @"green": @(green), @"blue":@(blue) }};
+    NSDictionary *payload = @{ DLCAppLinkTargetURLKey:       @"http://dlc.button.com/background",
+                               DLCAppLinkExtrasKey:          @{ @"red": @(red), @"green": @(green), @"blue":@(blue) }};
     
     NSString *payloadString = [[NSString BTN_stringWithJSONObject:payload] BTN_stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *URLString     = [NSString stringWithFormat:@"dlc://deeplink?al_applink_data=%@", payloadString];
