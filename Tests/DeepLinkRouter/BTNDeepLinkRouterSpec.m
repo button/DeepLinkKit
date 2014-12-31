@@ -15,6 +15,8 @@ describe(@"Initialization", ^{
 
 describe(@"Registering Routes", ^{
     
+    NSString *route = @"table/book/:id";
+    
     __block BTNDeepLinkRouter *router;
     beforeEach(^{
         router = [[BTNDeepLinkRouter alloc] init];
@@ -22,45 +24,55 @@ describe(@"Registering Routes", ^{
     
     
     it(@"registers a class for a route", ^{
-        router[@"table/book/:id"] = [BTNBookingRouteHandler class];
-        expect(router.routes).to.contain(@"table/book/:id");
+        router[route] = [BTNBookingRouteHandler class];
+        expect(router[route]).to.equal([BTNBookingRouteHandler class]);
     });
     
-    it(@"does not register a class not conforming to BTNDeepLinkRouteHandler protocol", ^{
-        router[@"table/book/:id"] = [NSObject class];
-        expect(router.routes).to.beEmpty();
+    it(@"does NOT register a class not conforming to BTNDeepLinkRouteHandler protocol", ^{
+        router[route] = [NSObject class];
+        expect(router[route]).to.beNil();
     });
     
-    it(@"does not register routes that are not strings", ^{
+    it(@"does NOT register routes that are not strings", ^{
         router[@(0)] = [BTNBookingRouteHandler class];
-        expect(router.routes).to.beEmpty();
+        expect(router[route]).to.beNil();
     });
     
-    it(@"registers a block for a route when the block type is correct", ^{
-        router[@"table/book/:id"] = ^(BTNDeepLink *deepLink){};
-        expect(router.routes).to.contain(@"table/book/:id");
+    it(@"registers a block for a route when the block takes a deep link", ^{
+        router[route] = ^(BTNDeepLink *deepLink){};
+        expect(router[route]).to.beKindOf(NSClassFromString(@"NSBlock"));
+    });
+    
+    it(@"registers a block for a route when the block takes no params", ^{
+        router[route] = ^{};
+        expect(router[route]).to.beKindOf(NSClassFromString(@"NSBlock"));
     });
     
     xit(@"does NOT register a block for a route when the block type is incorrect", ^{
-        router[@"table/book/:id"] = ^{};
-        expect(router.routes).to.beEmpty();
+#pragma message "do we want to incpect the block type?"
     });
     
     it(@"does NOT register an empty route", ^{
         router[@""] = [BTNBookingRouteHandler class];
-        expect(router.routes).to.beEmpty();
+        expect(router[route]).to.beNil();
     });
     
     it(@"removes a route when passing a nil handler", ^{
         router[@"table/book/:id"] = [BTNBookingRouteHandler class];
-        expect(router.routes).to.contain(@"table/book/:id");
+        expect(router[route]).to.equal([BTNBookingRouteHandler class]);
         router[@"table/book/:id"] = nil;
-        expect(router.routes).to.beEmpty();
+        expect(router[route]).to.beNil();
     });
     
-    it(@"replaces a block route handler for an existing class route handler", ^{
-        NSString *route = @"table/book/:id";
-        
+    it(@"replaces the registered handler for a route when one already exists", ^{
+        router[route] = [BTNBookingRouteHandler class];
+        expect(router[route]).to.equal([BTNBookingRouteHandler class]);
+
+        router[route] = ^{};
+        expect(router[route]).to.beKindOf(NSClassFromString(@"NSBlock"));
+    });
+    
+    it(@"replaces a registered class handler with a block handler", ^{
         router[route] = [BTNBookingRouteHandler class];
         expect(router.classesByRoute[route]).to.equal([BTNBookingRouteHandler class]);
         expect(router.blocksByRoute).to.beEmpty();
@@ -70,19 +82,23 @@ describe(@"Registering Routes", ^{
         expect(router.classesByRoute).to.beEmpty();
     });
     
-    xit(@"replaces a class route handler for an existing block route handler", ^{
+    it(@"replaces a registered block handler for a class handler", ^{
+        router[route] = [BTNBookingRouteHandler class];
+        expect(router.classesByRoute[route]).to.equal([BTNBookingRouteHandler class]);
+        expect(router.blocksByRoute).to.beEmpty();
         
+        router[route] = ^(BTNDeepLink *deepLink){};
+        expect(router.blocksByRoute[route]).to.beKindOf(NSClassFromString(@"NSBlock"));
+        expect(router.classesByRoute).to.beEmpty();
     });
     
     it(@"trims routes before registering", ^{
-        router[@"/table/book/:id "]  = [BTNBookingRouteHandler class];
-        router[@"/ride/book/:id \n"] = ^(BTNDeepLink *deepLink){};
-        expect(router.routes).to.contain(@"table/book/:id");
-        expect(router.routes).to.contain(@"ride/book/:id");
+        router[@"/table/book/:id \n"] = [BTNBookingRouteHandler class];
+        expect(router[route]).to.equal([BTNBookingRouteHandler class]);
     });
     
     xit(@"matches routes in the order they were registered", ^{
-        
+
     });
 });
 

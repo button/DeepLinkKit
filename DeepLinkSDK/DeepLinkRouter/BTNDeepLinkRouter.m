@@ -1,11 +1,16 @@
 #import "BTNDeepLinkRouter.h"
 #import "BTNDeepLinkRouteHandlerProtocol.h"
+#import "BTNDeepLinkRouteMatcher.h"
+#import "BTNDeepLink.h"
 #import "NSString+BTNTrim.h"
 #import <objc/runtime.h>
 
 @interface BTNDeepLinkRouter ()
 
-@property (nonatomic, strong) NSMutableOrderedSet *mutableRoutes;
+@property (nonatomic, copy) DLCApplicationCanHandleDeepLinksBlock applicationCanHandleDeepLinksBlock;
+@property (nonatomic, copy) DLCRouteCompletionBlock               routeCompletionHandler;
+
+@property (nonatomic, strong) NSMutableOrderedSet *routes;
 @property (nonatomic, strong) NSMutableDictionary *classesByRoute;
 @property (nonatomic, strong) NSMutableDictionary *blocksByRoute;
 
@@ -17,7 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _mutableRoutes  = [NSMutableOrderedSet orderedSet];
+        _routes         = [NSMutableOrderedSet orderedSet];
         _classesByRoute = [NSMutableDictionary dictionary];
         _blocksByRoute  = [NSMutableDictionary dictionary];
     }
@@ -25,36 +30,44 @@
 }
 
 
-- (NSOrderedSet *)routes {
-    return [self.mutableRoutes copy];
+#pragma mark - Configuration
+
+- (BOOL)applicationCanHandleDeepLinks {
+    if (self.applicationCanHandleDeepLinksBlock) {
+        return self.applicationCanHandleDeepLinksBlock();
+    }
+    
+    return YES;
 }
 
+
+#pragma mark - Registering Routes
 
 - (void)registerHandlerClass:(Class <BTNDeepLinkRouteHandler>)handlerClass forRoute:(NSString *)route {
 
     route = [route BTN_trimPath];
     
     if (handlerClass && [route length]) {
-        [self.mutableRoutes addObject:route];
+        [self.routes addObject:route];
         [self.blocksByRoute removeObjectForKey:route];
         self.classesByRoute[route] = handlerClass;
     }
 }
 
 
-- (void)registerBlock:(BTNDeepLinkRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route {
+- (void)registerBlock:(DLCRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route {
 
     route = [route BTN_trimPath];
     
     if (routeHandlerBlock && [route length]) {
-        [self.mutableRoutes addObject:route];
+        [self.routes addObject:route];
         [self.classesByRoute removeObjectForKey:route];
         self.blocksByRoute[route] = [routeHandlerBlock copy];
     }
 }
 
 
-#pragma mark - Object Subscripting
+#pragma mark - Registering Routes via Object Subscripting
 
 - (id)objectForKeyedSubscript:(id <NSCopying>)key {
 
@@ -80,7 +93,7 @@
     }
     
     if (!obj) {
-        [self.mutableRoutes removeObject:route];
+        [self.routes removeObject:route];
         [self.classesByRoute removeObjectForKey:route];
         [self.blocksByRoute removeObjectForKey:route];
     }
@@ -90,6 +103,48 @@
     else if ([obj isKindOfClass:NSClassFromString(@"NSBlock")]) {
         [self registerBlock:obj forRoute:route];
     }
+}
+
+
+#pragma mark - Routing Deep Links
+
+- (void)handleURL:(NSURL *)url withCompletion:(DLCRouteCompletionBlock)completionHandler; {
+    self.routeCompletionHandler = completionHandler;
+    if (!url) {
+        return;
+    }
+    
+    if (![self applicationCanHandleDeepLinks]) {
+        [self completeRouteWithSuccess:NO error:nil];
+        return;
+    }
+
+    BTNDeepLink *deepLink;
+    for (NSString *route in self.routes) {
+        BTNDeepLinkRouteMatcher *matcher = [BTNDeepLinkRouteMatcher matcherWithRoute:route];
+        deepLink = [matcher deepLinkWithURL:url];
+        if (deepLink) {
+            break;
+        }
+    }
+    
+#pragma message "build out a proper error here."
+    NSError *error;
+    if (!deepLink) {
+        error = [NSError errorWithDomain:@"DLC_ERROR" code:-1 userInfo:nil];
+    }
+    
+    [self completeRouteWithSuccess:!error error:error];
+}
+
+
+- (void)completeRouteWithSuccess:(BOOL)handled error:(NSError *)error {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.routeCompletionHandler) {
+            self.routeCompletionHandler(handled, error);
+        }
+    });
 }
 
 @end

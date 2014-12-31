@@ -1,57 +1,46 @@
 #import <Foundation/Foundation.h>
 
-extern NSString * const BTNDeepLinkPayloadKey;
-extern NSString * const BTNDeepLinkTargetURLKey;
-extern NSString * const BTNDeepLinkReferrerURLKey;
-extern NSString * const BTNDeepLinkReferrerAppNameKey;
-extern NSString * const BTNDeepLinkExtrasKey;
-extern NSString * const BTNDeepLinkAppLinksVersionKey;
-extern NSString * const BTNDeepLinkDLCVersionKey;
-extern NSString * const BTNDeepLinkUserAgentKey;
+extern NSString * const DLCAppLinkTargetURLKey;
+extern NSString * const DLCAppLinkExtrasKey;
 
-@class BTNDeepLink;
 
-typedef void(^BTNDeepLinkResolveCompletion)(BTNDeepLink *deepLink, NSError *error);
+@class BTNDeepLink, DLCAppAction;
 
 
 @interface BTNDeepLink : NSObject
 
-/// The URL representing an action or some content.
-@property (nonatomic, copy, readonly) NSURL *targetURL;
+/**
+ The incoming URL received by the application.
+ @note If the URL conforms to the App Link standard, this will be `target_url' found in `al_applink_data'.
+ */
+@property (nonatomic, copy, readonly) NSURL *URL;
 
-/// Query parameters from the target URL parsed into an NSDictionary.
-@property (nonatomic, strong, readonly) NSDictionary *targetQueryParameters;
-
-/// The use case as specified in the target URL.
-@property (nonatomic, copy, readonly) NSString *useCase;
-
-/// The action as specified in the target URL.
-@property (nonatomic, copy, readonly) NSString *action;
-
-/// The object id as specified in the target URL.
-@property (nonatomic, copy, readonly) NSString *objectId;
-
-/// A deep link to the referring app.
-@property (nonatomic, strong, readonly) BTNDeepLink *deepLinkReferrer;
-
-/// The incoming deep link received by the application.
-@property (nonatomic, copy, readonly) NSURL *incomingURL;
-
-/// The query parameters of the incoming deep link.
-@property (nonatomic, strong, readonly) NSDictionary *incomingQueryParameters;
-
-/// The payload form the deep link URL parsed into an NSDictionary.
-@property (nonatomic, strong, readonly) NSDictionary *payload;
-
-/// An NSDictionary of custom data found in the "extras" payload in the App Links standard.
-@property (nonatomic, strong, readonly) NSDictionary *customData;
 
 /**
- Resolves a deep link into a deep link action.
- @param url A url conforming to the DLC standard.
- @param completionHandler A block executed when the link has been resolved.
- @see BTNDeepLinkResolveCompletion
+ The query parameters parsed from the incoming URL.
+ @note If the URL conforms to the App Link standard, this will be the query parameters found on `target_url'.
  */
-+ (void)resolveURL:(NSURL *)url completionHandler:(BTNDeepLinkResolveCompletion)completionHandler;
+@property (nonatomic, strong, readonly) NSDictionary *queryParameters;
+
+
+/**
+ A dictionary of values keyed by their parameterized route component matched in the deep link URL path.
+ @discussion Given a route `show/alert/:title/:message' and a path `button://show/alert/hello/world',
+ the route parameters dictionary would be `@{ @"title": @"hello", @"message": @"world" }'.
+ */
+@property (nonatomic, strong, readwrite) NSDictionary *routeParameters;
+
+
+/** 
+ */
+@property (nonatomic, strong, readonly) NSURL *callbackURL;
+
+
+/**
+ This property will be nil unless the URL conforms to the App Link standard.
+ @note This contains the parsed `al_applink_data' if the URL is an App Link.
+ */
+@property (nonatomic, strong, readonly) NSDictionary *appLinkData;
+
 
 @end

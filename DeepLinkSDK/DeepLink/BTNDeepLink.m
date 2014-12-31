@@ -2,15 +2,14 @@
 #import "NSString+BTNQuery.h"
 #import "NSString+BTNJSON.h"
 
-NSString * const BTNDeepLinkPayloadKey         = @"al_applink_data";
-NSString * const BTNDeepLinkTargetURLKey       = @"target_url";
-NSString * const BTNDeepLinkReferrerURLKey     = @"url";
-NSString * const BTNDeepLinkReferrerAppNameKey = @"app_name";
-NSString * const BTNDeepLinkExtrasKey          = @"extras";
-NSString * const BTNDeepLinkAppLinksVersionKey = @"version";
-NSString * const BTNDeepLinkDLCVersionKey      = @"btn_dlc_version";
-NSString * const BTNDeepLinkUserAgentKey       = @"user_agent";
-NSString * const BTNDeepLinkReferrerPayloadKey = @"referer_app_link";
+
+NSString * const DLCAppLinkDataKey      = @"al_applink_data";
+NSString * const DLCAppLinkTargetURLKey = @"target_url";
+NSString * const DLCAppLinkExtrasKey    = @"extras";
+NSString * const DLCAppLinkVersionKey   = @"version";
+NSString * const DLCAppLinkUserAgentKey = @"user_agent";
+NSString * const DLCReferrerAppLinkKey  = @"referer_app_link";
+
 
 @implementation BTNDeepLink
 
@@ -21,56 +20,36 @@ NSString * const BTNDeepLinkReferrerPayloadKey = @"referer_app_link";
     
     self = [super init];
     if (self) {
-        _incomingURL             = url;
-        _incomingQueryParameters = [[url query] BTN_parametersFromQueryString];
-        _payload                 = [_incomingQueryParameters[BTNDeepLinkPayloadKey] BTN_JSONObject];
-        _targetURL               = [NSURL URLWithString:_payload[BTNDeepLinkTargetURLKey]];
-        _targetQueryParameters   = [[_targetURL query] BTN_parametersFromQueryString];
-        _customData              = _payload[BTNDeepLinkExtrasKey];
         
-        NSArray *pathComponents = [_targetURL pathComponents];
-        _useCase  = ([pathComponents count] > 1) ? pathComponents[1] : nil;
-        _action   = ([pathComponents count] > 2) ? pathComponents[2] : nil;
-        _objectId = ([pathComponents count] > 3) ? pathComponents[3] : nil;
+        NSDictionary *queryParameters = [[url query] BTN_parametersFromQueryString];
+        _appLinkData = [queryParameters[DLCAppLinkDataKey] BTN_JSONObject];
+        if (_appLinkData) {
+            _URL = [NSURL URLWithString:_appLinkData[DLCAppLinkTargetURLKey]];
+            _queryParameters = [[_URL query] BTN_parametersFromQueryString];
+        }
+        else {
+            _URL = url;
+            _queryParameters = queryParameters;
+        }
     }
     return self;
-}
-
-
-+ (void)resolveURL:(NSURL *)url completionHandler:(BTNDeepLinkResolveCompletion)completionHandler {
-    BTNDeepLink *deepLink = [[self alloc] initWithURL:url];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        if (completionHandler) {
-            completionHandler(deepLink, deepLink ? nil : [NSError errorWithDomain:@"BTN_ERROR" code:-1 userInfo:nil]);
-        }
-    });
 }
 
 
 - (NSString *)description {
     return [NSString stringWithFormat:
             @"\n<%@ %p\n"
-            @"\t useCase: \"%@\"\n"
-            @"\t action: \"%@\"\n"
-            @"\t objectId: \"%@\"\n"
-            @"\t targetURL: \"%@\"\n"
-            @"\t targetQueryParameters: \"%@\"\n"
-            @"\t incomingURL: \"%@\"\n"
-            @"\t incomingQueryParameters: \"%@\"\n"
-            @"\t customData: \"%@\"\n"
+            @"\t URL: \"%@\"\n"
+            @"\t queryParameters: \"%@\"\n"
+            @"\t routeParameters: \"%@\"\n"
+            @"\t callbackURL: \"%@\"\n"
             @">",
             NSStringFromClass([self class]),
             self,
-            self.useCase,
-            self.action,
-            self.objectId,
-            [self.targetURL description],
-            [self.targetQueryParameters description],
-            [self.incomingURL description],
-            [self.incomingQueryParameters description],
-            [self.customData description]];
+            [self.URL description],
+            self.queryParameters,
+            self.routeParameters,
+            [self.callbackURL description]];
 }
 
 @end

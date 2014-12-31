@@ -1,11 +1,11 @@
 #import "BTNDeepLinkRouteMatcher.h"
+#import "BTNDeepLink_Private.h"
 #import "NSString+BTNTrim.h"
 
 @interface BTNDeepLinkRouteMatcher ()
 
 @property (nonatomic, copy)   NSString *route;
 @property (nonatomic, strong) NSArray  *routeParts;
-@property (nonatomic, strong) NSMutableDictionary *mutableParams;
 
 @end
 
@@ -31,44 +31,42 @@
 }
 
 
-- (NSDictionary *)params {
-    return [NSDictionary dictionaryWithDictionary:self.mutableParams];
-}
-
-
-- (BOOL)matchesPath:(NSString *)path {
-
-    NSString *trimmedPath = [path BTN_trimPath];
-    NSArray  *pathParts   = [trimmedPath componentsSeparatedByString:@"/"];
+- (BTNDeepLink *)deepLinkWithURL:(NSURL *)url {
+    if (!url) {
+        return nil;
+    }
     
+    BTNDeepLink *deepLink = [[BTNDeepLink alloc] initWithURL:url];
+    
+    NSArray *pathParts = [[[deepLink.URL path] BTN_trimPath] componentsSeparatedByString:@"/"];
     if ([pathParts count] != [self.routeParts count]) {
-        return NO;
+        return nil;
     }
     
     __block BOOL isMatch = NO;
+    NSMutableDictionary *routeParameters = [NSMutableDictionary dictionary];
+    
     [self.routeParts enumerateObjectsUsingBlock:^(NSString *routeComponent, NSUInteger idx, BOOL *stop) {
         NSString *pathComponent = pathParts[idx];
         
         if ([routeComponent rangeOfString:@":"].location == 0) {
-            if (!self.mutableParams) {
-                self.mutableParams = [NSMutableDictionary dictionary];
-            }
+            isMatch = YES;
             
             NSString *key = [routeComponent stringByReplacingOccurrencesOfString:@":" withString:@""];
-            self.mutableParams[key] = pathComponent;
-            
-            isMatch = YES;
+            routeParameters[key] = pathComponent;
         }
         else if ([pathComponent isEqualToString:routeComponent]) {
             isMatch = YES;
         }
         else {
             isMatch = NO;
-            *stop = YES;
+            *stop   = YES;
         }
     }];
     
-    return isMatch;
+    deepLink.routeParameters = routeParameters;
+    
+    return isMatch ? deepLink : nil;
 }
 
 @end

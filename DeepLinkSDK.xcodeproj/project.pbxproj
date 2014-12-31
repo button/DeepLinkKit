@@ -24,7 +24,6 @@
 		DE16E9281A42883B00077E18 /* BTNDeepLinkRouterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9231A42883B00077E18 /* BTNDeepLinkRouterSpec.m */; };
 		DE16E9291A42883B00077E18 /* BTNBookingRouteHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9261A42883B00077E18 /* BTNBookingRouteHandler.m */; };
 		DE16E9381A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9371A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m */; };
-		DE16E9411A428C2800077E18 /* BTNDeepLinkManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9401A428C2800077E18 /* BTNDeepLinkManagerSpec.m */; };
 		DE3E610F1A3B4492008D6DFC /* NSString_BTNJSONSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */; };
 		DE669DEE19E33AB50044496B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEAD328219E079D3003C8D65 /* InfoPlist.strings */; };
 		DEAD328819E079D3003C8D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327519E079D3003C8D65 /* Main.storyboard */; };
@@ -53,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14A1857A6611A826E51F612A /* Pods-ReceiverDemo.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.test.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.test.xcconfig"; sourceTree = "<group>"; };
 		19367BAF0FEDE5B798128F3D /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE3E05821FBC0C05F248E61 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		57D5F02E049D7887B4F4ACDF /* Pods-ReceiverDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,12 +61,14 @@
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B9E60301031FFD1833ECA7A /* Pods-SenderDemo.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.test.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.test.xcconfig"; sourceTree = "<group>"; };
 		81A53B1FA1F6DF1D2B557DCD /* libPods-SenderDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SenderDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8949A4E8F681A12A47C20775 /* DeepLinkSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = DeepLinkSDK.podspec; path = ./DeepLinkSDK.podspec; sourceTree = "<group>"; };
 		A7644D9D2D35BA2869AD63FA /* Pods-SenderDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B3CB044233E227F87FCF2C46 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B915356798E84DC8F8A0A3CB /* Pods-SenderDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BB75E70100C0775F382CD22F /* Pods-ReceiverDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.release.xcconfig"; sourceTree = "<group>"; };
+		BBE7E5A25C1B0E9637BE745A /* Pods-Tests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.test.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.test.xcconfig"; sourceTree = "<group>"; };
 		CFE63F7FEA51182807D98A78 /* libPods-ReceiverDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReceiverDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE058E071A3B46F500147C04 /* NSString+BTNQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+BTNQuery.h"; sourceTree = "<group>"; };
 		DE058E081A3B46F500147C04 /* NSString+BTNQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BTNQuery.m"; sourceTree = "<group>"; };
@@ -89,9 +91,6 @@
 		DE16E9371A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTNDeepLinkRouteMatcherSpec.m; sourceTree = "<group>"; };
 		DE16E93A1A428C0000077E18 /* BTNDeepLinkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTNDeepLinkManager.h; sourceTree = "<group>"; };
 		DE16E93B1A428C0000077E18 /* BTNDeepLinkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTNDeepLinkManager.m; sourceTree = "<group>"; };
-		DE16E93D1A428C0B00077E18 /* BTNDeepLinkDisplayCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTNDeepLinkDisplayCoordinator.h; sourceTree = "<group>"; };
-		DE16E93E1A428C0B00077E18 /* BTNDeepLinkDisplayCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTNDeepLinkDisplayCoordinator.m; sourceTree = "<group>"; };
-		DE16E9401A428C2800077E18 /* BTNDeepLinkManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTNDeepLinkManagerSpec.m; sourceTree = "<group>"; };
 		DE3E61081A3B4485008D6DFC /* NSString+BTNJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+BTNJSON.h"; sourceTree = "<group>"; };
 		DE3E61091A3B4485008D6DFC /* NSString+BTNJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BTNJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_BTNJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_BTNJSONSpec.m; sourceTree = "<group>"; };
@@ -110,6 +109,8 @@
 		DEAD328319E079D3003C8D65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DEAD328419E079D3003C8D65 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		DEAD328519E079D3003C8D65 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		DEB4EDBC1A4A036D00F31D14 /* BTNDeepLink_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTNDeepLink_Private.h; sourceTree = "<group>"; };
+		DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkSDK.h; sourceTree = "<group>"; };
 		DEDB148D1A3F944D00A837F8 /* SenderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SenderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB14901A3F944D00A837F8 /* SenderDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SenderDemo-Info.plist"; sourceTree = "<group>"; };
 		DEDB14911A3F944D00A837F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -172,6 +173,9 @@
 				BB75E70100C0775F382CD22F /* Pods-ReceiverDemo.release.xcconfig */,
 				B915356798E84DC8F8A0A3CB /* Pods-SenderDemo.debug.xcconfig */,
 				A7644D9D2D35BA2869AD63FA /* Pods-SenderDemo.release.xcconfig */,
+				14A1857A6611A826E51F612A /* Pods-ReceiverDemo.test.xcconfig */,
+				6B9E60301031FFD1833ECA7A /* Pods-SenderDemo.test.xcconfig */,
+				BBE7E5A25C1B0E9637BE745A /* Pods-Tests.test.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -227,6 +231,7 @@
 			children = (
 				DE058E0C1A3B484A00147C04 /* BTNDeepLink.h */,
 				DE058E0D1A3B484A00147C04 /* BTNDeepLink.m */,
+				DEB4EDBC1A4A036D00F31D14 /* BTNDeepLink_Private.h */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -302,24 +307,6 @@
 			path = DeepLinkManager;
 			sourceTree = "<group>";
 		};
-		DE16E93C1A428C0B00077E18 /* DeepLinkDisplayCoordinator */ = {
-			isa = PBXGroup;
-			children = (
-				DE16E93D1A428C0B00077E18 /* BTNDeepLinkDisplayCoordinator.h */,
-				DE16E93E1A428C0B00077E18 /* BTNDeepLinkDisplayCoordinator.m */,
-			);
-			name = DeepLinkDisplayCoordinator;
-			path = DeepLinkCoordinator;
-			sourceTree = "<group>";
-		};
-		DE16E93F1A428C2800077E18 /* DeepLinkManager */ = {
-			isa = PBXGroup;
-			children = (
-				DE16E9401A428C2800077E18 /* BTNDeepLinkManagerSpec.m */,
-			);
-			path = DeepLinkManager;
-			sourceTree = "<group>";
-		};
 		DE3E61071A3B4485008D6DFC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,13 +333,14 @@
 		DE5DD32C19E0643F007FD439 /* DeepLinkSDK */ = {
 			isa = PBXGroup;
 			children = (
-				DE16E93C1A428C0B00077E18 /* DeepLinkDisplayCoordinator */,
+				DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */,
+				DE99EF6A1A3B6CDD00CE3449 /* Protocols */,
+				DE3E61071A3B4485008D6DFC /* Categories */,
+				DEB4EDBB1A49CEA400F31D14 /* DeepLinkErrors */,
 				DE16E9391A428C0000077E18 /* DeepLinkManager */,
 				DE16E9331A4289D500077E18 /* DeepLinkRouteMatcher */,
 				DE16E91F1A42882F00077E18 /* DeepLinkRouter */,
-				DE99EF6A1A3B6CDD00CE3449 /* Protocols */,
 				DE058E0B1A3B484A00147C04 /* DeepLink */,
-				DE3E61071A3B4485008D6DFC /* Categories */,
 			);
 			path = DeepLinkSDK;
 			sourceTree = "<group>";
@@ -402,14 +390,20 @@
 		DEAD328119E079D3003C8D65 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				DE16E93F1A428C2800077E18 /* DeepLinkManager */,
-				DE16E9361A4289DF00077E18 /* DeepLinkRouteMatcher */,
 				DE16E9221A42883B00077E18 /* DeepLinkRouter */,
+				DE16E9361A4289DF00077E18 /* DeepLinkRouteMatcher */,
 				DE058E0E1A3B485500147C04 /* DeepLink */,
 				DE3E610C1A3B4492008D6DFC /* Categories */,
 				DEC1B07F1A365213002BB838 /* SupportingFiles */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		DEB4EDBB1A49CEA400F31D14 /* DeepLinkErrors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DeepLinkErrors;
 			sourceTree = "<group>";
 		};
 		DEC1B07F1A365213002BB838 /* SupportingFiles */ = {
@@ -696,7 +690,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE16E9281A42883B00077E18 /* BTNDeepLinkRouterSpec.m in Sources */,
-				DE16E9411A428C2800077E18 /* BTNDeepLinkManagerSpec.m in Sources */,
 				DE16E9381A4289DF00077E18 /* BTNDeepLinkRouteMatcherSpec.m in Sources */,
 				DE16E9291A42883B00077E18 /* BTNBookingRouteHandler.m in Sources */,
 				DE058E101A3B485500147C04 /* BTNDeepLinkSpec.m in Sources */,
@@ -875,10 +868,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/SupportingFiles/Tests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = "Tests/SupportingFiles/Tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceiverDemo.app/ReceiverDemo";
@@ -899,6 +888,101 @@
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
+		};
+		DEA2AD611A4A8B0100F32289 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Test;
+		};
+		DEA2AD621A4A8B0100F32289 /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14A1857A6611A826E51F612A /* Pods-ReceiverDemo.test.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"TEST=1",
+				);
+				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Test;
+		};
+		DEA2AD631A4A8B0100F32289 /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B9E60301031FFD1833ECA7A /* Pods-SenderDemo.test.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "SampleApps/SenderDemo/SupportingFiles/SenderDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SampleApps/SenderDemo/SupportingFiles/SenderDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Test;
+		};
+		DEA2AD641A4A8B0100F32289 /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBE7E5A25C1B0E9637BE745A /* Pods-Tests.test.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests/SupportingFiles/Tests-Prefix.pch";
+				INFOPLIST_FILE = "Tests/SupportingFiles/Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceiverDemo.app/ReceiverDemo";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Test;
 		};
 		DEDB14AE1A3F944E00A837F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -947,6 +1031,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,
+				DEA2AD611A4A8B0100F32289 /* Test */,
 				6003F5BE195388D20070C39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -956,6 +1041,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
+				DEA2AD621A4A8B0100F32289 /* Test */,
 				6003F5C1195388D20070C39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -965,6 +1051,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,
+				DEA2AD641A4A8B0100F32289 /* Test */,
 				6003F5C4195388D20070C39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -974,6 +1061,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DEDB14AE1A3F944E00A837F8 /* Debug */,
+				DEA2AD631A4A8B0100F32289 /* Test */,
 				DEDB14AF1A3F944E00A837F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

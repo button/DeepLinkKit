@@ -3,22 +3,49 @@
 @class    BTNDeepLink;
 @protocol BTNDeepLinkRouteHandler;
 
+
 /**
- The deep ling route handler block type.
- @param params A dictionary of values keyed by their parameterized path component in the deep link.
+ Defines the block type to be used as the handler when registering a route.
  @param deepLink The deep link to be handled.
- 
- @discussion The params dictionary is populated by an incoming url as follows:
- Given a registered route of “table/book/:id/:time” and an incoming url of “http://table/book/abc123/1418931000”,
- the params dictionary would be “{ @"id": @"abc123", @"time": @"1418931000" }”
+ @note It is not strictly necessary to register block-based route handlers. 
+ You can also register a class for a more structured approach.
+ @see BTNDeepLinkRouteHandler
  */
-typedef void(^BTNDeepLinkRouteHandlerBlock)(NSDictionary *params, BTNDeepLink *deepLink);
+typedef void(^DLCRouteHandlerBlock)(BTNDeepLink *deepLink);
+
+
+/**
+ Defines a block type used to determine whether your application can handle deep links.
+ @return Whether or not your application can handle deep links at the time the block is executed.
+ @discussion For example, you might return NO if no user is logged in.
+ */
+typedef BOOL(^DLCApplicationCanHandleDeepLinksBlock)(void);
+
+
+/**
+ The completion block definition for `routeURL:withCompletion:'
+ @param handled Indicates whether or not the deep link was handled.
+ @param error An error if one occurred while handling a deep link URL.
+ */
+typedef void(^DLCRouteCompletionBlock)(BOOL handled, NSError *error);
 
 
 @interface BTNDeepLinkRouter : NSObject
 
-/// A set of registered deep link routes.
-@property (nonatomic, copy, readonly) NSOrderedSet *routes;
+
+///--------------------
+/// @name Configuration
+///--------------------
+
+
+/**
+ Sets a block which, when executed, returns whether your application is in a state where it can handle deep links.
+ @param applicationCanHandleDeepLinksBlock A block to be executed for each URL received by the application.
+ @discussion By default, all matched URLs will be handled. If you require disabling deep link support based
+ on some application state (e.g. no user logged in) then you should provide a block to this method.
+ */
+- (void)setApplicationCanHandleDeepLinksBlock:(DLCApplicationCanHandleDeepLinksBlock)applicationCanHandleDeepLinksBlock;
+
 
 
 ///-------------------------
@@ -53,22 +80,13 @@ typedef void(^BTNDeepLinkRouteHandlerBlock)(NSDictionary *params, BTNDeepLink *d
  @note Registering a class conforming to `BTNDeepLinkRouteHandler' is the preferred method of route registration. 
  Only register blocks for trivial cases or for actions that do not require UI presentation.
  */
-- (void)registerBlock:(BTNDeepLinkRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route;
+- (void)registerBlock:(DLCRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route;
 
 
 
-///--------------------------
-/// @name Object Subscripting
-///--------------------------
-
-
-/**
- Though not typically necessary, route handlers can be retrieved as follows:
- @code
- id handler = deepLinkRouter[@"table/book/:id"];
- @endcode
- */
-- (id)objectForKeyedSubscript:(id <NSCopying>)key;
+///-------------------------------------------------
+/// @name Route Registration via Object Subscripting
+///-------------------------------------------------
 
 
 /**
@@ -79,10 +97,36 @@ typedef void(^BTNDeepLinkRouteHandlerBlock)(NSDictionary *params, BTNDeepLink *d
  // or
  
  deepLinkRouter[@"table/book/:id"] = ^(BTNDeepLink *deepLink) {
-    // Handle the link here.
+ // Handle the link here.
  }
  @endcode
  */
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
+
+
+/**
+ Though not recommended, route handlers can be retrieved as follows:
+ @code
+ id handler = deepLinkRouter[@"table/book/:id"];
+ @endcode
+ @note The type of the returned handler is the type you registered for that route.
+ */
+- (id)objectForKeyedSubscript:(id <NSCopying>)key;
+
+
+
+///-------------------------
+/// @name Routing Deep Links
+///-------------------------
+
+
+/**
+ Attempts to handle an incoming URL.
+ @param url The incoming URL from `application:didFinishLaunchingWithOptions:' or `application:openURL:sourceApplication:annotation:'
+ @param completionHandler A block executed after the deep link has been handled.
+ 
+ @see DLCRouteCompletionBlock
+ */
+- (void)handleURL:(NSURL *)url withCompletion:(DLCRouteCompletionBlock)completionHandler;
 
 @end
