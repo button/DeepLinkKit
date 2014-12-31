@@ -17,6 +17,9 @@
     self.deepLinkManager[@"/log"] = ^(BTNDeepLink *link) {
         NSLog(@"%@", link.customData[@"message"]);
     };
+#ifdef TEST
+    return YES;
+#endif
     
     __weak __typeof__(self) weakSelf = self;
     self.deepLinkManager[@"/background"] = ^(NSDictionary *params, BTNDeepLink *deepLink) {
