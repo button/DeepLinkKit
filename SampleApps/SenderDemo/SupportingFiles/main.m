@@ -1,8 +1,8 @@
 #import <UIKit/UIKit.h>
-#import "BTNSenderAppDelegate.h"
+#import "DLCSenderAppDelegate.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([BTNSenderAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([DLCSenderAppDelegate class]));
     }
 }

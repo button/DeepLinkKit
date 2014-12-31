@@ -8,7 +8,7 @@
         <!--Actions View Controller-->
         <scene sceneID="75w-dc-eGW">
             <objects>
-                <tableViewController id="pdM-HK-cts" customClass="BTNActionsViewController" sceneMemberID="viewController">
+                <tableViewController id="pdM-HK-cts" customClass="DLCActionsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="thb-wh-h21">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
