@@ -89,8 +89,6 @@
 		DE16E9341A4289D500077E18 /* DLCDeepLinkRouteMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCDeepLinkRouteMatcher.h; sourceTree = "<group>"; };
 		DE16E9351A4289D500077E18 /* DLCDeepLinkRouteMatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLinkRouteMatcher.m; sourceTree = "<group>"; };
 		DE16E9371A4289DF00077E18 /* DLCDeepLinkRouteMatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLinkRouteMatcherSpec.m; sourceTree = "<group>"; };
-		DE16E93A1A428C0000077E18 /* DLCDeepLinkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCDeepLinkManager.h; sourceTree = "<group>"; };
-		DE16E93B1A428C0000077E18 /* DLCDeepLinkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLinkManager.m; sourceTree = "<group>"; };
 		DE3E61081A3B4485008D6DFC /* NSString+DLCJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DLCJSON.h"; sourceTree = "<group>"; };
 		DE3E61091A3B4485008D6DFC /* NSString+DLCJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DLCJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_DLCJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DLCJSONSpec.m; sourceTree = "<group>"; };
@@ -298,15 +296,6 @@
 			path = DeepLinkRouteMatcher;
 			sourceTree = "<group>";
 		};
-		DE16E9391A428C0000077E18 /* DeepLinkManager */ = {
-			isa = PBXGroup;
-			children = (
-				DE16E93A1A428C0000077E18 /* DLCDeepLinkManager.h */,
-				DE16E93B1A428C0000077E18 /* DLCDeepLinkManager.m */,
-			);
-			path = DeepLinkManager;
-			sourceTree = "<group>";
-		};
 		DE3E61071A3B4485008D6DFC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,7 +326,6 @@
 				DE99EF6A1A3B6CDD00CE3449 /* Protocols */,
 				DE3E61071A3B4485008D6DFC /* Categories */,
 				DEB4EDBB1A49CEA400F31D14 /* DeepLinkErrors */,
-				DE16E9391A428C0000077E18 /* DeepLinkManager */,
 				DE16E9331A4289D500077E18 /* DeepLinkRouteMatcher */,
 				DE16E91F1A42882F00077E18 /* DeepLinkRouter */,
 				DE058E0B1A3B484A00147C04 /* DeepLink */,
