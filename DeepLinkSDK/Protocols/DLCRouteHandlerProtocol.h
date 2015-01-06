@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
-#import "DLCDeepLinkTargetProtocol.h"
+#import "DLCTargetViewControllerProtocol.h"
 
 @class DLCDeepLink;
 
-@protocol DLCDeepLinkRouteHandler <NSObject>
+@protocol DLCRouteHandler <NSObject>
 
 /**
  Indicates whether your application is in a state to handle deep links.
@@ -24,7 +24,7 @@
  Indicates the view controller that will display the deep link.
  @return A view controller to be presented.
  */
-- (UIViewController <DLCDeepLinkTarget> *)targetViewController;
+- (UIViewController <DLCTargetViewController> *)targetViewController;
 
 
 @optional

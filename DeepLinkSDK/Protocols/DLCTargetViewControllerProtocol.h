@@ -2,8 +2,9 @@
 
 @class DLCDeepLink;
 
-@protocol DLCDeepLinkTarget <NSObject>
+@protocol DLCTargetViewController <NSObject>
 
 - (void)configureWithDeepLink:(DLCDeepLink *)deepLink;
 
 @end
+

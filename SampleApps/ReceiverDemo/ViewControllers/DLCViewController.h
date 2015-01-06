@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
-#import "DLCDeepLinkTargetProtocol.h"
+#import "DLCTargetViewControllerProtocol.h"
 
-@interface DLCViewController : UIViewController <DLCDeepLinkTarget>
+@interface DLCViewController : UIViewController <DLCTargetViewController>
 
 @end

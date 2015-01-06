@@ -14,7 +14,7 @@
 
 @implementation DLCDeepLinkManager
 
-- (void)navigateToDeepLink:(DLCDeepLink *)link withHandler:(id <DLCDeepLinkRouteHandler>)routeHandler {
+- (void)navigateToDeepLink:(DLCDeepLink *)link withHandler:(id <DLCRouteHandler>)routeHandler {
 
 //    if ([routeHandler shouldHandleDeepLink:link]) {
 //

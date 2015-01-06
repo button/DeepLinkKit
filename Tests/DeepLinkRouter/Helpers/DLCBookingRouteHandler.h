@@ -1,5 +1,5 @@
-#import "DLCDeepLinkRouteHandlerProtocol.h"
+#import "DLCRouteHandlerProtocol.h"
 
-@interface DLCBookingRouteHandler : NSObject <DLCDeepLinkRouteHandler>
+@interface DLCBookingRouteHandler : NSObject <DLCRouteHandler>
 
 @end

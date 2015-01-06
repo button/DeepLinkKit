@@ -1,5 +1,5 @@
 #import "DLCDeepLinkRouter.h"
-#import "DLCDeepLinkRouteHandlerProtocol.h"
+#import "DLCRouteHandlerProtocol.h"
 #import "DLCDeepLinkRouteMatcher.h"
 #import "DLCDeepLink.h"
 #import "NSString+DLCTrim.h"
@@ -43,7 +43,7 @@
 
 #pragma mark - Registering Routes
 
-- (void)registerHandlerClass:(Class <DLCDeepLinkRouteHandler>)handlerClass forRoute:(NSString *)route {
+- (void)registerHandlerClass:(Class <DLCRouteHandler>)handlerClass forRoute:(NSString *)route {
 
     route = [route DLC_trimPath];
     
@@ -97,7 +97,7 @@
         [self.classesByRoute removeObjectForKey:route];
         [self.blocksByRoute removeObjectForKey:route];
     }
-    else if (obj && class_isMetaClass(object_getClass(obj)) && [obj conformsToProtocol:@protocol(DLCDeepLinkRouteHandler)]) {
+    else if (obj && class_isMetaClass(object_getClass(obj)) && [obj conformsToProtocol:@protocol(DLCRouteHandler)]) {
         [self registerHandlerClass:obj forRoute:route];
     }
     else if ([obj isKindOfClass:NSClassFromString(@"NSBlock")]) {

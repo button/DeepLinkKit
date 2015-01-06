@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "DLCDeepLinkRouteHandlerProtocol.h"
+#import "DLCRouteHandlerProtocol.h"
 
 @class DLCDeepLinkRouter, DLCDeepLinkDisplayCoordinator;
 

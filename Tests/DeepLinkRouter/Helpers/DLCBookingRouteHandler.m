@@ -12,7 +12,7 @@
 }
 
 
-- (id <DLCDeepLinkTarget>)targetViewController {
+- (id <DLCTargetViewController>)targetViewController {
     return nil;
 }
 

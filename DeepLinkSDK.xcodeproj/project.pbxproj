@@ -94,8 +94,8 @@
 		DE3E61081A3B4485008D6DFC /* NSString+DLCJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DLCJSON.h"; sourceTree = "<group>"; };
 		DE3E61091A3B4485008D6DFC /* NSString+DLCJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DLCJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_DLCJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DLCJSONSpec.m; sourceTree = "<group>"; };
-		DE99EF6C1A3B6D2100CE3449 /* DLCDeepLinkRouteHandlerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCDeepLinkRouteHandlerProtocol.h; sourceTree = "<group>"; };
-		DE99EF781A3B83D100CE3449 /* DLCDeepLinkTargetProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCDeepLinkTargetProtocol.h; sourceTree = "<group>"; };
+		DE99EF6C1A3B6D2100CE3449 /* DLCRouteHandlerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCRouteHandlerProtocol.h; sourceTree = "<group>"; };
+		DE99EF781A3B83D100CE3449 /* DLCTargetViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCTargetViewControllerProtocol.h; sourceTree = "<group>"; };
 		DEAD327619E079D3003C8D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DEAD327719E079D3003C8D65 /* DLCReceiverAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCReceiverAppDelegate.h; sourceTree = "<group>"; };
 		DEAD327819E079D3003C8D65 /* DLCReceiverAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCReceiverAppDelegate.m; sourceTree = "<group>"; };
@@ -348,8 +348,8 @@
 		DE99EF6A1A3B6CDD00CE3449 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				DE99EF6C1A3B6D2100CE3449 /* DLCDeepLinkRouteHandlerProtocol.h */,
-				DE99EF781A3B83D100CE3449 /* DLCDeepLinkTargetProtocol.h */,
+				DE99EF6C1A3B6D2100CE3449 /* DLCRouteHandlerProtocol.h */,
+				DE99EF781A3B83D100CE3449 /* DLCTargetViewControllerProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
