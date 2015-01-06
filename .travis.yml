@@ -4,4 +4,4 @@ branches:
     master
 before_install: pod install
 script:
-- xctool test -workspace DeepLinkSDK.xcworkspace -scheme DeepLinkSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- xctool test -workspace DeepLinkSDK.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
