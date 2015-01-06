@@ -119,22 +119,59 @@
         return;
     }
 
+    NSError     *error;
     DLCDeepLink *deepLink;
     for (NSString *route in self.routes) {
         DLCDeepLinkRouteMatcher *matcher = [DLCDeepLinkRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];
         if (deepLink) {
+            [self handleRoute:route withDeepLink:deepLink error:&error];
             break;
         }
     }
     
-#pragma message "build out a proper error here."
-    NSError *error;
     if (!deepLink) {
-        error = [NSError errorWithDomain:@"DLC_ERROR" code:-1 userInfo:nil];
+        #pragma message "build out a proper error here."
+        error = [NSError errorWithDomain:@"DLC_ERROR_NO_MATCH" code:-1 userInfo:nil];
     }
     
     [self completeRouteWithSuccess:!error error:error];
+}
+
+
+- (void)handleRoute:(NSString *)route withDeepLink:(DLCDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
+    id handler = self[route];
+    
+    if ([handler isKindOfClass:NSClassFromString(@"NSBlock")]) {
+        DLCRouteHandlerBlock routeHandlerBlock = handler;
+        routeHandlerBlock(deepLink);
+    }
+    else if (class_isMetaClass(object_getClass(handler)) && [handler conformsToProtocol:@protocol(DLCRouteHandler)]) {
+        id <DLCRouteHandler> routeHandler = [[handler alloc] init];
+
+        if (![routeHandler shouldHandleDeepLink:deepLink]) {
+            return;
+        }
+        
+        UIViewController *presentingViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        if ([routeHandler respondsToSelector:@selector(viewControllerForPresentingDeepLink:)]) {
+            presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
+        }
+        
+        UIViewController <DLCTargetViewController> *targetViewController = [routeHandler targetViewController];
+        if (targetViewController) {
+            if ([presentingViewController isKindOfClass:[UINavigationController class]]) {
+                [(UINavigationController *)presentingViewController pushViewController:targetViewController animated:YES];
+            }
+            else {
+                [presentingViewController presentViewController:targetViewController animated:YES completion:NULL];
+            }
+        }
+        else {
+            #pragma message "build out a proper error here."
+            *error = [NSError errorWithDomain:@"DLC_ERROR_NO_TARGET" code:-1 userInfo:nil];
+        }
+    }
 }
 
 
