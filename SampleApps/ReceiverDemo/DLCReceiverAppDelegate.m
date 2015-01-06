@@ -18,8 +18,12 @@
     
     self.router = [[DLCDeepLinkRouter alloc] init];
     
-    self.router[@"/log"] = ^(DLCDeepLink *link) {
-        NSLog(@"%@", link.appLinkData[DLCAppLinkExtrasKey]);
+    self.router[@"/say/:title/:message"] = ^(DLCDeepLink *link) {
+        [[[UIAlertView alloc] initWithTitle:link.routeParameters[@"title"]
+                                    message:link.routeParameters[@"message"]
+                                   delegate:nil
+                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                          otherButtonTitles:nil] show];
     };
     
     [self.router handleURL:launchOptions[UIApplicationLaunchOptionsURLKey] withCompletion:NULL];

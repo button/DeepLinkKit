@@ -49,10 +49,10 @@
 #pragma mark - Action Construction
 
 - (DLCDemoAction *)logHelloWorldAction {
-    NSDictionary *payload = @{ DLCAppLinkTargetURLKey:       @"http://dlc.button.com/say/Congratulations/Button%20Team" };
+    NSDictionary *payload = @{ DLCAppLinkTargetURLKey: @"http://dlc.button.com/say/Congratulations/Button%20Team" };
     
     NSString *payloadString = [[NSString DLC_stringWithJSONObject:payload] DLC_stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *URLString     = [NSString stringWithFormat:@"dldemo://deeplink?al_applink_data=%@", payloadString];
+    NSString *URLString     = [NSString stringWithFormat:@"dlc://deeplink?al_applink_data=%@", payloadString];
     NSURL    *deepLinkURL   = [NSURL URLWithString:URLString];
     
     DLCDemoAction *action = [[DLCDemoAction alloc] init];
