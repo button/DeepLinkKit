@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = "DeepLinkSDK"
   s.version          = "0.0.1"
-  s.summary          = "A splendid way to handle DLC/AppLinks compliant deep links."
+  s.summary          = "A splendid way to handle DPL/AppLinks compliant deep links."
   s.description      = <<-DESC
-                       Making deep linking easy. A splendid way to handle DLC/AppLinks compliant deep links.
+                       Making deep linking easy. A splendid way to handle DPL/AppLinks compliant deep links.
                        DESC
   s.homepage         = "http://www.usebutton.com"
   s.license          = 'Private'

@@ -15,30 +15,30 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		68101FFDAAC0A24037B56D22 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19367BAF0FEDE5B798128F3D /* libPods-Tests.a */; };
 		6C18B300BAD926F6461AC49D /* libPods-SenderDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A53B1FA1F6DF1D2B557DCD /* libPods-SenderDemo.a */; };
-		DE058E0A1A3B46FD00147C04 /* NSString_DLCQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E091A3B46FD00147C04 /* NSString_DLCQuerySpec.m */; };
-		DE058E101A3B485500147C04 /* DLCDeepLinkSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E0F1A3B485500147C04 /* DLCDeepLinkSpec.m */; };
+		DE058E0A1A3B46FD00147C04 /* NSString_DPLQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E091A3B46FD00147C04 /* NSString_DPLQuerySpec.m */; };
+		DE058E101A3B485500147C04 /* DPLDeepLinkSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E0F1A3B485500147C04 /* DPLDeepLinkSpec.m */; };
 		DE16E9181A4254D200077E18 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		DE16E9191A4254D900077E18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		DE16E91A1A4254E100077E18 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
-		DE16E91E1A42733100077E18 /* NSString_DLCTrimSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E91D1A42733100077E18 /* NSString_DLCTrimSpec.m */; };
-		DE16E9281A42883B00077E18 /* DLCDeepLinkRouterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9231A42883B00077E18 /* DLCDeepLinkRouterSpec.m */; };
-		DE16E9291A42883B00077E18 /* DLCBookingRouteHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9261A42883B00077E18 /* DLCBookingRouteHandler.m */; };
-		DE16E9381A4289DF00077E18 /* DLCDeepLinkRouteMatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9371A4289DF00077E18 /* DLCDeepLinkRouteMatcherSpec.m */; };
-		DE3E610F1A3B4492008D6DFC /* NSString_DLCJSONSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E610D1A3B4492008D6DFC /* NSString_DLCJSONSpec.m */; };
+		DE16E91E1A42733100077E18 /* NSString_DPLTrimSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E91D1A42733100077E18 /* NSString_DPLTrimSpec.m */; };
+		DE16E9281A42883B00077E18 /* DPLDeepLinkRouterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9231A42883B00077E18 /* DPLDeepLinkRouterSpec.m */; };
+		DE16E9291A42883B00077E18 /* DPLBookingRouteHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9261A42883B00077E18 /* DPLBookingRouteHandler.m */; };
+		DE16E9381A4289DF00077E18 /* DPLDeepLinkRouteMatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9371A4289DF00077E18 /* DPLDeepLinkRouteMatcherSpec.m */; };
+		DE3E610F1A3B4492008D6DFC /* NSString_DPLJSONSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */; };
 		DE669DEE19E33AB50044496B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEAD328219E079D3003C8D65 /* InfoPlist.strings */; };
 		DEAD328819E079D3003C8D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327519E079D3003C8D65 /* Main.storyboard */; };
-		DEAD328919E079D3003C8D65 /* DLCReceiverAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327819E079D3003C8D65 /* DLCReceiverAppDelegate.m */; };
-		DEAD328A19E079D3003C8D65 /* DLCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327A19E079D3003C8D65 /* DLCViewController.m */; };
+		DEAD328919E079D3003C8D65 /* DPLReceiverAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327819E079D3003C8D65 /* DPLReceiverAppDelegate.m */; };
+		DEAD328A19E079D3003C8D65 /* DPLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327A19E079D3003C8D65 /* DPLViewController.m */; };
 		DEAD328B19E079D3003C8D65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327B19E079D3003C8D65 /* InfoPlist.strings */; };
 		DEAD328C19E079D3003C8D65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327D19E079D3003C8D65 /* Images.xcassets */; };
 		DEAD328D19E079D3003C8D65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327E19E079D3003C8D65 /* main.m */; };
 		DEDB14921A3F944D00A837F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDB14911A3F944D00A837F8 /* main.m */; };
-		DEDB14951A3F944D00A837F8 /* DLCSenderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDB14941A3F944D00A837F8 /* DLCSenderAppDelegate.m */; };
-		DEDB14981A3F944D00A837F8 /* DLCActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDB14971A3F944D00A837F8 /* DLCActionsViewController.m */; };
+		DEDB14951A3F944D00A837F8 /* DPLSenderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDB14941A3F944D00A837F8 /* DPLSenderAppDelegate.m */; };
+		DEDB14981A3F944D00A837F8 /* DPLActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDB14971A3F944D00A837F8 /* DPLActionsViewController.m */; };
 		DEDB149B1A3F944D00A837F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDB14991A3F944D00A837F8 /* Main.storyboard */; };
 		DEDB149D1A3F944D00A837F8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDB149C1A3F944D00A837F8 /* Images.xcassets */; };
-		DEE40E5F1A42B0530097EA33 /* DLCActionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE40E5D1A42ABE80097EA33 /* DLCActionDataSource.m */; };
-		DEE40E601A42B0580097EA33 /* DLCDemoAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE40E581A42A3F50097EA33 /* DLCDemoAction.m */; };
+		DEE40E5F1A42B0530097EA33 /* DPLActionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE40E5D1A42ABE80097EA33 /* DPLActionDataSource.m */; };
+		DEE40E601A42B0580097EA33 /* DPLDemoAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE40E581A42A3F50097EA33 /* DPLDemoAction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,35 +70,35 @@
 		BB75E70100C0775F382CD22F /* Pods-ReceiverDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.release.xcconfig"; sourceTree = "<group>"; };
 		BBE7E5A25C1B0E9637BE745A /* Pods-Tests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.test.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.test.xcconfig"; sourceTree = "<group>"; };
 		CFE63F7FEA51182807D98A78 /* libPods-ReceiverDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReceiverDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE058E071A3B46F500147C04 /* NSString+DLCQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DLCQuery.h"; sourceTree = "<group>"; };
-		DE058E081A3B46F500147C04 /* NSString+DLCQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DLCQuery.m"; sourceTree = "<group>"; };
-		DE058E091A3B46FD00147C04 /* NSString_DLCQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DLCQuerySpec.m; sourceTree = "<group>"; };
-		DE058E0C1A3B484A00147C04 /* DLCDeepLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCDeepLink.h; sourceTree = "<group>"; };
-		DE058E0D1A3B484A00147C04 /* DLCDeepLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLink.m; sourceTree = "<group>"; };
-		DE058E0F1A3B485500147C04 /* DLCDeepLinkSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLinkSpec.m; sourceTree = "<group>"; };
+		DE058E071A3B46F500147C04 /* NSString+DPLQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DPLQuery.h"; sourceTree = "<group>"; };
+		DE058E081A3B46F500147C04 /* NSString+DPLQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPLQuery.m"; sourceTree = "<group>"; };
+		DE058E091A3B46FD00147C04 /* NSString_DPLQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DPLQuerySpec.m; sourceTree = "<group>"; };
+		DE058E0C1A3B484A00147C04 /* DPLDeepLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLink.h; sourceTree = "<group>"; };
+		DE058E0D1A3B484A00147C04 /* DPLDeepLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLDeepLink.m; sourceTree = "<group>"; };
+		DE058E0F1A3B485500147C04 /* DPLDeepLinkSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLDeepLinkSpec.m; sourceTree = "<group>"; };
 		DE11B99C1A42482F008A8F36 /* SenderDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SenderDemo-Prefix.pch"; sourceTree = "<group>"; };
-		DE16E91B1A42720D00077E18 /* NSString+DLCTrim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DLCTrim.m"; sourceTree = "<group>"; };
-		DE16E91C1A42720D00077E18 /* NSString+DLCTrim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DLCTrim.h"; sourceTree = "<group>"; };
-		DE16E91D1A42733100077E18 /* NSString_DLCTrimSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DLCTrimSpec.m; sourceTree = "<group>"; };
-		DE16E9201A42882F00077E18 /* DLCDeepLinkRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCDeepLinkRouter.h; sourceTree = "<group>"; };
-		DE16E9211A42882F00077E18 /* DLCDeepLinkRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLinkRouter.m; sourceTree = "<group>"; };
-		DE16E9231A42883B00077E18 /* DLCDeepLinkRouterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLinkRouterSpec.m; sourceTree = "<group>"; };
-		DE16E9251A42883B00077E18 /* DLCBookingRouteHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCBookingRouteHandler.h; sourceTree = "<group>"; };
-		DE16E9261A42883B00077E18 /* DLCBookingRouteHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCBookingRouteHandler.m; sourceTree = "<group>"; };
-		DE16E9271A42883B00077E18 /* DLCDeepLinkRouter_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCDeepLinkRouter_Private.h; sourceTree = "<group>"; };
-		DE16E9341A4289D500077E18 /* DLCDeepLinkRouteMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCDeepLinkRouteMatcher.h; sourceTree = "<group>"; };
-		DE16E9351A4289D500077E18 /* DLCDeepLinkRouteMatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLinkRouteMatcher.m; sourceTree = "<group>"; };
-		DE16E9371A4289DF00077E18 /* DLCDeepLinkRouteMatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCDeepLinkRouteMatcherSpec.m; sourceTree = "<group>"; };
-		DE3E61081A3B4485008D6DFC /* NSString+DLCJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DLCJSON.h"; sourceTree = "<group>"; };
-		DE3E61091A3B4485008D6DFC /* NSString+DLCJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DLCJSON.m"; sourceTree = "<group>"; };
-		DE3E610D1A3B4492008D6DFC /* NSString_DLCJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DLCJSONSpec.m; sourceTree = "<group>"; };
-		DE99EF6C1A3B6D2100CE3449 /* DLCRouteHandlerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCRouteHandlerProtocol.h; sourceTree = "<group>"; };
-		DE99EF781A3B83D100CE3449 /* DLCTargetViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCTargetViewControllerProtocol.h; sourceTree = "<group>"; };
+		DE16E91B1A42720D00077E18 /* NSString+DPLTrim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPLTrim.m"; sourceTree = "<group>"; };
+		DE16E91C1A42720D00077E18 /* NSString+DPLTrim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DPLTrim.h"; sourceTree = "<group>"; };
+		DE16E91D1A42733100077E18 /* NSString_DPLTrimSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DPLTrimSpec.m; sourceTree = "<group>"; };
+		DE16E9201A42882F00077E18 /* DPLDeepLinkRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLinkRouter.h; sourceTree = "<group>"; };
+		DE16E9211A42882F00077E18 /* DPLDeepLinkRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLDeepLinkRouter.m; sourceTree = "<group>"; };
+		DE16E9231A42883B00077E18 /* DPLDeepLinkRouterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLDeepLinkRouterSpec.m; sourceTree = "<group>"; };
+		DE16E9251A42883B00077E18 /* DPLBookingRouteHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLBookingRouteHandler.h; sourceTree = "<group>"; };
+		DE16E9261A42883B00077E18 /* DPLBookingRouteHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLBookingRouteHandler.m; sourceTree = "<group>"; };
+		DE16E9271A42883B00077E18 /* DPLDeepLinkRouter_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLDeepLinkRouter_Private.h; sourceTree = "<group>"; };
+		DE16E9341A4289D500077E18 /* DPLDeepLinkRouteMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLinkRouteMatcher.h; sourceTree = "<group>"; };
+		DE16E9351A4289D500077E18 /* DPLDeepLinkRouteMatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLDeepLinkRouteMatcher.m; sourceTree = "<group>"; };
+		DE16E9371A4289DF00077E18 /* DPLDeepLinkRouteMatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLDeepLinkRouteMatcherSpec.m; sourceTree = "<group>"; };
+		DE3E61081A3B4485008D6DFC /* NSString+DPLJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DPLJSON.h"; sourceTree = "<group>"; };
+		DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPLJSON.m"; sourceTree = "<group>"; };
+		DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DPLJSONSpec.m; sourceTree = "<group>"; };
+		DE99EF6C1A3B6D2100CE3449 /* DPLRouteHandlerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRouteHandlerProtocol.h; sourceTree = "<group>"; };
+		DE99EF781A3B83D100CE3449 /* DPLTargetViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLTargetViewControllerProtocol.h; sourceTree = "<group>"; };
 		DEAD327619E079D3003C8D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DEAD327719E079D3003C8D65 /* DLCReceiverAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCReceiverAppDelegate.h; sourceTree = "<group>"; };
-		DEAD327819E079D3003C8D65 /* DLCReceiverAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCReceiverAppDelegate.m; sourceTree = "<group>"; };
-		DEAD327919E079D3003C8D65 /* DLCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCViewController.h; sourceTree = "<group>"; };
-		DEAD327A19E079D3003C8D65 /* DLCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCViewController.m; sourceTree = "<group>"; };
+		DEAD327719E079D3003C8D65 /* DPLReceiverAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLReceiverAppDelegate.h; sourceTree = "<group>"; };
+		DEAD327819E079D3003C8D65 /* DPLReceiverAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLReceiverAppDelegate.m; sourceTree = "<group>"; };
+		DEAD327919E079D3003C8D65 /* DPLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLViewController.h; sourceTree = "<group>"; };
+		DEAD327A19E079D3003C8D65 /* DPLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLViewController.m; sourceTree = "<group>"; };
 		DEAD327C19E079D3003C8D65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DEAD327D19E079D3003C8D65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DEAD327E19E079D3003C8D65 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,21 +107,21 @@
 		DEAD328319E079D3003C8D65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DEAD328419E079D3003C8D65 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		DEAD328519E079D3003C8D65 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		DEB4EDBC1A4A036D00F31D14 /* DLCDeepLink_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCDeepLink_Private.h; sourceTree = "<group>"; };
+		DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLink_Private.h; sourceTree = "<group>"; };
 		DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkSDK.h; sourceTree = "<group>"; };
 		DEDB148D1A3F944D00A837F8 /* SenderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SenderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB14901A3F944D00A837F8 /* SenderDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SenderDemo-Info.plist"; sourceTree = "<group>"; };
 		DEDB14911A3F944D00A837F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DEDB14931A3F944D00A837F8 /* DLCSenderAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCSenderAppDelegate.h; sourceTree = "<group>"; };
-		DEDB14941A3F944D00A837F8 /* DLCSenderAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLCSenderAppDelegate.m; sourceTree = "<group>"; };
-		DEDB14961A3F944D00A837F8 /* DLCActionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCActionsViewController.h; sourceTree = "<group>"; };
-		DEDB14971A3F944D00A837F8 /* DLCActionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLCActionsViewController.m; sourceTree = "<group>"; };
+		DEDB14931A3F944D00A837F8 /* DPLSenderAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLSenderAppDelegate.h; sourceTree = "<group>"; };
+		DEDB14941A3F944D00A837F8 /* DPLSenderAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLSenderAppDelegate.m; sourceTree = "<group>"; };
+		DEDB14961A3F944D00A837F8 /* DPLActionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLActionsViewController.h; sourceTree = "<group>"; };
+		DEDB14971A3F944D00A837F8 /* DPLActionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLActionsViewController.m; sourceTree = "<group>"; };
 		DEDB149A1A3F944D00A837F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DEDB149C1A3F944D00A837F8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DEE40E571A42A3F50097EA33 /* DLCDemoAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCDemoAction.h; sourceTree = "<group>"; };
-		DEE40E581A42A3F50097EA33 /* DLCDemoAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCDemoAction.m; sourceTree = "<group>"; };
-		DEE40E5C1A42ABE80097EA33 /* DLCActionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DLCActionDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		DEE40E5D1A42ABE80097EA33 /* DLCActionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DLCActionDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		DEE40E571A42A3F50097EA33 /* DPLDemoAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLDemoAction.h; sourceTree = "<group>"; };
+		DEE40E581A42A3F50097EA33 /* DPLDemoAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLDemoAction.m; sourceTree = "<group>"; };
+		DEE40E5C1A42ABE80097EA33 /* DPLActionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DPLActionDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DEE40E5D1A42ABE80097EA33 /* DPLActionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DPLActionDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		DF9272621ECB6C2824AD5C94 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ./LICENSE; sourceTree = "<group>"; };
 		E9CA1DB95577CF3689F4B77F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ./README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,9 +227,9 @@
 		DE058E0B1A3B484A00147C04 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				DE058E0C1A3B484A00147C04 /* DLCDeepLink.h */,
-				DE058E0D1A3B484A00147C04 /* DLCDeepLink.m */,
-				DEB4EDBC1A4A036D00F31D14 /* DLCDeepLink_Private.h */,
+				DE058E0C1A3B484A00147C04 /* DPLDeepLink.h */,
+				DE058E0D1A3B484A00147C04 /* DPLDeepLink.m */,
+				DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 		DE058E0E1A3B485500147C04 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				DE058E0F1A3B485500147C04 /* DLCDeepLinkSpec.m */,
+				DE058E0F1A3B485500147C04 /* DPLDeepLinkSpec.m */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -254,8 +254,8 @@
 		DE16E91F1A42882F00077E18 /* DeepLinkRouter */ = {
 			isa = PBXGroup;
 			children = (
-				DE16E9201A42882F00077E18 /* DLCDeepLinkRouter.h */,
-				DE16E9211A42882F00077E18 /* DLCDeepLinkRouter.m */,
+				DE16E9201A42882F00077E18 /* DPLDeepLinkRouter.h */,
+				DE16E9211A42882F00077E18 /* DPLDeepLinkRouter.m */,
 			);
 			path = DeepLinkRouter;
 			sourceTree = "<group>";
@@ -264,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				DE16E9241A42883B00077E18 /* Helpers */,
-				DE16E9231A42883B00077E18 /* DLCDeepLinkRouterSpec.m */,
+				DE16E9231A42883B00077E18 /* DPLDeepLinkRouterSpec.m */,
 			);
 			path = DeepLinkRouter;
 			sourceTree = "<group>";
@@ -272,9 +272,9 @@
 		DE16E9241A42883B00077E18 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DE16E9251A42883B00077E18 /* DLCBookingRouteHandler.h */,
-				DE16E9261A42883B00077E18 /* DLCBookingRouteHandler.m */,
-				DE16E9271A42883B00077E18 /* DLCDeepLinkRouter_Private.h */,
+				DE16E9251A42883B00077E18 /* DPLBookingRouteHandler.h */,
+				DE16E9261A42883B00077E18 /* DPLBookingRouteHandler.m */,
+				DE16E9271A42883B00077E18 /* DPLDeepLinkRouter_Private.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -282,8 +282,8 @@
 		DE16E9331A4289D500077E18 /* DeepLinkRouteMatcher */ = {
 			isa = PBXGroup;
 			children = (
-				DE16E9341A4289D500077E18 /* DLCDeepLinkRouteMatcher.h */,
-				DE16E9351A4289D500077E18 /* DLCDeepLinkRouteMatcher.m */,
+				DE16E9341A4289D500077E18 /* DPLDeepLinkRouteMatcher.h */,
+				DE16E9351A4289D500077E18 /* DPLDeepLinkRouteMatcher.m */,
 			);
 			path = DeepLinkRouteMatcher;
 			sourceTree = "<group>";
@@ -291,7 +291,7 @@
 		DE16E9361A4289DF00077E18 /* DeepLinkRouteMatcher */ = {
 			isa = PBXGroup;
 			children = (
-				DE16E9371A4289DF00077E18 /* DLCDeepLinkRouteMatcherSpec.m */,
+				DE16E9371A4289DF00077E18 /* DPLDeepLinkRouteMatcherSpec.m */,
 			);
 			path = DeepLinkRouteMatcher;
 			sourceTree = "<group>";
@@ -299,12 +299,12 @@
 		DE3E61071A3B4485008D6DFC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				DE16E91C1A42720D00077E18 /* NSString+DLCTrim.h */,
-				DE16E91B1A42720D00077E18 /* NSString+DLCTrim.m */,
-				DE058E071A3B46F500147C04 /* NSString+DLCQuery.h */,
-				DE058E081A3B46F500147C04 /* NSString+DLCQuery.m */,
-				DE3E61081A3B4485008D6DFC /* NSString+DLCJSON.h */,
-				DE3E61091A3B4485008D6DFC /* NSString+DLCJSON.m */,
+				DE16E91C1A42720D00077E18 /* NSString+DPLTrim.h */,
+				DE16E91B1A42720D00077E18 /* NSString+DPLTrim.m */,
+				DE058E071A3B46F500147C04 /* NSString+DPLQuery.h */,
+				DE058E081A3B46F500147C04 /* NSString+DPLQuery.m */,
+				DE3E61081A3B4485008D6DFC /* NSString+DPLJSON.h */,
+				DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -312,9 +312,9 @@
 		DE3E610C1A3B4492008D6DFC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				DE058E091A3B46FD00147C04 /* NSString_DLCQuerySpec.m */,
-				DE3E610D1A3B4492008D6DFC /* NSString_DLCJSONSpec.m */,
-				DE16E91D1A42733100077E18 /* NSString_DLCTrimSpec.m */,
+				DE058E091A3B46FD00147C04 /* NSString_DPLQuerySpec.m */,
+				DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */,
+				DE16E91D1A42733100077E18 /* NSString_DPLTrimSpec.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -336,8 +336,8 @@
 		DE99EF6A1A3B6CDD00CE3449 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				DE99EF6C1A3B6D2100CE3449 /* DLCRouteHandlerProtocol.h */,
-				DE99EF781A3B83D100CE3449 /* DLCTargetViewControllerProtocol.h */,
+				DE99EF6C1A3B6D2100CE3449 /* DPLRouteHandlerProtocol.h */,
+				DE99EF781A3B83D100CE3449 /* DPLTargetViewControllerProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -345,8 +345,8 @@
 		DE99EF7A1A3B844000CE3449 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DEAD327919E079D3003C8D65 /* DLCViewController.h */,
-				DEAD327A19E079D3003C8D65 /* DLCViewController.m */,
+				DEAD327919E079D3003C8D65 /* DPLViewController.h */,
+				DEAD327A19E079D3003C8D65 /* DPLViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -365,8 +365,8 @@
 		DEAD327219E079D3003C8D65 /* ReceiverDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DEAD327719E079D3003C8D65 /* DLCReceiverAppDelegate.h */,
-				DEAD327819E079D3003C8D65 /* DLCReceiverAppDelegate.m */,
+				DEAD327719E079D3003C8D65 /* DPLReceiverAppDelegate.h */,
+				DEAD327819E079D3003C8D65 /* DPLReceiverAppDelegate.m */,
 				DE99EF7A1A3B844000CE3449 /* ViewControllers */,
 				DEAD327519E079D3003C8D65 /* Main.storyboard */,
 				DEAD327D19E079D3003C8D65 /* Images.xcassets */,
@@ -407,11 +407,11 @@
 		DEDB148E1A3F944D00A837F8 /* SenderDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DEDB14931A3F944D00A837F8 /* DLCSenderAppDelegate.h */,
-				DEDB14941A3F944D00A837F8 /* DLCSenderAppDelegate.m */,
+				DEDB14931A3F944D00A837F8 /* DPLSenderAppDelegate.h */,
+				DEDB14941A3F944D00A837F8 /* DPLSenderAppDelegate.m */,
 				DEE40E5B1A42ABC10097EA33 /* ActionDataSource */,
-				DEDB14961A3F944D00A837F8 /* DLCActionsViewController.h */,
-				DEDB14971A3F944D00A837F8 /* DLCActionsViewController.m */,
+				DEDB14961A3F944D00A837F8 /* DPLActionsViewController.h */,
+				DEDB14971A3F944D00A837F8 /* DPLActionsViewController.m */,
 				DEDB14991A3F944D00A837F8 /* Main.storyboard */,
 				DEDB149C1A3F944D00A837F8 /* Images.xcassets */,
 				DEDB148F1A3F944D00A837F8 /* SupportingFiles */,
@@ -432,10 +432,10 @@
 		DEE40E5B1A42ABC10097EA33 /* ActionDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				DEE40E571A42A3F50097EA33 /* DLCDemoAction.h */,
-				DEE40E581A42A3F50097EA33 /* DLCDemoAction.m */,
-				DEE40E5C1A42ABE80097EA33 /* DLCActionDataSource.h */,
-				DEE40E5D1A42ABE80097EA33 /* DLCActionDataSource.m */,
+				DEE40E571A42A3F50097EA33 /* DPLDemoAction.h */,
+				DEE40E581A42A3F50097EA33 /* DPLDemoAction.m */,
+				DEE40E5C1A42ABE80097EA33 /* DPLActionDataSource.h */,
+				DEE40E5D1A42ABE80097EA33 /* DPLActionDataSource.m */,
 			);
 			name = ActionDataSource;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 		6003F582195388D10070C39A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = DLC;
+				CLASSPREFIX = DPL;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Button, Inc.";
 				TargetAttributes = {
@@ -667,9 +667,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEAD328A19E079D3003C8D65 /* DLCViewController.m in Sources */,
+				DEAD328A19E079D3003C8D65 /* DPLViewController.m in Sources */,
 				DEAD328D19E079D3003C8D65 /* main.m in Sources */,
-				DEAD328919E079D3003C8D65 /* DLCReceiverAppDelegate.m in Sources */,
+				DEAD328919E079D3003C8D65 /* DPLReceiverAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,13 +677,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE16E9281A42883B00077E18 /* DLCDeepLinkRouterSpec.m in Sources */,
-				DE16E9381A4289DF00077E18 /* DLCDeepLinkRouteMatcherSpec.m in Sources */,
-				DE16E9291A42883B00077E18 /* DLCBookingRouteHandler.m in Sources */,
-				DE058E101A3B485500147C04 /* DLCDeepLinkSpec.m in Sources */,
-				DE058E0A1A3B46FD00147C04 /* NSString_DLCQuerySpec.m in Sources */,
-				DE3E610F1A3B4492008D6DFC /* NSString_DLCJSONSpec.m in Sources */,
-				DE16E91E1A42733100077E18 /* NSString_DLCTrimSpec.m in Sources */,
+				DE16E9281A42883B00077E18 /* DPLDeepLinkRouterSpec.m in Sources */,
+				DE16E9381A4289DF00077E18 /* DPLDeepLinkRouteMatcherSpec.m in Sources */,
+				DE16E9291A42883B00077E18 /* DPLBookingRouteHandler.m in Sources */,
+				DE058E101A3B485500147C04 /* DPLDeepLinkSpec.m in Sources */,
+				DE058E0A1A3B46FD00147C04 /* NSString_DPLQuerySpec.m in Sources */,
+				DE3E610F1A3B4492008D6DFC /* NSString_DPLJSONSpec.m in Sources */,
+				DE16E91E1A42733100077E18 /* NSString_DPLTrimSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,10 +691,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEDB14981A3F944D00A837F8 /* DLCActionsViewController.m in Sources */,
-				DEE40E601A42B0580097EA33 /* DLCDemoAction.m in Sources */,
-				DEE40E5F1A42B0530097EA33 /* DLCActionDataSource.m in Sources */,
-				DEDB14951A3F944D00A837F8 /* DLCSenderAppDelegate.m in Sources */,
+				DEDB14981A3F944D00A837F8 /* DPLActionsViewController.m in Sources */,
+				DEE40E601A42B0580097EA33 /* DPLDemoAction.m in Sources */,
+				DEE40E5F1A42B0530097EA33 /* DPLActionDataSource.m in Sources */,
+				DEDB14951A3F944D00A837F8 /* DPLSenderAppDelegate.m in Sources */,
 				DEDB14921A3F944D00A837F8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

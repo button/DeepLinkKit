@@ -1,8 +1,8 @@
 #import <UIKit/UIKit.h>
-#import "DLCSenderAppDelegate.h"
+#import "DPLSenderAppDelegate.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([DLCSenderAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([DPLSenderAppDelegate class]));
     }
 }

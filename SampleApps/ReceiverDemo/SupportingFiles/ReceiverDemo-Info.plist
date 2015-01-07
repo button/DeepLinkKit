@@ -24,10 +24,10 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.usebutton.dlc</string>
+			<string>com.usebutton.DPL</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>dlc</string>
+				<string>DPL</string>
 			</array>
 		</dict>
 	</array>
