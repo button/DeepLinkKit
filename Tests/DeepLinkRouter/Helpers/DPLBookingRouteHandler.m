@@ -2,12 +2,12 @@
 
 @implementation DPLBookingRouteHandler
 
-+ (BOOL)canHandleDeepLink:(DPLDeepLink *)deepLink {
++ (BOOL)canHandleDeepLinks {
     return YES;
 }
 
 
-- (BOOL)shouldDisplayDeepLink:(DPLDeepLink *)deepLink {
+- (BOOL)shouldHandleDeepLink:(DPLDeepLink *)deepLink {
     return YES;
 }
 

@@ -3,6 +3,7 @@
 #import "DPLDeepLinkRouteMatcher.h"
 #import "DPLDeepLink.h"
 #import "NSString+DPLTrim.h"
+#import "DPLErrors.h"
 #import <objc/runtime.h>
 
 @interface DPLDeepLinkRouter ()
@@ -131,8 +132,8 @@
     }
     
     if (!deepLink) {
-        #pragma message "build out a proper error here."
-        error = [NSError errorWithDomain:@"DPL_ERROR_NO_MATCH" code:-1 userInfo:nil];
+        NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The passed URL does not match a registered route.", nil) };
+        error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteNotFoundError userInfo:userInfo];
     }
     
     [self completeRouteWithSuccess:!error error:error];
@@ -168,8 +169,8 @@
             }
         }
         else {
-            #pragma message "build out a proper error here."
-            *error = [NSError errorWithDomain:@"DPL_ERROR_NO_TARGET" code:-1 userInfo:nil];
+            NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The matched route handler does not specify a target view controller.", nil)};
+            *error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteHandlerTargetNotSpecifiedError userInfo:userInfo];
         }
     }
 }

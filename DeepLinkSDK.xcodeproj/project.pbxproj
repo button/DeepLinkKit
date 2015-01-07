@@ -94,6 +94,7 @@
 		DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DPLJSONSpec.m; sourceTree = "<group>"; };
 		DE99EF6C1A3B6D2100CE3449 /* DPLRouteHandlerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRouteHandlerProtocol.h; sourceTree = "<group>"; };
 		DE99EF781A3B83D100CE3449 /* DPLTargetViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLTargetViewControllerProtocol.h; sourceTree = "<group>"; };
+		DEAC406E1A5D97EE004A9095 /* DPLErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLErrors.h; sourceTree = "<group>"; };
 		DEAD327619E079D3003C8D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DEAD327719E079D3003C8D65 /* DPLReceiverAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLReceiverAppDelegate.h; sourceTree = "<group>"; };
 		DEAD327819E079D3003C8D65 /* DPLReceiverAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLReceiverAppDelegate.m; sourceTree = "<group>"; };
@@ -390,6 +391,7 @@
 		DEB4EDBB1A49CEA400F31D14 /* DeepLinkErrors */ = {
 			isa = PBXGroup;
 			children = (
+				DEAC406E1A5D97EE004A9095 /* DPLErrors.h */,
 			);
 			name = DeepLinkErrors;
 			sourceTree = "<group>";

@@ -2,6 +2,7 @@
 #import "DPLDeepLinkRouter.h"
 #import "DPLDeepLinkRouter_Private.h"
 #import "DPLBookingRouteHandler.h"
+#import "DPLErrors.h"
 
 SpecBegin(DPLDeepLinkRouter)
 
@@ -28,7 +29,7 @@ describe(@"Registering Routes", ^{
         expect(router[route]).to.equal([DPLBookingRouteHandler class]);
     });
     
-    it(@"does NOT register a class not conforming to DPLDeepLinkRouteHandler protocol", ^{
+    it(@"does NOT register a class not conforming to DPLRouteHandler protocol", ^{
         router[route] = [NSObject class];
         expect(router[route]).to.beNil();
     });
@@ -46,10 +47,6 @@ describe(@"Registering Routes", ^{
     it(@"registers a block for a route when the block takes no params", ^{
         router[route] = ^{};
         expect(router[route]).to.beKindOf(NSClassFromString(@"NSBlock"));
-    });
-    
-    xit(@"does NOT register a block for a route when the block type is incorrect", ^{
-#pragma message "do we want to incpect the block type?"
     });
     
     it(@"does NOT register an empty route", ^{
@@ -96,9 +93,43 @@ describe(@"Registering Routes", ^{
         router[@"/table/book/:id \n"] = [DPLBookingRouteHandler class];
         expect(router[route]).to.equal([DPLBookingRouteHandler class]);
     });
+});
+
+
+describe(@"Handling Routes", ^{
+
+    NSURL *url = [NSURL URLWithString:@"dlc://dlc.com/say/hello/world"];
+    
+    __block DPLDeepLinkRouter *router;
+    beforeEach(^{
+        router = [[DPLDeepLinkRouter alloc] init];
+    });
     
     xit(@"matches routes in the order they were registered", ^{
-
+        
+    });
+    
+    it(@"produces an error when a URL has no matching route", ^{
+        waitUntil(^(DoneCallback done) {
+            [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+                expect(handled).to.beFalsy();
+                expect(error.code).to.equal(DPLRouteNotFoundError);
+                done();
+            }];
+        });
+    });
+    
+    it(@"produces an error when a route handler does not specify a target view controller", ^{
+        waitUntil(^(DoneCallback done) {
+            
+            router[@"say/:title/:message"] = [DPLBookingRouteHandler class];
+            
+            [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+                expect(handled).to.beFalsy();
+                expect(error.code).to.equal(DPLRouteHandlerTargetNotSpecifiedError);
+                done();
+            }];
+        });
     });
 });
 

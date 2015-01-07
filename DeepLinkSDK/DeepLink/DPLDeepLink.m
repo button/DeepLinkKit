@@ -2,6 +2,7 @@
 #import "NSString+DPLQuery.h"
 #import "NSString+DPLJSON.h"
 
+NSString * const DPLErrorDomain = @"com.usebutton.deeplink.error";
 
 NSString * const DPLAppLinkDataKey      = @"al_applink_data";
 NSString * const DPLAppLinkTargetURLKey = @"target_url";
