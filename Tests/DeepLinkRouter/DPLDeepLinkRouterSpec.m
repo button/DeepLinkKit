@@ -1,7 +1,7 @@
 #import "Specta.h"
 #import "DPLDeepLinkRouter.h"
 #import "DPLDeepLinkRouter_Private.h"
-#import "DPLBookingRouteHandler.h"
+#import "DPLRouteHandler.h"
 #import "DPLErrors.h"
 
 SpecBegin(DPLDeepLinkRouter)
@@ -25,8 +25,8 @@ describe(@"Registering Routes", ^{
     
     
     it(@"registers a class for a route", ^{
-        router[route] = [DPLBookingRouteHandler class];
-        expect(router[route]).to.equal([DPLBookingRouteHandler class]);
+        router[route] = [DPLRouteHandler class];
+        expect(router[route]).to.equal([DPLRouteHandler class]);
     });
     
     it(@"does NOT register a class not conforming to DPLRouteHandler protocol", ^{
@@ -35,7 +35,7 @@ describe(@"Registering Routes", ^{
     });
     
     it(@"does NOT register routes that are not strings", ^{
-        router[@(0)] = [DPLBookingRouteHandler class];
+        router[@(0)] = [DPLRouteHandler class];
         expect(router[route]).to.beNil();
     });
     
@@ -50,28 +50,33 @@ describe(@"Registering Routes", ^{
     });
     
     it(@"does NOT register an empty route", ^{
-        router[@""] = [DPLBookingRouteHandler class];
+        router[@""] = [DPLRouteHandler class];
+        expect(router[route]).to.beNil();
+    });
+    
+    fit(@"does NOT register a NULL route handler", ^{
+        router[route] = NULL;
         expect(router[route]).to.beNil();
     });
     
     it(@"removes a route when passing a nil handler", ^{
-        router[@"table/book/:id"] = [DPLBookingRouteHandler class];
-        expect(router[route]).to.equal([DPLBookingRouteHandler class]);
+        router[@"table/book/:id"] = [DPLRouteHandler class];
+        expect(router[route]).to.equal([DPLRouteHandler class]);
         router[@"table/book/:id"] = nil;
         expect(router[route]).to.beNil();
     });
     
     it(@"replaces the registered handler for a route when one already exists", ^{
-        router[route] = [DPLBookingRouteHandler class];
-        expect(router[route]).to.equal([DPLBookingRouteHandler class]);
+        router[route] = [DPLRouteHandler class];
+        expect(router[route]).to.equal([DPLRouteHandler class]);
 
         router[route] = ^{};
         expect(router[route]).to.beKindOf(NSClassFromString(@"NSBlock"));
     });
     
     it(@"replaces a registered class handler with a block handler", ^{
-        router[route] = [DPLBookingRouteHandler class];
-        expect(router.classesByRoute[route]).to.equal([DPLBookingRouteHandler class]);
+        router[route] = [DPLRouteHandler class];
+        expect(router.classesByRoute[route]).to.equal([DPLRouteHandler class]);
         expect(router.blocksByRoute).to.beEmpty();
         
         router[route] = ^(DPLDeepLink *deepLink){};
@@ -80,8 +85,8 @@ describe(@"Registering Routes", ^{
     });
     
     it(@"replaces a registered block handler for a class handler", ^{
-        router[route] = [DPLBookingRouteHandler class];
-        expect(router.classesByRoute[route]).to.equal([DPLBookingRouteHandler class]);
+        router[route] = [DPLRouteHandler class];
+        expect(router.classesByRoute[route]).to.equal([DPLRouteHandler class]);
         expect(router.blocksByRoute).to.beEmpty();
         
         router[route] = ^(DPLDeepLink *deepLink){};
@@ -90,8 +95,8 @@ describe(@"Registering Routes", ^{
     });
     
     it(@"trims routes before registering", ^{
-        router[@"/table/book/:id \n"] = [DPLBookingRouteHandler class];
-        expect(router[route]).to.equal([DPLBookingRouteHandler class]);
+        router[@"/table/book/:id \n"] = [DPLRouteHandler class];
+        expect(router[route]).to.equal([DPLRouteHandler class]);
     });
 });
 
@@ -122,7 +127,7 @@ describe(@"Handling Routes", ^{
     it(@"produces an error when a route handler does not specify a target view controller", ^{
         waitUntil(^(DoneCallback done) {
             
-            router[@"say/:title/:message"] = [DPLBookingRouteHandler class];
+            router[@"say/:title/:message"] = [DPLRouteHandler class];
             
             [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beFalsy();

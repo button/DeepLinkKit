@@ -1,10 +1,9 @@
 #import "DPLDeepLinkRouter.h"
-#import "DPLRouteHandlerProtocol.h"
 #import "DPLDeepLinkRouteMatcher.h"
 #import "DPLDeepLink.h"
+#import "DPLRouteHandler.h"
 #import "NSString+DPLTrim.h"
 #import "DPLErrors.h"
-#import <objc/runtime.h>
 
 @interface DPLDeepLinkRouter ()
 
@@ -98,7 +97,7 @@
         [self.classesByRoute removeObjectForKey:route];
         [self.blocksByRoute removeObjectForKey:route];
     }
-    else if (obj && class_isMetaClass(object_getClass(obj)) && [obj conformsToProtocol:@protocol(DPLRouteHandler)]) {
+    else if (obj == [DPLRouteHandler class]) {
         [self registerHandlerClass:obj forRoute:route];
     }
     else if ([obj isKindOfClass:NSClassFromString(@"NSBlock")]) {
@@ -120,13 +119,14 @@
         return;
     }
 
-    NSError     *error;
-    DPLDeepLink *deepLink;
+    __block BOOL isHandled = NO;
+    NSError      *error;
+    DPLDeepLink  *deepLink;
     for (NSString *route in self.routes) {
         DPLDeepLinkRouteMatcher *matcher = [DPLDeepLinkRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];
         if (deepLink) {
-            [self handleRoute:route withDeepLink:deepLink error:&error];
+            isHandled = [self handleRoute:route withDeepLink:deepLink error:&error];
             break;
         }
     }
@@ -136,30 +136,27 @@
         error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteNotFoundError userInfo:userInfo];
     }
     
-    [self completeRouteWithSuccess:!error error:error];
+    [self completeRouteWithSuccess:isHandled error:error];
 }
 
 
-- (void)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
+- (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
     id handler = self[route];
     
     if ([handler isKindOfClass:NSClassFromString(@"NSBlock")]) {
         DPLRouteHandlerBlock routeHandlerBlock = handler;
         routeHandlerBlock(deepLink);
     }
-    else if (class_isMetaClass(object_getClass(handler)) && [handler conformsToProtocol:@protocol(DPLRouteHandler)]) {
-        id <DPLRouteHandler> routeHandler = [[handler alloc] init];
+    else if (handler == [DPLRouteHandler class]) {
+        DPLRouteHandler *routeHandler = [[handler alloc] init];
 
         if (![routeHandler shouldHandleDeepLink:deepLink]) {
-            return;
+            return NO;
         }
         
-        UIViewController *presentingViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-        if ([routeHandler respondsToSelector:@selector(viewControllerForPresentingDeepLink:)]) {
-            presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
-        }
-        
+        UIViewController *presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
         UIViewController <DPLTargetViewController> *targetViewController = [routeHandler targetViewController];
+        
         if (targetViewController) {
             if ([presentingViewController isKindOfClass:[UINavigationController class]]) {
                 [(UINavigationController *)presentingViewController pushViewController:targetViewController animated:YES];
@@ -169,10 +166,15 @@
             }
         }
         else {
+            
             NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The matched route handler does not specify a target view controller.", nil)};
             *error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteHandlerTargetNotSpecifiedError userInfo:userInfo];
+            
+            return NO;
         }
     }
+    
+    return YES;
 }
 
 
