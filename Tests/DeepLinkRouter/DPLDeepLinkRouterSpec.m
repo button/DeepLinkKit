@@ -2,6 +2,7 @@
 #import "DPLDeepLinkRouter.h"
 #import "DPLDeepLinkRouter_Private.h"
 #import "DPLRouteHandler.h"
+#import "DPLDeepLink.h"
 #import "DPLErrors.h"
 
 SpecBegin(DPLDeepLinkRouter)
@@ -54,7 +55,7 @@ describe(@"Registering Routes", ^{
         expect(router[route]).to.beNil();
     });
     
-    fit(@"does NOT register a NULL route handler", ^{
+    it(@"does NOT register a NULL route handler", ^{
         router[route] = NULL;
         expect(router[route]).to.beNil();
     });
@@ -103,15 +104,47 @@ describe(@"Registering Routes", ^{
 
 describe(@"Handling Routes", ^{
 
-    NSURL *url = [NSURL URLWithString:@"dlc://dlc.com/say/hello/world"];
+    NSURL *url = [NSURL URLWithString:@"dlc://dlc.com/say/hello"];
     
     __block DPLDeepLinkRouter *router;
     beforeEach(^{
         router = [[DPLDeepLinkRouter alloc] init];
     });
     
-    xit(@"matches routes in the order they were registered", ^{
-        
+    it(@"matches more specfic routes first when they are registered first", ^{
+        waitUntil(^(DoneCallback done) {
+            router[@"say/hello"] = ^(DPLDeepLink *deepLink) {
+                expect(deepLink.routeParameters).to.beEmpty();
+            };
+            
+            router[@"say/:word"] = ^{
+                XCTFail(@"The wrong route was matched.");
+            };
+            
+            [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+                expect(handled).to.beTruthy();
+                expect(error).to.beNil();
+                done();
+            }];
+        });
+    });
+    
+    it(@"matches less specfic routes first when they are registered first", ^{
+        waitUntil(^(DoneCallback done) {
+            router[@"say/:word"] = ^(DPLDeepLink *deepLink) {
+                expect(deepLink.routeParameters[@"word"]).to.equal(@"hello");
+            };
+            
+            router[@"say/hello"] = ^{
+                XCTFail(@"The wrong route was matched.");
+            };
+            
+            [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+                expect(handled).to.beTruthy();
+                expect(error).to.beNil();
+                done();
+            }];
+        });
     });
     
     it(@"produces an error when a URL has no matching route", ^{
@@ -127,7 +160,7 @@ describe(@"Handling Routes", ^{
     it(@"produces an error when a route handler does not specify a target view controller", ^{
         waitUntil(^(DoneCallback done) {
             
-            router[@"say/:title/:message"] = [DPLRouteHandler class];
+            router[@"say/:word"] = [DPLRouteHandler class];
             
             [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beFalsy();
