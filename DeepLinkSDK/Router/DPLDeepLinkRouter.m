@@ -1,5 +1,5 @@
 #import "DPLDeepLinkRouter.h"
-#import "DPLDeepLinkRouteMatcher.h"
+#import "DPLRouteMatcher.h"
 #import "DPLDeepLink.h"
 #import "DPLRouteHandler.h"
 #import "NSString+DPLTrim.h"
@@ -125,7 +125,7 @@
     NSError      *error;
     DPLDeepLink  *deepLink;
     for (NSString *route in self.routes) {
-        DPLDeepLinkRouteMatcher *matcher = [DPLDeepLinkRouteMatcher matcherWithRoute:route];
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];
         if (deepLink) {
             isHandled = [self handleRoute:route withDeepLink:deepLink error:&error];

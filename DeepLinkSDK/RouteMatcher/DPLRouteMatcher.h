@@ -2,7 +2,7 @@
 
 @class DPLDeepLink;
 
-@interface DPLDeepLinkRouteMatcher : NSObject
+@interface DPLRouteMatcher : NSObject
 
 /**
  Initializes a route matcher.

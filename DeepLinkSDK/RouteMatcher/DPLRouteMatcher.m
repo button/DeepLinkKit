@@ -1,15 +1,15 @@
-#import "DPLDeepLinkRouteMatcher.h"
+#import "DPLRouteMatcher.h"
 #import "DPLDeepLink_Private.h"
 #import "NSString+DPLTrim.h"
 
-@interface DPLDeepLinkRouteMatcher ()
+@interface DPLRouteMatcher ()
 
 @property (nonatomic, copy)   NSString *route;
 @property (nonatomic, strong) NSArray  *routeParts;
 
 @end
 
-@implementation DPLDeepLinkRouteMatcher
+@implementation DPLRouteMatcher
 
 + (instancetype)matcherWithRoute:(NSString *)route {
     return [[self alloc] initWithRoute:route];
