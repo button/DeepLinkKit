@@ -1,4 +1,6 @@
 #import "DPLReceiverAppDelegate.h"
+#import "DPLProductRouteHandler.h"
+
 #import <DeepLinkSDK/DeepLinkSDK.h>
 
 @interface DPLReceiverAppDelegate ()
@@ -17,6 +19,10 @@
 #endif
     
     self.router = [[DPLDeepLinkRouter alloc] init];
+   
+    // Route registration.
+    self.router[@"product/:sku"] = [DPLProductRouteHandler class];
+    
     
     self.router[@"/say/:title/:message"] = ^(DPLDeepLink *link) {
         [[[UIAlertView alloc] initWithTitle:link.routeParameters[@"title"]
@@ -25,6 +31,7 @@
                           cancelButtonTitle:NSLocalizedString(@"OK", nil)
                           otherButtonTitles:nil] show];
     };
+    
     
     [self.router handleURL:launchOptions[UIApplicationLaunchOptionsURLKey] withCompletion:NULL];
 

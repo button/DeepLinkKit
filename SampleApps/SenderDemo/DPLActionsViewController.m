@@ -25,6 +25,8 @@
     if (action) {
         [[UIApplication sharedApplication] openURL:action.actionURL];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

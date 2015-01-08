@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rWm-1v-oHF">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Actions View Controller-->
+        <!--Deep Link Actions-->
         <scene sceneID="75w-dc-eGW">
             <objects>
                 <tableViewController id="pdM-HK-cts" customClass="DPLActionsViewController" sceneMemberID="viewController">
@@ -34,7 +35,7 @@
                             <outlet property="delegate" destination="pdM-HK-cts" id="w6s-OZ-sAO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Q6H-Db-eh6"/>
+                    <navigationItem key="navigationItem" title="Deep Link Actions" id="Q6H-Db-eh6"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                 </tableViewController>
