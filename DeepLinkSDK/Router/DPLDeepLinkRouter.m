@@ -4,6 +4,7 @@
 #import "DPLRouteHandler.h"
 #import "NSString+DPLTrim.h"
 #import "DPLErrors.h"
+#import <objc/runtime.h>
 
 @interface DPLDeepLinkRouter ()
 
@@ -97,11 +98,12 @@
         [self.classesByRoute removeObjectForKey:route];
         [self.blocksByRoute removeObjectForKey:route];
     }
-    else if (obj == [DPLRouteHandler class]) {
-        [self registerHandlerClass:obj forRoute:route];
-    }
     else if ([obj isKindOfClass:NSClassFromString(@"NSBlock")]) {
         [self registerBlock:obj forRoute:route];
+    }
+    else if (class_isMetaClass(object_getClass(obj)) &&
+             [obj isSubclassOfClass:[DPLRouteHandler class]]) {
+        [self registerHandlerClass:obj forRoute:route];
     }
 }
 
@@ -147,7 +149,8 @@
         DPLRouteHandlerBlock routeHandlerBlock = handler;
         routeHandlerBlock(deepLink);
     }
-    else if (handler == [DPLRouteHandler class]) {
+    else if (class_isMetaClass(object_getClass(handler)) &&
+             [handler isSubclassOfClass:[DPLRouteHandler class]]) {
         DPLRouteHandler *routeHandler = [[handler alloc] init];
 
         if (![routeHandler shouldHandleDeepLink:deepLink]) {
@@ -158,11 +161,19 @@
         UIViewController <DPLTargetViewController> *targetViewController = [routeHandler targetViewController];
         
         if (targetViewController) {
-            if ([presentingViewController isKindOfClass:[UINavigationController class]]) {
-                [(UINavigationController *)presentingViewController pushViewController:targetViewController animated:YES];
+            
+            [targetViewController configureWithDeepLink:deepLink];
+            
+            if ([routeHandler preferModalPresentation] ||
+                ![presentingViewController isKindOfClass:[UINavigationController class]]) {
+                
+                [presentingViewController presentViewController:targetViewController animated:NO completion:NULL];
             }
-            else {
-                [presentingViewController presentViewController:targetViewController animated:YES completion:NULL];
+            else if ([presentingViewController isKindOfClass:[UINavigationController class]]) {
+                
+                [self placeTargetViewController:targetViewController
+                         inNavigationController:(UINavigationController *)presentingViewController
+                                   withDeepLink:deepLink];
             }
         }
         else {
@@ -175,6 +186,36 @@
     }
     
     return YES;
+}
+
+
+- (void)placeTargetViewController:(UIViewController *)targetViewController
+           inNavigationController:(UINavigationController *)navigationController
+                     withDeepLink:(DPLDeepLink *)deepLink {
+    
+    if ([navigationController.viewControllers containsObject:targetViewController]) {
+        [navigationController popToViewController:targetViewController animated:NO];
+    }
+    else {
+        
+        for (UIViewController *controller in navigationController.viewControllers) {
+            if ([controller isMemberOfClass:[targetViewController class]]) {
+                
+                [navigationController popToViewController:controller animated:NO];
+                [navigationController popViewControllerAnimated:NO];
+                
+                if ([controller isEqual:navigationController.topViewController]) {
+                    [navigationController setViewControllers:@[targetViewController] animated:NO];
+                }
+                
+                break;
+            }
+        }
+        
+        if (![navigationController.topViewController isEqual:targetViewController]) {
+            [navigationController pushViewController:targetViewController animated:NO];
+        }
+    }
 }
 
 

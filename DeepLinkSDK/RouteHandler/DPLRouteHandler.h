@@ -27,6 +27,14 @@
 
 
 /**
+ If `viewControllerForPresentingDeepLink:' returns a `UINavigationController', the default behavior
+ is to place the `targetViewController' in the navigation stack. If you prefer to always present
+ the target view controller modally, override this method and return YES. The default is NO.
+ */
+- (BOOL)preferModalPresentation;
+
+
+/**
  The view controller that will be presented as a result of the deep link.
  @return A view controller conforming to the `DPLTargetViewController' protocol.
  @note Subclasses MUST override this method.

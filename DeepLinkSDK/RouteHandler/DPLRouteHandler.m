@@ -7,6 +7,11 @@
 }
 
 
+- (BOOL)preferModalPresentation {
+    return NO;
+}
+
+
 - (UIViewController <DPLTargetViewController> *)targetViewController {
     return nil;
 }
