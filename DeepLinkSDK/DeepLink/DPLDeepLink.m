@@ -1,16 +1,16 @@
 #import "DPLDeepLink.h"
+#import "DPLDeepLink+AppLinks.h"
 #import "NSString+DPLQuery.h"
 #import "NSString+DPLJSON.h"
 
 NSString * const DPLErrorDomain = @"com.usebutton.deeplink.error";
 
-NSString * const DPLAppLinkDataKey      = @"al_applink_data";
-NSString * const DPLAppLinkTargetURLKey = @"target_url";
-NSString * const DPLAppLinkExtrasKey    = @"extras";
-NSString * const DPLAppLinkVersionKey   = @"version";
-NSString * const DPLAppLinkUserAgentKey = @"user_agent";
-NSString * const DPLReferrerAppLinkKey  = @"referer_app_link";
+@interface DPLDeepLink ()
 
+@property (nonatomic, copy)   NSURL *incomingURL;
+@property (nonatomic, strong) NSDictionary *appLinkData;
+
+@end
 
 @implementation DPLDeepLink
 
@@ -23,9 +23,9 @@ NSString * const DPLReferrerAppLinkKey  = @"referer_app_link";
     if (self) {
         
         NSDictionary *queryParameters = [[url query] DPL_parametersFromQueryString];
-        _appLinkData = [queryParameters[DPLAppLinkDataKey] DPL_JSONObject];
+        _appLinkData = [queryParameters[DPLAppLinksDataKey] DPL_JSONObject];
         if (_appLinkData) {
-            _URL = [NSURL URLWithString:_appLinkData[DPLAppLinkTargetURLKey]];
+            _URL = [NSURL URLWithString:_appLinkData[DPLAppLinksTargetURLKey]];
             _queryParameters = [[_URL query] DPL_parametersFromQueryString];
         }
         else {
@@ -34,6 +34,11 @@ NSString * const DPLReferrerAppLinkKey  = @"referer_app_link";
         }
     }
     return self;
+}
+
+
+- (void)setRouteParameters:(NSDictionary *)routeParameters {
+    _routeParameters = routeParameters;
 }
 
 

@@ -1,8 +1,5 @@
 #import <Foundation/Foundation.h>
 
-extern NSString * const DPLAppLinkTargetURLKey;
-extern NSString * const DPLAppLinkExtrasKey;
-
 
 @class DPLDeepLink, DPLAppAction;
 
@@ -28,19 +25,11 @@ extern NSString * const DPLAppLinkExtrasKey;
  @discussion Given a route `show/alert/:title/:message' and a path `button://show/alert/hello/world',
  the route parameters dictionary would be `@{ @"title": @"hello", @"message": @"world" }'.
  */
-@property (nonatomic, strong, readwrite) NSDictionary *routeParameters;
+@property (nonatomic, strong, readonly) NSDictionary *routeParameters;
 
 
 /** 
  */
 @property (nonatomic, strong, readonly) NSURL *callbackURL;
-
-
-/**
- This property will be nil unless the URL conforms to the App Link standard.
- @note This contains the parsed `al_applink_data' if the URL is an App Link.
- */
-@property (nonatomic, strong, readonly) NSDictionary *appLinkData;
-
 
 @end
