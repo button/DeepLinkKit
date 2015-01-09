@@ -33,6 +33,7 @@ describe(@"App Links Properties", ^{
         expect(link.referrerURL.absoluteString).to.equal(referrer[DPLAppLinksReferrerURLKey]);
         expect(link.referrerAppName).to.equal(referrer[DPLAppLinksReferrerAppNameKey]);
         
+        expect(link.callbackURL.absoluteString).to.equal(referrer[DPLAppLinksReferrerURLKey]);
     });
     
     it(@"return nil when the deep link is NOT an App Link", ^{

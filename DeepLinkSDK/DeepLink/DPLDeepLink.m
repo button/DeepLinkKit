@@ -5,6 +5,9 @@
 
 NSString * const DPLErrorDomain = @"com.usebutton.deeplink.error";
 
+static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
+
+
 @interface DPLDeepLink ()
 
 @property (nonatomic, copy)   NSURL *incomingURL;
@@ -25,12 +28,14 @@ NSString * const DPLErrorDomain = @"com.usebutton.deeplink.error";
         NSDictionary *queryParameters = [[url query] DPL_parametersFromQueryString];
         _appLinkData = [queryParameters[DPLAppLinksDataKey] DPL_JSONObject];
         if (_appLinkData) {
-            _URL = [NSURL URLWithString:_appLinkData[DPLAppLinksTargetURLKey]];
+            _URL             = [NSURL URLWithString:_appLinkData[DPLAppLinksTargetURLKey]];
             _queryParameters = [[_URL query] DPL_parametersFromQueryString];
+            _callbackURL     = [NSURL URLWithString:_appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerURLKey]];
         }
         else {
-            _URL = url;
+            _URL             = url;
             _queryParameters = queryParameters;
+            _callbackURL     = [NSURL URLWithString:_queryParameters[DPLCallbackURLKey]];
         }
     }
     return self;

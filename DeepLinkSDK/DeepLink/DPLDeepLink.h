@@ -22,13 +22,21 @@
 
 /**
  A dictionary of values keyed by their parameterized route component matched in the deep link URL path.
- @discussion Given a route `show/alert/:title/:message' and a path `button://show/alert/hello/world',
+ @note Given a route `alert/:title/:message' and a path `button://alert/hello/world',
  the route parameters dictionary would be `@{ @"title": @"hello", @"message": @"world" }'.
  */
 @property (nonatomic, strong, readonly) NSDictionary *routeParameters;
 
 
 /** 
+ A deep link URL for linking back to the source application.
+ @note A callback URL will be present if one is specified in the incoming deep link in the format oulined below
+ or via the App Links standard.
+ 
+ Callbacks can be specified in your deep link URLs with the `dpl_callback_url` parameter as follows:
+ @code
+ dpl://dpl.io/say/hello?dpl_callback_url=btn%3A%2F%2Fdpl.io%2Fsay%2Fhi
+ @endcode
  */
 @property (nonatomic, strong, readonly) NSURL *callbackURL;
 
