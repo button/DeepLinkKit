@@ -18,7 +18,7 @@ NSString * const DPLAppLinksReferrerAppNameKey   = @"app_name";
 #pragma mark - App Link Properties
 
 - (NSURL *)targetURL {
-    return self.appLinkData[DPLAppLinksTargetURLKey];
+    return [NSURL URLWithString:self.appLinkData[DPLAppLinksTargetURLKey]];
 }
 
 
@@ -40,12 +40,12 @@ NSString * const DPLAppLinksReferrerAppNameKey   = @"app_name";
 #pragma mark - Referrer App Link Properties
 
 - (NSURL *)referrerTargetURL {
-    return self.appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerTargetURLKey];
+    return [NSURL URLWithString:self.appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerTargetURLKey]];
 }
 
 
 - (NSURL *)referrerURL {
-    return self.appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerURLKey];
+    return [NSURL URLWithString:self.appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerURLKey]];
 }
 
 

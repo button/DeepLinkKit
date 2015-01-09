@@ -6,8 +6,8 @@
 
 SpecBegin(DPLDeepLink_AppLinks)
 
-NSDictionary *referrer = @{ DPLAppLinksReferrerTargetURLKey: @"http://btn.io/say",
-                            DPLAppLinksReferrerURLKey:       @"btn://btn.io/say",
+NSDictionary *referrer = @{ DPLAppLinksReferrerTargetURLKey: @"http://dpl.io/say",
+                            DPLAppLinksReferrerURLKey:       @"btn://dpl.io/say",
                             DPLAppLinksReferrerAppNameKey:   @"Button" };
 
 NSDictionary *payload  = @{ DPLAppLinksTargetURLKey: @"http://dpl.io/say",
@@ -24,14 +24,15 @@ describe(@"App Links Properties", ^{
     
     it(@"return values when the deep link is an App Link", ^{
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:appLinkURL];
-        expect(link.targetURL).to.equal(payload[DPLAppLinksTargetURLKey]);
-        expect(link.extras)   .to.equal(payload[DPLAppLinksExtrasKey]);
-        expect(link.version)  .to.equal(payload[DPLAppLinksVersionKey]);
+        expect(link.targetURL.absoluteString).to.equal(payload[DPLAppLinksTargetURLKey]);
+        expect(link.extras).to.equal(payload[DPLAppLinksExtrasKey]);
+        expect(link.version).to.equal(payload[DPLAppLinksVersionKey]);
         expect(link.userAgent).to.equal(payload[DPLAppLinksUserAgentKey]);
         
-        expect(link.referrerTargetURL).to.equal(referrer[DPLAppLinksReferrerTargetURLKey]);
-        expect(link.referrerURL)      .to.equal(referrer[DPLAppLinksReferrerURLKey]);
-        expect(link.referrerAppName)  .to.equal(referrer[DPLAppLinksReferrerAppNameKey]);
+        expect(link.referrerTargetURL.absoluteString).to.equal(referrer[DPLAppLinksReferrerTargetURLKey]);
+        expect(link.referrerURL.absoluteString).to.equal(referrer[DPLAppLinksReferrerURLKey]);
+        expect(link.referrerAppName).to.equal(referrer[DPLAppLinksReferrerAppNameKey]);
+        
     });
     
     it(@"return nil when the deep link is NOT an App Link", ^{
