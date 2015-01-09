@@ -121,9 +121,9 @@
         return;
     }
 
-    __block BOOL isHandled = NO;
     NSError      *error;
     DPLDeepLink  *deepLink;
+    __block BOOL isHandled = NO;
     for (NSString *route in self.routes) {
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];

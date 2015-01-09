@@ -20,7 +20,6 @@ describe(@"Initialization", ^{
         expect(link).to.beNil();
     });
     
-    
     it(@"has a callback url when a dpl_callback_url is present", ^{
         
         NSString *callBackURLString = @"btn://dpl.io/say/hi";

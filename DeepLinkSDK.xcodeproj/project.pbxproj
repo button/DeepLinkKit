@@ -419,14 +419,14 @@
 		DEAD327219E079D3003C8D65 /* ReceiverDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DE025EAD1A5F0D01007C4F3A /* ProductData */,
+				DE025EAC1A5F0CD3007C4F3A /* ProductDetail */,
+				DE99EF7A1A3B844000CE3449 /* ProductList */,
+				DE87B1EB1A5DEF3100204A35 /* RouteHandlers */,
 				DEAD327719E079D3003C8D65 /* DPLReceiverAppDelegate.h */,
 				DEAD327819E079D3003C8D65 /* DPLReceiverAppDelegate.m */,
-				DE025EAD1A5F0D01007C4F3A /* ProductData */,
-				DE99EF7A1A3B844000CE3449 /* ProductList */,
-				DE025EAC1A5F0CD3007C4F3A /* ProductDetail */,
-				DE87B1EB1A5DEF3100204A35 /* RouteHandlers */,
-				DEAD327519E079D3003C8D65 /* Main.storyboard */,
 				DEAD327D19E079D3003C8D65 /* Images.xcassets */,
+				DEAD327519E079D3003C8D65 /* Main.storyboard */,
 				DE99EF7B1A3B845F00CE3449 /* SupportingFiles */,
 			);
 			path = ReceiverDemo;
@@ -465,9 +465,9 @@
 		DEDB148E1A3F944D00A837F8 /* SenderDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DEE40E5B1A42ABC10097EA33 /* ActionDataSource */,
 				DEDB14931A3F944D00A837F8 /* DPLSenderAppDelegate.h */,
 				DEDB14941A3F944D00A837F8 /* DPLSenderAppDelegate.m */,
-				DEE40E5B1A42ABC10097EA33 /* ActionDataSource */,
 				DEDB14961A3F944D00A837F8 /* DPLActionsViewController.h */,
 				DEDB14971A3F944D00A837F8 /* DPLActionsViewController.m */,
 				DEDB14991A3F944D00A837F8 /* Main.storyboard */,

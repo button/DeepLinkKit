@@ -30,22 +30,8 @@ typedef BOOL(^DPLApplicationCanHandleDeepLinksBlock)(void);
 typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 
 
+
 @interface DPLDeepLinkRouter : NSObject
-
-
-///--------------------
-/// @name Configuration
-///--------------------
-
-
-/**
- Sets a block which, when executed, returns whether your application is in a state where it can handle deep links.
- @param applicationCanHandleDeepLinksBlock A block to be executed for each URL received by the application.
- @discussion By default, all matched URLs will be handled. If you require disabling deep link support based
- on some application state (e.g. no user logged in) then you should provide a block to this method.
- */
-- (void)setApplicationCanHandleDeepLinksBlock:(DPLApplicationCanHandleDeepLinksBlock)applicationCanHandleDeepLinksBlock;
-
 
 
 ///-------------------------
@@ -84,6 +70,37 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 
 
 
+///-------------------------
+/// @name Routing Deep Links
+///-------------------------
+
+
+/**
+ Attempts to handle an incoming URL.
+ @param url The incoming URL from `application:didFinishLaunchingWithOptions:' or `application:openURL:sourceApplication:annotation:'
+ @param completionHandler A block executed after the deep link has been handled.
+ 
+ @see DPLRouteCompletionBlock
+ */
+- (void)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler;
+
+
+
+///--------------------
+/// @name Configuration
+///--------------------
+
+
+/**
+ Sets a block which, when executed, returns whether your application is in a state where it can handle deep links.
+ @param applicationCanHandleDeepLinksBlock A block to be executed for each URL received by the application.
+ @discussion By default, all matched URLs will be handled. If you require disabling deep link support based
+ on some application state (e.g. no user logged in) then you should provide a block to this method.
+ */
+- (void)setApplicationCanHandleDeepLinksBlock:(DPLApplicationCanHandleDeepLinksBlock)applicationCanHandleDeepLinksBlock;
+
+
+
 ///-------------------------------------------------
 /// @name Route Registration via Object Subscripting
 ///-------------------------------------------------
@@ -112,21 +129,5 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  @note The type of the returned handler is the type you registered for that route.
  */
 - (id)objectForKeyedSubscript:(id <NSCopying>)key;
-
-
-
-///-------------------------
-/// @name Routing Deep Links
-///-------------------------
-
-
-/**
- Attempts to handle an incoming URL.
- @param url The incoming URL from `application:didFinishLaunchingWithOptions:' or `application:openURL:sourceApplication:annotation:'
- @param completionHandler A block executed after the deep link has been handled.
- 
- @see DPLRouteCompletionBlock
- */
-- (void)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler;
 
 @end

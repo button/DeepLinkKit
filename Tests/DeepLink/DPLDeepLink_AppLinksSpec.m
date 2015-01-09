@@ -17,7 +17,7 @@ NSDictionary *payload  = @{ DPLAppLinksTargetURLKey: @"http://dpl.io/say",
                             DPLAppLinksReferrerAppLinkKey: referrer };
 
 NSString *payloadString = [[NSString DPL_stringWithJSONObject:payload] DPL_stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-NSString *URLString = [NSString stringWithFormat:@"dpl://deeplink?al_applink_data=%@", payloadString];
+NSString *URLString = [NSString stringWithFormat:@"dpl://applinks?al_applink_data=%@", payloadString];
 NSURL *appLinkURL   = [NSURL URLWithString:URLString];
 
 describe(@"App Links Properties", ^{

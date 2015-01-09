@@ -3,7 +3,7 @@
 #import "DPLDeepLink.h"
 
 NSURL *URLWithPath(NSString *path) {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"DPL://DPL.com%@", path]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"dpl://dpl.com%@", path]];
 }
 
 SpecBegin(DPLRouteMatcher)
