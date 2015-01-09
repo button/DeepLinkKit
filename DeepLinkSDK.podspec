@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "DeepLinkSDK"
   s.version          = "0.1.0"
-  s.summary          = "A splendid route matching block-based way to handle your deep links."
+  s.summary          = "A splendid route-matching, block-based way to handle your deep links."
   s.description      = <<-DESC
                        The Button DeepLink SDK removes a all of the hard work of deciding how to uniformly handle incoming
                        deep links in your app. Rather than decide how to format your URLs, parse them, pass data, and navigate
