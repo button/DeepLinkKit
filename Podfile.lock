@@ -1,7 +1,7 @@
 PODS:
-  - DeepLinkSDK (0.0.1)
+  - DeepLinkSDK (0.1.0)
   - Expecta (0.3.1)
-  - OCMock (3.1.1)
+  - OCMock (3.1.2)
   - Specta (0.3.0.beta1)
 
 DEPENDENCIES:
@@ -23,9 +23,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/specta/specta.git
 
 SPEC CHECKSUMS:
-  DeepLinkSDK: 6406d20f457c28eccc2699933d563cf06c517de8
+  DeepLinkSDK: 4bb34acef640afcf3513dc00f8afd57bd4a7bd8e
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
-  OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
+  OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
   Specta: 63e8ac8e07db6675c7096d37f77a266a1be4c02d
 
 COCOAPODS: 0.35.0

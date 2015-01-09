@@ -1,6 +1,6 @@
 # DeepLinkSDK
 
-[![CI Status](http://img.shields.io/travis/Wes Smith/DeepLinkSDK.svg?style=flat)](https://travis-ci.org/Wes Smith/DeepLinkSDK)
+[![CI Status](http://img.shields.io/travis/usebutton/DeepLinkSDK.svg?style=flat)](https://travis-ci.org/usebutton/DeepLinkSDK)
 [![Version](https://img.shields.io/cocoapods/v/DeepLinkSDK.svg?style=flat)](http://cocoadocs.org/docsets/DeepLinkSDK)
 [![License](https://img.shields.io/cocoapods/l/DeepLinkSDK.svg?style=flat)](http://cocoadocs.org/docsets/DeepLinkSDK)
 [![Platform](https://img.shields.io/cocoapods/p/DeepLinkSDK.svg?style=flat)](http://cocoadocs.org/docsets/DeepLinkSDK)
@@ -24,4 +24,4 @@ Button, Inc.
 
 ## License
 
-DeepLinkSDK is available under a private license. Contact Button for more info.
+DeepLinkSDK is available under the MIT license. See the LICENSE file for more info.
