@@ -55,7 +55,7 @@
 
 
 - (DPLDemoAction *)logHelloWorldAction {
-    NSDictionary *payload = @{ DPLAppLinksTargetURLKey: @"http://dpl.button.com/say/Hello/World" };
+    NSDictionary *payload = @{ DPLAppLinksTargetURLKey: @"http://dpl.io/say/Hello/World" };
     
     NSString *payloadString = [[NSString DPL_stringWithJSONObject:payload]
                                DPL_stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

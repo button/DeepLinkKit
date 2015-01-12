@@ -47,8 +47,25 @@
  @note The default implementation returns your application's root view controller.
  
  @param deepLink A deep link instance.
- @return A view controller for presenting a deep link target view controller.
+ @return A view controller for presenting a target view controller.
  */
 - (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink;
+
+
+/**
+ Displays the target view controller via the presenting view controller.
+ @note This method should only be overridden if you're looking for maximum flexibility in
+ presenting your view controller. 
+ 
+ @discussion By default, the `targetViewController' is presented modally when the
+ presenting view controller is anything but a UINavigationController. If the presenting view controller 
+ is a UINavigationController and `-preferModalPresentation' returns NO, the `targetViewController' is 
+ pushed or placed into the stack replacing any pre-existing instances of the same class. If the `targetViewController' instance is already in the stack, it will become the `topViewController'.
+ 
+ @param targetViewController A view controller conforming to the `DPLTargetViewController' protocol.
+ @param presentingViewController A view controller for presenting a target view controller.
+ */
+- (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
+                   inViewController:(UIViewController *)presentingViewController;
 
 @end
