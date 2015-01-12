@@ -11,11 +11,11 @@
 <a href="http://cocoadocs.org/docsets/ios-deeplink-sdk"><img src="https://img.shields.io/cocoapods/p/ios-deeplink-sdk.svg?style=flat" alt="Platform" /></a>
 </p>
 
-
-
 ## Overview
 
 The Button DeepLink SDK is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this SDK and a few lines of code will get you on your way.
+
+[Full Documentation](http://www.usebutton.com/sdk/deep-links/integration-guide)
 
 ## Usage
 
@@ -61,7 +61,7 @@ self.router[@"log/:message"] = ^(DPLDeepLink *link) {
   [self.router handleURL:url withCompletion:NULL];
 }
 ````
-Learn more about the DeepLinkSDK by reading our [Integration Guide](http://www.usebutton.com/sdk/deep-links).
+Learn more about the DeepLinkSDK by reading our [Integration Guide](http://www.usebutton.com/sdk/deep-links/integration-guide).
 
 
 ## Examples
