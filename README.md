@@ -79,9 +79,10 @@ it, simply add the following line to your Podfile:
 
     pod "DeepLinkSDK"
 
-## Author
+## Authors
 
-Button, Inc.
+[Wes Smith](http://twitter.com/w5mith)
+[Chris Maddern](http://twitter.com/chrismaddern)
 
 ## License
 
