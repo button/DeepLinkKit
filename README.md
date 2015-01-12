@@ -8,7 +8,7 @@
 
 ## Overview
 
-The Button DeepLink SDK removes a all of the hard work of deciding how to uniformly handle incoming deep links in your app. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this SDK and a few lines of code will get you on your way.
+The Button DeepLink SDK is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this SDK and a few lines of code will get you on your way.
 
 ## Usage
 
