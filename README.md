@@ -81,7 +81,7 @@ it, simply add the following line to your Podfile:
 
 ## Authors
 
-[Wes Smith](http://twitter.com/w5mith)
+[Wes Smith](http://twitter.com/w5mith)<br />
 [Chris Maddern](http://twitter.com/chrismaddern)
 
 ## License
