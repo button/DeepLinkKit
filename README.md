@@ -1,9 +1,16 @@
-# DeepLinkSDK
+<p align="center"><img src="https://cloud.githubusercontent.com/assets/1057077/5712062/47dbd414-9a7d-11e4-8829-bd8513bd624b.png" width="204"/>
 
-[![CI Status](http://img.shields.io/travis/usebutton/ios-deeplink-sdk.svg?style=flat)](https://travis-ci.org/sebutton/ios-deeplink-sdk)
-[![Version](https://img.shields.io/cocoapods/v/ios-deeplink-sdk.svg?style=flat)](http://cocoadocs.org/docsets/ios-deeplink-sdk)
-[![License](https://img.shields.io/cocoapods/l/ios-deeplink-sdk.svg?style=flat)](http://cocoadocs.org/docsets/ios-deeplink-sdk)
-[![Platform](https://img.shields.io/cocoapods/p/ios-deeplink-sdk.svg?style=flat)](http://cocoadocs.org/docsets/ios-deeplink-sdk)
+</p>
+<h1 align="center">DeepLink SDK</h1>
+
+
+<p align="center">
+<a href="https://travis-ci.org/usebutton/ios-deeplink-sdk"><img src="http://img.shields.io/travis/usebutton/ios-deeplink-sdk.svg?style=flat" alt="CI Status" /></a>
+<a href="http://cocoadocs.org/docsets/ios-deeplink-sdk"><img src="https://img.shields.io/cocoapods/v/ios-deeplink-sdk.svg?style=flat" alt="Version" /></a>
+<a href="http://cocoadocs.org/docsets/ios-deeplink-sdk"><img src="https://img.shields.io/cocoapods/l/ios-deeplink-sdk.svg?style=flat" alt="License" /></a>
+<a href="http://cocoadocs.org/docsets/ios-deeplink-sdk"><img src="https://img.shields.io/cocoapods/p/ios-deeplink-sdk.svg?style=flat" alt="Platform" /></a>
+</p>
+
 
 
 ## Overview
