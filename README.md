@@ -1,6 +1,6 @@
 # DeepLinkSDK
 
-[![CI Status](http://img.shields.io/travis/sebutton/ios-deeplink-sdk.svg?style=flat)](https://travis-ci.org/sebutton/ios-deeplink-sdk)
+[![CI Status](http://img.shields.io/travis/usebutton/ios-deeplink-sdk.svg?style=flat)](https://travis-ci.org/sebutton/ios-deeplink-sdk)
 [![Version](https://img.shields.io/cocoapods/v/ios-deeplink-sdk.svg?style=flat)](http://cocoadocs.org/docsets/ios-deeplink-sdk)
 [![License](https://img.shields.io/cocoapods/l/ios-deeplink-sdk.svg?style=flat)](http://cocoadocs.org/docsets/ios-deeplink-sdk)
 [![Platform](https://img.shields.io/cocoapods/p/ios-deeplink-sdk.svg?style=flat)](http://cocoadocs.org/docsets/ios-deeplink-sdk)
