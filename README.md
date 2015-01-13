@@ -6,7 +6,7 @@
 
 <p align="center">
 <a href="https://travis-ci.org/usebutton/ios-deeplink-sdk"><img src="http://img.shields.io/travis/usebutton/ios-deeplink-sdk.svg?style=flat" alt="CI Status" /></a>
-<a href="http://cocoadocs.org/docsets/DeepLinkSDK"><img src="https://img.shields.io/cocoapods/v/ios-deeplink-sdk.svg?style=flat" alt="Version" /></a>
+<a href="http://cocoadocs.org/docsets/DeepLinkSDK"><img src="https://img.shields.io/cocoapods/v/DeepLinkSDK.svg?style=flat" alt="Version" /></a>
 <a href="http://cocoadocs.org/docsets/DeepLinkSDK"><img src="https://img.shields.io/cocoapods/l/ios-deeplink-sdk.svg?style=flat" alt="License" /></a>
 <a href="http://cocoadocs.org/docsets/DeepLinkSDK"><img src="https://img.shields.io/cocoapods/p/ios-deeplink-sdk.svg?style=flat" alt="Platform" /></a>
 </p>
