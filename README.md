@@ -29,7 +29,7 @@ Add deep link support to your app in 5 minutes or less following these simple st
 
 ````objc
 - (BOOL)application:(UIApplication *)application 
-didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
   self.router = [[DPLDeepLinkRouter alloc] init];
 
