@@ -42,23 +42,14 @@ self.router[@"log/:message"] = ^(DPLDeepLink *link) {
 #####4. Pass incoming URLs to the router:
 
 ````objc
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    self.router = [[DPLDeepLinkRouter alloc] init];
-    self.router[@"log/:message"] = ^(DPLDeepLink *link) {
-        NSLog(@"%@", link.routeParameters[@"message"]);
-    };
-
-    NSURL *incomingURL = launchOptions[UIApplicationLaunchOptionsURLKey];
-    [self.router handleURL:incomingURL withCompletion:NULL];
-
-    return YES;
-}
-
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
 
   [self.router handleURL:url withCompletion:NULL];
+
+  return YES;
 }
 ````
 Learn more about the DeepLinkSDK by reading our [Integration Guide](http://www.usebutton.com/sdk/deep-links/integration-guide).
