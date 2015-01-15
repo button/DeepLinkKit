@@ -57,7 +57,7 @@ Learn more about the DeepLinkSDK by reading our [Integration Guide](http://www.u
 
 ## Examples
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, run `pod try DeepLinkSDK` in your terminal. You can also clone the repo, and run `pod install` from the project root. If you don't have CocoaPods, begin by [follow this guide](http://guides.cocoapods.org/using/getting-started.html).
 
 There are two demo apps, `SenderDemo`, and `ReceiverDemo`. `ReceiverDemo` has some registered routes that will handle specific deep links. `SenderDemo` has a couple actions that will deep link out to `ReceiverDemo` for fulfillment.
 
