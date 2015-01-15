@@ -21,25 +21,31 @@ The Button DeepLink SDK is a splendid route-matching, block-based way to handle 
 
 Add deep link support to your app in 5 minutes or less following these simple steps.
 <br /><br />
-#####1. Make sure you have a URL scheme registered for your app in your Info.plist:
+**1. Make sure you have a URL scheme registered for your app in your Info.plist**
 <img src="https://cloud.githubusercontent.com/assets/1057077/5710380/8d913f3e-9a6f-11e4-83a2-49f6564d7a8f.png" width="410" />
 
 <br />
-#####2. Create an instance of `DPLDeepLinkRouter` in `application:didFinishLaunchingWithOptions:`
+**2. Create an instance of `DPLDeepLinkRouter` in your app delegate**
 
 ````objc
-self.router = [[DPLDeepLinkRouter alloc] init];
+- (BOOL)application:(UIApplication *)application 
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+  self.router = [[DPLDeepLinkRouter alloc] init];
+
+  return YES;
+}
 ````
 <br />
-#####3. Register a route handler:
+**3. Register a route handler**
 
 ````objc
 self.router[@"log/:message"] = ^(DPLDeepLink *link) {
-    NSLog(@"%@", link.routeParameters[@"message"]);
+  NSLog(@"%@", link.routeParameters[@"message"]);
 };
 ````
 <br />
-#####4. Pass incoming URLs to the router:
+**4. Pass incoming URLs to the router**
 
 ````objc
 - (BOOL)application:(UIApplication *)application
