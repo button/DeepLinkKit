@@ -259,6 +259,15 @@
 			path = ProductData;
 			sourceTree = "<group>";
 		};
+		DE03259D1A68107400D31A52 /* ActionsList */ = {
+			isa = PBXGroup;
+			children = (
+				DEDB14961A3F944D00A837F8 /* DPLActionsViewController.h */,
+				DEDB14971A3F944D00A837F8 /* DPLActionsViewController.m */,
+			);
+			path = ActionsList;
+			sourceTree = "<group>";
+		};
 		DE058E0B1A3B484A00147C04 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,11 +474,10 @@
 		DEDB148E1A3F944D00A837F8 /* SenderDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DEE40E5B1A42ABC10097EA33 /* ActionDataSource */,
+				DEE40E5B1A42ABC10097EA33 /* ActionData */,
+				DE03259D1A68107400D31A52 /* ActionsList */,
 				DEDB14931A3F944D00A837F8 /* DPLSenderAppDelegate.h */,
 				DEDB14941A3F944D00A837F8 /* DPLSenderAppDelegate.m */,
-				DEDB14961A3F944D00A837F8 /* DPLActionsViewController.h */,
-				DEDB14971A3F944D00A837F8 /* DPLActionsViewController.m */,
 				DEDB14991A3F944D00A837F8 /* Main.storyboard */,
 				DEDB149C1A3F944D00A837F8 /* Images.xcassets */,
 				DEDB148F1A3F944D00A837F8 /* SupportingFiles */,
@@ -487,7 +495,7 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		DEE40E5B1A42ABC10097EA33 /* ActionDataSource */ = {
+		DEE40E5B1A42ABC10097EA33 /* ActionData */ = {
 			isa = PBXGroup;
 			children = (
 				DEE40E571A42A3F50097EA33 /* DPLDemoAction.h */,
@@ -495,7 +503,7 @@
 				DEE40E5C1A42ABE80097EA33 /* DPLActionDataSource.h */,
 				DEE40E5D1A42ABE80097EA33 /* DPLActionDataSource.m */,
 			);
-			path = ActionDataSource;
+			path = ActionData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
