@@ -23,7 +23,6 @@
     // Route registration.
     self.router[@"product/:sku"] = [DPLProductRouteHandler class];
     
-    
     self.router[@"/say/:title/:message"] = ^(DPLDeepLink *link) {
         [[[UIAlertView alloc] initWithTitle:link.routeParameters[@"title"]
                                     message:link.routeParameters[@"message"]
@@ -31,9 +30,6 @@
                           cancelButtonTitle:NSLocalizedString(@"OK", nil)
                           otherButtonTitles:nil] show];
     };
-    
-    
-    [self.router handleURL:launchOptions[UIApplicationLaunchOptionsURLKey] withCompletion:NULL];
 
     return YES;
 }
