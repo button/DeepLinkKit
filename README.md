@@ -13,7 +13,7 @@
 
 ## Overview
 
-The Button DeepLink SDK is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this SDK and a few lines of code will get you on your way.
+The Button DeepLink SDK is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data and navigate to specific content or perform actions, this SDK and a few lines of code will get you on your way.
 
 [Full Documentation](http://www.usebutton.com/sdk/deep-links/integration-guide)
 
