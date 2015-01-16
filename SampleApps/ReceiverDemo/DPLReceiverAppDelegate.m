@@ -24,8 +24,8 @@
     self.router[@"product/:sku"] = [DPLProductRouteHandler class];
     
     self.router[@"/say/:title/:message"] = ^(DPLDeepLink *link) {
-        [[[UIAlertView alloc] initWithTitle:link.routeParameters[@"title"]
-                                    message:link.routeParameters[@"message"]
+        [[[UIAlertView alloc] initWithTitle:link[@"title"]
+                                    message:link[@"message"]
                                    delegate:nil
                           cancelButtonTitle:NSLocalizedString(@"OK", nil)
                           otherButtonTitles:nil] show];
