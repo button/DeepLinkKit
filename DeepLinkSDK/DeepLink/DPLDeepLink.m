@@ -47,6 +47,15 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
 }
 
 
+- (id)objectForKeyedSubscript:(id <NSCopying>)key {
+    id value = _queryParameters[key];
+    if (!value) {
+        value = _routeParameters[key];
+    }
+    return value;
+}
+
+
 - (NSString *)description {
     return [NSString stringWithFormat:
             @"\n<%@ %p\n"
