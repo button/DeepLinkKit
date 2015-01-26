@@ -157,8 +157,13 @@
             return NO;
         }
         
-        UIViewController *presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
         UIViewController <DPLTargetViewController> *targetViewController = [routeHandler targetViewController];
+        UINavigationController *presentingViewController;
+        if (routeHandler.presentingControllerContainingNavigationController) {
+            presentingViewController = [routeHandler navigationControllerForPresentingDeepLink:deepLink];
+        } else {
+            presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
+        }
         
         if (targetViewController) {
             [targetViewController configureWithDeepLink:deepLink];
