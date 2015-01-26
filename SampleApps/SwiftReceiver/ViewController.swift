@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  SwiftReceiver
-//
-//  Created by Wes on 1/21/15.
-//  Copyright (c) 2015 Button, Inc. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -20,6 +12,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    
 }
 
