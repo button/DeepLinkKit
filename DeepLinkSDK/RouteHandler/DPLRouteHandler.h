@@ -19,6 +19,13 @@
 @interface DPLRouteHandler : NSObject
 
 /**
+ When your `presentingController' contains the `UINavigationController' you want to use as your 
+ presentingController, or you want to deep link into your navigation controller's stack.
+ Set this property to YES.
+ */
+@property (nonatomic, assign) BOOL presentingControllerContainingNavigationController;
+
+/**
  Indicates whether the deep link should be handled.
  @param deepLink A deep link instance.
  @return YES to proceed with handling the deep link, otherwise NO. The default is YES.
@@ -51,6 +58,10 @@
  */
 - (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink;
 
+/**
+ returns the first `UINavigationController'
+ */
+- (UINavigationController *)navigationControllerForPresentingDeepLink:(DPLDeepLink *)deepLink;
 
 /**
  Displays the target view controller via the presenting view controller.

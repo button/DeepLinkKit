@@ -21,6 +21,19 @@
     return [UIApplication sharedApplication].keyWindow.rootViewController;
 }
 
+- (UINavigationController *)navigationControllerForPresentingDeepLink:(DPLDeepLink *)deepLink {
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    NSArray *children = [rootViewController childViewControllers];
+    
+    for (UIViewController *controller  in children) {
+        if ([controller isKindOfClass:[UINavigationController class]]) {
+            return (UINavigationController *)controller;
+        }
+    }
+    return [children lastObject];
+
+}
 
 - (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
                    inViewController:(UIViewController *)presentingViewController {
