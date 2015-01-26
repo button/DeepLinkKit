@@ -23,7 +23,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/specta/specta.git
 
 SPEC CHECKSUMS:
-  DeepLinkSDK: f9f74c4dd2a2fccdc5ab54c2f1f0d4a839132b68
+  DeepLinkSDK: fe9d9707bfb1d721e2c3a2b2f28716b6008893c4
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
   Specta: 63e8ac8e07db6675c7096d37f77a266a1be4c02d

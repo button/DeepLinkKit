@@ -14,5 +14,7 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '6.0'
   s.requires_arc     = true
 
+  s.xcconfig         = { 'DEFINES_MODULE' => true,
+                         'SWIFT_OBJC_BRIDGING_HEADER' => '${SRCROOT}/DeepLinkSDK/DeepLinkSDK-Bridging-Header.h' }
   s.source_files     = 'DeepLinkSDK/**/*.{h,m}'
 end
