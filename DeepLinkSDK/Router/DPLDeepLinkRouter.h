@@ -48,13 +48,13 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  For example, you can register a class for a route as follows:
  @code deepLinkRouter[@"table/book/:id"] = [MyBookingRouteHandler class]; @endcode
  */
-- (void)registerHandlerClass:(Class <DPLRouteHandler>)handlerClass forRoute:(NSString *)route;
+- (void)registerRoute:(NSString *)route routeHandlerClass:(Class <DPLRouteHandler>)handlerClass;
 
 
 /**
  Registers a block for a given route.
- @param routeHandlerBlock A block to be executed when the specified route is matched.
  @param route The route (e.g. @"table/book/:id", @"ride/book", etc) that when matched executes the registered block to handle the deep link.
+ @param handlerBlock A block to be executed when the specified route is matched.
  
  @discussion You can also use the object literal syntax to register routes.
  For example, you can register a route handler block as follows:
@@ -66,7 +66,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  @note Registering a class conforming to `DPLDeepLinkRouteHandler' is the preferred method of route registration. 
  Only register blocks for trivial cases or for actions that do not require UI presentation.
  */
-- (void)registerBlock:(DPLRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route;
+- (void)registerRoute:(NSString *)route routeHandler:(DPLRouteHandlerBlock)handlerBlock;
 
 
 

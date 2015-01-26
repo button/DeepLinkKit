@@ -44,7 +44,7 @@
 
 #pragma mark - Registering Routes
 
-- (void)registerHandlerClass:(Class <DPLRouteHandler>)handlerClass forRoute:(NSString *)route {
+- (void)registerRoute:(NSString *)route routeHandlerClass:(Class <DPLRouteHandler>)handlerClass {
 
     route = [route DPL_trimPath];
     
@@ -56,14 +56,14 @@
 }
 
 
-- (void)registerBlock:(DPLRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route {
+- (void)registerRoute:(NSString *)route routeHandler:(DPLRouteHandlerBlock)handlerBlock {
 
     route = [route DPL_trimPath];
     
-    if (routeHandlerBlock && [route length]) {
+    if (handlerBlock && [route length]) {
         [self.routes addObject:route];
         [self.classesByRoute removeObjectForKey:route];
-        self.blocksByRoute[route] = [routeHandlerBlock copy];
+        self.blocksByRoute[route] = [handlerBlock copy];
     }
 }
 
@@ -99,11 +99,11 @@
         [self.blocksByRoute removeObjectForKey:route];
     }
     else if ([obj isKindOfClass:NSClassFromString(@"NSBlock")]) {
-        [self registerBlock:obj forRoute:route];
+        [self registerRoute:route routeHandler:obj];
     }
     else if (class_isMetaClass(object_getClass(obj)) &&
              [obj isSubclassOfClass:[DPLRouteHandler class]]) {
-        [self registerHandlerClass:obj forRoute:route];
+        [self registerRoute:route routeHandlerClass:obj];
     }
 }
 
