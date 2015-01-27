@@ -4,6 +4,7 @@
 
 @interface DPLRouteMatcher ()
 
+@property (nonatomic, copy)   NSString *host;
 @property (nonatomic, copy)   NSString *route;
 @property (nonatomic, strong) NSArray  *routeParts;
 
@@ -23,7 +24,13 @@
     
     self = [super init];
     if (self) {
-        _route      = route;
+        NSUInteger hostIdx = [route rangeOfString:@"]"].location;
+        if ([route rangeOfString:@"["].location == 0 && hostIdx != NSNotFound) {
+            _host = [route substringWithRange:NSMakeRange(1, hostIdx - 1)];
+            _route = [route substringFromIndex:hostIdx + 1];
+        } else {
+            _route      = route;
+        }
         _routeParts = [_route componentsSeparatedByString:@"/"];
     }
     
@@ -37,6 +44,9 @@
     }
     
     DPLDeepLink *deepLink = [[DPLDeepLink alloc] initWithURL:url];
+    if (_host != nil && ![[deepLink.URL host] isEqualToString:_host]) {
+        return nil;
+    }
     
     NSArray *pathParts = [[[deepLink.URL path] DPL_trimPath] componentsSeparatedByString:@"/"];
     if ([pathParts count] != [self.routeParts count]) {
