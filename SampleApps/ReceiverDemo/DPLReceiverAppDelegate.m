@@ -21,7 +21,7 @@
     self.router = [[DPLDeepLinkRouter alloc] init];
    
     // Route registration.
-    self.router[@"product/:sku"] = [DPLProductRouteHandler class];
+    self.router[@"/product/:sku"] = [DPLProductRouteHandler class];
     
     self.router[@"/say/:title/:message"] = ^(DPLDeepLink *link) {
         [[[UIAlertView alloc] initWithTitle:link.routeParameters[@"title"]

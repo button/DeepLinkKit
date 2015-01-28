@@ -5,7 +5,6 @@
 @interface DPLRouteMatcher ()
 
 @property (nonatomic, copy)   NSString *host;
-@property (nonatomic, copy)   NSString *route;
 @property (nonatomic, strong) NSArray  *routeParts;
 
 @end
@@ -24,14 +23,18 @@
     
     self = [super init];
     if (self) {
-        NSUInteger hostIdx = [route rangeOfString:@"]"].location;
-        if ([route rangeOfString:@"["].location == 0 && hostIdx != NSNotFound) {
-            _host = [route substringWithRange:NSMakeRange(1, hostIdx - 1)];
-            _route = [route substringFromIndex:hostIdx + 1];
+        NSUInteger firstSlash = [route rangeOfString:@"/"].location;
+        if (firstSlash == 0) {
+            route       = [route substringFromIndex:1];
+            _routeParts = [route componentsSeparatedByString:@"/"];
         } else {
-            _route      = route;
+            NSArray * routeParts = [route componentsSeparatedByString:@"/"];
+            _host = [routeParts objectAtIndex:0];
+            _routeParts = [routeParts subarrayWithRange:NSMakeRange(1, routeParts.count - 1)];
+            if ([_routeParts count] == 0) {
+                _routeParts = @[ @"" ];
+            }
         }
-        _routeParts = [_route componentsSeparatedByString:@"/"];
     }
     
     return self;

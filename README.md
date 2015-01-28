@@ -40,7 +40,7 @@ Add deep link support to your app in 5 minutes or less following these simple st
 **3. Register a route handler**
 
 ````objc
-self.router[@"log/:message"] = ^(DPLDeepLink *link) {
+self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
   NSLog(@"%@", link.routeParameters[@"message"]);
 };
 ````
