@@ -1,6 +1,14 @@
 #import "DPLRouteHandler.h"
 
+static UIViewController *dpl_defaultPresentingViewController;
+
 @implementation DPLRouteHandler
+
+
++ (void)setDefaultPresentingViewController:(UIViewController *)viewController {
+    dpl_defaultPresentingViewController = viewController;
+}
+
 
 - (BOOL)shouldHandleDeepLink:(DPLDeepLink *)deepLink {
     return YES;
@@ -18,12 +26,18 @@
 
 
 - (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink {
-    return [UIApplication sharedApplication].keyWindow.rootViewController;
+    return nil;
 }
 
 
 - (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
                    inViewController:(UIViewController *)presentingViewController {
+    
+    if (!presentingViewController) {
+        presentingViewController = dpl_defaultPresentingViewController ?:
+        [UIApplication sharedApplication].keyWindow.rootViewController;
+    }
+
     
     if ([self preferModalPresentation] ||
         ![presentingViewController isKindOfClass:[UINavigationController class]]) {

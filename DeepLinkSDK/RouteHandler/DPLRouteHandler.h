@@ -19,6 +19,13 @@
 @interface DPLRouteHandler : NSObject
 
 /**
+ Sets a default view controller to be the view controller for presenting deep links.
+ @note By default, the `targetViewController' will be presented by your application's root view controller.
+ */
++ (void)setDefaultPresentingViewController:(UIViewController *)viewController;
+
+
+/**
  Indicates whether the deep link should be handled.
  @param deepLink A deep link instance.
  @return YES to proceed with handling the deep link, otherwise NO. The default is YES.
@@ -44,7 +51,11 @@
 
 /**
  Specifies the view controller from which to present a `targetViewController'.
- @note The default implementation returns your application's root view controller.
+ @note The default implementation returns nil and your application's root view controller
+ will be used to present the `targetViewController`. Override this method if you require a
+ specific presenting view controller based on the deep link. Otherwise, you can set a default
+ presenting view controller via `+setDefaultPresentingViewController:'
+ @see +setDefaultPresentingViewController:
  
  @param deepLink A deep link instance.
  @return A view controller for presenting a target view controller.
