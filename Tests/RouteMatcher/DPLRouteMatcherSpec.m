@@ -24,21 +24,35 @@ describe(@"Matching Routes", ^{
         expect(deepLink).toNot.beNil();
     });
     
-    it(@"does NOT return a deep link when a URL matches a host", ^{
+    it(@"does NOT return a deep link when a host does NOT match the URL host", ^{
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"dpl2.com"];
         NSURL *url = URLWithPath(@"");
         DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
         expect(deepLink).to.beNil();
     });
     
+    it(@"returns a deep link when a URL matches a host and path", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"dpl.com/table"];
+        NSURL *url = URLWithPath(@"/table");
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+        expect(deepLink).toNot.beNil();
+    });
+    
+    it(@"does NOT return a deep link when a host matches and a path does NOT match", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"dpl.com/ride"];
+        NSURL *url = URLWithPath(@"/table");
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+        expect(deepLink).to.beNil();
+    });
+    
     it(@"returns a deep link when a URL matches a parameterized route", ^{
-        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"/table/book/:id"];
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"dpl.com/table/book/:id"];
         NSURL *url = URLWithPath(@"/table/book/abc123");
         DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
         expect(deepLink).toNot.beNil();
     });
     
-    it(@"does NOT return a deep link when the URL and route dont match", ^{
+    it(@"does NOT return a deep link when the URL and route don't match", ^{
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"/table/book"];
         NSURL *url = URLWithPath(@"/table/book/abc123");
         DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
