@@ -18,12 +18,12 @@ The Button DeepLink SDK is a splendid route-matching, block-based way to handle 
 [Full Documentation](http://www.usebutton.com/sdk/deep-links/integration-guide)
 
 ## Usage
-
-<div style="width:100%; background-color:#fff9ea;color:#888;padding:10px;border:1px solid #eee;">
-Note: As of `0.2.0`, in all registered routes, paths are considered to begin at the first forward slash. A route component before the first forward slash will be considered the host.
-</div>
-
 Add deep link support to your app in 5 minutes or less following these simple steps.
+
+<em><strong>Note:</strong> As of `0.2.0`, in all registered routes, paths are considered to begin at the first forward slash. A route component before the first forward slash will be considered the host.</em>
+
+
+
 <br /><br />
 **1. Make sure you have a URL scheme registered for your app in your Info.plist**
 <img src="https://cloud.githubusercontent.com/assets/1057077/5710380/8d913f3e-9a6f-11e4-83a2-49f6564d7a8f.png" width="410" />
