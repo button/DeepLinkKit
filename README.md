@@ -18,8 +18,12 @@ The Button DeepLink SDK is a splendid route-matching, block-based way to handle 
 [Full Documentation](http://www.usebutton.com/sdk/deep-links/integration-guide)
 
 ## Usage
-
 Add deep link support to your app in 5 minutes or less following these simple steps.
+
+<em><strong>Note:</strong> As of `0.2.0`, in all registered routes, paths are considered to begin at the first forward slash. A route component before the first forward slash will be considered the host.</em>
+
+
+
 <br /><br />
 **1. Make sure you have a URL scheme registered for your app in your Info.plist**
 <img src="https://cloud.githubusercontent.com/assets/1057077/5710380/8d913f3e-9a6f-11e4-83a2-49f6564d7a8f.png" width="410" />
@@ -28,7 +32,7 @@ Add deep link support to your app in 5 minutes or less following these simple st
 **2. Create an instance of `DPLDeepLinkRouter` in your app delegate**
 
 ````objc
-- (BOOL)application:(UIApplication *)application 
+- (BOOL)application:(UIApplication *)application
         didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
   self.router = [[DPLDeepLinkRouter alloc] init];
@@ -60,8 +64,38 @@ self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
 ````
 Learn more about the DeepLinkSDK by reading our [Integration Guide](http://www.usebutton.com/sdk/deep-links/integration-guide).
 
+## Route Registration Examples
 
-## Examples
+URLs coming into your app will be in a similar format to the following:
+`<scheme>://<host>/<path-component>/<path-component>`
+
+When registering routes, it's important to note that the first forward slash in your registered route determines the start of the path to be matched. A route component before the first forward slash will be considered to be the host.
+
+Say you have an incoming URL of `twitter://timeline`
+
+```
+
+// Matches the URL.
+router[@"timeline"] = ^{ … }
+
+// Does not match the URL.
+router[@"/timeline"] = ^{ … }
+```
+
+In another example, a URL of `twitter://dpl.com/timeline`
+
+```
+// Matches the URL.
+router[@"/timeline"] = ^{ … }
+
+// Does not match the URL.
+router[@"timeline"] = ^{ … }
+
+```
+
+
+
+## Running the Demo
 
 To run the example project, run `pod try DeepLinkSDK` in your terminal. You can also clone the repo, and run `pod install` from the project root. If you don't have CocoaPods, begin by [follow this guide](http://guides.cocoapods.org/using/getting-started.html).
 
