@@ -4,8 +4,8 @@
 
 @interface DPLRouteMatcher ()
 
-@property (nonatomic, copy)   NSString *host;
-@property (nonatomic, strong) NSArray  *routeParts;
+@property (nonatomic, copy) NSString  *host;
+@property (nonatomic, strong) NSArray *routeParts;
 
 @end
 
@@ -23,18 +23,17 @@
     
     self = [super init];
     if (self) {
-        NSUInteger firstSlash = [route rangeOfString:@"/"].location;
-        if (firstSlash == 0) {
-            route       = [route substringFromIndex:1];
-            _routeParts = [route componentsSeparatedByString:@"/"];
-        } else {
-            NSArray * routeParts = [route componentsSeparatedByString:@"/"];
-            _host = [routeParts objectAtIndex:0];
-            _routeParts = [routeParts subarrayWithRange:NSMakeRange(1, routeParts.count - 1)];
-            if ([_routeParts count] == 0) {
-                _routeParts = @[ @"" ];
-            }
+        
+        NSMutableArray *parts = [[route componentsSeparatedByString:@"/"] mutableCopy];
+        
+        if ([route rangeOfString:@"/"].location != 0) {
+            _host = [parts firstObject];
         }
+        
+        // Remove the host/empty string.
+        [parts removeObjectAtIndex:0];
+        
+        _routeParts = parts;
     }
     
     return self;
@@ -46,14 +45,18 @@
         return nil;
     }
     
-    DPLDeepLink *deepLink = [[DPLDeepLink alloc] initWithURL:url];
-    if (_host != nil && ![[deepLink.URL host] isEqualToString:_host]) {
+    DPLDeepLink *deepLink     = [[DPLDeepLink alloc] initWithURL:url];
+    NSMutableArray *pathParts = [[deepLink.URL pathComponents] mutableCopy];
+    [pathParts removeObject:@"/"];
+    
+    BOOL isPathCountMatch = (pathParts.count == self.routeParts.count);
+    BOOL isHostMatch      = !(self.host && ![self.host isEqualToString:deepLink.URL.host]);
+    
+    if (!isPathCountMatch || !isHostMatch) {
         return nil;
     }
-    
-    NSArray *pathParts = [[[deepLink.URL path] DPL_trimPath] componentsSeparatedByString:@"/"];
-    if ([pathParts count] != [self.routeParts count]) {
-        return nil;
+    else if (isHostMatch && self.routeParts.count == 0) {
+        return deepLink;
     }
     
     __block BOOL isMatch = NO;

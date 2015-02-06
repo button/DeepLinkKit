@@ -8,6 +8,7 @@ NSURL *URLWithPath(NSString *path) {
 
 SpecBegin(DPLRouteMatcher)
 
+
 describe(@"Matching Routes", ^{
     
     it(@"returns a deep link when a URL matches a route", ^{
@@ -27,6 +28,13 @@ describe(@"Matching Routes", ^{
     it(@"does NOT return a deep link when a host does NOT match the URL host", ^{
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"dpl2.com"];
         NSURL *url = URLWithPath(@"");
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+        expect(deepLink).to.beNil();
+    });
+    
+    it(@"does NOT return a deep link when a host does NOT match and path does match", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"dpl2.com/table/:id"];
+        NSURL *url = URLWithPath(@"/table/abc123");
         DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
         expect(deepLink).to.beNil();
     });
