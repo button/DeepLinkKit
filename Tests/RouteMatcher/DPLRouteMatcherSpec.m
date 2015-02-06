@@ -101,6 +101,17 @@ describe(@"Matching Routes", ^{
         DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
         expect(deepLink).to.beNil();
     });
+    
+    it(@"matches a wildcard deep link", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@".*"];
+        NSURL *url = URLWithPath(@"/table/book/abc123/1418931000");
+        NSURL *url2 = URLWithPath(@"/abc123");
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+        expect(deepLink).notTo.beNil();
+
+        DPLDeepLink *deepLink2 = [matcher deepLinkWithURL:url2];
+        expect(deepLink2).notTo.beNil();
+    });
 });
 
 SpecEnd

@@ -2,10 +2,13 @@
 #import "DPLDeepLink_Private.h"
 #import "NSString+DPLTrim.h"
 
+static NSString * const DPLParameterRegexString = @":[a-zA-Z0-9-_]+";
+
 @interface DPLRouteMatcher ()
 
-@property (nonatomic, copy) NSString  *host;
-@property (nonatomic, strong) NSArray *routeParts;
+@property (nonatomic, copy) NSString  *route;
+@property (nonatomic, strong) NSRegularExpression *regex;
+@property (nonatomic, strong) NSMutableArray *routeParamaterNames;
 
 @end
 
@@ -23,20 +26,37 @@
     
     self = [super init];
     if (self) {
-        
-        NSMutableArray *parts = [[route componentsSeparatedByString:@"/"] mutableCopy];
-        
-        if ([route rangeOfString:@"/"].location != 0) {
-            _host = [parts firstObject];
-        }
-        
-        // Remove the host/empty string.
-        [parts removeObjectAtIndex:0];
-        
-        _routeParts = parts;
+        _route = route;
     }
     
     return self;
+}
+
+
+- (NSRegularExpression *)regex {
+    if (!_regex) {
+        _routeParamaterNames = [NSMutableArray array];
+        NSRegularExpression *parameterRegex = [NSRegularExpression regularExpressionWithPattern:DPLParameterRegexString options:0 error:nil];
+        
+        __block NSString *modifiedRoute = [self.route copy];
+        [parameterRegex enumerateMatchesInString:self.route
+                                         options:0
+                                           range:NSMakeRange(0, self.route.length)
+                                      usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                          NSString *stringToReplace = [self.route substringWithRange:result.range];
+                                          NSString *variableName = [stringToReplace stringByReplacingOccurrencesOfString:@":" withString:@""];
+                                          [self.routeParamaterNames addObject:variableName];
+                                          
+                                          NSString *replacementRegex = [NSString stringWithFormat:@"([a-zA-Z0-9-_]+)"];
+                                          
+                                          modifiedRoute = [modifiedRoute stringByReplacingOccurrencesOfString:stringToReplace withString:replacementRegex];
+                                      }];
+        
+        modifiedRoute = [modifiedRoute stringByAppendingString:@"$"];
+        
+        _regex = [NSRegularExpression regularExpressionWithPattern:modifiedRoute options:0 error:nil];
+    }
+    return _regex;
 }
 
 
@@ -45,44 +65,24 @@
         return nil;
     }
     
-    DPLDeepLink *deepLink     = [[DPLDeepLink alloc] initWithURL:url];
-    NSMutableArray *pathParts = [[deepLink.URL pathComponents] mutableCopy];
-    [pathParts removeObject:@"/"];
+    DPLDeepLink *deepLink = [[DPLDeepLink alloc] initWithURL:url];
     
-    BOOL isPathCountMatch = (pathParts.count == self.routeParts.count);
-    BOOL isHostMatch      = !(self.host && ![self.host isEqualToString:deepLink.URL.host]);
+    NSArray *matches = [self.regex matchesInString:[deepLink.URL absoluteString]
+                                           options:0
+                                             range:NSMakeRange(0, [deepLink.URL absoluteString].length)];
     
-    if (!isPathCountMatch || !isHostMatch) {
+    if (![matches count]) {
         return nil;
     }
-    else if (isHostMatch && self.routeParts.count == 0) {
-        return deepLink;
-    }
-    
-    __block BOOL isMatch = NO;
     NSMutableDictionary *routeParameters = [NSMutableDictionary dictionary];
-    
-    [self.routeParts enumerateObjectsUsingBlock:^(NSString *routeComponent, NSUInteger idx, BOOL *stop) {
-        NSString *pathComponent = pathParts[idx];
-        
-        if ([routeComponent rangeOfString:@":"].location == 0) {
-            isMatch = YES;
-            
-            NSString *key = [routeComponent stringByReplacingOccurrencesOfString:@":" withString:@""];
-            routeParameters[key] = pathComponent;
+    for (NSTextCheckingResult *result in matches) {
+        for (int i = 1; i < result.numberOfRanges && i <= self.routeParamaterNames.count; i++) {
+            routeParameters[self.routeParamaterNames[i - 1]] = [[deepLink.URL absoluteString] substringWithRange:[result rangeAtIndex:i]];
         }
-        else if ([pathComponent isEqualToString:routeComponent]) {
-            isMatch = YES;
-        }
-        else {
-            isMatch = NO;
-            *stop   = YES;
-        }
-    }];
-    
+    }
     deepLink.routeParameters = routeParameters;
     
-    return isMatch ? deepLink : nil;
+    return deepLink;
 }
 
 @end
