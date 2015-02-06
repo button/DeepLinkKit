@@ -20,7 +20,7 @@ The Button DeepLink SDK is a splendid route-matching, block-based way to handle 
 ## Usage
 
 <div style="width:100%; background-color:#fff9ea;color:#888;padding:10px;border:1px solid #eee;">
-_**Important note:**_ <br/>As of `0.2.0`, in all registered routes, paths are considered to begin at the first forward slash. A route component before the first forward slash will be considered the host.
+Note: As of `0.2.0`, in all registered routes, paths are considered to begin at the first forward slash. A route component before the first forward slash will be considered the host.
 </div>
 
 Add deep link support to your app in 5 minutes or less following these simple steps.
