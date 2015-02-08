@@ -19,12 +19,12 @@
 }
 
 
-- (id)DPL_JSONObject {
-    return [self DPL_JSONObjectWithError:nil];
+- (id)DPL_decodedJSONObject {
+    return [self DPL_decodedJSONObjectWithError:nil];
 }
 
 
-- (id)DPL_JSONObjectWithError:(NSError *__autoreleasing *)error {
+- (id)DPL_decodedJSONObjectWithError:(NSError *__autoreleasing *)error {
     NSData *JSONData = [self dataUsingEncoding:NSUTF8StringEncoding];
     id JSONObject = [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:error];
     return JSONObject;

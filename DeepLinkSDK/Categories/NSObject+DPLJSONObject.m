@@ -2,7 +2,7 @@
 
 @implementation NSObject (DPLJSONObject)
 
-- (id)DPLJSONObject {
+- (id)DPL_JSONObject {
     return self.description;
 }
 
@@ -11,7 +11,7 @@
 
 @implementation NSNumber (DPLJSONObject)
 
-- (id)DPLJSONObject {
+- (id)DPL_JSONObject {
     if (isnan(self.doubleValue)) {
         return @"nan";
     }
@@ -27,8 +27,7 @@
 
 @implementation NSArray (DPLJSONObject)
 
-- (id)DPLJSONObject {
-
+- (id)DPL_JSONObject {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         return self;
     }
@@ -37,7 +36,7 @@
     
     for (id value in self) {
         if (![value isEqual:[NSNull null]]) {
-            [mutableArray addObject:[value DPLJSONObject]];
+            [mutableArray addObject:[value DPL_JSONObject]];
         }
     }
     
@@ -49,7 +48,7 @@
 
 @implementation NSDictionary (DPLJSONObject)
 
-- (id)DPLJSONObject {
+- (id)DPL_JSONObject {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         return self;
     }
@@ -61,7 +60,7 @@
             [mutableDictionary removeObjectForKey:key];
         }
         else {
-            mutableDictionary[key] = [value DPLJSONObject];
+            mutableDictionary[key] = [value DPL_JSONObject];
         }
     }];
     

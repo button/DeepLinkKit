@@ -26,7 +26,7 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
     if (self) {
         
         NSDictionary *queryParameters = [[url query] DPL_parametersFromQueryString];
-        _appLinkData = [queryParameters[DPLAppLinksDataKey] DPL_JSONObject];
+        _appLinkData = [queryParameters[DPLAppLinksDataKey] DPL_decodedJSONObject];
         if (_appLinkData) {
             _URL             = [NSURL URLWithString:_appLinkData[DPLAppLinksTargetURLKey]];
             _queryParameters = [[_URL query] DPL_parametersFromQueryString];
