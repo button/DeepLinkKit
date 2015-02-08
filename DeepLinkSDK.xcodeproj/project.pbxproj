@@ -124,6 +124,8 @@
 		DEAD328519E079D3003C8D65 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLink_Private.h; sourceTree = "<group>"; };
 		DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkSDK.h; sourceTree = "<group>"; };
+		DECB32501A87E94B0071C76E /* NSObject+DPLJSONObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSObject+DPLJSONObject.h"; path = "DeepLinkSDK/Categories/NSObject+DPLJSONObject.h"; sourceTree = SOURCE_ROOT; };
+		DECB32511A87E94B0071C76E /* NSObject+DPLJSONObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DPLJSONObject.m"; path = "DeepLinkSDK/Categories/NSObject+DPLJSONObject.m"; sourceTree = SOURCE_ROOT; };
 		DEDB148D1A3F944D00A837F8 /* SenderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SenderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB14901A3F944D00A837F8 /* SenderDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SenderDemo-Info.plist"; sourceTree = "<group>"; };
 		DEDB14911A3F944D00A837F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -350,6 +352,8 @@
 				DE058E081A3B46F500147C04 /* NSString+DPLQuery.m */,
 				DE3E61081A3B4485008D6DFC /* NSString+DPLJSON.h */,
 				DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */,
+				DECB32501A87E94B0071C76E /* NSObject+DPLJSONObject.h */,
+				DECB32511A87E94B0071C76E /* NSObject+DPLJSONObject.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
