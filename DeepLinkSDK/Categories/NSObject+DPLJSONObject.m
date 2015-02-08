@@ -29,6 +29,10 @@
 
 - (id)DPLJSONObject {
 
+    if ([NSJSONSerialization isValidJSONObject:self]) {
+        return self;
+    }
+    
     NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:self.count];
     
     for (id value in self) {
@@ -46,6 +50,9 @@
 @implementation NSDictionary (DPLJSONObject)
 
 - (id)DPLJSONObject {
+    if ([NSJSONSerialization isValidJSONObject:self]) {
+        return self;
+    }
     
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:self];
     
