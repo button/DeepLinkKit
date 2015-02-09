@@ -110,7 +110,7 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
-    return [[DPLDeepLink alloc] initWithURL:self.URL];
+    return [[[self class] alloc] initWithURL:self.URL];
 }
 
 

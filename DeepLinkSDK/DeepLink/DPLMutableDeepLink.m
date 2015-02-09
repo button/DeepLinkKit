@@ -78,7 +78,7 @@
 #pragma mark - NSMutableCopying
 
 - (id)mutableCopyWithZone:(NSZone *)zone {
-    return [[DPLMutableDeepLink alloc] initWithString:self.URL.absoluteString];
+    return [[[self class] alloc] initWithString:self.URL.absoluteString];
 }
 
 @end
