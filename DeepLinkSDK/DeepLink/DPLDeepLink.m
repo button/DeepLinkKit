@@ -1,13 +1,14 @@
 #import "DPLDeepLink.h"
+#import "DPLDeepLink_Private.h"
 #import "DPLDeepLink+AppLinks.h"
 #import "DPLMutableDeepLink.h"
 #import "NSString+DPLQuery.h"
 #import "NSString+DPLJSON.h"
 #import "NSObject+DPLJSONObject.h"
 
-NSString * const DPLErrorDomain = @"com.usebutton.deeplink.error";
-
-static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
+NSString * const DPLErrorDomain              = @"com.usebutton.deeplink.error";
+NSString * const DPLCallbackURLKey           = @"dpl_callback_url";
+NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
 
 @implementation DPLDeepLink
 
@@ -19,20 +20,20 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
     self = [super init];
     if (self) {
         
-        _URL = url;
+        _URL             = url;
+        _queryParameters = [[_URL query] DPL_parametersFromQueryString];
         
-        NSDictionary *queryParameters = [[url query] DPL_parametersFromQueryString];
-        NSDictionary *appLinkData = [queryParameters[DPLAppLinksDataKey] DPL_decodedJSONObject];
-        if (appLinkData) {
-            _queryParameters = [[_URL query] DPL_parametersFromQueryString];
-            NSMutableDictionary *mutableQueryParams = [_queryParameters mutableCopy];
-            mutableQueryParams[DPLAppLinksDataKey]  = appLinkData;
-            
-            _queryParameters = [NSDictionary dictionaryWithDictionary:mutableQueryParams];
-        }
-        else {
-            _queryParameters = queryParameters;
-        }
+        NSMutableDictionary *mutableQueryParams = [_queryParameters mutableCopy];
+        NSArray *JSONEncodedFields = [mutableQueryParams[DPLJSONEncodedFieldNamesKey] DPL_decodedJSONObject];
+        
+        [_queryParameters enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+            if ([JSONEncodedFields containsObject:key]
+                || [key isEqualToString:DPLAppLinksDataKey]) {
+                mutableQueryParams[key] = [value DPL_decodedJSONObject] ?: value;
+            }
+        }];
+        
+        _queryParameters = [NSDictionary dictionaryWithDictionary:mutableQueryParams];
     }
     return self;
 }

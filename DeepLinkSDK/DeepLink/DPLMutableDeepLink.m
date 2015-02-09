@@ -5,7 +5,6 @@
 #import "NSObject+DPLJSONObject.h"
 #import "NSString+DPLQuery.h"
 
-
 @interface DPLMutableDeepLink ()
 
 @property (nonatomic, strong) NSURLComponents *URLComponents;
@@ -35,7 +34,7 @@
 }
 
 
-- (NSDictionary *)queryParameters {
+- (NSMutableDictionary *)queryParameters {
     if (!_queryParameters) {
         _queryParameters = [NSMutableDictionary dictionary];
     }
@@ -45,14 +44,23 @@
 
 - (NSURL *)URL {
 
-    NSDictionary *cleanParameters = [self.queryParameters DPL_JSONObject];
-    NSDictionary *appLinkData     = cleanParameters[DPLAppLinksDataKey];
+    NSDictionary *cleanParameters          = [self.queryParameters DPL_JSONObject];
+    NSMutableDictionary *mutableParameters = [cleanParameters mutableCopy];
+    NSMutableArray *JSONEncodedFieldNames  = [NSMutableArray array];
     
-    if (appLinkData) {
-        NSMutableDictionary *mutableParameters = [cleanParameters mutableCopy];
-        mutableParameters[DPLAppLinksDataKey]  = [NSString DPL_stringWithJSONObject:appLinkData];
-        cleanParameters = [NSDictionary dictionaryWithDictionary:mutableParameters];
+    [cleanParameters enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+        if ([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]]) {
+            mutableParameters[key] = [NSString DPL_stringWithJSONObject:value];
+            [JSONEncodedFieldNames addObject:key];
+        }
+    }];
+    
+    if (JSONEncodedFieldNames.count) {
+        NSString *encodedNames = [NSString DPL_stringWithJSONObject:JSONEncodedFieldNames];
+        mutableParameters[DPLJSONEncodedFieldNamesKey] = encodedNames ?: @"";
     }
+    
+    cleanParameters = [NSDictionary dictionaryWithDictionary:mutableParameters];
     
     NSString *queryString = [NSString DPL_queryStringWithParameters:cleanParameters];
     self.URLComponents.percentEncodedQuery = queryString;

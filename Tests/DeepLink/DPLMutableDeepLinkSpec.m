@@ -1,6 +1,6 @@
 #import "Specta.h"
 #import "DPLMutableDeepLink.h"
-#import "DPLDeepLink.h"
+#import "DPLDeepLink_Private.h"
 
 SpecBegin(DPLMutableDeepLink)
 
@@ -27,12 +27,31 @@ describe(@"Initialization", ^{
 
 
 describe(@"Serialization", ^{
-    
+
+    NSArray       *arr = @[ @{ @"baz": @"qux" }, @"Derp" ];
+    NSDictionary *dict = @{ @"foo": @"bar", @"arr": arr };
+
     it(@"generates a serialized encoded URL representation", ^{
         DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com/here?url=dpl://dpl.com/there"];
         expect(link.URL.absoluteString).to.equal(@"dpl://dpl.com/here?url=dpl%3A%2F%2Fdpl.com%2Fthere");
     });
     
+    
+    it(@"serializes dictionary parameters as string encoded JSON", ^{
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
+        link.queryParameters[@"data"] = dict;
+        
+        DPLDeepLink *deepLink = [[DPLDeepLink alloc] initWithURL:link.URL];
+        expect(deepLink.queryParameters[@"data"]).to.equal(dict);
+    });
+    
+    it(@"serializes array parameters as string encoded JSON", ^{
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
+        link.queryParameters[@"data"] = arr;
+        
+        DPLDeepLink *deepLink = [[DPLDeepLink alloc] initWithURL:link.URL];
+        expect(deepLink.queryParameters[@"data"]).to.equal(arr);
+    });
 });
 
 
