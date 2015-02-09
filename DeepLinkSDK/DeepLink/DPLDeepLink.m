@@ -69,41 +69,24 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
 #pragma mark - Equality
 
 - (BOOL)isEqual:(id)object {
-    if (self == object) {
-        return YES;
-    }
-    else if (![object isKindOfClass:[self class]]) {
-        return NO;
-    }
-    
     return [self isEqualToDeepLink:object];
 }
 
 
 - (BOOL)isEqualToDeepLink:(DPLDeepLink *)deepLink {
-    if (!deepLink) {
+    if (self == deepLink) {
+        return YES;
+    }
+    else if (![deepLink isKindOfClass:[self class]]) {
         return NO;
     }
     
-    return (((!self.URL && !deepLink.URL) ||
-             [self.URL isEqual:deepLink.URL]) &&
-            
-            ((!self.queryParameters && !deepLink.queryParameters) ||
-             [self.queryParameters isEqualToDictionary:deepLink.queryParameters]) &&
-            
-            ((!self.routeParameters && !deepLink.routeParameters) ||
-             [self.routeParameters isEqualToDictionary:deepLink.routeParameters]) &&
-            
-            ((!self.callbackURL && !deepLink.callbackURL) ||
-             [self.callbackURL isEqual:deepLink.callbackURL]));
+    return (!self.URL && !deepLink.URL) || [self.URL isEqual:deepLink.URL];
 }
 
 
 - (NSUInteger)hash {
-    return [self.URL hash]
-    ^ [self.queryParameters hash]
-    ^ [self.routeParameters hash]
-    ^ [self.callbackURL hash];
+    return [self.URL hash];
 }
 
 
