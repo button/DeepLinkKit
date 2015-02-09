@@ -64,4 +64,45 @@ describe(@"Copying", ^{
     });
 });
 
+
+describe(@"Equality", ^{
+    
+    NSURL *url1 = [NSURL URLWithString:@"dpl://dpl.io/ride/abc123?partner=uber"];
+    NSURL *url2 = [NSURL URLWithString:@"dpl://dpl.io/book/def456?partner=airbnb"];
+    
+    it(@"two identical deeps links are equal", ^{
+        DPLDeepLink *link1 = [[DPLDeepLink alloc] initWithURL:url1];
+        DPLDeepLink *link2 = [[DPLDeepLink alloc] initWithURL:url1];
+        
+        expect(link1).to.equal(link2);
+    });
+    
+    it(@"two different deep links are inequal", ^{
+        DPLDeepLink *link1 = [[DPLDeepLink alloc] initWithURL:url1];
+        DPLDeepLink *link2 = [[DPLDeepLink alloc] initWithURL:url2];
+        
+        expect(link1).toNot.equal(link2);
+    });
+    
+    it(@"nil is not equal to a deep link", ^{
+        DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url1];
+        
+        expect(link).toNot.equal(nil);
+    });
+    
+    it(@"an empty deep link is not equal to a deep link", ^{
+        DPLDeepLink *link1 = [[DPLDeepLink alloc] initWithURL:url1];
+        DPLDeepLink *link2 = [[DPLDeepLink alloc] init];
+        
+        expect(link1).toNot.equal(link2);
+    });
+    
+    it(@"two empty deep links are equal", ^{
+        DPLDeepLink *link1 = [[DPLDeepLink alloc] init];
+        DPLDeepLink *link2 = [[DPLDeepLink alloc] init];
+        
+        expect(link1).to.equal(link2);
+    });
+});
+
 SpecEnd

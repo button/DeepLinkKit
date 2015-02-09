@@ -15,6 +15,7 @@
 @implementation DPLMutableDeepLink
 
 @dynamic scheme, host, path;
+@synthesize queryParameters=_queryParameters;
 
 - (instancetype)initWithString:(NSString *)URLString {
     

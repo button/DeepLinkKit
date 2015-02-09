@@ -92,4 +92,45 @@ describe(@"Copying", ^{
     });
 });
 
+
+describe(@"Equality", ^{
+    
+    NSString *urlString1 = @"dpl://dpl.io/ride/abc123?partner=uber";
+    NSString *urlString2 = @"dpl://dpl.io/book/def456?partner=airbnb";
+    
+    it(@"two identical deeps links are equal", ^{
+        DPLMutableDeepLink *link1 = [[DPLMutableDeepLink alloc] initWithString:urlString1];
+        DPLMutableDeepLink *link2 = [[DPLMutableDeepLink alloc] initWithString:urlString1];
+        
+        expect(link1).to.equal(link2);
+    });
+    
+    it(@"two different deep links are inequal", ^{
+        DPLMutableDeepLink *link1 = [[DPLMutableDeepLink alloc] initWithString:urlString1];
+        DPLMutableDeepLink *link2 = [[DPLMutableDeepLink alloc] initWithString:urlString2];
+        
+        expect(link1).toNot.equal(link2);
+    });
+    
+    it(@"nil is not equal to a deep link", ^{
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:urlString1];
+        
+        expect(link).toNot.equal(nil);
+    });
+    
+    it(@"an empty deep link is not equal to a deep link", ^{
+        DPLMutableDeepLink *link1 = [[DPLMutableDeepLink alloc] initWithString:urlString1];
+        DPLMutableDeepLink *link2 = [[DPLMutableDeepLink alloc] init];
+        
+        expect(link1).toNot.equal(link2);
+    });
+    
+    it(@"two empty deep links are equal", ^{
+        DPLMutableDeepLink *link1 = [[DPLMutableDeepLink alloc] init];
+        DPLMutableDeepLink *link2 = [[DPLMutableDeepLink alloc] init];
+        
+        expect(link1).to.equal(link2);
+    });
+});
+
 SpecEnd
