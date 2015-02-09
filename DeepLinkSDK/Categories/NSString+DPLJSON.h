@@ -22,13 +22,13 @@
  Converts a JSON encoded string into a Foundation object (NSDictionary, NSArray).
  @return A Foundation representation of the JSON string.
  */
-- (id)DPL_JSONObject;
+- (id)DPL_decodedJSONObject;
 
 /**
  Converts a JSON encoded string into a Foundation object (NSDictionary, NSArray).
  @param error An error pointer to be set if an error occurs.
  @return A Foundation representation of the JSON string.
  */
-- (id)DPL_JSONObjectWithError:(NSError *__autoreleasing *)error;
+- (id)DPL_decodedJSONObjectWithError:(NSError *__autoreleasing *)error;
 
 @end

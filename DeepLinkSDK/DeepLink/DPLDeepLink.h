@@ -4,11 +4,10 @@
 @class DPLDeepLink, DPLAppAction;
 
 
-@interface DPLDeepLink : NSObject
+@interface DPLDeepLink : NSObject <NSCopying, NSMutableCopying>
 
 /**
- The incoming URL received by the application.
- @note If the URL conforms to the App Link standard, this will be `target_url' found in `al_applink_data'.
+ The serialized URL representation of the deep link.
  */
 @property (nonatomic, copy, readonly) NSURL *URL;
 
@@ -17,7 +16,7 @@
  The query parameters parsed from the incoming URL.
  @note If the URL conforms to the App Link standard, this will be the query parameters found on `target_url'.
  */
-@property (nonatomic, strong, readonly) NSDictionary *queryParameters;
+@property (nonatomic, copy, readonly) NSDictionary *queryParameters;
 
 
 /**
@@ -25,7 +24,7 @@
  @note Given a route `alert/:title/:message' and a path `button://alert/hello/world',
  the route parameters dictionary would be `@{ @"title": @"hello", @"message": @"world" }'.
  */
-@property (nonatomic, strong, readonly) NSDictionary *routeParameters;
+@property (nonatomic, copy, readonly) NSDictionary *routeParameters;
 
 
 /** 
@@ -39,5 +38,17 @@
  @endcode
  */
 @property (nonatomic, strong, readonly) NSURL *callbackURL;
+
+
+///---------------
+/// @name Equality
+///---------------
+
+/**
+ Returns a Boolean value that indicates whether a given deep link is equal to the receiver.
+ @param deepLink The App with which to compare to the receiver.
+ @return YES if the deep link is equivalent to the receiver.
+ */
+- (BOOL)isEqualToDeepLink:(DPLDeepLink *)deepLink;
 
 @end
