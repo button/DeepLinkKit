@@ -1,5 +1,6 @@
 #import "DPLDeepLink.h"
 #import "DPLDeepLink+AppLinks.h"
+#import "DPLMutableDeepLink.h"
 #import "NSString+DPLQuery.h"
 #import "NSString+DPLJSON.h"
 
@@ -62,5 +63,20 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
             self.routeParameters,
             [self.callbackURL description]];
 }
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [[DPLDeepLink alloc] initWithURL:self.URL];
+}
+
+
+#pragma mark - NSMutableCopying
+
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    return [[DPLMutableDeepLink alloc] initWithString:self.URL.absoluteString];
+}
+
 
 @end

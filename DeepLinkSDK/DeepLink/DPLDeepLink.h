@@ -4,7 +4,7 @@
 @class DPLDeepLink, DPLAppAction;
 
 
-@interface DPLDeepLink : NSObject
+@interface DPLDeepLink : NSObject <NSCopying, NSMutableCopying>
 
 /**
  The serialized URL representation of the deep link.

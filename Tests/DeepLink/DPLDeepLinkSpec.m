@@ -1,10 +1,13 @@
 #import "Specta.h"
 #import "DPLDeepLink.h"
 #import "DPLDeepLink_Private.h"
+#import "DPLMutableDeepLink.h"
 #import "NSString+DPLQuery.h"
 
 
 SpecBegin(DPLDeepLink)
+
+
 
 describe(@"Initialization", ^{
 
@@ -29,6 +32,35 @@ describe(@"Initialization", ^{
 
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:[NSURL URLWithString:URLString]];
         expect([link.callbackURL absoluteString]).to.equal(callBackURLString);
+    });
+    
+});
+
+
+describe(@"Copying", ^{
+    
+    NSURL *url = [NSURL URLWithString:@"dpl://dpl.io/ride/abc123?partner=uber"];
+    
+    it(@"returns an immutable deep link via copy", ^{
+        DPLDeepLink *link1 = [[DPLDeepLink alloc] initWithURL:url];
+        DPLDeepLink *link2 = [link1 copy];
+        
+        expect(link2).toNot.beNil();
+        expect(link1.URL).to.equal(link2.URL);
+        expect(link1.queryParameters).to.equal(link2.queryParameters);
+        expect(link1.callbackURL).to.equal(link2.callbackURL);
+    });
+    
+    it(@"returns a mutable deep link via mutable copy", ^{
+        DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
+        DPLMutableDeepLink *mutableLink = [link mutableCopy];
+        
+        expect(mutableLink).toNot.beNil();
+        expect(mutableLink.scheme).to.equal(@"dpl");
+        expect(mutableLink.host).to.equal(@"dpl.io");
+        expect(mutableLink.path).to.equal(@"/ride/abc123");
+        expect(mutableLink.queryParameters).to.equal(link.queryParameters);
+        expect(mutableLink.URL).to.equal(link.URL);
     });
 });
 

@@ -3,7 +3,7 @@
 /**
  A mutable deep link for constructing deep links.
  */
-@interface DPLMutableDeepLink : NSObject
+@interface DPLMutableDeepLink : NSObject <NSCopying, NSMutableCopying>
 
 /// The scheme URL component, or nil if not present.
 @property (nonatomic, copy) NSString *scheme;

@@ -1,5 +1,6 @@
 #import "Specta.h"
 #import "DPLMutableDeepLink.h"
+#import "DPLDeepLink.h"
 
 SpecBegin(DPLMutableDeepLink)
 
@@ -66,12 +67,28 @@ describe(@"Mutating Deep Links", ^{
 
 describe(@"Copying", ^{
     
-    xit(@"returns an immutable deep link via copy", ^{
+    it(@"returns an immutable deep link via copy", ^{
+        NSString *URLString = @"dpl://dpl.com/here?foo=bar&dpl_callback_url=dpl://back";
+        DPLMutableDeepLink *mutableLink = [[DPLMutableDeepLink alloc] initWithString:URLString];
+        DPLDeepLink *link = [mutableLink copy];
         
+        expect(link).toNot.beNil();
+        expect(link.URL).to.equal(mutableLink.URL);
+        expect(link.queryParameters).to.equal(mutableLink.queryParameters);
+        expect(link.callbackURL.absoluteString).to.equal(@"dpl://back");
     });
     
-    xit(@"returns a mutable deep link via mutableCopy", ^{
+    it(@"returns a mutable deep link via mutableCopy", ^{
+        NSString *URLString = @"dpl://dpl.com/here?foo=bar&dpl_callback_url=dpl://back";
+        DPLMutableDeepLink *link1 = [[DPLMutableDeepLink alloc] initWithString:URLString];
+        DPLMutableDeepLink *link2 = [link1 mutableCopy];
         
+        expect(link2).toNot.beNil();
+        expect(link1.scheme).to.equal(link2.scheme);
+        expect(link1.host).to.equal(link2.host);
+        expect(link1.path).to.equal(link2.path);
+        expect(link1.queryParameters).to.equal(link2.queryParameters);
+        expect(link1.URL).to.equal(link2.URL);
     });
 });
 

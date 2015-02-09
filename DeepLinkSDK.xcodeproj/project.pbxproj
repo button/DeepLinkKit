@@ -128,6 +128,8 @@
 		DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkSDK.h; sourceTree = "<group>"; };
 		DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLMutableDeepLink.h; sourceTree = "<group>"; };
 		DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLMutableDeepLink.m; sourceTree = "<group>"; };
+		DECB324B1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DPLMutableDeepLink+AppLinks.h"; sourceTree = "<group>"; };
+		DECB324C1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DPLMutableDeepLink+AppLinks.m"; sourceTree = "<group>"; };
 		DECB32501A87E94B0071C76E /* NSObject+DPLJSONObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSObject+DPLJSONObject.h"; path = "DeepLinkSDK/Categories/NSObject+DPLJSONObject.h"; sourceTree = SOURCE_ROOT; };
 		DECB32511A87E94B0071C76E /* NSObject+DPLJSONObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DPLJSONObject.m"; path = "DeepLinkSDK/Categories/NSObject+DPLJSONObject.m"; sourceTree = SOURCE_ROOT; };
 		DECB32521A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_DPLJSONObjectSpec.m; sourceTree = "<group>"; };
@@ -279,11 +281,10 @@
 		DE058E0B1A3B484A00147C04 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
+				DECB32481A87C6270071C76E /* AppLinks */,
 				DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */,
 				DE058E0C1A3B484A00147C04 /* DPLDeepLink.h */,
 				DE058E0D1A3B484A00147C04 /* DPLDeepLink.m */,
-				DEA55ADB1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.h */,
-				DEA55ADC1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.m */,
 				DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */,
 				DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */,
 			);
@@ -483,6 +484,17 @@
 				DEAD328519E079D3003C8D65 /* Tests-Prefix.pch */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		DECB32481A87C6270071C76E /* AppLinks */ = {
+			isa = PBXGroup;
+			children = (
+				DEA55ADB1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.h */,
+				DEA55ADC1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.m */,
+				DECB324B1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.h */,
+				DECB324C1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.m */,
+			);
+			name = AppLinks;
 			sourceTree = "<group>";
 		};
 		DEDB148E1A3F944D00A837F8 /* SenderDemo */ = {

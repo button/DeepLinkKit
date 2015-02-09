@@ -1,4 +1,5 @@
 #import "DPLMutableDeepLink.h"
+#import "DPLDeepLink_Private.h"
 #import "NSString+DPLJSON.h"
 #import "NSObject+DPLJSONObject.h"
 #import "NSString+DPLQuery.h"
@@ -46,6 +47,20 @@
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {
     return self.URLComponents;
+}
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [[DPLDeepLink alloc] initWithURL:self.URL];
+}
+
+
+#pragma mark - NSMutableCopying
+
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    return [[DPLMutableDeepLink alloc] initWithString:self.URL.absoluteString];
 }
 
 @end
