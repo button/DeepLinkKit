@@ -34,6 +34,14 @@
 }
 
 
+- (NSDictionary *)queryParameters {
+    if (!_queryParameters) {
+        _queryParameters = [NSMutableDictionary dictionary];
+    }
+    return _queryParameters;
+}
+
+
 - (NSURL *)URL {
     
     NSDictionary *safeParameters = [self.queryParameters DPL_JSONObject];

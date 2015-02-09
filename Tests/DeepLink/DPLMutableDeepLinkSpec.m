@@ -45,6 +45,12 @@ describe(@"Mutating Deep Links", ^{
         expect(link.URL.absoluteString).to.equal(@"dpl://dpl.com/here?foo=baz&id=abc123");
     });
     
+    it(@"allows setting query params when there are none to start", ^{
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
+        link.queryParameters[@"id"] = @"abc123";
+        expect(link.URL.absoluteString).to.equal(@"dpl://dpl.com?id=abc123");
+    });
+    
     it(@"allows changing the scheme", ^{
         DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
         link.scheme = @"btn";

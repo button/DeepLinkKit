@@ -17,7 +17,7 @@
 @property (nonatomic, copy) NSString *path;
 
 
-/// The query URL component as a mutable dictionary.
+/// The query URL component as a mutable dictionary. Default is empty.
 @property (nonatomic, copy, readwrite) NSMutableDictionary *queryParameters;
 
 
