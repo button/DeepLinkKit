@@ -3,18 +3,11 @@
 #import "DPLMutableDeepLink.h"
 #import "NSString+DPLQuery.h"
 #import "NSString+DPLJSON.h"
+#import "NSObject+DPLJSONObject.h"
 
 NSString * const DPLErrorDomain = @"com.usebutton.deeplink.error";
 
 static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
-
-
-@interface DPLDeepLink ()
-
-@property (nonatomic, copy)   NSURL *incomingURL;
-@property (nonatomic, strong) NSDictionary *appLinkData;
-
-@end
 
 @implementation DPLDeepLink
 
@@ -26,15 +19,19 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
     self = [super init];
     if (self) {
         
+        _URL = url;
+        
         NSDictionary *queryParameters = [[url query] DPL_parametersFromQueryString];
-        _appLinkData = [queryParameters[DPLAppLinksDataKey] DPL_decodedJSONObject];
-        if (_appLinkData) {
-            _URL             = [NSURL URLWithString:_appLinkData[DPLAppLinksTargetURLKey]];
+        NSDictionary *appLinkData = [queryParameters[DPLAppLinksDataKey] DPL_decodedJSONObject];
+        if (appLinkData) {
             _queryParameters = [[_URL query] DPL_parametersFromQueryString];
-            _callbackURL     = [NSURL URLWithString:_appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerURLKey]];
+            NSMutableDictionary *mutableQueryParams = [_queryParameters mutableCopy];
+            mutableQueryParams[DPLAppLinksDataKey]  = appLinkData;
+            
+            _queryParameters = [NSDictionary dictionaryWithDictionary:mutableQueryParams];
+            _callbackURL     = [NSURL URLWithString:appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerURLKey]];
         }
         else {
-            _URL             = url;
             _queryParameters = queryParameters;
             _callbackURL     = [NSURL URLWithString:_queryParameters[DPLCallbackURLKey]];
         }

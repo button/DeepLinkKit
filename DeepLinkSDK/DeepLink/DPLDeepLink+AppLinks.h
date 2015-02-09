@@ -8,12 +8,8 @@
 @interface DPLDeepLink (AppLinks)
 
 
-/// The original incoming URL in the App Links format.
-@property (nonatomic, copy, readonly) NSURL *incomingURL;
-
-
 /// The `al_applink_data' payload found in the incoming URL.
-@property (nonatomic, strong, readonly) NSDictionary *appLinkData;
+@property (nonatomic, copy, readonly) NSDictionary *appLinkData;
 
 
 
@@ -27,7 +23,7 @@
 
 
 /// The `extras' payload as specified in the `al_applink_data' payload.
-@property (nonatomic, strong, readonly) NSDictionary *extras;
+@property (nonatomic, copy, readonly) NSDictionary *extras;
 
 
 /// The `version' as specified in the `al_applink_data' payload.

@@ -1,5 +1,6 @@
 #import "DPLMutableDeepLink.h"
 #import "DPLDeepLink_Private.h"
+#import "DPLDeepLink+AppLinks.h"
 #import "NSString+DPLJSON.h"
 #import "NSObject+DPLJSONObject.h"
 #import "NSString+DPLQuery.h"
@@ -43,6 +44,11 @@
 
 
 - (NSURL *)URL {
+
+    NSDictionary *appLinkData = self.queryParameters[DPLAppLinksDataKey];
+    if (appLinkData) {
+        self.queryParameters[DPLAppLinksDataKey] = [NSString DPL_stringWithJSONObject:appLinkData];
+    }
     
     NSDictionary *safeParameters = [self.queryParameters DPL_JSONObject];
     NSString *queryString = [NSString DPL_queryStringWithParameters:safeParameters];

@@ -12,7 +12,9 @@ NSString * const DPLAppLinksReferrerAppNameKey   = @"app_name";
 
 @implementation DPLDeepLink (AppLinks)
 
-@dynamic incomingURL, appLinkData;
+- (NSDictionary *)appLinkData {
+    return self.queryParameters[DPLAppLinksDataKey];
+}
 
 
 #pragma mark - App Link Properties

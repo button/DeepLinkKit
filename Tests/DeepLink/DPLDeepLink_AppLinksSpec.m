@@ -24,6 +24,7 @@ describe(@"App Links Properties", ^{
     
     it(@"return values when the deep link is an App Link", ^{
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:appLinkURL];
+        expect(link.URL).to.equal(appLinkURL);
         expect(link.targetURL.absoluteString).to.equal(payload[DPLAppLinksTargetURLKey]);
         expect(link.extras).to.equal(payload[DPLAppLinksExtrasKey]);
         expect(link.version).to.equal(payload[DPLAppLinksVersionKey]);
