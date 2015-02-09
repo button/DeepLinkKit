@@ -2,8 +2,8 @@
 #import "DPLDeepLink_Private.h"
 #import "NSString+DPLTrim.h"
 
-static NSString * const DPLParameterRoutePattern = @":[a-zA-Z0-9-_]+";
-static NSString * const DPLParameterURLPattern = @"([a-zA-Z0-9-_]+)";
+static NSString * const DPLRouteParameterPattern = @":[a-zA-Z0-9-_]+";
+static NSString * const DPLURLParameterPattern = @"([a-zA-Z0-9-_]+)";
 
 @interface DPLRouteMatcher ()
 
@@ -37,7 +37,7 @@ static NSString * const DPLParameterURLPattern = @"([a-zA-Z0-9-_]+)";
 - (NSRegularExpression *)regex {
     if (!_regex) {
         _routeParamaterNames = [NSMutableArray array];
-        NSRegularExpression *parameterRegex = [NSRegularExpression regularExpressionWithPattern:DPLParameterRoutePattern
+        NSRegularExpression *parameterRegex = [NSRegularExpression regularExpressionWithPattern:DPLRouteParameterPattern
                                                                                         options:0
                                                                                           error:nil];
         
@@ -54,7 +54,7 @@ static NSString * const DPLParameterURLPattern = @"([a-zA-Z0-9-_]+)";
             [self.routeParamaterNames addObject:variableName];
             
             modifiedRoute = [modifiedRoute stringByReplacingOccurrencesOfString:stringToReplace
-                                                                     withString:DPLParameterURLPattern];
+                                                                     withString:DPLURLParameterPattern];
         }
         
         modifiedRoute = [modifiedRoute stringByAppendingString:@"$"];
@@ -79,11 +79,14 @@ static NSString * const DPLParameterURLPattern = @"([a-zA-Z0-9-_]+)";
         return nil;
     }
     
-    // Define route parameters in the routeParameters dictionary
+    // Set route parameters in the routeParameters dictionary
     NSMutableDictionary *routeParameters = [NSMutableDictionary dictionary];
     for (NSTextCheckingResult *result in matches) {
+        // Begin at 1 as first range is the whole match
         for (int i = 1; i < result.numberOfRanges && i <= self.routeParamaterNames.count; i++) {
-            routeParameters[self.routeParamaterNames[i - 1]] = [deepLinkString substringWithRange:[result rangeAtIndex:i]];
+            NSString *parameterName         = self.routeParamaterNames[i - 1];
+            NSString *parameterValue        = [deepLinkString substringWithRange:[result rangeAtIndex:i]];
+            routeParameters[parameterName]  = parameterValue;
         }
     }
     deepLink.routeParameters = routeParameters;
