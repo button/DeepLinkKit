@@ -11,7 +11,7 @@
  - Objects in an NSDictionary not keyed by NSString will be removed.
  - NSNumbers that are NaN or Inf will be represented by a string.
  - JSON incompatible objects will return their description.
- - All NSNulls will be removed because who the fuck wants an NSNull.
+ - All NSNulls will be removed because who wants an NSNull.
  
  @see NSJSONSerialization
  */
