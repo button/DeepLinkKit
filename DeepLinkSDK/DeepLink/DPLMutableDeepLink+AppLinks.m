@@ -16,7 +16,7 @@
 
 
 - (void)setExtras:(NSMutableDictionary *)extras {
-    self.mutableAppLinkData[DPLAppLinksExtrasKey] = extras ?: @{};
+    self.mutableAppLinkData[DPLAppLinksExtrasKey] = [extras copy] ?: @{};
 }
 
 
