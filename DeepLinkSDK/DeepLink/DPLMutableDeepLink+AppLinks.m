@@ -53,6 +53,7 @@
     NSMutableDictionary *data = self.queryParameters[DPLAppLinksDataKey];
     if (!data) {
         data = [NSMutableDictionary dictionary];
+        data[DPLAppLinksVersionKey] = @"1.0";
         self.queryParameters[DPLAppLinksDataKey] = data;
     }
     return data;

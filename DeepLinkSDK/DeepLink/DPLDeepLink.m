@@ -29,14 +29,18 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
             mutableQueryParams[DPLAppLinksDataKey]  = appLinkData;
             
             _queryParameters = [NSDictionary dictionaryWithDictionary:mutableQueryParams];
-            _callbackURL     = [NSURL URLWithString:appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerURLKey]];
         }
         else {
             _queryParameters = queryParameters;
-            _callbackURL     = [NSURL URLWithString:_queryParameters[DPLCallbackURLKey]];
         }
     }
     return self;
+}
+
+
+- (NSURL *)callbackURL {
+    NSString *URLString = self.queryParameters[DPLCallbackURLKey] ?: self.appLinkData[DPLAppLinksReferrerURLKey];
+    return [NSURL URLWithString:URLString];
 }
 
 

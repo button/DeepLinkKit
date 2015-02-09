@@ -45,13 +45,16 @@
 
 - (NSURL *)URL {
 
-    NSDictionary *appLinkData = self.queryParameters[DPLAppLinksDataKey];
+    NSDictionary *cleanParameters = [self.queryParameters DPL_JSONObject];
+    NSDictionary *appLinkData     = cleanParameters[DPLAppLinksDataKey];
+    
     if (appLinkData) {
-        self.queryParameters[DPLAppLinksDataKey] = [NSString DPL_stringWithJSONObject:appLinkData];
+        NSMutableDictionary *mutableParameters = [cleanParameters mutableCopy];
+        mutableParameters[DPLAppLinksDataKey]  = [NSString DPL_stringWithJSONObject:appLinkData];
+        cleanParameters = [NSDictionary dictionaryWithDictionary:mutableParameters];
     }
     
-    NSDictionary *safeParameters = [self.queryParameters DPL_JSONObject];
-    NSString *queryString = [NSString DPL_queryStringWithParameters:safeParameters];
+    NSString *queryString = [NSString DPL_queryStringWithParameters:cleanParameters];
     self.URLComponents.percentEncodedQuery = queryString;
     
     return self.URLComponents.URL;

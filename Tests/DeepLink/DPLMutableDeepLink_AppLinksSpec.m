@@ -4,9 +4,9 @@
 
 SpecBegin(DPLMutableDeepLink_AppLinks)
 
-NSString *URLString1 = @"dpl://applinks?al_applink_data=%7B%22target_url%22%3A%22http%3A%5C%2F%5C%2Fapplinks.org%5C%2Fdocumentation%22%2C%22extras%22%3A%7B%22foo%22%3A%22bar%22%7D%2C%22user_agent%22%3A%22Derp%201.0%22%2C%22referer_app_link%22%3A%7B%22target_url%22%3A%22http%3A%5C%2F%5C%2Fexample.com%5C%2Fdocs%22%2C%22url%22%3A%22example%3A%5C%2F%5C%2Fdocs%22%2C%22app_name%22%3A%22Derp%22%7D%7D";
+NSString *URLString1 = @"dpl://applinks?al_applink_data=%7B%22target_url%22%3A%22http%3A%5C%2F%5C%2Fapplinks.org%5C%2Fdocumentation%22%2C%22extras%22%3A%7B%22foo%22%3A%22bar%22%7D%2C%22user_agent%22%3A%22Derp%201.0%22%2C%22referer_app_link%22%3A%7B%22target_url%22%3A%22http%3A%5C%2F%5C%2Fexample.com%5C%2Fdocs%22%2C%22url%22%3A%22example%3A%5C%2F%5C%2Fdocs%22%2C%22app_name%22%3A%22Derp%22%7D%2C%22version%22%3A%221.0%22%7D";
 
-NSString *URLString2 = @"dpl://applinks?al_applink_data=%7B%22target_url%22%3A%22%22%2C%22extras%22%3A%7B%7D%2C%22user_agent%22%3A%22%22%2C%22referer_app_link%22%3A%7B%22target_url%22%3A%22%22%2C%22url%22%3A%22%22%2C%22app_name%22%3A%22%22%7D%7D";
+NSString *URLString2 = @"dpl://applinks?al_applink_data=%7B%22target_url%22%3A%22%22%2C%22extras%22%3A%7B%7D%2C%22user_agent%22%3A%22%22%2C%22referer_app_link%22%3A%7B%22target_url%22%3A%22%22%2C%22url%22%3A%22%22%2C%22app_name%22%3A%22%22%7D%2C%22version%22%3A%221.0%22%7D";
 
 NSURL *appLinkURL1 = [NSURL URLWithString:URLString1];
 NSURL *appLinkURL2 = [NSURL URLWithString:URLString2];
@@ -26,6 +26,7 @@ describe(@"Building App Links", ^{
         
         NSDictionary *data = @{ DPLAppLinksTargetURLKey: @"http://applinks.org/documentation",
                                 DPLAppLinksExtrasKey: @{ @"foo": @"bar" },
+                                DPLAppLinksVersionKey: @"1.0",
                                 DPLAppLinksUserAgentKey: @"Derp 1.0",
                                 DPLAppLinksReferrerAppLinkKey: @{
                                         DPLAppLinksReferrerTargetURLKey: @"http://example.com/docs",
@@ -48,6 +49,7 @@ describe(@"Building App Links", ^{
         
         NSDictionary *data = @{ DPLAppLinksTargetURLKey: @"",
                                 DPLAppLinksExtrasKey: @{ },
+                                DPLAppLinksVersionKey: @"1.0",
                                 DPLAppLinksUserAgentKey: @"",
                                 DPLAppLinksReferrerAppLinkKey: @{
                                         DPLAppLinksReferrerTargetURLKey: @"",

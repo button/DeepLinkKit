@@ -1,40 +1,35 @@
 #import "Specta.h"
 #import "DPLDeepLink_Private.h"
 #import "DPLDeepLink+AppLinks.h"
-#import "NSString+DPLJSON.h"
-#import "NSString+DPLQuery.h"
+#import "DPLMutableDeepLink+AppLinks.h"
 
 SpecBegin(DPLDeepLink_AppLinks)
 
-NSDictionary *referrer = @{ DPLAppLinksReferrerTargetURLKey: @"http://dpl.io/say",
-                            DPLAppLinksReferrerURLKey:       @"btn://dpl.io/say",
-                            DPLAppLinksReferrerAppNameKey:   @"Button" };
+DPLMutableDeepLink *appLink = [[DPLMutableDeepLink alloc] initWithString:@"dpl://applinks"];
+appLink.targetURL           = [NSURL URLWithString:@"http://dpl.io/say"];
+appLink.extras[@"hello"]    = @"world";
+appLink.userAgent           = @"DPL 1.0";
+appLink.referrerTargetURL   = [NSURL URLWithString:@"http://dpl.io/say"];
+appLink.referrerURL         = [NSURL URLWithString:@"btn://dpl.io/say"];
+appLink.referrerAppName     = @"Deep Link";
 
-NSDictionary *payload  = @{ DPLAppLinksTargetURLKey: @"http://dpl.io/say",
-                            DPLAppLinksExtrasKey:    @{ @"word": @"hello" },
-                            DPLAppLinksVersionKey:   @"1.0",
-                            DPLAppLinksUserAgentKey: @"DPL 1.0",
-                            DPLAppLinksReferrerAppLinkKey: referrer };
-
-NSString *payloadString = [[NSString DPL_stringWithJSONObject:payload] DPL_stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-NSString *URLString = [NSString stringWithFormat:@"dpl://applinks?al_applink_data=%@", payloadString];
-NSURL *appLinkURL   = [NSURL URLWithString:URLString];
+NSURL *appLinkURL = appLink.URL;
 
 describe(@"App Links Properties", ^{
     
     it(@"return values when the deep link is an App Link", ^{
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:appLinkURL];
-        expect(link.URL).to.equal(appLinkURL);
-        expect(link.targetURL.absoluteString).to.equal(payload[DPLAppLinksTargetURLKey]);
-        expect(link.extras).to.equal(payload[DPLAppLinksExtrasKey]);
-        expect(link.version).to.equal(payload[DPLAppLinksVersionKey]);
-        expect(link.userAgent).to.equal(payload[DPLAppLinksUserAgentKey]);
+        expect(link.URL)      .to.equal(appLinkURL);
+        expect(link.targetURL).to.equal(appLink.targetURL);
+        expect(link.extras)   .to.equal(appLink.extras);
+        expect(link.version)  .to.equal(appLink.version);
+        expect(link.userAgent).to.equal(appLink.userAgent);
         
-        expect(link.referrerTargetURL.absoluteString).to.equal(referrer[DPLAppLinksReferrerTargetURLKey]);
-        expect(link.referrerURL.absoluteString).to.equal(referrer[DPLAppLinksReferrerURLKey]);
-        expect(link.referrerAppName).to.equal(referrer[DPLAppLinksReferrerAppNameKey]);
+        expect(link.referrerTargetURL).to.equal(appLink.referrerTargetURL);
+        expect(link.referrerURL)      .to.equal(appLink.referrerURL);
+        expect(link.referrerAppName)  .to.equal(appLink.referrerAppName);
         
-        expect(link.callbackURL.absoluteString).to.equal(referrer[DPLAppLinksReferrerURLKey]);
+        expect(link.callbackURL).to.equal(appLink.callbackURL);
     });
     
     it(@"return nil when the deep link is NOT an App Link", ^{
