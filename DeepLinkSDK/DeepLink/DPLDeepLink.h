@@ -7,8 +7,7 @@
 @interface DPLDeepLink : NSObject
 
 /**
- The incoming URL received by the application.
- @note If the URL conforms to the App Link standard, this will be `target_url' found in `al_applink_data'.
+ The serialized URL representation of the deep link.
  */
 @property (nonatomic, copy, readonly) NSURL *URL;
 

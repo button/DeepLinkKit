@@ -37,6 +37,7 @@
 		DEAD328C19E079D3003C8D65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327D19E079D3003C8D65 /* Images.xcassets */; };
 		DEAD328D19E079D3003C8D65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327E19E079D3003C8D65 /* main.m */; };
 		DECB32531A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB32521A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m */; };
+		DECB32551A882D1A0071C76E /* DPLMutableDeepLinkSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB32541A882D1A0071C76E /* DPLMutableDeepLinkSpec.m */; };
 		DEDB14921A3F944D00A837F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDB14911A3F944D00A837F8 /* main.m */; };
 		DEDB14951A3F944D00A837F8 /* DPLSenderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDB14941A3F944D00A837F8 /* DPLSenderAppDelegate.m */; };
 		DEDB14981A3F944D00A837F8 /* DPLActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDB14971A3F944D00A837F8 /* DPLActionsViewController.m */; };
@@ -125,9 +126,12 @@
 		DEAD328519E079D3003C8D65 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLink_Private.h; sourceTree = "<group>"; };
 		DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkSDK.h; sourceTree = "<group>"; };
+		DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLMutableDeepLink.h; sourceTree = "<group>"; };
+		DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLMutableDeepLink.m; sourceTree = "<group>"; };
 		DECB32501A87E94B0071C76E /* NSObject+DPLJSONObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSObject+DPLJSONObject.h"; path = "DeepLinkSDK/Categories/NSObject+DPLJSONObject.h"; sourceTree = SOURCE_ROOT; };
 		DECB32511A87E94B0071C76E /* NSObject+DPLJSONObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DPLJSONObject.m"; path = "DeepLinkSDK/Categories/NSObject+DPLJSONObject.m"; sourceTree = SOURCE_ROOT; };
 		DECB32521A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_DPLJSONObjectSpec.m; sourceTree = "<group>"; };
+		DECB32541A882D1A0071C76E /* DPLMutableDeepLinkSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLMutableDeepLinkSpec.m; sourceTree = "<group>"; };
 		DEDB148D1A3F944D00A837F8 /* SenderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SenderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB14901A3F944D00A837F8 /* SenderDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SenderDemo-Info.plist"; sourceTree = "<group>"; };
 		DEDB14911A3F944D00A837F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				DE058E0D1A3B484A00147C04 /* DPLDeepLink.m */,
 				DEA55ADB1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.h */,
 				DEA55ADC1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.m */,
+				DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */,
+				DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 			children = (
 				DE058E0F1A3B485500147C04 /* DPLDeepLinkSpec.m */,
 				DEA55ADE1A5F2BBC00C312F5 /* DPLDeepLink_AppLinksSpec.m */,
+				DECB32541A882D1A0071C76E /* DPLMutableDeepLinkSpec.m */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -758,6 +765,7 @@
 				DE16E9381A4289DF00077E18 /* DPLRouteMatcherSpec.m in Sources */,
 				DECB32531A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m in Sources */,
 				DE058E101A3B485500147C04 /* DPLDeepLinkSpec.m in Sources */,
+				DECB32551A882D1A0071C76E /* DPLMutableDeepLinkSpec.m in Sources */,
 				DE058E0A1A3B46FD00147C04 /* NSString_DPLQuerySpec.m in Sources */,
 				DEA55ADF1A5F2BBC00C312F5 /* DPLDeepLink_AppLinksSpec.m in Sources */,
 				DE3E610F1A3B4492008D6DFC /* NSString_DPLJSONSpec.m in Sources */,
