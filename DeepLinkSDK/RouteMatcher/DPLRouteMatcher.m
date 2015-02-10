@@ -2,6 +2,7 @@
 #import "DPLDeepLink_Private.h"
 #import "NSString+DPLTrim.h"
 
+static NSString * const DPLComponentPattern = @":[a-zA-Z0-9-_][^/]+";
 static NSString * const DPLRouteParameterPattern = @":[a-zA-Z0-9-_]+";
 static NSString * const DPLURLParameterPattern = @"([^/]+)";
 
@@ -34,27 +35,49 @@ static NSString * const DPLURLParameterPattern = @"([^/]+)";
 }
 
 
+- (NSMutableArray *)routeParamaterNames {
+    if (!_routeParamaterNames) {
+        _routeParamaterNames = [NSMutableArray array];
+    }
+    return _routeParamaterNames;
+}
+
 - (NSRegularExpression *)regex {
     if (!_regex) {
-        _routeParamaterNames = [NSMutableArray array];
+        NSString *modifiedRoute             = [self.route copy];
+        NSRegularExpression *componentRegex = [NSRegularExpression regularExpressionWithPattern:DPLComponentPattern
+                                                                                        options:0
+                                                                                          error:nil];
         NSRegularExpression *parameterRegex = [NSRegularExpression regularExpressionWithPattern:DPLRouteParameterPattern
                                                                                         options:0
                                                                                           error:nil];
-        
-        __block NSString *modifiedRoute = [self.route copy];
-        NSArray *matches = [parameterRegex matchesInString:self.route
-                                                   options:0
-                                                     range:NSMakeRange(0, self.route.length)];
-        
+        NSArray *matches                    = [componentRegex matchesInString:self.route
+                                                                      options:0
+                                                                        range:NSMakeRange(0, self.route.length)];
         for (NSTextCheckingResult *result in matches) {
+            NSString *component                   = [self.route substringWithRange:result.range];
+            NSString *modifiedComponent           = [component copy];
+            NSArray *componentMatches             = [parameterRegex matchesInString:component
+                                                                            options:0
+                                                                              range:NSMakeRange(0, component.length)];
+            NSTextCheckingResult *componentResult = [componentMatches firstObject];
+            if (componentResult) {
+                NSString *stringToReplace  = [component substringWithRange:componentResult.range];
+                NSString *variableName     = [stringToReplace stringByReplacingOccurrencesOfString:@":"
+                                                                                        withString:@""];
+                
+                [self.routeParamaterNames addObject:variableName];
+                
+                modifiedComponent = [modifiedComponent stringByReplacingOccurrencesOfString:stringToReplace
+                                                                                 withString:@""];
+            }
             
-            NSString *stringToReplace   = [self.route substringWithRange:result.range];
-            NSString *variableName      = [stringToReplace stringByReplacingOccurrencesOfString:@":"
-                                                                                     withString:@""];
-            [self.routeParamaterNames addObject:variableName];
+            if (modifiedComponent.length == 0) {
+                modifiedComponent = DPLURLParameterPattern;
+            }
             
-            modifiedRoute = [modifiedRoute stringByReplacingOccurrencesOfString:stringToReplace
-                                                                     withString:DPLURLParameterPattern];
+            modifiedRoute = [modifiedRoute stringByReplacingOccurrencesOfString:component
+                                                                     withString:modifiedComponent];
         }
         
         modifiedRoute = [modifiedRoute stringByAppendingString:@"$"];
