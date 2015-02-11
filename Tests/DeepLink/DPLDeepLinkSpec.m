@@ -41,6 +41,7 @@ describe(@"Initialization", ^{
                                  @"partner": @"not-uber"
                                  };
         expect(link[@"partner"]).to.equal(@"not-uber");
+    });
 });
 
 
