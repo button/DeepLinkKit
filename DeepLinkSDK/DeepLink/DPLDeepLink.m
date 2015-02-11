@@ -1,19 +1,14 @@
 #import "DPLDeepLink.h"
+#import "DPLDeepLink_Private.h"
 #import "DPLDeepLink+AppLinks.h"
+#import "DPLMutableDeepLink.h"
 #import "NSString+DPLQuery.h"
 #import "NSString+DPLJSON.h"
+#import "NSObject+DPLJSONObject.h"
 
-NSString * const DPLErrorDomain = @"com.usebutton.deeplink.error";
-
-static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
-
-
-@interface DPLDeepLink ()
-
-@property (nonatomic, copy)   NSURL *incomingURL;
-@property (nonatomic, strong) NSDictionary *appLinkData;
-
-@end
+NSString * const DPLErrorDomain              = @"com.usebutton.deeplink.error";
+NSString * const DPLCallbackURLKey           = @"dpl_callback_url";
+NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
 
 @implementation DPLDeepLink
 
@@ -25,20 +20,28 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
     self = [super init];
     if (self) {
         
-        NSDictionary *queryParameters = [[url query] DPL_parametersFromQueryString];
-        _appLinkData = [queryParameters[DPLAppLinksDataKey] DPL_JSONObject];
-        if (_appLinkData) {
-            _URL             = [NSURL URLWithString:_appLinkData[DPLAppLinksTargetURLKey]];
-            _queryParameters = [[_URL query] DPL_parametersFromQueryString];
-            _callbackURL     = [NSURL URLWithString:_appLinkData[DPLAppLinksReferrerAppLinkKey][DPLAppLinksReferrerURLKey]];
-        }
-        else {
-            _URL             = url;
-            _queryParameters = queryParameters;
-            _callbackURL     = [NSURL URLWithString:_queryParameters[DPLCallbackURLKey]];
-        }
+        _URL             = url;
+        _queryParameters = [[_URL query] DPL_parametersFromQueryString];
+        
+        NSMutableDictionary *mutableQueryParams = [_queryParameters mutableCopy];
+        NSArray *JSONEncodedFields = [mutableQueryParams[DPLJSONEncodedFieldNamesKey] DPL_decodedJSONObject];
+        
+        [_queryParameters enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+            if ([JSONEncodedFields containsObject:key]
+                || [key isEqualToString:DPLAppLinksDataKey]) {
+                mutableQueryParams[key] = [value DPL_decodedJSONObject] ?: value;
+            }
+        }];
+        
+        _queryParameters = [NSDictionary dictionaryWithDictionary:mutableQueryParams];
     }
     return self;
+}
+
+
+- (NSURL *)callbackURL {
+    NSString *URLString = self.queryParameters[DPLCallbackURLKey] ?: self.appLinkData[DPLAppLinksReferrerURLKey];
+    return [NSURL URLWithString:URLString];
 }
 
 
@@ -71,5 +74,44 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
             self.routeParameters,
             [self.callbackURL description]];
 }
+
+
+#pragma mark - Equality
+
+- (BOOL)isEqual:(id)object {
+    return [self isEqualToDeepLink:object];
+}
+
+
+- (BOOL)isEqualToDeepLink:(DPLDeepLink *)deepLink {
+    if (self == deepLink) {
+        return YES;
+    }
+    else if (![deepLink isKindOfClass:[self class]]) {
+        return NO;
+    }
+    
+    return (!self.URL && !deepLink.URL) || [self.URL isEqual:deepLink.URL];
+}
+
+
+- (NSUInteger)hash {
+    return [self.URL hash];
+}
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [[[self class] alloc] initWithURL:self.URL];
+}
+
+
+#pragma mark - NSMutableCopying
+
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    return [[DPLMutableDeepLink alloc] initWithString:self.URL.absoluteString];
+}
+
 
 @end

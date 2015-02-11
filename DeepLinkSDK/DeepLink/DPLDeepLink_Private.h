@@ -1,5 +1,9 @@
 #import "DPLDeepLink.h"
 
+/// A key into `queryParameters' that returns an array of keys where values have been JSON encoded.
+extern NSString * const DPLJSONEncodedFieldNamesKey;
+
+
 @interface DPLDeepLink ()
 
 /**
@@ -7,6 +11,7 @@
  @see DPLDeepLinkRouter
  */
 - (instancetype)initWithURL:(NSURL *)url;
+
 
 /**
  @warning Not intended for external consumption.

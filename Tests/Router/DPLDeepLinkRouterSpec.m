@@ -95,9 +95,9 @@ describe(@"Registering Routes", ^{
         expect(router.classesByRoute).to.beEmpty();
     });
     
-    it(@"trims routes before registering", ^{
+    it(@"does NOT trim routes before registering", ^{
         router[@"/table/book/:id \n"] = [DPLRouteHandler class];
-        expect(router[route]).to.equal([DPLRouteHandler class]);
+        expect(router[route]).notTo.equal([DPLRouteHandler class]);
     });
 });
 
@@ -113,11 +113,11 @@ describe(@"Handling Routes", ^{
     
     it(@"matches more specfic routes first when they are registered first", ^{
         waitUntil(^(DoneCallback done) {
-            router[@"say/hello"] = ^(DPLDeepLink *deepLink) {
+            router[@"/say/hello"] = ^(DPLDeepLink *deepLink) {
                 expect(deepLink.routeParameters).to.beEmpty();
             };
             
-            router[@"say/:word"] = ^{
+            router[@"/say/:word"] = ^{
                 XCTFail(@"The wrong route was matched.");
             };
             
@@ -131,11 +131,11 @@ describe(@"Handling Routes", ^{
     
     it(@"matches less specfic routes first when they are registered first", ^{
         waitUntil(^(DoneCallback done) {
-            router[@"say/:word"] = ^(DPLDeepLink *deepLink) {
+            router[@"/say/:word"] = ^(DPLDeepLink *deepLink) {
                 expect(deepLink.routeParameters[@"word"]).to.equal(@"hello");
             };
             
-            router[@"say/hello"] = ^{
+            router[@"/say/hello"] = ^{
                 XCTFail(@"The wrong route was matched.");
             };
             
@@ -160,7 +160,7 @@ describe(@"Handling Routes", ^{
     it(@"produces an error when a route handler does not specify a target view controller", ^{
         waitUntil(^(DoneCallback done) {
             
-            router[@"say/:word"] = [DPLRouteHandler class];
+            router[@"/say/:word"] = [DPLRouteHandler class];
             
             [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beFalsy();

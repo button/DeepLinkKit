@@ -2,7 +2,6 @@
 #import "DPLRouteMatcher.h"
 #import "DPLDeepLink.h"
 #import "DPLRouteHandler.h"
-#import "NSString+DPLTrim.h"
 #import "DPLErrors.h"
 #import <objc/runtime.h>
 
@@ -46,8 +45,6 @@
 
 - (void)registerHandlerClass:(Class <DPLRouteHandler>)handlerClass forRoute:(NSString *)route {
 
-    route = [route DPL_trimPath];
-    
     if (handlerClass && [route length]) {
         [self.routes addObject:route];
         [self.blocksByRoute removeObjectForKey:route];
@@ -58,8 +55,6 @@
 
 - (void)registerBlock:(DPLRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route {
 
-    route = [route DPL_trimPath];
-    
     if (routeHandlerBlock && [route length]) {
         [self.routes addObject:route];
         [self.classesByRoute removeObjectForKey:route];
