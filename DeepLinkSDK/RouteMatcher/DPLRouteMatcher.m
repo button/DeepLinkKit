@@ -3,7 +3,7 @@
 #import "NSString+DPLTrim.h"
 
 static NSString * const DPLRouteParameterPattern = @":[a-zA-Z0-9-_]+";
-static NSString * const DPLURLParameterPattern = @"([a-zA-Z0-9-_]+)";
+static NSString * const DPLURLParameterPattern = @"([^/]+)";
 
 @interface DPLRouteMatcher ()
 
