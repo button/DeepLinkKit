@@ -99,6 +99,7 @@
 		DE3E61081A3B4485008D6DFC /* NSString+DPLJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DPLJSON.h"; sourceTree = "<group>"; };
 		DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPLJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DPLJSONSpec.m; sourceTree = "<group>"; };
+		DE4128901A8BBE500089DAA2 /* AppLinks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppLinks.h; sourceTree = "<group>"; };
 		DE87B1EC1A5DEFD400204A35 /* DPLProductRouteHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLProductRouteHandler.h; sourceTree = "<group>"; };
 		DE87B1ED1A5DEFD400204A35 /* DPLProductRouteHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLProductRouteHandler.m; sourceTree = "<group>"; };
 		DE87B1EF1A5DF49F00204A35 /* DPLProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLProduct.h; sourceTree = "<group>"; };
@@ -386,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */,
+				DE4128901A8BBE500089DAA2 /* AppLinks.h */,
 				DE99EF6A1A3B6CDD00CE3449 /* Protocols */,
 				DE3E61071A3B4485008D6DFC /* Categories */,
 				DEB4EDBB1A49CEA400F31D14 /* Errors */,
