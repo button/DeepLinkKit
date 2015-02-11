@@ -50,6 +50,15 @@ NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
 }
 
 
+- (id)objectForKeyedSubscript:(id <NSCopying>)key {
+    id value = _routeParameters[key];
+    if (!value) {
+        value = _queryParameters[key];
+    }
+    return value;
+}
+
+
 - (NSString *)description {
     return [NSString stringWithFormat:
             @"\n<%@ %p\n"

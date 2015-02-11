@@ -40,6 +40,20 @@
 @property (nonatomic, strong, readonly) NSURL *callbackURL;
 
 
+///--------------------------------------------------
+/// @name Parameter Retrieval via Object Subscripting
+///--------------------------------------------------
+
+/**
+ Both query and route parameters can be accessed concisely with object subscripting.
+ @code
+ id username = deepLink[@"username"];
+ @endcode
+ @note If the key is contained in both queryParameters and routeParameters, the value from queryParameters is returned.
+ */
+- (id)objectForKeyedSubscript:(id <NSCopying>)key;
+
+
 ///---------------
 /// @name Equality
 ///---------------
