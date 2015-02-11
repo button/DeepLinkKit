@@ -30,6 +30,15 @@ describe(@"Initialization", ^{
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:[NSURL URLWithString:URLString]];
         expect([link.callbackURL absoluteString]).to.equal(callBackURLString);
     });
+    
+    it(@"should favor route parameters over query parameters for indexed subscripting", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.io/ride/book/abc123?partner=uber"];
+        DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
+        link.routeParameters = @{
+                                 @"partner": @"not-uber"
+                                 };
+        expect(link[@"partner"]).to.equal(@"not-uber");
+    });
 });
 
 SpecEnd

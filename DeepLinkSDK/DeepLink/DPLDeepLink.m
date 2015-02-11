@@ -48,9 +48,9 @@ static NSString * const DPLCallbackURLKey = @"dpl_callback_url";
 
 
 - (id)objectForKeyedSubscript:(id <NSCopying>)key {
-    id value = _queryParameters[key];
+    id value = _routeParameters[key];
     if (!value) {
-        value = _routeParameters[key];
+        value = _queryParameters[key];
     }
     return value;
 }
