@@ -9,8 +9,7 @@ target 'ReceiverDemo', :exclusive => true do
 end
 
 target 'Tests', :exclusive => true do
-    pod 'Specta', :git => 'https://github.com/specta/specta.git',
-    :commit => '16949f4021a5560b1c78c439ad07d596c36cbac3'
+    pod 'Specta'
     pod 'Expecta'
     pod 'OCMock'
 end
