@@ -70,7 +70,8 @@ static NSString * const DPLURLParameterPattern = @"([^/]+)";
 - (DPLDeepLink *)deepLinkWithURL:(NSURL *)url {
     
     DPLDeepLink *deepLink       = [[DPLDeepLink alloc] initWithURL:url];
-    NSString *deepLinkString    = [deepLink.URL absoluteString];
+    NSString *deepLinkString    = [NSString stringWithFormat:@"/%@%@",
+                                   deepLink.URL.host, deepLink.URL.path];
     NSArray *matches            = [self.regex matchesInString:deepLinkString
                                                       options:0
                                                         range:NSMakeRange(0, deepLinkString.length)];
