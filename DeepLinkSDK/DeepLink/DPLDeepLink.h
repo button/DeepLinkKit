@@ -49,7 +49,7 @@
  @code
  id username = deepLink[@"username"];
  @endcode
- @note If the key is contained in both queryParameters and routeParameters, the value from queryParameters is returned.
+ @note If the key is contained in both queryParameters and routeParameters, the value from routeParameters is returned.
  */
 - (id)objectForKeyedSubscript:(id <NSCopying>)key;
 
