@@ -112,6 +112,14 @@ describe(@"Matching Routes", ^{
         DPLDeepLink *deepLink2 = [matcher deepLinkWithURL:url2];
         expect(deepLink2).notTo.beNil();
     });
+    
+    it(@"matches URLs with commas", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"TenDay/:weird_comma_path_thing"];
+        NSURL *url = [NSURL URLWithString:@"twcweather://TenDay/33.89,-84.46?aw_campaign=com.weather.TWC.TWCWidget"];
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+        expect(deepLink.routeParameters[@"weird_comma_path_thing"]).to.equal(@"33.89,-84.46");
+        expect(deepLink).notTo.beNil();
+    });
 });
 
 SpecEnd

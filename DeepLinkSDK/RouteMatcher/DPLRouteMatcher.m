@@ -3,7 +3,7 @@
 #import "NSString+DPLTrim.h"
 
 static NSString * const DPLRouteParameterPattern = @":[a-zA-Z0-9-_]+";
-static NSString * const DPLURLParameterPattern = @"([a-zA-Z0-9-_]+)";
+static NSString * const DPLURLParameterPattern = @"([^/]+)";
 
 @interface DPLRouteMatcher ()
 
@@ -70,7 +70,8 @@ static NSString * const DPLURLParameterPattern = @"([a-zA-Z0-9-_]+)";
 - (DPLDeepLink *)deepLinkWithURL:(NSURL *)url {
     
     DPLDeepLink *deepLink       = [[DPLDeepLink alloc] initWithURL:url];
-    NSString *deepLinkString    = [deepLink.URL absoluteString];
+    NSString *deepLinkString    = [NSString stringWithFormat:@"%@%@",
+                                   deepLink.URL.host, deepLink.URL.path];
     NSArray *matches            = [self.regex matchesInString:deepLinkString
                                                       options:0
                                                         range:NSMakeRange(0, deepLinkString.length)];
