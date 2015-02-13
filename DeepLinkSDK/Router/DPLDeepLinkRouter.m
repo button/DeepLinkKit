@@ -254,13 +254,4 @@
     });
 }
 
-#pragma mark - Private
-
-- (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
-                   inViewController:(UIViewController *)presentingViewController {
-    
-
-}
-
-
 @end
