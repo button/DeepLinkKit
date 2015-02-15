@@ -98,6 +98,10 @@ describe(@"Object Subscripting", ^{
         expect(link.queryParameters[@"foo"]).to.equal(@"bar");
     });
     
+    it(@"allows getting query params via object subscripting", ^{
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com?foo=bar"];
+        expect(link[@"foo"]).to.equal(@"bar");
+    });
 });
 
 
