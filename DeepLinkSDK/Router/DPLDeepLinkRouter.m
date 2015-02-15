@@ -65,12 +65,12 @@
 
 #pragma mark - Registering Routes via Object Subscripting
 
-- (id)objectForKeyedSubscript:(id <NSCopying>)key {
+- (id)objectForKeyedSubscript:(NSString *)key {
 
     NSString *route = (NSString *)key;
     id obj = nil;
     
-    if ([route isKindOfClass:[NSString class]] && [route length]) {
+    if ([route isKindOfClass:[NSString class]] && route.length) {
         obj = self.classesByRoute[route];
         if (!obj) {
             obj = self.blocksByRoute[route];
@@ -81,10 +81,10 @@
 }
 
 
-- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key {
+- (void)setObject:(id)obj forKeyedSubscript:(NSString *)key {
     
     NSString *route = (NSString *)key;
-    if (!([route isKindOfClass:[NSString class]] && [route length])) {
+    if (!([route isKindOfClass:[NSString class]] && route.length)) {
         return;
     }
     

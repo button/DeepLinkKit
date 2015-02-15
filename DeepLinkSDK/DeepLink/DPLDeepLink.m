@@ -70,7 +70,7 @@ NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
 
 #pragma mark - Parameter Retrieval via Object Subscripting
 
-- (id)objectForKeyedSubscript:(id <NSCopying>)key {
+- (id)objectForKeyedSubscript:(NSString *)key {
     id value  = self.routeParameters[key];
     if (!value) {
         value = self.queryParameters[key];
