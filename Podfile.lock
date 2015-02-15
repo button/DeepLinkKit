@@ -1,5 +1,5 @@
 PODS:
-  - DeepLinkSDK (0.2.2)
+  - DeepLinkSDK (0.2.3)
   - Expecta (0.3.2)
   - OCMock (3.1.2)
   - Specta (0.3.2)
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  DeepLinkSDK: 821176a4d3ab5faa9d2c7930474d60111e05e6ae
+  DeepLinkSDK: bdd4c26049cde67aabe1fcc4b29b827453e3b01b
   Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
   OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
   Specta: 698a58ffa5ec948327d3b92eab50ca58d7f4fbe8
