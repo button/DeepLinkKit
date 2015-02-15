@@ -90,6 +90,17 @@ describe(@"Mutating Deep Links", ^{
 });
 
 
+describe(@"Object Subscripting", ^{
+    
+    it(@"allows setting query params via object subscripting", ^{
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
+        link[@"foo"] = @"bar";
+        expect(link.queryParameters[@"foo"]).to.equal(@"bar");
+    });
+    
+});
+
+
 describe(@"Copying", ^{
     
     it(@"returns an immutable deep link via copy", ^{
