@@ -1,8 +1,5 @@
 #import "DPLActionDataSource.h"
-#import "NSString+DPLQuery.h"
-#import "NSString+DPLJSON.h"
-#import "DPLDeepLink.h"
-#import "DPLDeepLink+AppLinks.h"
+#import "DPLMutableDeepLink.h"
 #import "DPLDemoAction.h"
 
 @interface DPLActionDataSource ()
@@ -17,7 +14,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _actions = @[[self loadOktoberfestAction],
+        _actions = @[[self loadBeersAction],
+                     [self loadOktoberfestAction],
                      [self logHelloWorldAction]];
     }
     return self;
@@ -46,24 +44,32 @@
 
 #pragma mark - Action Construction
 
-- (DPLDemoAction *)loadOktoberfestAction {
+- (DPLDemoAction *)loadBeersAction {
+    DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://beers"];
+    
     DPLDemoAction *action = [[DPLDemoAction alloc] init];
-    action.actionURL  = [NSURL URLWithString:@"dpl://dpl.com/product/93598"];
+    action.actionURL = link.URL;
+    action.actionName = @"Shop: Beers";
+    return action;
+}
+
+
+- (DPLDemoAction *)loadOktoberfestAction {
+    DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
+    link.path = @"/product/93598";
+    
+    DPLDemoAction *action = [[DPLDemoAction alloc] init];
+    action.actionURL  = link.URL;
     action.actionName = @"Buy: Shiner Oktoberfest";
     return action;
 }
 
 
 - (DPLDemoAction *)logHelloWorldAction {
-    NSDictionary *payload = @{ DPLAppLinksTargetURLKey: @"http://dpl.io/say/Hello/World" };
-    
-    NSString *payloadString = [[NSString DPL_stringWithJSONObject:payload]
-                               DPL_stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *URLString     = [NSString stringWithFormat:@"dpl://deeplink?al_applink_data=%@", payloadString];
-    NSURL    *deepLinkURL   = [NSURL URLWithString:URLString];
+    DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com/say/Hello/World"];
     
     DPLDemoAction *action = [[DPLDemoAction alloc] init];
-    action.actionURL = deepLinkURL;
+    action.actionURL = link.URL;
     action.actionName = @"Say: “Hello World”";
     return action;
 }
