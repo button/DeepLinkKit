@@ -20,6 +20,7 @@
     
     self.router = [[DPLDeepLinkRouter alloc] init];
    
+    
     // Route registration.
     self.router[@"/product/:sku"] = [DPLProductRouteHandler class];
     
@@ -29,6 +30,13 @@
                                    delegate:nil
                           cancelButtonTitle:NSLocalizedString(@"OK", nil)
                           otherButtonTitles:nil] show];
+    };
+    
+    __weak __typeof__(self) weakSelf = self;
+    self.router[@"beers"] = ^{
+        UINavigationController *navController = (UINavigationController *)weakSelf.window.rootViewController;
+        UIViewController *controller = [navController.storyboard instantiateViewControllerWithIdentifier:@"beers"];
+        [navController pushViewController:controller animated:NO];
     };
 
     return YES;
