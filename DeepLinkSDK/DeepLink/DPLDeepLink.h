@@ -6,6 +6,13 @@
 
 @interface DPLDeepLink : NSObject <NSCopying, NSMutableCopying>
 
+
+
+///-----------------
+/// @name Properties
+///-----------------
+
+
 /**
  The serialized URL representation of the deep link.
  */
@@ -40,6 +47,7 @@
 @property (nonatomic, strong, readonly) NSURL *callbackURL;
 
 
+
 ///--------------------------------------------------
 /// @name Parameter Retrieval via Object Subscripting
 ///--------------------------------------------------
@@ -51,7 +59,8 @@
  @endcode
  @note If the key is contained in both queryParameters and routeParameters, the value from routeParameters is returned.
  */
-- (id)objectForKeyedSubscript:(id <NSCopying>)key;
+- (id)objectForKeyedSubscript:(NSString *)key;
+
 
 
 ///---------------

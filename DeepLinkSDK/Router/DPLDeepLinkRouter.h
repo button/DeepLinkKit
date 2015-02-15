@@ -118,7 +118,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  }
  @endcode
  */
-- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
+- (void)setObject:(id)obj forKeyedSubscript:(NSString *)key;
 
 
 /**
@@ -128,6 +128,6 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  @endcode
  @note The type of the returned handler is the type you registered for that route.
  */
-- (id)objectForKeyedSubscript:(id <NSCopying>)key;
+- (id)objectForKeyedSubscript:(NSString *)key;
 
 @end

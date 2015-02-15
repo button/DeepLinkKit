@@ -69,6 +69,15 @@
 }
 
 
+#pragma mark - Set Query Parameters via Object Subscripting
+
+- (void)setObject:(id)obj forKeyedSubscript:(NSString *)key {
+    if ([key isKindOfClass:[NSString class]] && key.length) {
+        self.queryParameters[key] = obj;
+    }
+}
+
+
 #pragma mark - NSObject
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {

@@ -10,6 +10,7 @@ NSString * const DPLErrorDomain              = @"com.usebutton.deeplink.error";
 NSString * const DPLCallbackURLKey           = @"dpl_callback_url";
 NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
 
+
 @implementation DPLDeepLink
 
 - (instancetype)initWithURL:(NSURL *)url {
@@ -50,15 +51,6 @@ NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
 }
 
 
-- (id)objectForKeyedSubscript:(id <NSCopying>)key {
-    id value = _routeParameters[key];
-    if (!value) {
-        value = _queryParameters[key];
-    }
-    return value;
-}
-
-
 - (NSString *)description {
     return [NSString stringWithFormat:
             @"\n<%@ %p\n"
@@ -73,6 +65,17 @@ NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
             self.queryParameters,
             self.routeParameters,
             [self.callbackURL description]];
+}
+
+
+#pragma mark - Parameter Retrieval via Object Subscripting
+
+- (id)objectForKeyedSubscript:(NSString *)key {
+    id value  = self.routeParameters[key];
+    if (!value) {
+        value = self.queryParameters[key];
+    }
+    return value;
 }
 
 
