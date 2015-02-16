@@ -175,38 +175,26 @@
         presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
     }
 
+    if ([routeHandler respondsToSelector:@selector(targetViewController:completionHandler:)]) {
+        [routeHandler targetViewController:deepLink completionHandler:^(UIViewController<DPLTargetViewController> *targetViewController) {
+            
+            [self presentTargetViewController:routeHandler targetViewController:targetViewController inViewController:presentingViewController deepLink:deepLink];
+        }];
+        
+        return YES;
+    }
+    
     UIViewController <DPLTargetViewController> *targetViewController = nil;
     if ([routeHandler respondsToSelector:@selector(targetViewController:)]) {
         targetViewController = [routeHandler targetViewController:deepLink];
     }
     
     if (targetViewController) {
-        [targetViewController configureWithDeepLink:deepLink];
-        
-        if ([routeHandler respondsToSelector:@selector(presentTargetViewController:inViewController:deepLink:)]) {
-            [routeHandler presentTargetViewController:targetViewController inViewController:presentingViewController deepLink:deepLink];
-        }
-        else {
-            
-            BOOL preferModalPresentation = NO;
-            if ([routeHandler respondsToSelector:@selector(preferModalPresentation:)]) {
-                preferModalPresentation = [routeHandler preferModalPresentation:deepLink];
-            }
-            
-            if (preferModalPresentation ||
-                ![presentingViewController isKindOfClass:[UINavigationController class]]) {
-                
-                [presentingViewController presentViewController:targetViewController animated:NO completion:NULL];
-            }
-            else if ([presentingViewController isKindOfClass:[UINavigationController class]]) {
-                
-                UINavigationController * navigationViewController = (UINavigationController*)presentingViewController;
-                [navigationViewController placeTargetViewController:targetViewController];
-            }
-        }
-    }
-    else {
-        
+        [self presentTargetViewController:routeHandler
+                     targetViewController:targetViewController
+                         inViewController:presentingViewController
+                                 deepLink:deepLink];
+    } else {
         NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The matched route handler does not specify a target view controller.", nil)};
         
         if (error) {
@@ -252,6 +240,39 @@
             self.routeCompletionHandler(handled, error);
         }
     });
+}
+
+- (void)presentTargetViewController:(id<DPLRouteHandlerProtocol>)routeHandler
+               targetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
+                   inViewController:(UIViewController *)presentingViewController
+                           deepLink:(DPLDeepLink *)deepLink
+{
+
+    if (targetViewController) {
+        [targetViewController configureWithDeepLink:deepLink];
+        
+        if ([routeHandler respondsToSelector:@selector(presentTargetViewController:inViewController:deepLink:)]) {
+            [routeHandler presentTargetViewController:targetViewController inViewController:presentingViewController deepLink:deepLink];
+        }
+        else {
+            
+            BOOL preferModalPresentation = NO;
+            if ([routeHandler respondsToSelector:@selector(preferModalPresentation:)]) {
+                preferModalPresentation = [routeHandler preferModalPresentation:deepLink];
+            }
+            
+            if (preferModalPresentation ||
+                ![presentingViewController isKindOfClass:[UINavigationController class]]) {
+                
+                [presentingViewController presentViewController:targetViewController animated:NO completion:NULL];
+            }
+            else if ([presentingViewController isKindOfClass:[UINavigationController class]]) {
+                
+                UINavigationController * navigationViewController = (UINavigationController*)presentingViewController;
+                [navigationViewController placeTargetViewController:targetViewController];
+            }
+        }
+    }
 }
 
 @end

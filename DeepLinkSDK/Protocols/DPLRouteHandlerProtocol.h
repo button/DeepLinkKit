@@ -3,6 +3,8 @@
 
 @class DPLDeepLink;
 
+typedef void (^DPLTargetViewControllerCompletionHandler)(UIViewController <DPLTargetViewController> * targetViewController);
+
 /**
  A protocol for handling routes.
  
@@ -28,6 +30,14 @@
 
 
 @optional
+
+
+/**
+ The view controller that will be presented as a result of the deep link.
+ @param deepLink A deep link instance.
+ @param completionHandler A block executed returing the DPLTargetViewController.
+ */
+- (void)targetViewController:(DPLDeepLink *)deepLink completionHandler:(DPLTargetViewControllerCompletionHandler)completionHandler;
 
 /**
  Indicates whether the deep link should be handled.
