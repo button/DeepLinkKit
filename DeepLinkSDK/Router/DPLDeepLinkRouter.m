@@ -8,7 +8,6 @@
 @interface DPLDeepLinkRouter ()
 
 @property (nonatomic, copy) DPLApplicationCanHandleDeepLinksBlock applicationCanHandleDeepLinksBlock;
-@property (nonatomic, copy) DPLRouteCompletionBlock               routeCompletionHandler;
 
 @property (nonatomic, strong) NSMutableOrderedSet *routes;
 @property (nonatomic, strong) NSMutableDictionary *classesByRoute;
@@ -105,14 +104,13 @@
 
 #pragma mark - Routing Deep Links
 
-- (void)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler; {
-    self.routeCompletionHandler = completionHandler;
+- (void)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler {
     if (!url) {
         return;
     }
     
     if (![self applicationCanHandleDeepLinks]) {
-        [self completeRouteWithSuccess:NO error:nil];
+        [self completeRouteWithSuccess:NO error:nil completionHandler:completionHandler];
         return;
     }
 
@@ -133,7 +131,7 @@
         error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteNotFoundError userInfo:userInfo];
     }
     
-    [self completeRouteWithSuccess:isHandled error:error];
+    [self completeRouteWithSuccess:isHandled error:error completionHandler:completionHandler];
 }
 
 
@@ -175,13 +173,18 @@
 }
 
 
-- (void)completeRouteWithSuccess:(BOOL)handled error:(NSError *)error {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.routeCompletionHandler) {
-            self.routeCompletionHandler(handled, error);
-        }
-    });
+- (void)completeRouteWithSuccess:(BOOL)handled error:(NSError *)error completionHandler:(DPLRouteCompletionBlock)completionHandler {
+    if (!completionHandler) {
+        return;
+    }
+    dispatch_block_t block = ^{
+        completionHandler(handled, error);
+    };
+    if ([NSThread isMainThread]) {
+        block();
+    } else {
+        dispatch_async(dispatch_get_main_queue(), block);
+    }
 }
 
 @end
