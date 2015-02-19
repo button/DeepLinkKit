@@ -121,11 +121,12 @@ describe(@"Handling Routes", ^{
                 XCTFail(@"The wrong route was matched.");
             };
             
-            [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beTruthy();
                 expect(error).to.beNil();
                 done();
             }];
+            expect(isHandled).to.beTruthy();
         });
     });
     
@@ -139,21 +140,23 @@ describe(@"Handling Routes", ^{
                 XCTFail(@"The wrong route was matched.");
             };
             
-            [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beTruthy();
                 expect(error).to.beNil();
                 done();
             }];
+            expect(isHandled).to.beTruthy();
         });
     });
     
     it(@"produces an error when a URL has no matching route", ^{
         waitUntil(^(DoneCallback done) {
-            [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beFalsy();
                 expect(error.code).to.equal(DPLRouteNotFoundError);
                 done();
             }];
+            expect(isHandled).to.beFalsy();
         });
     });
     
@@ -162,11 +165,12 @@ describe(@"Handling Routes", ^{
             
             router[@"/say/:word"] = [DPLRouteHandler class];
             
-            [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beFalsy();
                 expect(error.code).to.equal(DPLRouteHandlerTargetNotSpecifiedError);
                 done();
             }];
+            expect(isHandled).to.beFalsy();
         });
     });
 });
