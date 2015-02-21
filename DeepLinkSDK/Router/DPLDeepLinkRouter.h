@@ -79,10 +79,11 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  Attempts to handle an incoming URL.
  @param url The incoming URL from `application:didFinishLaunchingWithOptions:' or `application:openURL:sourceApplication:annotation:'
  @param completionHandler A block executed after the deep link has been handled.
+ @return YES if the incoming URL is handled, otherwise NO.
  
  @see DPLRouteCompletionBlock
  */
-- (void)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler;
+- (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler;
 
 
 

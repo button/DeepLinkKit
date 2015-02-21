@@ -105,15 +105,15 @@
 
 #pragma mark - Routing Deep Links
 
-- (void)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler; {
+- (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler; {
     self.routeCompletionHandler = completionHandler;
     if (!url) {
-        return;
+        return NO;
     }
     
     if (![self applicationCanHandleDeepLinks]) {
         [self completeRouteWithSuccess:NO error:nil];
-        return;
+        return NO;
     }
 
     NSError      *error;
@@ -134,6 +134,8 @@
     }
     
     [self completeRouteWithSuccess:isHandled error:error];
+    
+    return isHandled;
 }
 
 
