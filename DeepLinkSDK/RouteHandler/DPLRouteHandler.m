@@ -1,4 +1,10 @@
 #import "DPLRouteHandler.h"
+#import "DPLRouteHandlerProtocol.h"
+#import "UINavigationController+DPL.h"
+
+@interface DPLRouteHandler () <DPLRouteHandlerProtocol>
+
+@end
 
 @implementation DPLRouteHandler
 
@@ -32,40 +38,26 @@
     }
     else if ([presentingViewController isKindOfClass:[UINavigationController class]]) {
         
-        [self placeTargetViewController:targetViewController
-                 inNavigationController:(UINavigationController *)presentingViewController];
+        UINavigationController * navigationViewController = (UINavigationController*)presentingViewController;
+        [navigationViewController placeTargetViewController:targetViewController];
     }
 }
 
+#pragma mark - DPLRouteHandlerProtocol
 
-#pragma mark - Private
+- (UIViewController <DPLTargetViewController> *)targetViewController:(DPLDeepLink *)deepLink {
+    return [self targetViewController];
+}
 
-- (void)placeTargetViewController:(UIViewController *)targetViewController
-           inNavigationController:(UINavigationController *)navigationController {
+- (BOOL)preferModalPresentation:(DPLDeepLink *)deepLink {
+    return [self preferModalPresentation:deepLink];
+}
+
+- (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
+                   inViewController:(UIViewController *)presentingViewController
+                           deepLink:(DPLDeepLink *)deepLink {
     
-    if ([navigationController.viewControllers containsObject:targetViewController]) {
-        [navigationController popToViewController:targetViewController animated:NO];
-    }
-    else {
-        
-        for (UIViewController *controller in navigationController.viewControllers) {
-            if ([controller isMemberOfClass:[targetViewController class]]) {
-                
-                [navigationController popToViewController:controller animated:NO];
-                [navigationController popViewControllerAnimated:NO];
-                
-                if ([controller isEqual:navigationController.topViewController]) {
-                    [navigationController setViewControllers:@[targetViewController] animated:NO];
-                }
-                
-                break;
-            }
-        }
-        
-        if (![navigationController.topViewController isEqual:targetViewController]) {
-            [navigationController pushViewController:targetViewController animated:NO];
-        }
-    }
+    return [self presentTargetViewController:targetViewController inViewController:presentingViewController];
 }
 
 @end

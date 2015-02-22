@@ -1,4 +1,5 @@
 #import "DPLTargetViewControllerProtocol.h"
+#import "DPLRouteHandlerProtocol.h"
 #import "DPLDeepLinkRouter.h"
 #import "DPLRouteHandler.h"
 #import "DPLDeepLink.h"
