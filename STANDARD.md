@@ -7,7 +7,7 @@ The dpl.io deep linking standard sets out a light-weight way of adding consisten
 All dpl.io parameters are passed as query parameters. Where the host is used to define the standard used to interpret a deep link, the host `dpl.io` should be used. This is not a mandatory part of the standard.
 
 ### Unencoded Query Parameters
-Basic dpl.io functionality is available throw unencoded query parameters as defined below. These include definition of the standard version as well as the callback URL and attribution token.
+Basic dpl.io functionality is available through unencoded query parameters as defined below. These include definition of the standard version as well as the callback URL and attribution token.
 
 - `dpl:callback-url`: A URL to be considered as the 'back' button
 - `dpl:protocol-version`: The version of the dpl.io protocol used to encode the deep link
