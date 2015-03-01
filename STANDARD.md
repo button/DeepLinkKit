@@ -32,10 +32,19 @@ The dictionary in the query parameter `dpl:referral-data` contains more granular
 This is the full structure of the query parameters defined in V1 of the `dpl.io` standard.
 
 ```
+// The version of the protocol
 - dpl:protocol-version:        1.0
+
+// The URL to call to go 'back'
 - dpl:callback-url:            callingapp://dpl.io/action_complete
+
+// The token to use as the 'last-touch' referrer
 - dpl:attribution-token:       tok-abc123
+
+// The names of fields to decode from JSON
 - dpl:json-encoded-fields:(*)  ["dpl:referral-data"]
+
+// Additional data about the referring app. (You can add more here)
 - dpl:referral-data:(*)        { "dpl:referrer-application-id":         "1234567",
                                  "dpl:referrer-application-name":       "Calling App",
                                  "dpl:referrer-callback-display-title": "Done" }
