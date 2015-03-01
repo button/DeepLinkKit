@@ -27,3 +27,18 @@ The dictionary in the query parameter `dpl:referral-data` contains more granular
 - `dpl:referrer-application-id`: The iTunes / Google Play ID of the referring application
 - `dpl:referrer-application-name`: The display name of the referring application
 - `dpl:referrer-callback-display-title`: The title of the action button that invokes the URL in the `dpl:callback-url` query parameter.
+
+### Query Parameter Structure
+This is the full structure of the query parameters defined in V1 of the `dpl.io` standard.
+
+```
+- dpl:protocol-version:        1.0
+- dpl:callback-url:            callingapp://dpl.io/action_complete
+- dpl:attribution-token:       tok-abc123
+- dpl:json-encoded-fields:(*)  ["dpl:referral-data"]
+- dpl:referral-data:(*)        { "dpl:referrer-application-id":         "1234567",
+                                 "dpl:referrer-application-name":       "Calling App",
+                                 "dpl:referrer-callback-display-title": "Done" }
+
+NOTE: (*) denotes that the field is JSON-encoded
+```
