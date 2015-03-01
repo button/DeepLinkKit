@@ -31,7 +31,7 @@ The dictionary in the query parameter `dpl:referral-data` contains more granular
 ### Query Parameter Structure
 This is the full structure of the query parameters defined in V1 of the `dpl.io` standard.
 
-```
+```objc
 // The version of the protocol
 - "dpl:protocol-version":        1.0
 
@@ -51,8 +51,8 @@ This is the full structure of the query parameters defined in V1 of the `dpl.io`
 
 // Additional data about the referring app. (You can add more here)
 - "dpl:referral-data":(*)        { "dpl:referrer-application-id":         "1234567",
-                                 "dpl:referrer-application-name":       "Calling App",
-                                 "dpl:referrer-callback-display-title": "Done" }
+                                   "dpl:referrer-application-name":       "Calling App",
+                                   "dpl:referrer-callback-display-title": "Done" }
 
 
 NOTE: (*) denotes that the field is JSON-encoded
