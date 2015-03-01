@@ -7,7 +7,7 @@
 #import "NSObject+DPLJSONObject.h"
 
 NSString * const DPLErrorDomain              = @"com.usebutton.deeplink.error";
-NSString * const DPLCallbackURLKey           = @"dpl_callback_url";
+NSString * const DPLCallbackURLKey           = @"dpl:callback-url";
 NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
 
 
