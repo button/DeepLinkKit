@@ -1,4 +1,4 @@
-# dpl.io Standard
+# DeepLink Interoperability (dpl.io) Standard
 
 The dpl.io deep linking standard sets out a light-weight way of adding consistent formatting for encoding complex objects, enabling 'back' functionality and powering attribution of incoming links.
 
@@ -9,22 +9,23 @@ All dpl.io parameters are passed as query parameters. Where the host is used to 
 ### Unencoded Query Parameters
 Basic dpl.io functionality is available through unencoded query parameters as defined below. These include definition of the standard version as well as the callback URL and attribution token.
 
-- `dpl:callback-url`: A URL to be considered as the 'back' button
+- `dpl:callback-url`: A URL to be considered as the 'back' button action
 - `dpl:protocol-version`: The version of the dpl.io protocol used to encode the deep link
 - `dpl:attribution-token`: A token to consider as the application's 'last touch' referrer. (More in Attribution & Referrer)
 
 ### Encoding Complex Objects
 The dpl.io standard allows for the passing of complex objects between apps by JSON-encoding them and using a defined field to mark up encoded fields.
 
-The `dpl:json-encoded-fields` field defines any parmeters in the query parameters of the deep link that should be JSON-decoded and made available to the applciation as complex types.
+The `dpl:json-encoded-fields` query parameter defines any other query parameters of the deep link that should be JSON-decoded and made available to the applciation as complex types.
 
-By default, the following fields are JSON-decoded:
+By default, the following fields should be JSON-decoded:
 - `dpl:json-encoded-fields`: This field itself is an encoded array and should always be decoded first
-- `dpl:rerral-data`: This contains a dictionary of referrer information defined later
+- `dpl:rerral-data`: This contains a dictionary of referrer information defined in Full Referrer Data
 
 ### Full Referrer Data
 The dictionary in the query parameter `dpl:referral-data` contains more granular information about the referring application. Specifically:
-- `dpl:referrer-application-id`: The iTunes / Google Play ID of the referring application
+- `dpl:referrer-application-itunes-id`: The iTunes ID of the referring application
+- - `dpl:referrer-application-play-id`: The iTunes ID of the referring application
 - `dpl:referrer-application-name`: The display name of the referring application
 - `dpl:referrer-callback-display-title`: The title of the action button that invokes the URL in the `dpl:callback-url` query parameter.
 
