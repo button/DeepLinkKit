@@ -64,6 +64,13 @@ typedef void (^DPLTargetViewControllerCompletionHandler)(UIViewController <DPLTa
  */
 - (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink;
 
+/**
+ Specifies the URL from which to present a `targetViewController'.
+ @note The default implementation returns your application's root view controller.
+ @param deepLink A deep link instance.
+ @return A view controller for presenting a target view controller.
+ */
+- (NSURL *)URLForPresentingDeepLink:(DPLDeepLink *)deepLink;
 
 /**
  Displays the target view controller via the presenting view controller.

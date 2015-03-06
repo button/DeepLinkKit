@@ -43,6 +43,14 @@
 
 
 /**
+ The view controller that will be presented as a result of the deep link.
+ @return A view controller conforming to the `DPLTargetViewController' protocol.
+ @note Subclasses MUST override this method.
+ */
+- (UIViewController <DPLTargetViewController> *)targetViewController:(DPLDeepLink *)deepLink;
+
+
+/**
  Specifies the view controller from which to present a `targetViewController'.
  @note The default implementation returns your application's root view controller.
  

@@ -10,7 +10,6 @@
 @interface DPLDeepLinkRouter ()
 
 @property (nonatomic, copy) DPLApplicationCanHandleDeepLinksBlock applicationCanHandleDeepLinksBlock;
-@property (nonatomic, copy) DPLRouteCompletionBlock               routeCompletionHandler;
 
 @property (nonatomic, strong) NSMutableOrderedSet *routes;
 @property (nonatomic, strong) NSMutableDictionary *classesByRoute;
@@ -131,14 +130,15 @@
 
 #pragma mark - Routing Deep Links
 
-- (void)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler; {
-    self.routeCompletionHandler = completionHandler;
+- (void)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler {
+
     if (!url) {
+        [self completeRouteWithSuccess:completionHandler handled:NO targetViewController:nil error:nil];
         return;
     }
     
     if (![self applicationCanHandleDeepLinks]) {
-        [self completeRouteWithSuccess:NO error:nil];
+        [self completeRouteWithSuccess:completionHandler handled:NO targetViewController:nil error:nil];
         return;
     }
 
@@ -149,7 +149,7 @@
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];
         if (deepLink) {
-            isHandled = [self handleRoute:route withDeepLink:deepLink error:&error];
+            isHandled = [self handleRoute:route withDeepLink:deepLink error:&error completionHandler:completionHandler];
             break;
         }
     }
@@ -159,10 +159,15 @@
         error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteNotFoundError userInfo:userInfo];
     }
     
-    [self completeRouteWithSuccess:isHandled error:error];
+    // if it's handled, handleRoute will call completeRouteWithSuccess
+    if (!isHandled) {
+        [self completeRouteWithSuccess:completionHandler
+                               handled:isHandled
+                  targetViewController:nil error:error];
+    }
 }
 
-- (BOOL)handleRoute:(id<DPLRouteHandlerProtocol>)routeHandler deepLink:(DPLDeepLink*)deepLink error:(NSError *__autoreleasing *)error {
+- (BOOL)handleRoute:(id<DPLRouteHandlerProtocol>)routeHandler deepLink:(DPLDeepLink*)deepLink error:(NSError *__autoreleasing *)error completionHandler:(DPLRouteCompletionBlock)completionHandler {
 
     if ([routeHandler respondsToSelector:@selector(shouldHandleDeepLink:)]) {
         if (![routeHandler shouldHandleDeepLink:deepLink]) {
@@ -170,56 +175,97 @@
         }
     }
 
-    UIViewController *presentingViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    if ([routeHandler respondsToSelector:@selector(viewControllerForPresentingDeepLink:)]) {
-        presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
-    }
-
-    if ([routeHandler respondsToSelector:@selector(targetViewController:completionHandler:)]) {
-        [routeHandler targetViewController:deepLink completionHandler:^(UIViewController<DPLTargetViewController> *targetViewController) {
+    UIViewController *presentingViewController = nil;
+    if ([routeHandler respondsToSelector:@selector(URLForPresentingDeepLink:)]) {
+    
+        NSURL * presentingLink = [routeHandler URLForPresentingDeepLink:deepLink];
+        if (presentingLink != nil) {
             
-            [self presentTargetViewController:routeHandler targetViewController:targetViewController inViewController:presentingViewController deepLink:deepLink];
-        }];
-        
-        return YES;
-    }
-    
-    UIViewController <DPLTargetViewController> *targetViewController = nil;
-    if ([routeHandler respondsToSelector:@selector(targetViewController:)]) {
-        targetViewController = [routeHandler targetViewController:deepLink];
-    }
-    
-    if (targetViewController) {
-        [self presentTargetViewController:routeHandler
-                     targetViewController:targetViewController
-                         inViewController:presentingViewController
-                                 deepLink:deepLink];
-    } else {
-        NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The matched route handler does not specify a target view controller.", nil)};
-        
-        if (error) {
-            *error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteHandlerTargetNotSpecifiedError userInfo:userInfo];
+            // async
+            [self handleURL:presentingLink withCompletion:^(BOOL handled, NSError *handleURLError, UIViewController<DPLTargetViewController> *targetViewController) {
+                
+                if (handleURLError) {
+                    
+                    [self completeRouteWithSuccess:completionHandler handled:NO targetViewController:targetViewController error:handleURLError];
+              } else {
+                  
+                  NSError *presentError;
+                BOOL handled = [self presentRoute:routeHandler
+            presentingViewController:targetViewController
+                            deepLink:deepLink
+                               error:&presentError];
+                  
+                  [self completeRouteWithSuccess:completionHandler handled:handled targetViewController:targetViewController error:presentError];
+              }
+                
+                
+            }];
+            
+            return  YES;
         }
-        
-        return NO;
     }
-
-    return YES;
+    
+    return [self presentRoute:routeHandler
+     presentingViewController:presentingViewController
+                     deepLink:deepLink
+                        error:error];
 }
 
-- (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
+- (BOOL)presentRoute:(id<DPLRouteHandlerProtocol>)routeHandler
+ presentingViewController:(UIViewController*)presentingViewController
+                 deepLink:(DPLDeepLink*)deepLink
+                    error:(NSError *__autoreleasing *)error {
+    
+     if (presentingViewController == nil) {
+     
+         if ([routeHandler respondsToSelector:@selector(viewControllerForPresentingDeepLink:)]) {
+             
+             presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
+         }
+         else {
+             presentingViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+         }
+     }
+     
+     if ([routeHandler respondsToSelector:@selector(targetViewController:completionHandler:)]) {
+         
+         [routeHandler targetViewController:deepLink completionHandler:^(UIViewController<DPLTargetViewController> *targetViewController) {
+         
+             [self presentTargetViewController:routeHandler targetViewController:targetViewController inViewController:presentingViewController deepLink:deepLink];
+         }];
+     
+         return YES;
+     }
+     
+     UIViewController <DPLTargetViewController> *targetViewController = nil;
+     if ([routeHandler respondsToSelector:@selector(targetViewController:)]) {
+         targetViewController = [routeHandler targetViewController:deepLink];
+     }
+     
+     if (targetViewController) {
+         [self presentTargetViewController:routeHandler
+         targetViewController:targetViewController
+         inViewController:presentingViewController
+         deepLink:deepLink];
+     } else {
+         NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The matched route handler does not specify a target view controller.", nil)};
+         
+         if (error) {
+             *error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteHandlerTargetNotSpecifiedError userInfo:userInfo];
+         }
+         
+         return NO;
+     }
+     
+     return YES;
+}
+
+- (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error completionHandler:(DPLRouteCompletionBlock)completionHandler {
     id handler = self[route];
     
     if ([handler isKindOfClass:NSClassFromString(@"NSBlock")]) {
         DPLRouteHandlerBlock routeHandlerBlock = handler;
         routeHandlerBlock(deepLink);
-    }
-    else if ([handler conformsToProtocol:@protocol(DPLRouteHandlerProtocol)]) {
-        
-        id<DPLRouteHandlerProtocol> routeHandler = handler;
-        return [self handleRoute:routeHandler
-                        deepLink:deepLink
-                           error:error];
     }
     else if (class_isMetaClass(object_getClass(handler)) &&
              [handler isSubclassOfClass:[DPLRouteHandler class]]) {
@@ -227,21 +273,34 @@
         id<DPLRouteHandlerProtocol> routeHandler = [[handler alloc] init];
         return [self handleRoute:routeHandler
                         deepLink:deepLink
-                            error:error];
+                            error:error
+               completionHandler:completionHandler];
     }
-    
+    else if ([handler conformsToProtocol:@protocol(DPLRouteHandlerProtocol)]) {
+        
+        id<DPLRouteHandlerProtocol> routeHandler = handler;
+        return [self handleRoute:routeHandler
+                        deepLink:deepLink
+                           error:error
+               completionHandler:completionHandler];
+    }
+
     return YES;
 }
 
-- (void)completeRouteWithSuccess:(BOOL)handled error:(NSError *)error {
+                  
+- (void)completeRouteWithSuccess:(DPLRouteCompletionBlock)handler
+                         handled:(BOOL)handled
+            targetViewController:(UIViewController<DPLTargetViewController>*)targetViewController
+                           error:(NSError *)error {
+
+    if (!handler) return;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.routeCompletionHandler) {
-            self.routeCompletionHandler(handled, error);
-        }
+        handler(handled, error, targetViewController);
     });
 }
-
+    
 - (void)presentTargetViewController:(id<DPLRouteHandlerProtocol>)routeHandler
                targetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
                    inViewController:(UIViewController *)presentingViewController
@@ -249,7 +308,9 @@
 {
 
     if (targetViewController) {
-        [targetViewController configureWithDeepLink:deepLink];
+        if ([targetViewController respondsToSelector:@selector(configureWithDeepLink:)]) {
+            [targetViewController configureWithDeepLink:deepLink];
+        }
         
         if ([routeHandler respondsToSelector:@selector(presentTargetViewController:inViewController:deepLink:)]) {
             [routeHandler presentTargetViewController:targetViewController inViewController:presentingViewController deepLink:deepLink];

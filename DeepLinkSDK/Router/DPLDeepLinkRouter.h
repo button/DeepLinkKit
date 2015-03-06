@@ -2,7 +2,7 @@
 
 @class    DPLDeepLink;
 @protocol DPLRouteHandler;
-
+@protocol DPLTargetViewController;
 
 /**
  Defines the block type to be used as the handler when registering a route.
@@ -26,10 +26,9 @@ typedef BOOL(^DPLApplicationCanHandleDeepLinksBlock)(void);
  The completion block definition for `routeURL:withCompletion:'
  @param handled Indicates whether or not the deep link was handled.
  @param error An error if one occurred while handling a deep link URL.
+ @param targetViewController view controller presented from URL.
  */
-typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
-
-
+typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error, UIViewController <DPLTargetViewController> * targetViewController);
 
 @interface DPLDeepLinkRouter : NSObject
 
