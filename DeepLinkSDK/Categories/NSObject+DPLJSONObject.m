@@ -1,8 +1,15 @@
 #import "NSObject+DPLJSONObject.h"
+#import "DPLSerializable.h"
 
 @implementation NSObject (DPLJSONObject)
 
 - (id)DPL_JSONObject {
+    if ([self conformsToProtocol:@protocol(DPLSerializable)]
+        && [self respondsToSelector:@selector(dictionaryRepresentation)]) {
+        
+        return [(id <DPLSerializable>)self dictionaryRepresentation];
+    }
+    
     return self.description;
 }
 

@@ -1,5 +1,6 @@
 #import "Specta.h"
 #import "NSObject+DPLJSONObject.h"
+#import "DPLSerializableObject.h"
 
 SpecBegin(NSObject_DPLJSONObject)
 
@@ -65,6 +66,19 @@ describe(@"JSON Compatible Object", ^{
         NSDictionary *dict = @{ testURL: @"foo", @"bar": @"baz" };
         id obj = [dict DPL_JSONObject];
         expect(obj).to.equal(@{ @"bar": @"baz" });
+    });
+    
+    it(@"serializes DPLSerializable objects to dictionaries", ^{
+        NSDictionary *rep = @{ @"some_id":     @"abc",
+                               @"some_string": @"derp",
+                               @"some_url":    @"http://dpl.io",
+                               @"some_int":    @(123)};
+        
+        DPLSerializableObject *object = [[DPLSerializableObject alloc] initWithDictionary:rep];
+        
+        NSDictionary *dict = @{ @"object": object };
+        id obj = [dict DPL_JSONObject];
+        expect(obj).to.equal(@{ @"object": rep });
     });
 });
 
