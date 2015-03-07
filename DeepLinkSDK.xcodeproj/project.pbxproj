@@ -46,6 +46,7 @@
 		DEDB149D1A3F944D00A837F8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDB149C1A3F944D00A837F8 /* Images.xcassets */; };
 		DEE40E5F1A42B0530097EA33 /* DPLActionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE40E5D1A42ABE80097EA33 /* DPLActionDataSource.m */; };
 		DEE40E601A42B0580097EA33 /* DPLDemoAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE40E581A42A3F50097EA33 /* DPLDemoAction.m */; };
+		DEEBD4A91AAB7946000BCA84 /* DPLSerializableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEBD4A81AAB7946000BCA84 /* DPLSerializableObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,9 @@
 		DEE40E581A42A3F50097EA33 /* DPLDemoAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLDemoAction.m; sourceTree = "<group>"; };
 		DEE40E5C1A42ABE80097EA33 /* DPLActionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DPLActionDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		DEE40E5D1A42ABE80097EA33 /* DPLActionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DPLActionDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		DEEBD4A51AAB6FBB000BCA84 /* DPLSerializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLSerializable.h; sourceTree = "<group>"; };
+		DEEBD4A71AAB7946000BCA84 /* DPLSerializableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPLSerializableObject.h; path = Fixtures/DPLSerializableObject.h; sourceTree = "<group>"; };
+		DEEBD4A81AAB7946000BCA84 /* DPLSerializableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPLSerializableObject.m; path = Fixtures/DPLSerializableObject.m; sourceTree = "<group>"; };
 		DF9272621ECB6C2824AD5C94 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ./LICENSE; sourceTree = "<group>"; };
 		E9CA1DB95577CF3689F4B77F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ./README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -412,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				DE99EF781A3B83D100CE3449 /* DPLTargetViewControllerProtocol.h */,
+				DEEBD4A51AAB6FBB000BCA84 /* DPLSerializable.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 		DEAD328119E079D3003C8D65 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DEEBD4A61AAB7928000BCA84 /* Fixtures */,
 				DE16E9221A42883B00077E18 /* Router */,
 				DE16E9361A4289DF00077E18 /* RouteMatcher */,
 				DE058E0E1A3B485500147C04 /* DeepLink */,
@@ -535,6 +541,15 @@
 				DEE40E5D1A42ABE80097EA33 /* DPLActionDataSource.m */,
 			);
 			path = ActionData;
+			sourceTree = "<group>";
+		};
+		DEEBD4A61AAB7928000BCA84 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				DEEBD4A71AAB7946000BCA84 /* DPLSerializableObject.h */,
+				DEEBD4A81AAB7946000BCA84 /* DPLSerializableObject.m */,
+			);
+			name = Fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -781,6 +796,7 @@
 				DE16E9281A42883B00077E18 /* DPLDeepLinkRouterSpec.m in Sources */,
 				DE16E9381A4289DF00077E18 /* DPLRouteMatcherSpec.m in Sources */,
 				DECB32531A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m in Sources */,
+				DEEBD4A91AAB7946000BCA84 /* DPLSerializableObject.m in Sources */,
 				DE058E101A3B485500147C04 /* DPLDeepLinkSpec.m in Sources */,
 				DECB32551A882D1A0071C76E /* DPLMutableDeepLinkSpec.m in Sources */,
 				DE058E0A1A3B46FD00147C04 /* NSString_DPLQuerySpec.m in Sources */,
