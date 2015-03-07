@@ -55,7 +55,7 @@ describe(@"JSON Compatible Object", ^{
         expect(obj).to.equal(@[ @{ @"foo": [testURL absoluteString] } ]);
     });
     
-    it(@"converts nan and inf numbers to s  trings", ^{
+    it(@"converts nan and inf numbers to strings", ^{
         NSDictionary *dict = @{ @"inf": @(INFINITY), @"nan": @(NAN) };
         id obj = [dict DPL_JSONObject];
         expect(obj).to.equal(@{ @"inf": @"inf", @"nan": @"nan" });
