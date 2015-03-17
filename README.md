@@ -73,7 +73,7 @@ self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
 
-  [self.router handleURL:url withCompletion:NULL];
+  [self.router handleURL:url userInfo:nil withCompletion:NULL];
 
   return YES;
 }

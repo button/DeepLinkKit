@@ -48,7 +48,7 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
  
-    return [self.router handleURL:url withCompletion:NULL];
+    return [self.router handleURL:url userInfo:nil withCompletion:NULL];
 }
 
 @end

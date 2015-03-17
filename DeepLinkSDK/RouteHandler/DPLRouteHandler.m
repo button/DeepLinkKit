@@ -2,7 +2,7 @@
 
 @implementation DPLRouteHandler
 
-- (BOOL)shouldHandleDeepLink:(DPLDeepLink *)deepLink {
+- (BOOL)shouldHandleDeepLink:(DPLDeepLink *)deepLink userInfo:(NSDictionary *)userInfo {
     return YES;
 }
 
@@ -17,7 +17,7 @@
 }
 
 
-- (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink {
+- (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink userInfo:(NSDictionary *)userInfo {
     return [UIApplication sharedApplication].keyWindow.rootViewController;
 }
 

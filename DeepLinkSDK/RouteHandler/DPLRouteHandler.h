@@ -21,9 +21,10 @@
 /**
  Indicates whether the deep link should be handled.
  @param deepLink A deep link instance.
+ @param userInfo A userInfo dictionary.
  @return YES to proceed with handling the deep link, otherwise NO. The default is YES.
  */
-- (BOOL)shouldHandleDeepLink:(DPLDeepLink *)deepLink;
+- (BOOL)shouldHandleDeepLink:(DPLDeepLink *)deepLink userInfo:(NSDictionary *)userInfo;
 
 
 /**
@@ -47,9 +48,10 @@
  @note The default implementation returns your application's root view controller.
  
  @param deepLink A deep link instance.
+ @param userInfo A userInfo dictionary.
  @return A view controller for presenting a target view controller.
  */
-- (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink;
+- (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink userInfo:(NSDictionary *)userInfo;
 
 
 /**

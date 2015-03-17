@@ -23,7 +23,7 @@
 
 #pragma mark - DPLTargetViewController
 
-- (void)configureWithDeepLink:(DPLDeepLink *)deepLink {
+- (void)configureWithDeepLink:(DPLDeepLink *)deepLink userInfo:(NSDictionary *)userInfo {
     
     NSString *sku = deepLink.routeParameters[@"sku"];
     

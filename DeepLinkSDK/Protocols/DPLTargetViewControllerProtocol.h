@@ -11,7 +11,7 @@
  this method gets called. In that case, you might store the relevant data and configure its views
  in `-[UIViewController viewDidLoad]'.
  */
-- (void)configureWithDeepLink:(DPLDeepLink *)deepLink;
+- (void)configureWithDeepLink:(DPLDeepLink *)deepLink userInfo:(NSDictionary *)userInfo;
 
 @end
 

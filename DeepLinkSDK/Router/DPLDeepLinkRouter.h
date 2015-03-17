@@ -7,11 +7,12 @@
 /**
  Defines the block type to be used as the handler when registering a route.
  @param deepLink The deep link to be handled.
+ @param userInfo The userInfo dictionary passed in to the router.
  @note It is not strictly necessary to register block-based route handlers. 
  You can also register a class for a more structured approach.
  @see DPLDeepLinkRouteHandler
  */
-typedef void(^DPLRouteHandlerBlock)(DPLDeepLink *deepLink);
+typedef void(^DPLRouteHandlerBlock)(DPLDeepLink *deepLink, NSDictionary *userInfo);
 
 
 /**
@@ -59,7 +60,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  @discussion You can also use the object literal syntax to register routes.
  For example, you can register a route handler block as follows:
  @code 
- deepLinkRouter[@"table/book/:id"] = ^(DPLDeepLink *deepLink) {
+ deepLinkRouter[@"table/book/:id"] = ^(DPLDeepLink *deepLink, NSDictionary *userInfo) {
     // Handle the link here.
  };
  @endcode
@@ -78,12 +79,13 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 /**
  Attempts to handle an incoming URL.
  @param url The incoming URL from `application:didFinishLaunchingWithOptions:' or `application:openURL:sourceApplication:annotation:'
+ @param userInfo A userInfo dictionary to facilitate passing additional data to the route handler
  @param completionHandler A block executed after the deep link has been handled.
  @return YES if the incoming URL is handled, otherwise NO.
  
  @see DPLRouteCompletionBlock
  */
-- (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler;
+- (BOOL)handleURL:(NSURL *)url userInfo:(NSDictionary *)userInfo withCompletion:(DPLRouteCompletionBlock)completionHandler;
 
 
 
@@ -114,7 +116,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  
  // or
  
- deepLinkRouter[@"table/book/:id"] = ^(DPLDeepLink *deepLink) {
+ deepLinkRouter[@"table/book/:id"] = ^(DPLDeepLink *deepLink, NSDictionary *userInfo) {
  // Handle the link here.
  }
  @endcode
