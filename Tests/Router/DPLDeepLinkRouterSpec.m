@@ -40,6 +40,11 @@ describe(@"Registering Routes", ^{
         expect(router[route]).to.beNil();
     });
     
+    it(@"registers a block for a route when the block takes a deep link and userInfo", ^{
+        router[route] = ^(DPLDeepLink *deepLink, NSDictionary *userInfo){};
+        expect(router[route]).to.beKindOf(NSClassFromString(@"NSBlock"));
+    });
+
     it(@"registers a block for a route when the block takes a deep link", ^{
         router[route] = ^(DPLDeepLink *deepLink){};
         expect(router[route]).to.beKindOf(NSClassFromString(@"NSBlock"));
@@ -121,7 +126,7 @@ describe(@"Handling Routes", ^{
                 XCTFail(@"The wrong route was matched.");
             };
             
-            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+            BOOL isHandled = [router handleURL:url userInfo:nil withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beTruthy();
                 expect(error).to.beNil();
                 done();
@@ -140,7 +145,7 @@ describe(@"Handling Routes", ^{
                 XCTFail(@"The wrong route was matched.");
             };
             
-            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+            BOOL isHandled = [router handleURL:url userInfo:nil withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beTruthy();
                 expect(error).to.beNil();
                 done();
@@ -151,7 +156,7 @@ describe(@"Handling Routes", ^{
     
     it(@"produces an error when a URL has no matching route", ^{
         waitUntil(^(DoneCallback done) {
-            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+            BOOL isHandled = [router handleURL:url userInfo:nil withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beFalsy();
                 expect(error.code).to.equal(DPLRouteNotFoundError);
                 done();
@@ -165,12 +170,31 @@ describe(@"Handling Routes", ^{
             
             router[@"/say/:word"] = [DPLRouteHandler class];
             
-            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+            BOOL isHandled = [router handleURL:url userInfo:nil withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beFalsy();
                 expect(error.code).to.equal(DPLRouteHandlerTargetNotSpecifiedError);
                 done();
             }];
             expect(isHandled).to.beFalsy();
+        });
+    });
+
+    it(@"passes userInfo to the block-based handler", ^{
+        waitUntil(^(DoneCallback done) {
+
+            NSDictionary *testUserInfo = @{ @"a": @1, @"b": @2 };
+
+            router[@"/say/:word"] = ^(DPLDeepLink *deepLink, NSDictionary *userInfo) {
+                expect(deepLink.routeParameters[@"word"]).to.equal(@"hello");
+                expect(userInfo).to.equal(testUserInfo);
+            };
+
+            BOOL isHandled = [router handleURL:url userInfo:testUserInfo withCompletion:^(BOOL handled, NSError *error) {
+                expect(handled).to.beTruthy();
+                expect(error).to.beNil();
+                done();
+            }];
+            expect(isHandled).to.beTruthy();
         });
     });
 });
