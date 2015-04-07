@@ -73,9 +73,7 @@ self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
 
-  [self.router handleURL:url withCompletion:NULL];
-
-  return YES;
+  return [self.router handleURL:url withCompletion:NULL];
 }
 ```
 Learn more about the DeepLinkSDK by reading our [Integration Guide](http://www.usebutton.com/sdk/deep-links/integration-guide).
