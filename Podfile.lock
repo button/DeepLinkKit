@@ -12,12 +12,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   DeepLinkSDK:
-    :path: .
+    :path: "."
 
 SPEC CHECKSUMS:
-  DeepLinkSDK: 1555eb863dd8d5aaa564cceac37fcd0859fbc26a
-  Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
-  OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
-  Specta: 698a58ffa5ec948327d3b92eab50ca58d7f4fbe8
+  DeepLinkSDK: 82f36ed1bbf8fb549bb0dfb14b21852219c95384
+  Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
+  OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
+  Specta: e5ad38f1b2227a23bc63d0b5a3b41c5e628f2851
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.4

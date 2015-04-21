@@ -2,6 +2,12 @@ language: objective-c
 branches:
   only:
     master
-before_install: pod install
+before_install:
+  - gem install activesupport -N
+  - gem install slather --no-rdoc --no-ri --no-document --quiet
+  - gem i cocoapods --no-ri --no-rdoc
+  - pod install
 script:
-- xctool test -workspace DeepLinkSDK.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -workspace DeepLinkSDK.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+after_success:
+  - slather
