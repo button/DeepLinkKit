@@ -13,11 +13,7 @@
 @implementation DPLReceiverAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-#ifdef TEST
-    return YES;
-#endif
-    
+
     self.router = [[DPLDeepLinkRouter alloc] init];
    
     
