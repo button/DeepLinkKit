@@ -14,4 +14,5 @@ target 'Tests', :exclusive => true do
     pod 'Specta'
     pod 'Expecta'
     pod 'OCMock'
+    pod 'KIF'
 end
