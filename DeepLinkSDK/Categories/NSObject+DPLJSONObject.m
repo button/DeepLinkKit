@@ -32,6 +32,15 @@
 @end
 
 
+@implementation NSDate (DPLJSONObject)
+
+- (id)DPL_JSONObject {
+    return @([self timeIntervalSinceReferenceDate]);
+}
+
+@end
+
+
 @implementation NSArray (DPLJSONObject)
 
 - (id)DPL_JSONObject {

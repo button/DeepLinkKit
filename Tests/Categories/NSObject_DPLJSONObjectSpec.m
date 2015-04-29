@@ -62,6 +62,12 @@ describe(@"JSON Compatible Object", ^{
         expect(obj).to.equal(@{ @"inf": @"inf", @"nan": @"nan" });
     });
     
+    it(@"converts date objects to timeIntervalSinceReferenceDate", ^{
+        NSDate *someDate = [NSDate date];
+        id obj = [someDate DPL_JSONObject];
+        expect([obj doubleValue]).to.equal([someDate timeIntervalSinceReferenceDate]);
+    });
+    
     it(@"removes non-string keys from dictionaries", ^{
         NSDictionary *dict = @{ testURL: @"foo", @"bar": @"baz" };
         id obj = [dict DPL_JSONObject];
