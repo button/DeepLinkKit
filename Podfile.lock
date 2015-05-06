@@ -1,11 +1,11 @@
 PODS:
-  - DeepLinkSDK (0.2.4)
-  - Expecta (0.3.2)
-  - KIF (3.2.1):
-    - KIF/XCTest (= 3.2.1)
-  - KIF/XCTest (3.2.1)
+  - DeepLinkSDK (0.2.5)
+  - Expecta (1.0.0)
+  - KIF (3.2.2):
+    - KIF/XCTest (= 3.2.2)
+  - KIF/XCTest (3.2.2)
   - OCMock (3.1.2)
-  - Specta (0.3.2)
+  - Specta (1.0.0)
 
 DEPENDENCIES:
   - DeepLinkSDK (from `.`)
@@ -19,10 +19,10 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  DeepLinkSDK: 82f36ed1bbf8fb549bb0dfb14b21852219c95384
-  Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
-  KIF: ef1691e54e1d969c3b4fd0b5b56a3d7ddf37f216
+  DeepLinkSDK: d93fc424591db607b27b67e04c64f904282ea18c
+  Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
+  KIF: b0bd762b0c7890b04920cf618021d6d4fd5127bd
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
-  Specta: e5ad38f1b2227a23bc63d0b5a3b41c5e628f2851
+  Specta: 96fe05fe5c7348b5223f85e862904f6e832abb14
 
 COCOAPODS: 0.37.0
