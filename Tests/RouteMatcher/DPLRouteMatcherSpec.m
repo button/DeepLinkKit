@@ -9,6 +9,18 @@ NSURL *URLWithPath(NSString *path) {
 SpecBegin(DPLRouteMatcher)
 
 
+describe(@"Initialization", ^{
+    it(@"creates an instance with a route", ^{
+        DPLRouteMatcher *routeMatcher = [DPLRouteMatcher matcherWithRoute:@"/thing/:another"];
+        expect(routeMatcher).notTo.beNil();
+    });
+    
+    it(@"does not create an instance with no route", ^{
+        DPLRouteMatcher *routeMatcher = [DPLRouteMatcher matcherWithRoute:@""];
+        expect(routeMatcher).to.beNil();
+    });
+});
+
 describe(@"Matching Routes", ^{
     
     it(@"returns a deep link when a URL matches a route", ^{

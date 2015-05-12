@@ -5,9 +5,7 @@
 
 @interface DPLRouteMatcher ()
 
-@property (nonatomic, copy)   NSString  *route;
 @property (nonatomic, strong) DPLRegularExpression *regexMatcher;
-@property (nonatomic, strong) NSMutableArray *routeParamaterNames;
 
 @end
 
@@ -25,19 +23,10 @@
     
     self = [super init];
     if (self) {
-        _route = route;
         _regexMatcher = [DPLRegularExpression regularExpressionWithPattern:route];
     }
     
     return self;
-}
-
-
-- (NSMutableArray *)routeParamaterNames {
-    if (!_routeParamaterNames) {
-        _routeParamaterNames = [NSMutableArray array];
-    }
-    return _routeParamaterNames;
 }
 
 
