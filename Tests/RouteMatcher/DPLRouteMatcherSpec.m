@@ -117,6 +117,14 @@ describe(@"Matching Routes", ^{
         expect(deepLink2.routeParameters).to.equal(@{});
     });
     
+    it(@"matches a wildcard deeplink to route parameters", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"/table/:path(.*)"];
+        NSURL *url = URLWithPath(@"/table/some/path/which/should/be/in/route/parameters");
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+        expect(deepLink).notTo.beNil();
+        expect(deepLink.routeParameters).to.equal(@{@"path": @"some/path/which/should/be/in/route/parameters"});
+    });
+    
     it(@"matches URLs with commas", ^{
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"TenDay/:weird_comma_path_thing"];
         NSURL *url = [NSURL URLWithString:@"twcweather://TenDay/33.89,-84.46?aw_campaign=com.weather.TWC.TWCWidget"];
@@ -133,6 +141,16 @@ describe(@"Matching Routes", ^{
         expect(deepLink.routeParameters).to.equal(@{@"table": @"randomTableName",
                                                     @"id": @"109" });
     });
+    
+    it(@"allows some named groups to be expressed with regex and not others", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"/table/:table([a-zA-Z]+)/[a-z]+/:other([a-z]+)/:thing"];
+        NSURL *url = URLWithPath(@"/table/anytable/anychair/another/anything");
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+        expect(deepLink).notTo.beNil();
+        expect(deepLink.routeParameters).to.equal(@{@"table": @"anytable",
+                                                    @"other": @"another",
+                                                    @"thing": @"anything" });
+    });
 
     it(@"does NOT return a deep link when the URL path does not match regex table parameter", ^{
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"/table/:table([a-zA-Z]+)/:id([0-9])"];
@@ -148,14 +166,12 @@ describe(@"Matching Routes", ^{
         expect(deepLink).to.beNil();
     });
     
-    it(@"matches a wildcard deeplink to route parameters", ^{
-        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"/table/:path(.*)"];
-        NSURL *url = URLWithPath(@"/table/some/path/which/should/be/in/route/parameters");
+    it(@"does NOT match partial strings", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"me"];
+        NSURL *url = URLWithPath(@"home");
         DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
-        expect(deepLink).notTo.beNil();
-        expect(deepLink.routeParameters).to.equal(@{@"path": @"some/path/which/should/be/in/route/parameters"});
+        expect(deepLink).to.beNil();
     });
-    
 });
 
 SpecEnd
