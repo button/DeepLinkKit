@@ -186,4 +186,36 @@ describe(@"Matching Routes", ^{
     });
 });
 
+
+describe(@"Matching on Schemes", ^{
+    
+    __block NSURL *url1;
+    __block NSURL *url2;
+    beforeEach(^{
+        url1 = [NSURL URLWithString:@"derp://dpl.io/say/hello"];
+        url2 = [NSURL URLWithString:@"foo://dpl.io/say/hello"];
+    });
+    
+    it(@"allows any scheme if not specified in the route", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"/say/hello"];
+        DPLDeepLink *deepLink    = [matcher deepLinkWithURL:url1];
+        expect(deepLink).toNot.beNil();
+
+        deepLink = [matcher deepLinkWithURL:url2];
+        expect(deepLink).toNot.beNil();
+    });
+    
+    it(@"matches a url with a scheme specific route", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"derp://(.*)/say/hello"];
+        DPLDeepLink *deepLink    = [matcher deepLinkWithURL:url1];
+        expect(deepLink).toNot.beNil();
+    });
+    
+    it(@"does NOT match a url with a different scheme than the route", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@"derp://(.*)/say/hello"];
+        DPLDeepLink *deepLink    = [matcher deepLinkWithURL:url2];
+        expect(deepLink).to.beNil();
+    });
+});
+
 SpecEnd
