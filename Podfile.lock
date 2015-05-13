@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  DeepLinkKit: eb52cecff0bf5eb0a46a29a6ee42ecc832db05e5
+  DeepLinkKit: 6a48862dc62073048bca2ee17c9f6acf75bb6899
   Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
   KIF: b0bd762b0c7890b04920cf618021d6d4fd5127bd
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
