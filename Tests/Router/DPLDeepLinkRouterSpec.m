@@ -36,7 +36,7 @@ describe(@"Registering Routes", ^{
     });
     
     it(@"does NOT register routes that are not strings", ^{
-        router[@(0)] = [DPLRouteHandler class];
+        router[(id)@(0)] = [DPLRouteHandler class];
         expect(router[route]).to.beNil();
     });
     

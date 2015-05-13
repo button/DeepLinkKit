@@ -1,6 +1,6 @@
 desc "Runs the specs"
 task :spec do
-  sh "xcodebuild test -workspace 'DeepLinkSDK.xcworkspace' -scheme 'DeepLinkSDK' -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.1' | xcpretty -c"
+  sh "xcodebuild test -workspace 'DeepLinkSDK.xcworkspace' -scheme 'ReceiverDemo' -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.1' | xcpretty -c"
 end
 
 desc "Synchronizes Xcode project folder with Xcode groups"
