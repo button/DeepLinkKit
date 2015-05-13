@@ -110,7 +110,17 @@ router[@"timeline"] = ^{ … }
 
 ```
 
+You can also be scheme specific. If you support multiple URL schemes in your app, you can register routes specific to those schemes as follows:
 
+An incoming URL of `scheme-one://timeline`
+
+```objc
+// Matches the URL.
+router[@"scheme-one://timeline"] = ^{ … }
+
+// Does not match the URL.
+router[@"scheme-two://timeline"] = ^{ … }
+```
 
 ## Running the Demo
 

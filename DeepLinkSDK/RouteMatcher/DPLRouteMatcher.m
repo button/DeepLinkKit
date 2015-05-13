@@ -5,6 +5,7 @@
 
 @interface DPLRouteMatcher ()
 
+@property (nonatomic, copy)   NSString *scheme;
 @property (nonatomic, strong) DPLRegularExpression *regexMatcher;
 
 @end
@@ -23,7 +24,10 @@
     
     self = [super init];
     if (self) {
-        _regexMatcher = [DPLRegularExpression regularExpressionWithPattern:route];
+        
+        NSArray *parts = [route componentsSeparatedByString:@"://"];
+        _scheme = parts.count > 1 ? [parts firstObject] : nil;
+        _regexMatcher = [DPLRegularExpression regularExpressionWithPattern:[parts lastObject]];
     }
     
     return self;
@@ -33,9 +37,11 @@
 - (DPLDeepLink *)deepLinkWithURL:(NSURL *)url {
     
     DPLDeepLink *deepLink       = [[DPLDeepLink alloc] initWithURL:url];
-    NSString *deepLinkString    = [NSString stringWithFormat:@"%@%@",
-                                   deepLink.URL.host, deepLink.URL.path];
+    NSString *deepLinkString    = [NSString stringWithFormat:@"%@%@", deepLink.URL.host, deepLink.URL.path];
     
+    if (self.scheme.length && ![self.scheme isEqualToString:deepLink.URL.scheme]) {
+        return nil;
+    }
     
     DPLMatchResult *matchResult = [self.regexMatcher matchResultForString:deepLinkString];
     if (!matchResult.isMatch) {
