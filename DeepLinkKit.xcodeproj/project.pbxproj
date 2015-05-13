@@ -66,10 +66,6 @@
 		19367BAF0FEDE5B798128F3D /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE3E05821FBC0C05F248E61 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F4988DD1AE71ABC0069EF2B /* DPLRouteHandlerIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPLRouteHandlerIntegrationTest.m; path = IntegrationTests/DPLRouteHandlerIntegrationTest.m; sourceTree = "<group>"; };
-		4D4F41231B0298FF00B710DB /* DPLRegularExpression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRegularExpression.h; sourceTree = "<group>"; };
-		4D4F41241B0298FF00B710DB /* DPLRegularExpression.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLRegularExpression.m; sourceTree = "<group>"; };
-		4D4F41251B029D9E00B710DB /* DPLMatchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLMatchResult.h; sourceTree = "<group>"; };
-		4D4F41261B029D9E00B710DB /* DPLMatchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLMatchResult.m; sourceTree = "<group>"; };
 		4D4F412A1B02A96400B710DB /* DPLRegularExpressionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLRegularExpressionSpec.m; sourceTree = "<group>"; };
 		57D5F02E049D7887B4F4ACDF /* Pods-ReceiverDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ReceiverDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiverDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +75,10 @@
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9E60301031FFD1833ECA7A /* Pods-SenderDemo.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.test.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.test.xcconfig"; sourceTree = "<group>"; };
 		81A53B1FA1F6DF1D2B557DCD /* libPods-SenderDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SenderDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83D34C3B1B03ECAD00BA6EF1 /* DPLMatchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLMatchResult.h; sourceTree = "<group>"; };
+		83D34C3C1B03ECAD00BA6EF1 /* DPLMatchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLMatchResult.m; sourceTree = "<group>"; };
+		83D34C3D1B03ECAD00BA6EF1 /* DPLRegularExpression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRegularExpression.h; sourceTree = "<group>"; };
+		83D34C3E1B03ECAD00BA6EF1 /* DPLRegularExpression.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLRegularExpression.m; sourceTree = "<group>"; };
 		8949A4E8F681A12A47C20775 /* DeepLinkKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = DeepLinkKit.podspec; path = ./DeepLinkKit.podspec; sourceTree = "<group>"; };
 		A7644D9D2D35BA2869AD63FA /* Pods-SenderDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B3CB044233E227F87FCF2C46 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,17 +226,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4D4F41221B0298AA00B710DB /* Regex */ = {
-			isa = PBXGroup;
-			children = (
-				4D4F41231B0298FF00B710DB /* DPLRegularExpression.h */,
-				4D4F41241B0298FF00B710DB /* DPLRegularExpression.m */,
-				4D4F41251B029D9E00B710DB /* DPLMatchResult.h */,
-				4D4F41261B029D9E00B710DB /* DPLMatchResult.m */,
-			);
-			path = Regex;
-			sourceTree = "<group>";
-		};
 		4D4F41291B02A95800B710DB /* Regex */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +278,17 @@
 				DF9272621ECB6C2824AD5C94 /* LICENSE */,
 			);
 			name = "Pod Metadata";
+			sourceTree = "<group>";
+		};
+		83D34C3A1B03ECAD00BA6EF1 /* Regex */ = {
+			isa = PBXGroup;
+			children = (
+				83D34C3B1B03ECAD00BA6EF1 /* DPLMatchResult.h */,
+				83D34C3C1B03ECAD00BA6EF1 /* DPLMatchResult.m */,
+				83D34C3D1B03ECAD00BA6EF1 /* DPLRegularExpression.h */,
+				83D34C3E1B03ECAD00BA6EF1 /* DPLRegularExpression.m */,
+			);
+			path = Regex;
 			sourceTree = "<group>";
 		};
 		DE025EAC1A5F0CD3007C4F3A /* ProductDetail */ = {
@@ -430,7 +430,7 @@
 				DE99EF6A1A3B6CDD00CE3449 /* Protocols */,
 				DE3E61071A3B4485008D6DFC /* Categories */,
 				DEB4EDBB1A49CEA400F31D14 /* Errors */,
-				4D4F41221B0298AA00B710DB /* Regex */,
+				83D34C3A1B03ECAD00BA6EF1 /* Regex */,
 				DE16E91F1A42882F00077E18 /* Router */,
 				DEAC406F1A5DA7B8004A9095 /* RouteHandler */,
 				DE16E9331A4289D500077E18 /* RouteMatcher */,
