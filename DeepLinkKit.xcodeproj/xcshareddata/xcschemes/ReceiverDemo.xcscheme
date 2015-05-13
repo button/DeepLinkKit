@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6003F589195388D20070C39A"
                BuildableName = "ReceiverDemo.app"
                BlueprintName = "ReceiverDemo"
-               ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+               ReferencedContainer = "container:DeepLinkKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
                BuildableName = "Tests.xctest"
                BlueprintName = "Tests"
-               ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+               ReferencedContainer = "container:DeepLinkKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "6003F589195388D20070C39A"
             BuildableName = "ReceiverDemo.app"
             BlueprintName = "ReceiverDemo"
-            ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+            ReferencedContainer = "container:DeepLinkKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "6003F589195388D20070C39A"
             BuildableName = "ReceiverDemo.app"
             BlueprintName = "ReceiverDemo"
-            ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+            ReferencedContainer = "container:DeepLinkKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -82,7 +82,7 @@
             BlueprintIdentifier = "6003F589195388D20070C39A"
             BuildableName = "ReceiverDemo.app"
             BlueprintName = "ReceiverDemo"
-            ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+            ReferencedContainer = "container:DeepLinkKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

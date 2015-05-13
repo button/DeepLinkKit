@@ -1,7 +1,7 @@
 #import "DPLReceiverAppDelegate.h"
 #import "DPLProductRouteHandler.h"
 
-#import <DeepLinkSDK/DeepLinkSDK.h>
+#import <DeepLinkKit/DeepLinkKit.h>
 
 @interface DPLReceiverAppDelegate ()
 

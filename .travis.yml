@@ -8,6 +8,6 @@ before_install:
   - gem i cocoapods --no-ri --no-rdoc
   - pod install
 script:
-  - xctool test -workspace DeepLinkSDK.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 after_success:
   - slather

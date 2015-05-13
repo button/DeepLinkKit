@@ -17,7 +17,7 @@
                BlueprintIdentifier = "DEDB148C1A3F944D00A837F8"
                BuildableName = "SenderDemo.app"
                BlueprintName = "SenderDemo"
-               ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+               ReferencedContainer = "container:DeepLinkKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
                BuildableName = "Tests.xctest"
                BlueprintName = "Tests"
-               ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+               ReferencedContainer = "container:DeepLinkKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
                BuildableName = "Tests.xctest"
                BlueprintName = "Tests"
-               ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+               ReferencedContainer = "container:DeepLinkKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "DEDB148C1A3F944D00A837F8"
             BuildableName = "SenderDemo.app"
             BlueprintName = "SenderDemo"
-            ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+            ReferencedContainer = "container:DeepLinkKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "DEDB148C1A3F944D00A837F8"
             BuildableName = "SenderDemo.app"
             BlueprintName = "SenderDemo"
-            ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+            ReferencedContainer = "container:DeepLinkKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,7 +96,7 @@
             BlueprintIdentifier = "DEDB148C1A3F944D00A837F8"
             BuildableName = "SenderDemo.app"
             BlueprintName = "SenderDemo"
-            ReferencedContainer = "container:DeepLinkSDK.xcodeproj">
+            ReferencedContainer = "container:DeepLinkKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import <DeepLinkSDK/DPLTargetViewControllerProtocol.h>
+#import <DeepLinkKit/DPLTargetViewControllerProtocol.h>
 
 @class DPLProduct;
 

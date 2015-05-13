@@ -1,43 +1,43 @@
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/1057077/5712062/47dbd414-9a7d-11e4-8829-bd8513bd624b.png" width="204"/>
 
 </p>
-<h1 align="center">DeepLink SDK</h1>
+<h1 align="center">DeepLink Kit</h1>
 
 
 <p align="center">
-<a href="https://travis-ci.org/usebutton/ios-deeplink-sdk"><img src="http://img.shields.io/travis/usebutton/ios-deeplink-sdk.svg?style=flat" alt="CI Status" /></a>
-<a href='https://coveralls.io/r/usebutton/ios-deeplink-sdk'><img src='https://coveralls.io/repos/usebutton/ios-deeplink-sdk/badge.svg' alt='Coverage Status' /></a>
-<a href="http://cocoadocs.org/docsets/DeepLinkSDK"><img src="https://img.shields.io/cocoapods/v/DeepLinkSDK.svg?style=flat" alt="Version" /></a>
-<a href="http://cocoadocs.org/docsets/DeepLinkSDK"><img src="https://img.shields.io/cocoapods/l/DeepLinkSDK.svg?style=flat" alt="License" /></a>
-<a href="http://cocoadocs.org/docsets/DeepLinkSDK"><img src="https://img.shields.io/cocoapods/p/DeepLinkSDK.svg?style=flat" alt="Platform" /></a>
+<a href="https://travis-ci.org/usebutton/deeplinkkit"><img src="http://img.shields.io/travis/usebutton/deeplinkkit.svg?style=flat" alt="CI Status" /></a>
+<a href='https://coveralls.io/r/usebutton/deeplinkkit'><img src='https://coveralls.io/repos/usebutton/deeplinkkit/badge.svg' alt='Coverage Status' /></a>
+<a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/v/DeepLinkKit.svg?style=flat" alt="Version" /></a>
+<a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/l/DeepLinkKit.svg?style=flat" alt="License" /></a>
+<a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/p/DeepLinkKit.svg?style=flat" alt="Platform" /></a>
 </p>
 
 ## Overview
 
-The Button DeepLink SDK is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this library and a few lines of code will get you on your way.
+DeepLink Kit is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this library and a few lines of code will get you on your way.
 
 [Full Documentation](http://www.usebutton.com/sdk/deep-links/integration-guide)
 
 ## Check it out
 
-Try the `DeepLinkSDK` sample project by running the following command:
+Try the `DeepLinkKit` sample project by running the following command:
 ```ruby
-pod try "DeepLinkSDK"
+pod try "DeepLinkKit"
 ```
 
 ## Installation
 
-DeepLinkSDK is available through [CocoaPods](http://cocoapods.org). To install
+DeepLinkKit is available through [CocoaPods](http://cocoapods.org). To install
 the library, simply add the following line to your Podfile:
 ```ruby
-pod "DeepLinkSDK"
+pod "DeepLinkKit"
 ```
 
 
 ## Usage
 Add deep link support to your app in 5 minutes or less following these simple steps.
 
-<em><strong>Note:</strong> As of `0.2.0`, in all registered routes, paths are considered to begin at the first forward slash. A route component before the first forward slash will be considered the host.</em>
+<em><strong>Note:</strong> As of `1.0.0`, all imports should be updated to import `<DeepLinkKit/DeepLinkKit.h>`.</em>
 
 
 
@@ -46,7 +46,13 @@ Add deep link support to your app in 5 minutes or less following these simple st
 <img src="https://cloud.githubusercontent.com/assets/1057077/5710380/8d913f3e-9a6f-11e4-83a2-49f6564d7a8f.png" width="410" />
 
 <br />
-**2. Create an instance of `DPLDeepLinkRouter` in your app delegate**
+
+**2. Import DeepLinkKit
+```objc
+#import <DeepLinkKit/DeepLinkKit.h>
+```
+<br />
+**3. Create an instance of `DPLDeepLinkRouter` in your app delegate**
 
 ````objc
 - (BOOL)application:(UIApplication *)application
@@ -58,7 +64,7 @@ Add deep link support to your app in 5 minutes or less following these simple st
 }
 ````
 <br />
-**3. Register a route handler**
+**4. Register a route handler**
 
 ````objc
 self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
@@ -66,7 +72,7 @@ self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
 };
 ````
 <br />
-**4. Pass incoming URLs to the router**
+**5. Pass incoming URLs to the router**
 
 ```objc
 - (BOOL)application:(UIApplication *)application
@@ -79,7 +85,7 @@ self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
   return YES;
 }
 ```
-Learn more about the DeepLinkSDK by reading our [Integration Guide](http://www.usebutton.com/sdk/deep-links/integration-guide).
+Learn more about the DeepLinkKit by reading our [Integration Guide](http://www.usebutton.com/sdk/deep-links/integration-guide).
 
 ## Route Registration Examples
 
@@ -114,7 +120,7 @@ router[@"timeline"] = ^{ … }
 
 ## Running the Demo
 
-To run the example project, run `pod try DeepLinkSDK` in your terminal. You can also clone the repo, and run `pod install` from the project root. If you don't have CocoaPods, begin by [follow this guide](http://guides.cocoapods.org/using/getting-started.html).
+To run the example project, run `pod try DeepLinkKit` in your terminal. You can also clone the repo, and run `pod install` from the project root. If you don't have CocoaPods, begin by [follow this guide](http://guides.cocoapods.org/using/getting-started.html).
 
 There are two demo apps, `SenderDemo`, and `ReceiverDemo`. `ReceiverDemo` has some registered routes that will handle specific deep links. `SenderDemo` has a couple actions that will deep link out to `ReceiverDemo` for fulfillment.
 
@@ -127,7 +133,7 @@ Run the`SenderDemo` build scheme first, then stop the simulator and switch the b
 
 ## License
 
-DeepLinkSDK is available under the MIT license. See the LICENSE file for more info.
+DeepLinkKit is available under the MIT license. See the LICENSE file for more info.
 
 ## Contributing
 
