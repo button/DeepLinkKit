@@ -122,6 +122,10 @@ router[@"scheme-one://timeline"] = ^{ … }
 router[@"scheme-two://timeline"] = ^{ … }
 ```
 
+## AppLinks Support
+
+Does you app support AppLinks? You can easily handle incoming AppLinks by importing the AppLinks category `DPLDeepLink+AppLinks`. The AppLinks category provides convenience accessors to all AppLinks 1.0 properties.
+
 ## Running the Demo
 
 To run the example project, run `pod try DeepLinkSDK` in your terminal. You can also clone the repo, and run `pod install` from the project root. If you don't have CocoaPods, begin by [follow this guide](http://guides.cocoapods.org/using/getting-started.html).
