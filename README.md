@@ -5,8 +5,8 @@
 
 
 <p align="center">
-<a href="https://travis-ci.org/usebutton/deeplinkkit"><img src="http://img.shields.io/travis/usebutton/deeplinkkit.svg?style=flat" alt="CI Status" /></a>
-<a href='https://coveralls.io/r/usebutton/deeplinkkit'><img src='https://coveralls.io/repos/usebutton/deeplinkkit/badge.svg' alt='Coverage Status' /></a>
+<a href="https://travis-ci.org/usebutton/DeepLinkKit"><img src="http://img.shields.io/travis/usebutton/DeepLinkKit.svg?style=flat" alt="CI Status" /></a>
+<a href='https://coveralls.io/r/usebutton/DeepLinkKit'><img src='https://coveralls.io/repos/usebutton/DeepLinkKit/badge.svg?branch=master' alt='Coverage Status' /></a>
 <a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/v/DeepLinkKit.svg?style=flat" alt="Version" /></a>
 <a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/l/DeepLinkKit.svg?style=flat" alt="License" /></a>
 <a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/p/DeepLinkKit.svg?style=flat" alt="Platform" /></a>
