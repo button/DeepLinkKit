@@ -122,6 +122,17 @@ router[@"scheme-one://timeline"] = ^{ … }
 router[@"scheme-two://timeline"] = ^{ … }
 ```
 
+## AppLinks Support
+
+Does you app support AppLinks? You can easily handle incoming AppLinks by importing the AppLinks category `DPLDeepLink+AppLinks`. The AppLinks category provides convenience accessors to all AppLinks 1.0 properties.
+
+```objc
+router[@"/timeline"] = ^(DPLDeepLink *link) {
+  NSURL *referrerURL  = link.referralURL;
+  NSString *someValue = link.extras[@"some-key"];
+}
+```
+
 ## Running the Demo
 
 To run the example project, run `pod try DeepLinkSDK` in your terminal. You can also clone the repo, and run `pod install` from the project root. If you don't have CocoaPods, begin by [follow this guide](http://guides.cocoapods.org/using/getting-started.html).
@@ -129,6 +140,48 @@ To run the example project, run `pod try DeepLinkSDK` in your terminal. You can 
 There are two demo apps, `SenderDemo`, and `ReceiverDemo`. `ReceiverDemo` has some registered routes that will handle specific deep links. `SenderDemo` has a couple actions that will deep link out to `ReceiverDemo` for fulfillment.
 
 Run the`SenderDemo` build scheme first, then stop the simulator and switch the build scheme to `ReceiverDemo` and run again. Now you can switch back to the `SenderDemo` app in the simulator and tap on one of the actions.
+
+
+## Creating Deep Links
+
+You can also create deep links with `DPLMutableDeepLink`. Between two `DeepLinkKit` integrated apps, you can pass complex objects via deep link from one app to another app and easily get that object back on the other end.
+
+In the first app:
+
+```objc
+
+NSMutableDeepLink *link = [[NSMutableDeepLink alloc] initWithString:@"app-two://categories"];
+link[@"brew-types"] = @[@"Ale", @"Lager", @"Stout", @"Wheat"]
+link[@"beers"] = @{
+  @"ales": @[
+    @{
+        @"name": @"Southern Tier Pumking Ale",
+        @"price": @799
+    },
+    @{
+        @"name": @"Sierra Nevada Celebration Ale",
+        @"price": @799
+    }
+  ],
+  @"lagers": @[
+     ...
+  ],
+  ...
+}
+
+[[UIApplication sharedApplication] openURL:link.URL];
+
+```
+
+In the second app:
+
+```objc
+router[@"categories"] = ^(DPLDeepLink *link) {
+  NSArray *brewTypes  = link[@"brew-types"];
+  NSDictionary *beers = link[@"beers"];
+}
+```
+
 
 ## Authors
 
