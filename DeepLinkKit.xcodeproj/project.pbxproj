@@ -57,7 +57,7 @@
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6003F589195388D20070C39A;
-			remoteInfo = DeepLinkSDK;
+			remoteInfo = DeepLinkKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -66,10 +66,6 @@
 		19367BAF0FEDE5B798128F3D /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE3E05821FBC0C05F248E61 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F4988DD1AE71ABC0069EF2B /* DPLRouteHandlerIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPLRouteHandlerIntegrationTest.m; path = IntegrationTests/DPLRouteHandlerIntegrationTest.m; sourceTree = "<group>"; };
-		4D4F41231B0298FF00B710DB /* DPLRegularExpression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRegularExpression.h; sourceTree = "<group>"; };
-		4D4F41241B0298FF00B710DB /* DPLRegularExpression.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLRegularExpression.m; sourceTree = "<group>"; };
-		4D4F41251B029D9E00B710DB /* DPLMatchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLMatchResult.h; sourceTree = "<group>"; };
-		4D4F41261B029D9E00B710DB /* DPLMatchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLMatchResult.m; sourceTree = "<group>"; };
 		4D4F412A1B02A96400B710DB /* DPLRegularExpressionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLRegularExpressionSpec.m; sourceTree = "<group>"; };
 		57D5F02E049D7887B4F4ACDF /* Pods-ReceiverDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ReceiverDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiverDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +75,11 @@
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9E60301031FFD1833ECA7A /* Pods-SenderDemo.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.test.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.test.xcconfig"; sourceTree = "<group>"; };
 		81A53B1FA1F6DF1D2B557DCD /* libPods-SenderDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SenderDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8949A4E8F681A12A47C20775 /* DeepLinkSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = DeepLinkSDK.podspec; path = ./DeepLinkSDK.podspec; sourceTree = "<group>"; };
+		83D34C3B1B03ECAD00BA6EF1 /* DPLMatchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLMatchResult.h; sourceTree = "<group>"; };
+		83D34C3C1B03ECAD00BA6EF1 /* DPLMatchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLMatchResult.m; sourceTree = "<group>"; };
+		83D34C3D1B03ECAD00BA6EF1 /* DPLRegularExpression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRegularExpression.h; sourceTree = "<group>"; };
+		83D34C3E1B03ECAD00BA6EF1 /* DPLRegularExpression.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLRegularExpression.m; sourceTree = "<group>"; };
+		8949A4E8F681A12A47C20775 /* DeepLinkKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = DeepLinkKit.podspec; path = ./DeepLinkKit.podspec; sourceTree = "<group>"; };
 		A7644D9D2D35BA2869AD63FA /* Pods-SenderDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B3CB044233E227F87FCF2C46 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B915356798E84DC8F8A0A3CB /* Pods-SenderDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,13 +136,13 @@
 		DEAD328419E079D3003C8D65 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		DEAD328519E079D3003C8D65 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLink_Private.h; sourceTree = "<group>"; };
-		DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkSDK.h; sourceTree = "<group>"; };
+		DEB4EDBD1A4A726200F31D14 /* DeepLinkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkKit.h; sourceTree = "<group>"; };
 		DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLMutableDeepLink.h; sourceTree = "<group>"; };
 		DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLMutableDeepLink.m; sourceTree = "<group>"; };
 		DECB324B1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DPLMutableDeepLink+AppLinks.h"; sourceTree = "<group>"; };
 		DECB324C1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DPLMutableDeepLink+AppLinks.m"; sourceTree = "<group>"; };
-		DECB32501A87E94B0071C76E /* NSObject+DPLJSONObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSObject+DPLJSONObject.h"; path = "DeepLinkSDK/Categories/NSObject+DPLJSONObject.h"; sourceTree = SOURCE_ROOT; };
-		DECB32511A87E94B0071C76E /* NSObject+DPLJSONObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DPLJSONObject.m"; path = "DeepLinkSDK/Categories/NSObject+DPLJSONObject.m"; sourceTree = SOURCE_ROOT; };
+		DECB32501A87E94B0071C76E /* NSObject+DPLJSONObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSObject+DPLJSONObject.h"; path = "DeepLinkKit/Categories/NSObject+DPLJSONObject.h"; sourceTree = SOURCE_ROOT; };
+		DECB32511A87E94B0071C76E /* NSObject+DPLJSONObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DPLJSONObject.m"; path = "DeepLinkKit/Categories/NSObject+DPLJSONObject.m"; sourceTree = SOURCE_ROOT; };
 		DECB32521A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_DPLJSONObjectSpec.m; sourceTree = "<group>"; };
 		DECB32541A882D1A0071C76E /* DPLMutableDeepLinkSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLMutableDeepLinkSpec.m; sourceTree = "<group>"; };
 		DECB32561A8866700071C76E /* DPLMutableDeepLink_AppLinksSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLMutableDeepLink_AppLinksSpec.m; sourceTree = "<group>"; };
@@ -226,17 +226,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4D4F41221B0298AA00B710DB /* Regex */ = {
-			isa = PBXGroup;
-			children = (
-				4D4F41231B0298FF00B710DB /* DPLRegularExpression.h */,
-				4D4F41241B0298FF00B710DB /* DPLRegularExpression.m */,
-				4D4F41251B029D9E00B710DB /* DPLMatchResult.h */,
-				4D4F41261B029D9E00B710DB /* DPLMatchResult.m */,
-			);
-			path = Regex;
-			sourceTree = "<group>";
-		};
 		4D4F41291B02A95800B710DB /* Regex */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +239,7 @@
 			children = (
 				DE11B99B1A42466C008A8F36 /* SampleApps */,
 				60FF7A9C1954A5C5007DD14C /* Pod Metadata */,
-				DE5DD32C19E0643F007FD439 /* DeepLinkSDK */,
+				DE5DD32C19E0643F007FD439 /* DeepLinkKit */,
 				DEAD328119E079D3003C8D65 /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -284,11 +273,22 @@
 		60FF7A9C1954A5C5007DD14C /* Pod Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				8949A4E8F681A12A47C20775 /* DeepLinkSDK.podspec */,
+				8949A4E8F681A12A47C20775 /* DeepLinkKit.podspec */,
 				E9CA1DB95577CF3689F4B77F /* README.md */,
 				DF9272621ECB6C2824AD5C94 /* LICENSE */,
 			);
 			name = "Pod Metadata";
+			sourceTree = "<group>";
+		};
+		83D34C3A1B03ECAD00BA6EF1 /* Regex */ = {
+			isa = PBXGroup;
+			children = (
+				83D34C3B1B03ECAD00BA6EF1 /* DPLMatchResult.h */,
+				83D34C3C1B03ECAD00BA6EF1 /* DPLMatchResult.m */,
+				83D34C3D1B03ECAD00BA6EF1 /* DPLRegularExpression.h */,
+				83D34C3E1B03ECAD00BA6EF1 /* DPLRegularExpression.m */,
+			);
+			path = Regex;
 			sourceTree = "<group>";
 		};
 		DE025EAC1A5F0CD3007C4F3A /* ProductDetail */ = {
@@ -422,21 +422,21 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		DE5DD32C19E0643F007FD439 /* DeepLinkSDK */ = {
+		DE5DD32C19E0643F007FD439 /* DeepLinkKit */ = {
 			isa = PBXGroup;
 			children = (
-				DEB4EDBD1A4A726200F31D14 /* DeepLinkSDK.h */,
+				DEB4EDBD1A4A726200F31D14 /* DeepLinkKit.h */,
 				DE4128901A8BBE500089DAA2 /* AppLinks.h */,
 				DE99EF6A1A3B6CDD00CE3449 /* Protocols */,
 				DE3E61071A3B4485008D6DFC /* Categories */,
 				DEB4EDBB1A49CEA400F31D14 /* Errors */,
-				4D4F41221B0298AA00B710DB /* Regex */,
+				83D34C3A1B03ECAD00BA6EF1 /* Regex */,
 				DE16E91F1A42882F00077E18 /* Router */,
 				DEAC406F1A5DA7B8004A9095 /* RouteHandler */,
 				DE16E9331A4289D500077E18 /* RouteMatcher */,
 				DE058E0B1A3B484A00147C04 /* DeepLink */,
 			);
-			path = DeepLinkSDK;
+			path = DeepLinkKit;
 			sourceTree = "<group>";
 		};
 		DE87B1EB1A5DEF3100204A35 /* RouteHandlers */ = {
@@ -608,7 +608,7 @@
 			dependencies = (
 			);
 			name = ReceiverDemo;
-			productName = DeepLinkSDK;
+			productName = DeepLinkKit;
 			productReference = 6003F58A195388D20070C39A /* ReceiverDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -628,7 +628,7 @@
 				6003F5B4195388D20070C39A /* PBXTargetDependency */,
 			);
 			name = Tests;
-			productName = DeepLinkSDKTests;
+			productName = DeepLinkKitTests;
 			productReference = 6003F5AE195388D20070C39A /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -669,7 +669,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "DeepLinkSDK" */;
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "DeepLinkKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1178,7 +1178,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6003F585195388D10070C39A /* Build configuration list for PBXProject "DeepLinkSDK" */ = {
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "DeepLinkKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,

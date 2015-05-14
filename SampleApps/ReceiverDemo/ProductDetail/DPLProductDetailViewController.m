@@ -2,7 +2,7 @@
 #import "DPLProductDataSource.h"
 #import "DPLProduct.h"
 
-#import <DeepLinkSDK/DPLDeepLink.h>
+#import <DeepLinkKit/DPLDeepLink.h>
 
 @interface DPLProductDetailViewController ()
 

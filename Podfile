@@ -1,13 +1,13 @@
-xcodeproj 'DeepLinkSDK.xcodeproj', 'Test' => :debug
+xcodeproj 'DeepLinkKit.xcodeproj', 'Test' => :debug
 plugin 'slather'
 
 
 target 'SenderDemo', :exclusive => true do
-    pod 'DeepLinkSDK', :path => '.'
+    pod 'DeepLinkKit', :path => '.'
 end
 
 target 'ReceiverDemo', :exclusive => true do
-    pod 'DeepLinkSDK', :path => '.'
+    pod 'DeepLinkKit', :path => '.'
 end
 
 target 'Tests', :exclusive => true do
