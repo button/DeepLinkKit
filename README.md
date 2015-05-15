@@ -46,8 +46,8 @@ Add deep link support to your app in 5 minutes or less following these simple st
 <img src="https://cloud.githubusercontent.com/assets/1057077/5710380/8d913f3e-9a6f-11e4-83a2-49f6564d7a8f.png" width="410" />
 
 <br />
+**2. Import DeepLinkKit**
 
-**2. Import DeepLinkKit
 ```objc
 #import <DeepLinkKit/DeepLinkKit.h>
 ```
