@@ -156,7 +156,7 @@ In the first app:
 
 ```objc
 
-NSMutableDeepLink *link = [[NSMutableDeepLink alloc] initWithString:@"app-two://categories"];
+DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"app-two://categories"];
 link[@"brew-types"] = @[@"Ale", @"Lager", @"Stout", @"Wheat"]
 link[@"beers"] = @{
   @"ales": @[
