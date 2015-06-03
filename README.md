@@ -130,7 +130,7 @@ router[@"scheme-two://timeline"] = ^{ … }
 
 ## AppLinks Support
 
-Does you app support AppLinks? You can easily handle incoming AppLinks by importing the AppLinks category `DPLDeepLink+AppLinks`. The AppLinks category provides convenience accessors to all AppLinks 1.0 properties.
+Does your app support AppLinks? You can easily handle incoming AppLinks by importing the AppLinks category `DPLDeepLink+AppLinks`. The AppLinks category provides convenience accessors to all AppLinks 1.0 properties.
 
 ```objc
 router[@"/timeline"] = ^(DPLDeepLink *link) {
