@@ -173,6 +173,34 @@ describe(@"Handling Routes", ^{
             expect(isHandled).to.beFalsy();
         });
     });
+    
+    it(@"handles an incoming user activity that is a web browsing activity type", ^{
+        waitUntil(^(DoneCallback done) {
+            
+            NSUserActivity *activity = [[NSUserActivity alloc] initWithActivityType:NSUserActivityTypeBrowsingWeb];
+            activity.webpageURL = [NSURL URLWithString:@"https://dlc.com/say/hello"];;
+            
+            router[@"/say/:word"] = ^{};
+            
+            BOOL isHandled = [router handleUserActivity:activity withCompletion:^(BOOL handled, NSError *error) {
+                expect(handled).to.beTruthy();
+                expect(error).to.beNil();
+                done();
+            }];
+            expect(isHandled).to.beTruthy();
+        });
+    });
+    
+    it(@"does NOT handle an incoming user activity that is a NOT web browsing activity type", ^{
+            
+        NSUserActivity *activity = [[NSUserActivity alloc] initWithActivityType:@"derpType"];
+        activity.webpageURL = [NSURL URLWithString:@"https://dlc.com/say/hello"];;
+        
+        router[@"/say/:word"] = ^{};
+        
+        BOOL isHandled = [router handleUserActivity:activity withCompletion:NULL];
+        expect(isHandled).to.beFalsy();
+    });
 });
 
 SpecEnd
