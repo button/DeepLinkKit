@@ -88,9 +88,9 @@ self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
 _**Note:** If your application supports [Apple's new universal links](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_2), implement the following in your app delegate:_
 
 ```objc
-- (BOOL)application:(nonnull UIApplication *)application
-        continueUserActivity:(nonnull NSUserActivity *)userActivity
- restorationHandler:(nonnull void (^)(NSArray *))restorationHandler {
+- (BOOL)application:(UIApplication *)application
+        continueUserActivity:(NSUserActivity *)userActivity
+          restorationHandler:(void (^)(NSArray *))restorationHandler {
 
     return [self.router handleUserActivity:userActivity withCompletion:NULL];
 }
