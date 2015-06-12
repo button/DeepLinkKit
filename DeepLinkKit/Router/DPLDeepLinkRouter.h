@@ -87,7 +87,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 
 
 /**
- Attempts to an incoming user activity.
+ Attempts to handle an incoming user activity.
  @param userActivity The incoming user activity from `application:continueUserActivity:restorationHandler:'
  @param completionHandler A block executed after the user activity has been handled.
  @return YES if the incoming user activity is handled, otherwise NO.
