@@ -80,11 +80,24 @@ self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
 
-  [self.router handleURL:url withCompletion:NULL];
-
-  return YES;
+  return [self.router handleURL:url withCompletion:NULL];
 }
 ```
+**6. Passing `NSUserActivity` objects to the router** (optional)
+<br/>
+_**Note:** If your application supports [Apple's new universal links](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_2), implement the following in your app delegate:_
+
+```objc
+- (BOOL)application:(UIApplication *)application
+        continueUserActivity:(NSUserActivity *)userActivity
+          restorationHandler:(void (^)(NSArray *))restorationHandler {
+
+    return [self.router handleUserActivity:userActivity withCompletion:NULL];
+}
+```
+
+
+
 Learn more about the DeepLinkKit by reading our [Integration Guide](http://www.usebutton.com/sdk/deep-links/integration-guide).
 
 ## Route Registration Examples

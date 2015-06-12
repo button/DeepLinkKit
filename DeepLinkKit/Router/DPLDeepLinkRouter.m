@@ -139,6 +139,15 @@
 }
 
 
+- (BOOL)handleUserActivity:(NSUserActivity *)userActivity withCompletion:(DPLRouteCompletionBlock)completionHandler {
+    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        return [self handleURL:userActivity.webpageURL withCompletion:completionHandler];
+    }
+    
+    return NO;
+}
+
+
 - (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
     id handler = self[route];
     

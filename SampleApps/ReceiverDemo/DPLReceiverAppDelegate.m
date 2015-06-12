@@ -47,4 +47,12 @@
     return [self.router handleURL:url withCompletion:NULL];
 }
 
+
+- (BOOL)application:(UIApplication *)application
+        continueUserActivity:(NSUserActivity *)userActivity
+    restorationHandler:(void (^)(NSArray *))restorationHandler {
+    
+    return [self.router handleUserActivity:userActivity withCompletion:NULL];
+}
+
 @end
