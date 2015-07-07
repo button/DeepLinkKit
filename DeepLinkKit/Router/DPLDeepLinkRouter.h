@@ -2,6 +2,8 @@
 
 @class    DPLDeepLink;
 @protocol DPLRouteHandler;
+@class UIViewController;
+@protocol DPLTargetViewController;
 
 
 /**
@@ -96,6 +98,12 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  */
 - (BOOL)handleUserActivity:(NSUserActivity *)userActivity withCompletion:(DPLRouteCompletionBlock)completionHandler;
 
+/**
+ * Attempts to find a `UIViewController' for incoming URL. The URL must have been registered with a `DPLRouteHandler'.
+ * @param url The incoming URL from `application:openURL:sourceApplication:annotation:'
+ * @return A view controller if successful, already configured, otherwise Nil.
+ */
+- (UIViewController<DPLTargetViewController> *)viewControllerForUrl:(NSURL *)url ;
 
 ///--------------------
 /// @name Configuration

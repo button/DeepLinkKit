@@ -4,6 +4,7 @@
 #import "DPLRouteHandler.h"
 #import "DPLDeepLink.h"
 #import "DPLErrors.h"
+#import "DPLTestRouteHandler.h"
 
 SpecBegin(DPLDeepLinkRouter)
 
@@ -200,6 +201,14 @@ describe(@"Handling Routes", ^{
         
         BOOL isHandled = [router handleUserActivity:activity withCompletion:NULL];
         expect(isHandled).to.beFalsy();
+    });
+
+    it(@"returns a UIViewController when a route handler is registered", ^{
+            router[@"/say/:word"] = [DPLTestRouteHandler class];
+
+        UIViewController *vc = [router viewControllerForUrl:url];
+        expect(vc).toNot.beNil();
+        expect(vc).to.beAKindOf([TestViewController class]);
     });
 });
 
