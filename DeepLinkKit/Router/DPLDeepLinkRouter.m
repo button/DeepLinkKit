@@ -118,7 +118,7 @@
 
     DPLDeepLink  *deepLink;
     id handler;
-    deepLink = [self deepLinkForUrl:url handler:&handler];
+    deepLink = [self deepLinkForURL:url handler:&handler];
 
     NSError      *error;
     BOOL isHandled = NO;
@@ -143,10 +143,10 @@
     return NO;
 }
 
-- (UIViewController <DPLTargetViewController> *)viewControllerForUrl:(NSURL *)url {
+- (UIViewController <DPLTargetViewController> *)viewControllerForURL:(NSURL *)url {
     DPLDeepLink *deepLink;
     id handler;
-    deepLink = [self deepLinkForUrl:url handler:&handler];
+    deepLink = [self deepLinkForURL:url handler:&handler];
     if (handler) {
         DPLRouteHandler *routeHandler = [self routeHandlerForHandler:handler];
         if (routeHandler) {
@@ -157,7 +157,7 @@
 }
 
 
-- (DPLDeepLink *)deepLinkForUrl:(NSURL *)url handler:(id *)handler {
+- (DPLDeepLink *)deepLinkForURL:(NSURL *)url handler:(id *)handler {
     DPLDeepLink *deepLink;
     for (NSString *route in self.routes) {
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];

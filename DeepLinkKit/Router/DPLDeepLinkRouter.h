@@ -103,7 +103,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  * @param url The incoming URL from `application:openURL:sourceApplication:annotation:'
  * @return A view controller if successful, already configured, otherwise Nil.
  */
-- (UIViewController<DPLTargetViewController> *)viewControllerForUrl:(NSURL *)url ;
+- (UIViewController<DPLTargetViewController> *)viewControllerForURL:(NSURL *)url ;
 
 ///--------------------
 /// @name Configuration

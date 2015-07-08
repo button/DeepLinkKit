@@ -206,7 +206,7 @@ describe(@"Handling Routes", ^{
     it(@"returns a UIViewController when a route handler is registered", ^{
             router[@"/say/:word"] = [DPLTestRouteHandler class];
 
-        UIViewController *vc = [router viewControllerForUrl:url];
+        UIViewController *vc = [router viewControllerForURL:url];
         expect(vc).toNot.beNil();
         expect(vc).to.beAKindOf([TestViewController class]);
     });
