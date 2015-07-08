@@ -1,4 +1,5 @@
 #import "DPLDeepLinkRouter.h"
+#import "DPLMatchedRoute.h"
 #import "DPLRouteMatcher.h"
 #import "DPLDeepLink.h"
 #import "DPLRouteHandler.h"
@@ -116,17 +117,15 @@
         return NO;
     }
 
-    DPLDeepLink  *deepLink;
-    id handler;
-    deepLink = [self deepLinkForURL:url handler:&handler];
+    DPLMatchedRoute *matchedRoute = [self deepLinkForURL:url];
 
     NSError      *error;
     BOOL isHandled = NO;
-    if (!deepLink) {
+    if (!matchedRoute) {
         NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The passed URL does not match a registered route.", nil) };
         error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteNotFoundError userInfo:userInfo];
     } else {
-        isHandled = [self handleRoute:handler withDeepLink:deepLink error:&error];
+        isHandled = [self handleRoute:matchedRoute error:&error];
     }
     
     [self completeRouteWithSuccess:isHandled error:error];
@@ -144,35 +143,33 @@
 }
 
 - (UIViewController <DPLTargetViewController> *)viewControllerForURL:(NSURL *)url {
-    DPLDeepLink *deepLink;
-    id handler;
-    deepLink = [self deepLinkForURL:url handler:&handler];
-    if (handler) {
-        DPLRouteHandler *routeHandler = [self routeHandlerForHandler:handler];
+    DPLMatchedRoute *matchedRoute = [self deepLinkForURL:url];
+    if (matchedRoute) {
+        DPLRouteHandler *routeHandler = [self routeHandlerForHandler:matchedRoute.handler];
         if (routeHandler) {
-            return [self viewControllerForHandler:routeHandler withDeepLink:deepLink];
+            return [self viewControllerForHandler:routeHandler withDeepLink:matchedRoute.deepLink];
         }
     }
     return nil;
 }
 
 
-- (DPLDeepLink *)deepLinkForURL:(NSURL *)url handler:(id *)handler {
-    DPLDeepLink *deepLink;
+- (DPLMatchedRoute *)deepLinkForURL:(NSURL *)url {
+    DPLMatchedRoute *matched;
     for (NSString *route in self.routes) {
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
-        deepLink = [matcher deepLinkWithURL:url];
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
         if (deepLink) {
-            *handler = self[route];
+            matched = [DPLMatchedRoute routeWithDeepLink:deepLink handler:self[route]];
             break;
         }
     }
-    return deepLink;
+    return matched;
 }
 
-
-- (BOOL)handleRoute:(id)handler withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
-    DPLRouteHandler *routeHandler = [self routeHandlerForHandler:handler];
+- (BOOL)handleRoute:(DPLMatchedRoute *)matchedRoute error:(NSError *__autoreleasing *)error {
+    DPLDeepLink *deepLink = matchedRoute.deepLink;
+    DPLRouteHandler *routeHandler = [self routeHandlerForHandler:matchedRoute.handler];
     if (routeHandler) {
         if (![routeHandler shouldHandleDeepLink:deepLink]) {
             return NO;
@@ -195,8 +192,8 @@
             return NO;
         }
     }
-    else if ([handler isKindOfClass:NSClassFromString(@"NSBlock")]) {
-        DPLRouteHandlerBlock routeHandlerBlock = handler;
+    else if ([matchedRoute.handler isKindOfClass:NSClassFromString(@"NSBlock")]) {
+        DPLRouteHandlerBlock routeHandlerBlock = matchedRoute.handler;
         routeHandlerBlock(deepLink);
     }
 
