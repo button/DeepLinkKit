@@ -40,7 +40,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 
 
 /**
- Registers a class conforming to the `DPLRouteHandler' protocol for a given route.
+ Registers a subclass of `DPLRouteHandler' for a given route.
  @param handlerClass A class for handling a specific route.
  @param route The route (e.g. @"table/book/:id", @"ride/book", etc) that when matched uses the registered class to handle the deep link.
  
@@ -63,7 +63,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
     // Handle the link here.
  };
  @endcode
- @note Registering a class conforming to `DPLRouteHandler' is the preferred method of route registration.
+ @note Registering a subclass of `DPLRouteHandler' is the preferred method of route registration.
  Only register blocks for trivial cases or for actions that do not require UI presentation.
  */
 - (void)registerBlock:(DPLRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route;
