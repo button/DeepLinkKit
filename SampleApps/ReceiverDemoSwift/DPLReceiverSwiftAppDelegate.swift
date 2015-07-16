@@ -7,8 +7,12 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
     lazy var router: DPLDeepLinkRouter = DPLDeepLinkRouter()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Route registration.
-        self.router["/product/:sku"] = DPLProductRouteHandler.self;        
+        self.router["/product/:sku"] = DPLProductRouteHandler.self;
+        
+        self.router.registerHandlerClass(DPLMessageRouteHandler.self, forRoute: "/say/:title/:message")
+        
         return true
     }
     
