@@ -15,8 +15,22 @@
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */; };
+		62335E071B57007F00E3818C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62335E011B57007F00E3818C /* Info.plist */; };
+		62335E091B5700AF00E3818C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
+		62335E0A1B5700B400E3818C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
+		62335E0B1B5700BC00E3818C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		62891E881B57FA7F00C2AF4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327519E079D3003C8D65 /* Main.storyboard */; };
+		62891E891B57FA9D00C2AF4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327D19E079D3003C8D65 /* Images.xcassets */; };
+		62891E8B1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62891E8A1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift */; };
+		62EE96F41B570891003D7564 /* DPLProductRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */; };
+		62EE96F51B570AF4003D7564 /* DPLProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE87B1F41A5E193100204A35 /* DPLProductDetailViewController.m */; };
+		62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */; };
+		62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = DE87B1F01A5DF49F00204A35 /* DPLProduct.m */; };
+		62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327A19E079D3003C8D65 /* DPLProductTableViewController.m */; };
 		68101FFDAAC0A24037B56D22 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19367BAF0FEDE5B798128F3D /* libPods-Tests.a */; };
 		6C18B300BAD926F6461AC49D /* libPods-SenderDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A53B1FA1F6DF1D2B557DCD /* libPods-SenderDemo.a */; };
+		B27794D5B1147817FAFDCD39 /* libPods-ReceiverDemoSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21875F254C5D9923A2B5CBF3 /* libPods-ReceiverDemoSwift.a */; };
 		DE025EB11A5F0D37007C4F3A /* DPLProductDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */; };
 		DE058E0A1A3B46FD00147C04 /* NSString_DPLQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E091A3B46FD00147C04 /* NSString_DPLQuerySpec.m */; };
 		DE058E101A3B485500147C04 /* DPLDeepLinkSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E0F1A3B485500147C04 /* DPLDeepLinkSpec.m */; };
@@ -64,15 +78,23 @@
 /* Begin PBXFileReference section */
 		14A1857A6611A826E51F612A /* Pods-ReceiverDemo.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.test.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.test.xcconfig"; sourceTree = "<group>"; };
 		19367BAF0FEDE5B798128F3D /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21875F254C5D9923A2B5CBF3 /* libPods-ReceiverDemoSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReceiverDemoSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE3E05821FBC0C05F248E61 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F4988DD1AE71ABC0069EF2B /* DPLRouteHandlerIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPLRouteHandlerIntegrationTest.m; path = IntegrationTests/DPLRouteHandlerIntegrationTest.m; sourceTree = "<group>"; };
 		4D4F412A1B02A96400B710DB /* DPLRegularExpressionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLRegularExpressionSpec.m; sourceTree = "<group>"; };
 		57D5F02E049D7887B4F4ACDF /* Pods-ReceiverDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		59C6806DC6FB049E0A3371C7 /* Pods-ReceiverDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemoSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ReceiverDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiverDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		62335DD61B57003300E3818C /* ReceiverDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiverDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLReceiverSwiftAppDelegate.swift; sourceTree = "<group>"; };
+		62335E011B57007F00E3818C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62891E8A1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLMessageRouteHandler.swift; sourceTree = "<group>"; };
+		62EE96F11B57011D003D7564 /* ReceiverDemoSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReceiverDemoSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLProductRouteHandler.swift; sourceTree = "<group>"; };
 		6B9E60301031FFD1833ECA7A /* Pods-SenderDemo.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.test.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.test.xcconfig"; sourceTree = "<group>"; };
 		81A53B1FA1F6DF1D2B557DCD /* libPods-SenderDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SenderDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D34C3B1B03ECAD00BA6EF1 /* DPLMatchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLMatchResult.h; sourceTree = "<group>"; };
@@ -164,6 +186,8 @@
 		DEEBD4A81AAB7946000BCA84 /* DPLSerializableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPLSerializableObject.m; path = Fixtures/DPLSerializableObject.m; sourceTree = "<group>"; };
 		DF9272621ECB6C2824AD5C94 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ./LICENSE; sourceTree = "<group>"; };
 		E9CA1DB95577CF3689F4B77F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ./README.md; sourceTree = "<group>"; };
+		FB774EA6D84A50233F032ADC /* Pods-ReceiverDemoSwift.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemoSwift.test.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift.test.xcconfig"; sourceTree = "<group>"; };
+		FBD5C3C0EA400B61BE35A3E4 /* Pods-ReceiverDemoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemoSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +209,17 @@
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
 				68101FFDAAC0A24037B56D22 /* libPods-Tests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62335DD31B57003300E3818C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62335E0B1B5700BC00E3818C /* UIKit.framework in Frameworks */,
+				62335E0A1B5700B400E3818C /* CoreGraphics.framework in Frameworks */,
+				62335E091B5700AF00E3818C /* Foundation.framework in Frameworks */,
+				B27794D5B1147817FAFDCD39 /* libPods-ReceiverDemoSwift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +257,9 @@
 				14A1857A6611A826E51F612A /* Pods-ReceiverDemo.test.xcconfig */,
 				6B9E60301031FFD1833ECA7A /* Pods-SenderDemo.test.xcconfig */,
 				BBE7E5A25C1B0E9637BE745A /* Pods-Tests.test.xcconfig */,
+				FBD5C3C0EA400B61BE35A3E4 /* Pods-ReceiverDemoSwift.debug.xcconfig */,
+				FB774EA6D84A50233F032ADC /* Pods-ReceiverDemoSwift.test.xcconfig */,
+				59C6806DC6FB049E0A3371C7 /* Pods-ReceiverDemoSwift.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -253,6 +291,7 @@
 				6003F58A195388D20070C39A /* ReceiverDemo.app */,
 				6003F5AE195388D20070C39A /* Tests.xctest */,
 				DEDB148D1A3F944D00A837F8 /* SenderDemo.app */,
+				62335DD61B57003300E3818C /* ReceiverDemoSwift.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,6 +305,7 @@
 				CFE63F7FEA51182807D98A78 /* libPods-ReceiverDemo.a */,
 				81A53B1FA1F6DF1D2B557DCD /* libPods-SenderDemo.a */,
 				19367BAF0FEDE5B798128F3D /* libPods-Tests.a */,
+				21875F254C5D9923A2B5CBF3 /* libPods-ReceiverDemoSwift.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,6 +318,26 @@
 				DF9272621ECB6C2824AD5C94 /* LICENSE */,
 			);
 			name = "Pod Metadata";
+			sourceTree = "<group>";
+		};
+		62335DFA1B57007F00E3818C /* ReceiverDemoSwift */ = {
+			isa = PBXGroup;
+			children = (
+				62EE96F21B57087B003D7564 /* RouteHandlers */,
+				62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */,
+				62335E011B57007F00E3818C /* Info.plist */,
+				62EE96F11B57011D003D7564 /* ReceiverDemoSwift-Bridging-Header.h */,
+			);
+			path = ReceiverDemoSwift;
+			sourceTree = "<group>";
+		};
+		62EE96F21B57087B003D7564 /* RouteHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */,
+				62891E8A1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift */,
+			);
+			path = RouteHandlers;
 			sourceTree = "<group>";
 		};
 		83D34C3A1B03ECAD00BA6EF1 /* Regex */ = {
@@ -347,6 +407,7 @@
 		DE11B99B1A42466C008A8F36 /* SampleApps */ = {
 			isa = PBXGroup;
 			children = (
+				62335DFA1B57007F00E3818C /* ReceiverDemoSwift */,
 				DEAD327219E079D3003C8D65 /* ReceiverDemo */,
 				DEDB148E1A3F944D00A837F8 /* SenderDemo */,
 			);
@@ -632,6 +693,25 @@
 			productReference = 6003F5AE195388D20070C39A /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		62335DD51B57003300E3818C /* ReceiverDemoSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62335DF81B57003400E3818C /* Build configuration list for PBXNativeTarget "ReceiverDemoSwift" */;
+			buildPhases = (
+				34BE96D877C65145E7951D75 /* Check Pods Manifest.lock */,
+				62335DD21B57003300E3818C /* Sources */,
+				62335DD31B57003300E3818C /* Frameworks */,
+				62335DD41B57003300E3818C /* Resources */,
+				9AC6E46B330C620FAB6621E4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReceiverDemoSwift;
+			productName = ReceiverDemoSwift;
+			productReference = 62335DD61B57003300E3818C /* ReceiverDemoSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
 		DEDB148C1A3F944D00A837F8 /* SenderDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEDB14AD1A3F944E00A837F8 /* Build configuration list for PBXNativeTarget "SenderDemo" */;
@@ -664,6 +744,9 @@
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
+					62335DD51B57003300E3818C = {
+						CreatedOnToolsVersion = 6.4;
+					};
 					DEDB148C1A3F944D00A837F8 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -683,6 +766,7 @@
 			projectRoot = "";
 			targets = (
 				6003F589195388D20070C39A /* ReceiverDemo */,
+				62335DD51B57003300E3818C /* ReceiverDemoSwift */,
 				DEDB148C1A3F944D00A837F8 /* SenderDemo */,
 				6003F5AD195388D20070C39A /* Tests */,
 			);
@@ -705,6 +789,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE669DEE19E33AB50044496B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62335DD41B57003300E3818C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62891E891B57FA9D00C2AF4F /* Images.xcassets in Resources */,
+				62335E071B57007F00E3818C /* Info.plist in Resources */,
+				62891E881B57FA7F00C2AF4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +874,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		34BE96D877C65145E7951D75 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		7E4A77AFF27B0E5465184209 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -808,6 +917,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AC6E46B330C620FAB6621E4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -844,6 +968,20 @@
 				DEA55ADF1A5F2BBC00C312F5 /* DPLDeepLink_AppLinksSpec.m in Sources */,
 				DE3E610F1A3B4492008D6DFC /* NSString_DPLJSONSpec.m in Sources */,
 				DE16E91E1A42733100077E18 /* NSString_DPLTrimSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62335DD21B57003300E3818C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */,
+				62EE96F51B570AF4003D7564 /* DPLProductDetailViewController.m in Sources */,
+				62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */,
+				62891E8B1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift in Sources */,
+				62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */,
+				62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */,
+				62EE96F41B570891003D7564 /* DPLProductRouteHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1041,6 +1179,97 @@
 			};
 			name = Release;
 		};
+		62335DF21B57003400E3818C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBD5C3C0EA400B61BE35A3E4 /* Pods-ReceiverDemoSwift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SampleApps/ReceiverDemoSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Pods-ReceiverDemoSwift-DeepLinkKit\"",
+					"-Wall",
+					"-fprofile-arcs",
+					"-ftest-coverage",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		62335DF31B57003400E3818C /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB774EA6D84A50233F032ADC /* Pods-ReceiverDemoSwift.test.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
+				INFOPLIST_FILE = SampleApps/ReceiverDemoSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Pods-ReceiverDemoSwift-DeepLinkKit\"",
+					"-Wall",
+					"-fprofile-arcs",
+					"-ftest-coverage",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Test;
+		};
+		62335DF41B57003400E3818C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59C6806DC6FB049E0A3371C7 /* Pods-ReceiverDemoSwift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
+				INFOPLIST_FILE = SampleApps/ReceiverDemoSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Pods-ReceiverDemoSwift-DeepLinkKit\"",
+					"-Wall",
+					"-fprofile-arcs",
+					"-ftest-coverage",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		DEA2AD611A4A8B0100F32289 /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1204,6 +1433,16 @@
 				6003F5C3195388D20070C39A /* Debug */,
 				DEA2AD641A4A8B0100F32289 /* Test */,
 				6003F5C4195388D20070C39A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62335DF81B57003400E3818C /* Build configuration list for PBXNativeTarget "ReceiverDemoSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62335DF21B57003400E3818C /* Debug */,
+				62335DF31B57003400E3818C /* Test */,
+				62335DF41B57003400E3818C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
