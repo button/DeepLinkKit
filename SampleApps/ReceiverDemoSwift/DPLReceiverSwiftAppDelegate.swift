@@ -8,22 +8,22 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // Route registration.
-        self.router["/product/:sku"] = DPLProductRouteHandler.self;
+        // Register a class to a route using object subscripting
+        self.router["/product/:sku"] = DPLProductRouteHandler.self
         
+        // Register a class to a route using the explicit registration call
         self.router.registerHandlerClass(DPLMessageRouteHandler.self, forRoute: "/say/:title/:message")
         
         return true
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool
-    {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         self.router.handleURL(url, withCompletion: nil)
         return true
     }
     
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]!) -> Void) -> Bool
-    {
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]!) -> Void) -> Bool {
+        
         self.router.handleUserActivity(userActivity, withCompletion: nil)
         return true
     }
