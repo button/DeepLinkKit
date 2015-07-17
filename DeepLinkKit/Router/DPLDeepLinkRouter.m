@@ -2,6 +2,7 @@
 #import "DPLRouteMatcher.h"
 #import "DPLDeepLink.h"
 #import "DPLRouteHandler.h"
+#import "DPLRouteHandlerBlockWrapper.h"
 #import "DPLErrors.h"
 #import <objc/runtime.h>
 
@@ -62,6 +63,15 @@
     }
 }
 
+- (void)registerBlockWrapper:(DPLRouteHandlerBlockWrapper *)routeHandlerBlockWrapper forRoute:(NSString *)route
+{
+    if (routeHandlerBlockWrapper && [route length]) {
+        [self.routes addObject:route];
+        [self.classesByRoute removeObjectForKey:route];
+        self.blocksByRoute[route] = [routeHandlerBlockWrapper.routeHandlerBlock copy];
+    }
+}
+
 
 #pragma mark - Registering Routes via Object Subscripting
 
@@ -95,6 +105,9 @@
     }
     else if ([obj isKindOfClass:NSClassFromString(@"NSBlock")]) {
         [self registerBlock:obj forRoute:route];
+    }
+    else if ([obj isKindOfClass:NSClassFromString(@"DPLRouteHandlerBlockWrapper")]) {
+        [self registerBlockWrapper:obj forRoute:route];
     }
     else if (class_isMetaClass(object_getClass(obj)) &&
              [obj isSubclassOfClass:[DPLRouteHandler class]]) {

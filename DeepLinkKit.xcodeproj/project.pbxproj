@@ -16,13 +16,11 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */; };
-		62335E071B57007F00E3818C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62335E011B57007F00E3818C /* Info.plist */; };
 		62335E091B5700AF00E3818C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		62335E0A1B5700B400E3818C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		62335E0B1B5700BC00E3818C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		62891E881B57FA7F00C2AF4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327519E079D3003C8D65 /* Main.storyboard */; };
 		62891E891B57FA9D00C2AF4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327D19E079D3003C8D65 /* Images.xcassets */; };
-		62891E8B1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62891E8A1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift */; };
 		62EE96F41B570891003D7564 /* DPLProductRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */; };
 		62EE96F51B570AF4003D7564 /* DPLProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE87B1F41A5E193100204A35 /* DPLProductDetailViewController.m */; };
 		62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */; };
@@ -89,10 +87,12 @@
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6206955A1B5963EB00108B9A /* DPLRouteHandlerBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRouteHandlerBlock.h; sourceTree = "<group>"; };
+		6206955B1B5963EB00108B9A /* DPLRouteHandlerBlockWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRouteHandlerBlockWrapper.h; sourceTree = "<group>"; };
+		6206955C1B5963EB00108B9A /* DPLRouteHandlerBlockWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLRouteHandlerBlockWrapper.m; sourceTree = "<group>"; };
 		62335DD61B57003300E3818C /* ReceiverDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiverDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLReceiverSwiftAppDelegate.swift; sourceTree = "<group>"; };
 		62335E011B57007F00E3818C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		62891E8A1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLMessageRouteHandler.swift; sourceTree = "<group>"; };
 		62EE96F11B57011D003D7564 /* ReceiverDemoSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReceiverDemoSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLProductRouteHandler.swift; sourceTree = "<group>"; };
 		6B9E60301031FFD1833ECA7A /* Pods-SenderDemo.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.test.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.test.xcconfig"; sourceTree = "<group>"; };
@@ -335,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */,
-				62891E8A1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift */,
 			);
 			path = RouteHandlers;
 			sourceTree = "<group>";
@@ -543,6 +542,9 @@
 			children = (
 				DEAC40701A5DA86A004A9095 /* DPLRouteHandler.h */,
 				DEAC40711A5DA86A004A9095 /* DPLRouteHandler.m */,
+				6206955A1B5963EB00108B9A /* DPLRouteHandlerBlock.h */,
+				6206955B1B5963EB00108B9A /* DPLRouteHandlerBlockWrapper.h */,
+				6206955C1B5963EB00108B9A /* DPLRouteHandlerBlockWrapper.m */,
 			);
 			path = RouteHandler;
 			sourceTree = "<group>";
@@ -738,6 +740,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DPL;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Button, Inc.";
 				TargetAttributes = {
@@ -797,7 +800,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				62891E891B57FA9D00C2AF4F /* Images.xcassets in Resources */,
-				62335E071B57007F00E3818C /* Info.plist in Resources */,
 				62891E881B57FA7F00C2AF4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -978,7 +980,6 @@
 				62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */,
 				62EE96F51B570AF4003D7564 /* DPLProductDetailViewController.m in Sources */,
 				62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */,
-				62891E8B1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift in Sources */,
 				62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */,
 				62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */,
 				62EE96F41B570891003D7564 /* DPLProductRouteHandler.swift in Sources */,

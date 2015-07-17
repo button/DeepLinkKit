@@ -1,17 +1,9 @@
 #import <Foundation/Foundation.h>
+#import "DPLRouteHandlerBlock.h"
 
 @class    DPLDeepLink;
+@class    DPLRouteHandlerBlockWrapper;
 @protocol DPLRouteHandler;
-
-
-/**
- Defines the block type to be used as the handler when registering a route.
- @param deepLink The deep link to be handled.
- @note It is not strictly necessary to register block-based route handlers. 
- You can also register a class for a more structured approach.
- @see DPLRouteHandler
- */
-typedef void(^DPLRouteHandlerBlock)(DPLDeepLink *deepLink);
 
 
 /**
@@ -68,6 +60,21 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  */
 - (void)registerBlock:(DPLRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route;
 
+/**
+ Registers a block for a given route via a wrapper.
+ @param routeHandlerBlockWrapper A wrapper containing a block to be executed when the specified route is matched.
+ @param route The route (e.g. @"table/book/:id", @"ride/book", etc) that when matched executes the registered block to handle the deep link.
+ 
+ @discussion You can also use the object literal syntax to register routes (Swift).
+ @code
+ deepLinkRouter["table/book/:id"] = DPLRouteHandlerBlockWrapper(routeHandlerBlock: { (deepLink) -> Void in
+ // Handle the link here.
+ };
+ @endcode
+ @note Registering a subclass of `DPLRouteHandler' is the preferred method of route registration.
+ Only register block wrappers for trivial cases or for actions that do not require UI presentation.
+ */
+- (void)registerBlockWrapper:(DPLRouteHandlerBlockWrapper*)routeHandlerBlockWrapper forRoute:(NSString *)route;
 
 
 ///-------------------------
