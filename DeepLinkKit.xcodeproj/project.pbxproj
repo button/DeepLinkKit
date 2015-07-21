@@ -15,6 +15,7 @@
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		61017BB31B5DF1ED00A8A487 /* DPLTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61017BB21B5DF1ED00A8A487 /* DPLTestViewController.swift */; };
 		62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */; };
 		62335E091B5700AF00E3818C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		62335E0A1B5700B400E3818C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -87,9 +88,7 @@
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6206955A1B5963EB00108B9A /* DPLRouteHandlerBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRouteHandlerBlock.h; sourceTree = "<group>"; };
-		6206955B1B5963EB00108B9A /* DPLRouteHandlerBlockWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRouteHandlerBlockWrapper.h; sourceTree = "<group>"; };
-		6206955C1B5963EB00108B9A /* DPLRouteHandlerBlockWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLRouteHandlerBlockWrapper.m; sourceTree = "<group>"; };
+		61017BB21B5DF1ED00A8A487 /* DPLTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLTestViewController.swift; sourceTree = "<group>"; };
 		62335DD61B57003300E3818C /* ReceiverDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiverDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLReceiverSwiftAppDelegate.swift; sourceTree = "<group>"; };
 		62335E011B57007F00E3818C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -320,9 +319,18 @@
 			name = "Pod Metadata";
 			sourceTree = "<group>";
 		};
+		61017BB11B5DF1D700A8A487 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				61017BB21B5DF1ED00A8A487 /* DPLTestViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		62335DFA1B57007F00E3818C /* ReceiverDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
+				61017BB11B5DF1D700A8A487 /* ViewControllers */,
 				62EE96F21B57087B003D7564 /* RouteHandlers */,
 				62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */,
 				62335E011B57007F00E3818C /* Info.plist */,
@@ -542,9 +550,6 @@
 			children = (
 				DEAC40701A5DA86A004A9095 /* DPLRouteHandler.h */,
 				DEAC40711A5DA86A004A9095 /* DPLRouteHandler.m */,
-				6206955A1B5963EB00108B9A /* DPLRouteHandlerBlock.h */,
-				6206955B1B5963EB00108B9A /* DPLRouteHandlerBlockWrapper.h */,
-				6206955C1B5963EB00108B9A /* DPLRouteHandlerBlockWrapper.m */,
 			);
 			path = RouteHandler;
 			sourceTree = "<group>";
@@ -980,6 +985,7 @@
 				62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */,
 				62EE96F51B570AF4003D7564 /* DPLProductDetailViewController.m in Sources */,
 				62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */,
+				61017BB31B5DF1ED00A8A487 /* DPLTestViewController.swift in Sources */,
 				62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */,
 				62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */,
 				62EE96F41B570891003D7564 /* DPLProductRouteHandler.swift in Sources */,

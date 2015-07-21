@@ -11,13 +11,23 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
         // Register a class to a route using object subscripting
         self.router["/product/:sku"] = DPLProductRouteHandler.self
         
-        // Register a block (inside a wrapper) to a route using the explicit registration call
-        self.router["/say/:title/:message"] = DPLRouteHandlerBlockWrapper(routeHandlerBlock: { (deepLink) -> Void in
+        // Register a block to a route using the explicit registration call
+        self.router.registerBlock({ (deepLink) -> Void in
             if let title = deepLink.routeParameters["title"] as? String,
                 message = deepLink.routeParameters["message"] as? String {
                     UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK").show()
             }
-        })
+        }, forRoute: "/say/:title/:message")
+        
+        self.router.route("hello/world") { _ in
+            return DPLTestViewController()
+        }
+        
+        self.router.route("hello/world2") { (deepLink) -> Void in
+            if deepLink != nil {
+                println("Hello world from Swift shorthand")
+            }
+        }
         
         return true
     }
