@@ -19,14 +19,15 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
             }
         }, forRoute: "/say/:title/:message")
         
-        self.router.route("hello/world") { _ in
-            return DPLTestViewController()
+        self.router.route("beers") { [weak self] (deepLink) -> Void in
+            if let navController = self?.window?.rootViewController as? UINavigationController,
+                beersViewController = navController.storyboard?.instantiateViewControllerWithIdentifier("beers") as? DPLProductTableViewController {
+                    navController.pushViewController(beersViewController, animated: false)
+            }
         }
         
-        self.router.route("hello/world2") { (deepLink) -> Void in
-            if deepLink != nil {
-                println("Hello world from Swift shorthand")
-            }
+        self.router.route("test") { 
+            return DPLTestViewController()
         }
         
         return true
