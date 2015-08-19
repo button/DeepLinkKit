@@ -204,7 +204,7 @@ router[@"categories"] = ^(DPLDeepLink *link) {
 
 ## Authors
 
-[Wes Smith](http://twitter.com/w5mith)<br />
+[Wes Smith](http://twitter.com/ioswes)<br />
 [Chris Maddern](http://twitter.com/chrismaddern)
 
 ## License
