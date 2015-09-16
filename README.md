@@ -33,6 +33,7 @@ the library, simply add the following line to your Podfile:
 pod "DeepLinkKit"
 ```
 
+If you don't use CocoaPods, you can include all of the source files from the [DeepLinkKit directory](https://github.com/usebutton/DeepLinkKit/tree/master/DeepLinkKit) in your project.
 
 ## Usage
 Add deep link support to your app in 5 minutes or less following these simple steps.
