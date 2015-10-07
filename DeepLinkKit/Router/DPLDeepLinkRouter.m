@@ -105,7 +105,7 @@
 
 #pragma mark - Routing Deep Links
 
-- (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler; {
+- (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler {
     self.routeCompletionHandler = completionHandler;
     if (!url) {
         return NO;
