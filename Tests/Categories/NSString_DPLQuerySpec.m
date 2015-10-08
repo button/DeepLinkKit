@@ -75,6 +75,12 @@ describe(@"Query String to Dictionary", ^{
         expect(params[@"one"]).to.equal(@"a one");
         expect(params[@"two"]).to.equal(@"http://www.example.com?foo=bar");
     });
+  
+    it(@"should decode query parameters into a dictionary with an array of values", ^{
+        NSString *query = @"numbers=1&numbers=2&numbers=3";
+        NSDictionary *params = [query DPL_parametersFromQueryString];
+        expect(params[@"one"]).to.equal(@[@"1", @"2", @"3"]);
+    });
 });
 
 SpecEnd
