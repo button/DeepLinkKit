@@ -15,26 +15,26 @@
 
 
 - (NSDictionary *)DPL_parametersFromQueryString {
-  NSArray *params = [self componentsSeparatedByString:@"&"];
-  NSMutableDictionary *paramsDict = [NSMutableDictionary dictionaryWithCapacity:[params count]];
-  for (NSString *param in params) {
-    NSArray *pairs = [param componentsSeparatedByString:@"="];
-    if ([pairs count] == 2) {
-      NSString *key   = [pairs[0] DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-      NSString *value = [pairs[1] DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-      if (paramsDict[key]) {
-        if ([paramsDict[key] isKindOfClass:[NSArray class]]) {
-          [paramsDict[key] addObject:value];
+    NSArray *params = [self componentsSeparatedByString:@"&"];
+    NSMutableDictionary *paramsDict = [NSMutableDictionary dictionaryWithCapacity:[params count]];
+    for (NSString *param in params) {
+        NSArray *pairs = [param componentsSeparatedByString:@"="];
+        if ([pairs count] == 2) {
+            NSString *key   = [pairs[0] DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *value = [pairs[1] DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            if (paramsDict[key]) {
+                if ([paramsDict[key] isKindOfClass:[NSArray class]]) {
+                    [paramsDict[key] addObject:value];
+                }
+                else {
+                    paramsDict[key] = [NSMutableArray arrayWithObjects:paramsDict[key], value, nil];
+                }
+                continue;
+            }
+            paramsDict[key] = value;
         }
-        else {
-          paramsDict[key] = [NSMutableArray arrayWithObjects:paramsDict[key], value, nil];
-        }
-        continue;
-      }
-      paramsDict[key] = value;
     }
-  }
-  return [paramsDict copy];
+    return [paramsDict copy];
 }
 
 
