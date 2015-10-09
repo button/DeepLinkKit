@@ -77,9 +77,9 @@ describe(@"Query String to Dictionary", ^{
     });
   
     it(@"should decode query parameters into a dictionary with an array of values", ^{
-        NSString *query = @"numbers=1&numbers=2&numbers=3";
+        NSString *query = @"numbers[]=1&numbers[]=2&numbers[]=3";
         NSDictionary *params = [query DPL_parametersFromQueryString];
-        expect(params[@"one"]).to.equal(@[@"1", @"2", @"3"]);
+        expect(params[@"numbers[]"]).to.equal(@[@"1", @"2", @"3"]);
     });
 });
 
