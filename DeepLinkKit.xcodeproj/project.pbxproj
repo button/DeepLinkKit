@@ -738,6 +738,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DPL;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Button, Inc.";
 				TargetAttributes = {

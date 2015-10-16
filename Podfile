@@ -1,7 +1,6 @@
 xcodeproj 'DeepLinkKit.xcodeproj', 'Test' => :debug
 plugin 'slather'
 
-
 target 'SenderDemo', :exclusive => true do
     pod 'DeepLinkKit', :path => '.'
 end

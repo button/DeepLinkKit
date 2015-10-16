@@ -22,6 +22,15 @@
         if ([pairs count] == 2) {
             NSString *key   = [pairs[0] DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSString *value = [pairs[1] DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            if (paramsDict[key]) {
+                if ([paramsDict[key] isKindOfClass:[NSArray class]]) {
+                    [paramsDict[key] addObject:value];
+                }
+                else {
+                    paramsDict[key] = [NSMutableArray arrayWithObjects:paramsDict[key], value, nil];
+                }
+                continue;
+            }
             paramsDict[key] = value;
         }
     }
