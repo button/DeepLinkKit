@@ -16,7 +16,6 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */; };
-		62335E071B57007F00E3818C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62335E011B57007F00E3818C /* Info.plist */; };
 		62335E091B5700AF00E3818C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		62335E0A1B5700B400E3818C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		62335E0B1B5700BC00E3818C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -738,7 +737,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DPL;
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Button, Inc.";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -797,7 +797,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				62891E891B57FA9D00C2AF4F /* Images.xcassets in Resources */,
-				62335E071B57007F00E3818C /* Info.plist in Resources */,
 				62891E881B57FA7F00C2AF4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1061,6 +1060,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -1129,6 +1129,7 @@
 				GCC_PREFIX_HEADER = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Prefix.pch";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1145,6 +1146,7 @@
 				GCC_PREFIX_HEADER = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Prefix.pch";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1159,6 +1161,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/SupportingFiles/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/SupportingFiles/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceiverDemo.app/ReceiverDemo";
 				WRAPPER_EXTENSION = xctest;
@@ -1173,6 +1176,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/SupportingFiles/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/SupportingFiles/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceiverDemo.app/ReceiverDemo";
 				WRAPPER_EXTENSION = xctest;
@@ -1205,6 +1209,7 @@
 					"-fprofile-arcs",
 					"-ftest-coverage",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1235,6 +1240,7 @@
 					"-fprofile-arcs",
 					"-ftest-coverage",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1264,6 +1270,7 @@
 					"-fprofile-arcs",
 					"-ftest-coverage",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1322,6 +1329,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1345,6 +1353,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1358,6 +1367,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/SupportingFiles/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/SupportingFiles/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceiverDemo.app/ReceiverDemo";
 				WRAPPER_EXTENSION = xctest;
@@ -1381,6 +1391,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1399,6 +1410,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
