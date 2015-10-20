@@ -130,6 +130,7 @@
 		DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPLJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DPLJSONSpec.m; sourceTree = "<group>"; };
 		DE4128901A8BBE500089DAA2 /* AppLinks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppLinks.h; sourceTree = "<group>"; };
+		DE56F9AD1BD6B0B70090BF8C /* specta-focus-check.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "specta-focus-check.sh"; path = "BuildScripts/specta-focus-check.sh"; sourceTree = "<group>"; };
 		DE87B1EC1A5DEFD400204A35 /* DPLProductRouteHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLProductRouteHandler.h; sourceTree = "<group>"; };
 		DE87B1ED1A5DEFD400204A35 /* DPLProductRouteHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLProductRouteHandler.m; sourceTree = "<group>"; };
 		DE87B1EF1A5DF49F00204A35 /* DPLProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLProduct.h; sourceTree = "<group>"; };
@@ -482,6 +483,14 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		DE56F9AC1BD6B04E0090BF8C /* BuildScripts */ = {
+			isa = PBXGroup;
+			children = (
+				DE56F9AD1BD6B0B70090BF8C /* specta-focus-check.sh */,
+			);
+			name = BuildScripts;
+			sourceTree = "<group>";
+		};
 		DE5DD32C19E0643F007FD439 /* DeepLinkKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +574,7 @@
 		DEAD328119E079D3003C8D65 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DE56F9AC1BD6B04E0090BF8C /* BuildScripts */,
 				2F4988DC1AE71A930069EF2B /* IntegrationTests */,
 				DEEBD4A61AAB7928000BCA84 /* Fixtures */,
 				4D4F41291B02A95800B710DB /* Regex */,
@@ -683,6 +693,7 @@
 				6003F5AC195388D20070C39A /* Resources */,
 				0D3359342B62D92CA67C2E04 /* Copy Pods Resources */,
 				A891777DE50BB01821DC55E8 /* Embed Pods Frameworks */,
+				DE56F9AB1BD6B0140090BF8C /* Specta Focus Check */,
 			);
 			buildRules = (
 			);
@@ -996,6 +1007,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DE56F9AB1BD6B0140090BF8C /* Specta Focus Check */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Specta Focus Check";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Tests/BuildScripts/specta-focus-check.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
