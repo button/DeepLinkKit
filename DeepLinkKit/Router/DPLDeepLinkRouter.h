@@ -2,17 +2,16 @@
 
 @class    DPLDeepLink;
 @protocol DPLRouteHandler;
-
+@protocol DPLTargetViewController;
 
 /**
  Defines the block type to be used as the handler when registering a route.
  @param deepLink The deep link to be handled.
- @note It is not strictly necessary to register block-based route handlers. 
+ @note It is not strictly necessary to register block-based route handlers.
  You can also register a class for a more structured approach.
  @see DPLRouteHandler
  */
 typedef void(^DPLRouteHandlerBlock)(DPLDeepLink *deepLink);
-
 
 /**
  Defines a block type used to determine whether your application can handle deep links.
@@ -29,6 +28,8 @@ typedef BOOL(^DPLApplicationCanHandleDeepLinksBlock)(void);
  */
 typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 
+typedef UIViewController<DPLTargetViewController>*(^DPLTargetViewControllerBlock)(void);
+
 
 
 @interface DPLDeepLinkRouter : NSObject
@@ -38,6 +39,9 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 /// @name Route Registration
 ///-------------------------
 
+- (void)route:(NSString *)route viewControllerBlock:(DPLTargetViewControllerBlock)viewControllerBlock;
+
+- (void)route:(NSString *)route routeHandlerBlock:(DPLRouteHandlerBlock)routeHandlerBlock;
 
 /**
  Registers a subclass of `DPLRouteHandler' for a given route.
@@ -67,8 +71,6 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  Only register blocks for trivial cases or for actions that do not require UI presentation.
  */
 - (void)registerBlock:(DPLRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route;
-
-
 
 ///-------------------------
 /// @name Routing Deep Links

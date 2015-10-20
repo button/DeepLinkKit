@@ -2,6 +2,7 @@
 #import "DPLRouteMatcher.h"
 #import "DPLDeepLink.h"
 #import "DPLRouteHandler.h"
+#import "DPLTargetViewControllerProtocol.h"
 #import "DPLErrors.h"
 #import <objc/runtime.h>
 
@@ -13,6 +14,7 @@
 @property (nonatomic, strong) NSMutableOrderedSet *routes;
 @property (nonatomic, strong) NSMutableDictionary *classesByRoute;
 @property (nonatomic, strong) NSMutableDictionary *blocksByRoute;
+@property (nonatomic, strong) NSMutableDictionary *viewControllerBlocksByRoute;
 
 @end
 
@@ -25,6 +27,7 @@
         _routes         = [NSMutableOrderedSet orderedSet];
         _classesByRoute = [NSMutableDictionary dictionary];
         _blocksByRoute  = [NSMutableDictionary dictionary];
+        _viewControllerBlocksByRoute = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -43,11 +46,25 @@
 
 #pragma mark - Registering Routes
 
+- (void)route:(NSString *)route viewControllerBlock:(DPLTargetViewControllerBlock)viewControllerBlock {
+    if (viewControllerBlock && [route length]) {
+        [self.routes addObject:route];
+        [self.classesByRoute removeObjectForKey:route];
+        [self.blocksByRoute removeObjectForKey:route];
+        self.viewControllerBlocksByRoute[route] = [viewControllerBlock copy];
+    }
+}
+
+- (void)route:(NSString *)route routeHandlerBlock:(DPLRouteHandlerBlock)routeHandlerBlock {
+    [self registerBlock:routeHandlerBlock forRoute:route];
+}
+
 - (void)registerHandlerClass:(Class <DPLRouteHandler>)handlerClass forRoute:(NSString *)route {
 
     if (handlerClass && [route length]) {
         [self.routes addObject:route];
         [self.blocksByRoute removeObjectForKey:route];
+        [self.viewControllerBlocksByRoute removeObjectForKey:route];
         self.classesByRoute[route] = handlerClass;
     }
 }
@@ -58,10 +75,10 @@
     if (routeHandlerBlock && [route length]) {
         [self.routes addObject:route];
         [self.classesByRoute removeObjectForKey:route];
+        [self.viewControllerBlocksByRoute removeObjectForKey:route];
         self.blocksByRoute[route] = [routeHandlerBlock copy];
     }
 }
-
 
 #pragma mark - Registering Routes via Object Subscripting
 
@@ -74,6 +91,9 @@
         obj = self.classesByRoute[route];
         if (!obj) {
             obj = self.blocksByRoute[route];
+        }
+        if (!obj) {
+            obj = self.viewControllerBlocksByRoute[route];
         }
     }
     
@@ -151,20 +171,29 @@
 - (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
     id handler = self[route];
     
-    if ([handler isKindOfClass:NSClassFromString(@"NSBlock")]) {
+    if (self.blocksByRoute[route] != nil) {
         DPLRouteHandlerBlock routeHandlerBlock = handler;
         routeHandlerBlock(deepLink);
     }
-    else if (class_isMetaClass(object_getClass(handler)) &&
-             [handler isSubclassOfClass:[DPLRouteHandler class]]) {
-        DPLRouteHandler *routeHandler = [[handler alloc] init];
-
+    else {
+        DPLRouteHandler *routeHandler;
+        UIViewController <DPLTargetViewController> *targetViewController;
+        
+        if (self.classesByRoute[route] != nil) {
+            routeHandler = [[handler alloc] init];
+            targetViewController = [routeHandler targetViewController];
+        }
+        else {
+            routeHandler = [[DPLRouteHandler alloc] init];
+            DPLTargetViewControllerBlock targetViewControllerBlock = handler;
+            targetViewController = targetViewControllerBlock();
+        }
+        
         if (![routeHandler shouldHandleDeepLink:deepLink]) {
             return NO;
         }
         
         UIViewController *presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
-        UIViewController <DPLTargetViewController> *targetViewController = [routeHandler targetViewController];
         
         if (targetViewController) {
             [targetViewController configureWithDeepLink:deepLink];
@@ -184,7 +213,6 @@
     
     return YES;
 }
-
 
 - (void)completeRouteWithSuccess:(BOOL)handled error:(NSError *)error {
     
