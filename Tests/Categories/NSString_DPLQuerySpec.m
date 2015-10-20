@@ -44,6 +44,12 @@ describe(@"Dictionary to Query String", ^{
         expect(query).to.equal(@"one=1&two=2");
     });
     
+    it(@"serializes keys with empty value", ^{
+        NSDictionary *params = @{ @"one": @"", @"two": @2 };
+        NSString *query = [NSString DPL_queryStringWithParameters:params];
+        expect(query).to.equal(@"one&two=2");
+    });
+    
     it(@"should percent encode parameters from dictionary into the query string", ^{
         NSDictionary *params = @{ @"one": @"a one", @"two": @"http://www.example.com?foo=bar" };
         NSString *query = [NSString DPL_queryStringWithParameters:params];
@@ -61,11 +67,11 @@ describe(@"Query String to Dictionary", ^{
         expect(params[@"two"]).to.equal(@"2");
     });
     
-    it(@"should ignore incomplete pairs in a query string", ^{
+    it(@"does NOT discard incomplete pairs in a query string", ^{
         NSString *query = @"one=1&two&three=3";
         NSDictionary *params = [query DPL_parametersFromQueryString];
         expect(params[@"one"]).to.equal(@"1");
-        expect(params[@"two"]).to.beNil();
+        expect(params[@"two"]).to.equal(@"");
         expect(params[@"three"]).to.equal(@"3");
     });
     
