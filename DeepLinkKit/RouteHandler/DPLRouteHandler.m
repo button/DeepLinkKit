@@ -17,7 +17,10 @@
 }
 
 - (UIViewController<DPLTargetViewController> *)targetViewControllerForDeepLink:(DPLDeepLink *)deepLink {
-    return nil;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return [self targetViewController];
+#pragma clang diagnostic pop
 }
 
 - (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
@@ -72,7 +75,7 @@
 @implementation DPLRouteHandler (Deprecated)
 
 - (UIViewController <DPLTargetViewController> *)targetViewController {
-    return [self targetViewControllerForDeepLink:nil];
+    return nil;
 }
 
 @end
