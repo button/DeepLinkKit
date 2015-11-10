@@ -164,7 +164,7 @@
         }
         
         UIViewController *presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
-        UIViewController <DPLTargetViewController> *targetViewController = [routeHandler targetViewController];
+        UIViewController <DPLTargetViewController> *targetViewController = [routeHandler targetViewControllerForDeepLink:deepLink];
         
         if (targetViewController) {
             [targetViewController configureWithDeepLink:deepLink];

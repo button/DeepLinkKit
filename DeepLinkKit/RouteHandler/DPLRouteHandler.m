@@ -12,15 +12,13 @@
 }
 
 
-- (UIViewController <DPLTargetViewController> *)targetViewController {
-    return nil;
-}
-
-
 - (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink {
     return [UIApplication sharedApplication].keyWindow.rootViewController;
 }
 
+- (UIViewController<DPLTargetViewController> *)targetViewControllerForDeepLink:(DPLDeepLink *)deepLink {
+    return nil;
+}
 
 - (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
                    inViewController:(UIViewController *)presentingViewController {
@@ -66,6 +64,15 @@
             [navigationController pushViewController:targetViewController animated:NO];
         }
     }
+}
+
+@end
+
+
+@implementation DPLRouteHandler (Deprecated)
+
+- (UIViewController <DPLTargetViewController> *)targetViewController {
+    return [self targetViewControllerForDeepLink:nil];
 }
 
 @end

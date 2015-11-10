@@ -33,14 +33,14 @@
  */
 - (BOOL)preferModalPresentation;
 
-
 /**
  The view controller that will be presented as a result of the deep link.
+ @param deepLink A deep link instance.
  @return A view controller conforming to the `DPLTargetViewController' protocol.
  @note Subclasses MUST override this method.
  */
-- (UIViewController <DPLTargetViewController> *)targetViewController;
 
+- (UIViewController <DPLTargetViewController> *)targetViewControllerForDeepLink:(DPLDeepLink *)deepLink;
 
 /**
  Specifies the view controller from which to present a `targetViewController'.
@@ -67,5 +67,19 @@
  */
 - (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
                    inViewController:(UIViewController *)presentingViewController;
+
+@end
+
+
+@interface DPLRouteHandler (Deprecated)
+
+
+/**
+ The view controller that will be presented as a result of the deep link.
+ @return A view controller conforming to the `DPLTargetViewController' protocol.
+ @note Subclasses MUST override this method.
+ */
+- (UIViewController <DPLTargetViewController> *)targetViewController __attribute__((deprecated("Use targetViewControllerForDeepLink: instead")));
+
 
 @end
