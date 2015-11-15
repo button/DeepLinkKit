@@ -32,19 +32,13 @@
 #pragma mark - URL Encoding/Decoding
 
 - (NSString *)DPL_stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding {
-    return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                                                 (__bridge CFStringRef)self,
-                                                                                 NULL,
-                                                                                 (__bridge CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                 kCFStringEncodingUTF8);
+    NSCharacterSet *allowedCharactersSet = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.~"];
+    return [self stringByAddingPercentEncodingWithAllowedCharacters:allowedCharactersSet];
 }
 
 
 - (NSString *)DPL_stringByReplacingPercentEscapesUsingEncoding:(NSStringEncoding)encoding {
-    return (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,
-                                                                                                 (__bridge CFStringRef)self,
-                                                                                                 CFSTR(""),
-                                                                                                 kCFStringEncodingUTF8);
+    return [self stringByRemovingPercentEncoding];
 }
 
 @end
