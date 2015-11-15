@@ -1,5 +1,5 @@
 xcodeproj 'DeepLinkKit.xcodeproj', 'Test' => :debug
-plugin 'slather'
+inhibit_all_warnings!
 
 
 target 'SenderDemo', :exclusive => true do

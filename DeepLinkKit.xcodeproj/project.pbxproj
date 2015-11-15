@@ -16,7 +16,6 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62335DFB1B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift */; };
-		62335E071B57007F00E3818C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62335E011B57007F00E3818C /* Info.plist */; };
 		62335E091B5700AF00E3818C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		62335E0A1B5700B400E3818C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		62335E0B1B5700BC00E3818C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -131,6 +130,7 @@
 		DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPLJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DPLJSONSpec.m; sourceTree = "<group>"; };
 		DE4128901A8BBE500089DAA2 /* AppLinks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppLinks.h; sourceTree = "<group>"; };
+		DE56F9AD1BD6B0B70090BF8C /* specta-focus-check.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "specta-focus-check.sh"; path = "BuildScripts/specta-focus-check.sh"; sourceTree = "<group>"; };
 		DE87B1EC1A5DEFD400204A35 /* DPLProductRouteHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLProductRouteHandler.h; sourceTree = "<group>"; };
 		DE87B1ED1A5DEFD400204A35 /* DPLProductRouteHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLProductRouteHandler.m; sourceTree = "<group>"; };
 		DE87B1EF1A5DF49F00204A35 /* DPLProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLProduct.h; sourceTree = "<group>"; };
@@ -483,6 +483,14 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		DE56F9AC1BD6B04E0090BF8C /* BuildScripts */ = {
+			isa = PBXGroup;
+			children = (
+				DE56F9AD1BD6B0B70090BF8C /* specta-focus-check.sh */,
+			);
+			name = BuildScripts;
+			sourceTree = "<group>";
+		};
 		DE5DD32C19E0643F007FD439 /* DeepLinkKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,6 +574,7 @@
 		DEAD328119E079D3003C8D65 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DE56F9AC1BD6B04E0090BF8C /* BuildScripts */,
 				2F4988DC1AE71A930069EF2B /* IntegrationTests */,
 				DEEBD4A61AAB7928000BCA84 /* Fixtures */,
 				4D4F41291B02A95800B710DB /* Regex */,
@@ -663,6 +672,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				213419298EA5AA6429BEFD28 /* Copy Pods Resources */,
+				4025AE564DBFB183CA53A923 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -682,6 +692,8 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				0D3359342B62D92CA67C2E04 /* Copy Pods Resources */,
+				A891777DE50BB01821DC55E8 /* Embed Pods Frameworks */,
+				DE56F9AB1BD6B0140090BF8C /* Specta Focus Check */,
 			);
 			buildRules = (
 			);
@@ -702,6 +714,7 @@
 				62335DD31B57003300E3818C /* Frameworks */,
 				62335DD41B57003300E3818C /* Resources */,
 				9AC6E46B330C620FAB6621E4 /* Copy Pods Resources */,
+				F7AECAC5E12B21557769080B /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -721,6 +734,7 @@
 				DEDB148A1A3F944D00A837F8 /* Frameworks */,
 				DEDB148B1A3F944D00A837F8 /* Resources */,
 				82E3829DCB61E29D4B984C4F /* Copy Pods Resources */,
+				3D9B225BD699DD9D3E3783DD /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -738,7 +752,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DPL;
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Button, Inc.";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -797,7 +812,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				62891E891B57FA9D00C2AF4F /* Images.xcassets in Resources */,
-				62335E071B57007F00E3818C /* Info.plist in Resources */,
 				62891E881B57FA7F00C2AF4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -889,6 +903,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		3D9B225BD699DD9D3E3783DD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4025AE564DBFB183CA53A923 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7E4A77AFF27B0E5465184209 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -933,6 +977,50 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A891777DE50BB01821DC55E8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7AECAC5E12B21557769080B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE56F9AB1BD6B0140090BF8C /* Specta Focus Check */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Specta Focus Check";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Tests/BuildScripts/specta-focus-check.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1061,6 +1149,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -1129,6 +1218,7 @@
 				GCC_PREFIX_HEADER = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Prefix.pch";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1145,6 +1235,7 @@
 				GCC_PREFIX_HEADER = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Prefix.pch";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1159,6 +1250,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/SupportingFiles/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/SupportingFiles/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceiverDemo.app/ReceiverDemo";
 				WRAPPER_EXTENSION = xctest;
@@ -1173,6 +1265,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/SupportingFiles/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/SupportingFiles/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceiverDemo.app/ReceiverDemo";
 				WRAPPER_EXTENSION = xctest;
@@ -1205,6 +1298,7 @@
 					"-fprofile-arcs",
 					"-ftest-coverage",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1235,6 +1329,7 @@
 					"-fprofile-arcs",
 					"-ftest-coverage",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1264,6 +1359,7 @@
 					"-fprofile-arcs",
 					"-ftest-coverage",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1322,6 +1418,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1345,6 +1442,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1358,6 +1456,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/SupportingFiles/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/SupportingFiles/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceiverDemo.app/ReceiverDemo";
 				WRAPPER_EXTENSION = xctest;
@@ -1381,6 +1480,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1399,6 +1499,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

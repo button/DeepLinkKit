@@ -18,6 +18,8 @@ profile
 DerivedData
 *.hmap
 *.ipa
+*.gcda
+*.gcno
 
 # Bundler
 .bundle
