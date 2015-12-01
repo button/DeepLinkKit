@@ -2,7 +2,7 @@
 
 @class    DPLDeepLink;
 @protocol DPLRouteHandler;
-
+@protocol DPLTargetViewController;
 
 /**
  Defines the block type to be used as the handler when registering a route.
@@ -85,6 +85,14 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  */
 - (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler;
 
+
+/**
+ Attempts to find the target view controller for an incoming URL. 
+ This might be useful when you have a URL and want full control on how to present the target view controller.
+ @param url The incoming URL from `application:openURL:sourceApplication:annotation:'
+ @return the target view controller for the incoming URL, nil if the URL is not handled
+ */
+- (UIViewController<DPLTargetViewController> *)targetViewControllerForURL:(NSURL *)url;
 
 /**
  Attempts to handle an incoming user activity.

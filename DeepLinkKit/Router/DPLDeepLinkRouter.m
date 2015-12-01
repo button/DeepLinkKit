@@ -147,6 +147,37 @@
     return NO;
 }
 
+- (UIViewController<DPLTargetViewController> *)targetViewControllerForURL:(NSURL *)url
+{
+    if (!url) {
+        return nil;
+    }
+    
+    if (![self applicationCanHandleDeepLinks]) {
+        return nil;
+    }
+    
+    DPLDeepLink  *deepLink;
+    for (NSString *route in self.routes) {
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
+        deepLink = [matcher deepLinkWithURL:url];
+        if (deepLink) {
+            id handler = self[route];
+            if (!class_isMetaClass(object_getClass(handler)) || ![handler isSubclassOfClass:[DPLRouteHandler class]]) {
+                return nil;
+            }
+            DPLRouteHandler *routeHandler = [[handler alloc] init];
+            UIViewController<DPLTargetViewController> *targetViewController = [routeHandler targetViewControllerForDeepLink:deepLink];
+            
+            if (targetViewController) {
+                [targetViewController configureWithDeepLink:deepLink];
+                return targetViewController;
+            }
+            break;
+        }
+    }
+    return nil;
+}
 
 - (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
     id handler = self[route];
