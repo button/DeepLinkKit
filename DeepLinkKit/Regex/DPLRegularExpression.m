@@ -15,7 +15,8 @@ static NSString * const DPLURLParameterPattern        = @"([^/]+)";
                         options:(NSRegularExpressionOptions)options
                           error:(NSError *__autoreleasing *)error {
     
-    NSString *cleanedPattern = [[self class] stringByRemovingNamedGroupsFromString:pattern];
+    NSString *cleanedPattern = [[self class] stringByExpandingWildcardComponents:pattern];
+    cleanedPattern = [[self class] stringByRemovingNamedGroupsFromString:cleanedPattern];
     
     self = [super initWithPattern:cleanedPattern options:options error:error];
     if (self) {
@@ -69,6 +70,13 @@ static NSString * const DPLURLParameterPattern        = @"([^/]+)";
     return [NSArray arrayWithArray:namedGroupTokens];
 }
 
++ (NSString *)stringByExpandingWildcardComponents:(NSString *)pattern
+{
+    pattern = [pattern stringByReplacingOccurrencesOfString:@"*" withString:@"#*#"];
+    pattern = [pattern stringByReplacingOccurrencesOfString:@"#*##*#" withString:@"(?:.*?)"];
+    pattern = [pattern stringByReplacingOccurrencesOfString:@"#*#" withString:@"(?:[^/]+?)"];
+    return pattern;
+}
 
 + (NSString *)stringByRemovingNamedGroupsFromString:(NSString *)str {
     NSString *modifiedStr = [str copy];
