@@ -85,6 +85,13 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  */
 - (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler;
 
+/**
+ Attempts to find the class of the target view controller for an incoming URL.
+ This might be useful when you have a URL and want full control on how to instantiate/present the target view controller.
+ @param url The incoming URL from `application:openURL:sourceApplication:annotation:'
+ @return the target view controller class for the incoming URL, Nil if the URL is not handled
+ */
+- (Class<DPLTargetViewController>)targetViewControllerClassForURL:(NSURL *)url;
 
 /**
  Attempts to find the target view controller for an incoming URL. 

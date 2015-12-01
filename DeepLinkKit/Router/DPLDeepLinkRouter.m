@@ -149,12 +149,18 @@
 
 - (UIViewController<DPLTargetViewController> *)targetViewControllerForURL:(NSURL *)url
 {
+    Class targetVCClass = [self targetViewControllerClassForURL:url];
+    return [[targetVCClass alloc] init];
+}
+
+- (Class<DPLTargetViewController>)targetViewControllerClassForURL:(NSURL *)url
+{
     if (!url) {
-        return nil;
+        return Nil;
     }
     
     if (![self applicationCanHandleDeepLinks]) {
-        return nil;
+        return Nil;
     }
     
     DPLDeepLink  *deepLink;
@@ -164,19 +170,18 @@
         if (deepLink) {
             id handler = self[route];
             if (!class_isMetaClass(object_getClass(handler)) || ![handler isSubclassOfClass:[DPLRouteHandler class]]) {
-                return nil;
+                return Nil;
             }
             DPLRouteHandler *routeHandler = [[handler alloc] init];
-            UIViewController<DPLTargetViewController> *targetViewController = [routeHandler targetViewControllerForDeepLink:deepLink];
+            Class targetVCClass = [routeHandler targetViewControllerClassForDeepLink:deepLink];
             
-            if (targetViewController) {
-                [targetViewController configureWithDeepLink:deepLink];
-                return targetViewController;
+            if (targetVCClass) {
+                return targetVCClass;
             }
             break;
         }
     }
-    return nil;
+    return Nil;
 }
 
 - (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {

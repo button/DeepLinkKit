@@ -33,13 +33,21 @@
  */
 - (BOOL)preferModalPresentation;
 
+
+/**
+ The view controller class that will be presented as a result of the deep link.
+ @param deepLink A deep link instance.
+ @return A view controller class, conforming to the `DPLTargetViewController' protocol.
+ @note Subclasses MUST override this method.
+ */
+- (Class<DPLTargetViewController>)targetViewControllerClassForDeepLink:(DPLDeepLink *)deepLink;
+
 /**
  The view controller that will be presented as a result of the deep link.
  @param deepLink A deep link instance.
  @return A view controller conforming to the `DPLTargetViewController' protocol.
  @note Subclasses MUST override this method.
  */
-
 - (UIViewController <DPLTargetViewController> *)targetViewControllerForDeepLink:(DPLDeepLink *)deepLink;
 
 /**

@@ -16,11 +16,13 @@
     return [UIApplication sharedApplication].keyWindow.rootViewController;
 }
 
+- (Class<DPLTargetViewController>)targetViewControllerClassForDeepLink:(DPLDeepLink *)deepLink {
+    return nil;
+}
+
 - (UIViewController<DPLTargetViewController> *)targetViewControllerForDeepLink:(DPLDeepLink *)deepLink {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    return [self targetViewController];
-#pragma clang diagnostic pop
+    Class targetVCClass = [self targetViewControllerClassForDeepLink:deepLink];
+    return [targetVCClass new];
 }
 
 - (void)presentTargetViewController:(UIViewController <DPLTargetViewController> *)targetViewController
