@@ -184,6 +184,16 @@ describe(@"Matching Routes", ^{
         DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
         expect(deepLink).to.beNil();
     });
+    
+    it(@"matches just a host as a named parameter", ^{
+        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:@":host"];
+        NSURL *url =  [NSURL URLWithString:@"scheme://myrandomhost?param1=value1&param2=value2"];
+        DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+        
+        expect(deepLink).notTo.beNil();
+        expect([deepLink.queryParameters count]).to.equal(2);
+        expect(deepLink.routeParameters[@"host"]).to.equal(@"myrandomhost");
+    });
 });
 
 
