@@ -147,20 +147,14 @@
     return NO;
 }
 
-- (UIViewController<DPLTargetViewController> *)targetViewControllerForURL:(NSURL *)url
-{
-    Class targetVCClass = [self targetViewControllerClassForURL:url];
-    return [[targetVCClass alloc] init];
-}
-
-- (Class<DPLTargetViewController>)targetViewControllerClassForURL:(NSURL *)url
+- (DPLDeepLink *)deepLinkForURL:(NSURL *)url route:(__autoreleasing NSString **)matchedRoute
 {
     if (!url) {
-        return Nil;
+        return nil;
     }
     
     if (![self applicationCanHandleDeepLinks]) {
-        return Nil;
+        return nil;
     }
     
     DPLDeepLink  *deepLink;
@@ -168,18 +162,58 @@
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];
         if (deepLink) {
-            id handler = self[route];
-            if (!class_isMetaClass(object_getClass(handler)) || ![handler isSubclassOfClass:[DPLRouteHandler class]]) {
-                return Nil;
+            if (matchedRoute != NULL) {
+                *matchedRoute = route;
             }
-            DPLRouteHandler *routeHandler = [[handler alloc] init];
-            Class targetVCClass = [routeHandler targetViewControllerClassForDeepLink:deepLink];
-            
-            if (targetVCClass) {
-                return targetVCClass;
-            }
-            break;
+            return deepLink;
         }
+    }
+    return nil;
+}
+
+- (DPLRouteHandler *)routeHandlerForDeepLink:(DPLDeepLink *)deepLink route:(NSString *)route
+{
+    id handler = self[route];
+    if (!class_isMetaClass(object_getClass(handler)) || ![handler isSubclassOfClass:[DPLRouteHandler class]]) {
+        return nil;
+    }
+    DPLRouteHandler *routeHandler = [[handler alloc] init];
+    return routeHandler;
+}
+
+- (UIViewController<DPLTargetViewController> *)targetViewControllerForURL:(NSURL *)url
+{
+    NSString *route = nil;
+    DPLDeepLink  *deepLink = [self deepLinkForURL:url route:&route];
+    if (!deepLink) {
+        return nil;
+    }
+    DPLRouteHandler *routeHandler = [self routeHandlerForDeepLink:deepLink route:route];
+    if (!routeHandler) {
+        return nil;
+    }
+    UIViewController<DPLTargetViewController> *targetVC = [routeHandler targetViewControllerForDeepLink:deepLink];
+    if (targetVC) {
+        [targetVC configureWithDeepLink:deepLink];
+        return targetVC;
+    }
+    return nil;
+}
+
+- (Class<DPLTargetViewController>)targetViewControllerClassForURL:(NSURL *)url
+{
+    NSString *route = nil;
+    DPLDeepLink  *deepLink = [self deepLinkForURL:url route:&route];
+    if (!deepLink) {
+        return Nil;
+    }
+    DPLRouteHandler *routeHandler = [self routeHandlerForDeepLink:deepLink route:route];
+    if (!routeHandler) {
+        return Nil;
+    }
+    Class targetVCClass = [routeHandler targetViewControllerClassForDeepLink:deepLink];
+    if (targetVCClass) {
+        return targetVCClass;
     }
     return Nil;
 }
