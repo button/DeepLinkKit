@@ -42,6 +42,13 @@ describe(@"Initialization", ^{
                                  };
         expect(link[@"partner"]).to.equal(@"not-uber");
     });
+    
+    it(@"preserves key only query items", ^{
+        NSURL *url = [NSURL URLWithString:@"seamlessapp://menu?293147"];
+        DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
+        expect(link.queryParameters[@"293147"]).to.equal(@"");
+        expect(link.URL.absoluteString).to.equal(@"seamlessapp://menu?293147");
+    });
 });
 
 

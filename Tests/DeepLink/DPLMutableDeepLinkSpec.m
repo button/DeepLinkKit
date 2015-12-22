@@ -87,6 +87,12 @@ describe(@"Mutating Deep Links", ^{
         link.path = @"/path/to/there";
         expect(link.URL.absoluteString).to.equal(@"dpl://dpl.com/path/to/there?");
     });
+    
+    it(@"preserves key only query items", ^{
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"seamlessapp://menu?293147"];
+        expect(link.queryParameters[@"293147"]).to.equal(@"");
+        expect(link.URL.absoluteString).to.equal(@"seamlessapp://menu?293147");
+    });
 });
 
 
