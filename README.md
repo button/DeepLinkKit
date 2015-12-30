@@ -17,7 +17,8 @@
 DeepLink Kit is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this library and a few lines of code will get you on your way.
 
 [Full Documentation](https://github.com/usebutton/DeepLinkKit/wiki/DeepLink-Kit-Integration-Guide)
-[Add Universal Links to your App guide](https://www.usebutton.com/developers/universal-links/)
+
+[Add Universal Links to your app](https://www.usebutton.com/developers/universal-links/)
 
 ## Check it out
 
