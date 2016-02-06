@@ -17,6 +17,11 @@
 }
 
 
+- (UIViewController <DPLTargetViewController> *)targetViewControllerForDeepLink:(DPLDeepLink *)deepLink {
+    return [self targetViewController];
+}
+
+
 - (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink {
     return [UIApplication sharedApplication].keyWindow.rootViewController;
 }

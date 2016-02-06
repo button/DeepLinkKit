@@ -40,6 +40,7 @@
  @note Subclasses MUST override this method.
  */
 - (UIViewController <DPLTargetViewController> *)targetViewController;
+- (UIViewController <DPLTargetViewController> *)targetViewControllerForDeepLink:(DPLDeepLink *)deepLink;
 
 
 /**
