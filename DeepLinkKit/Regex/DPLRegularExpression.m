@@ -2,7 +2,7 @@
 
 static NSString * const DPLNamedGroupComponentPattern = @":[a-zA-Z0-9-_][^/]+";
 static NSString * const DPLRouteParameterPattern      = @":[a-zA-Z0-9-_]+";
-static NSString * const DPLURLParameterPattern        = @"([^/]+)";
+static NSString * const DPLURLParameterPattern        = @"([^/]*)";
 
 @implementation DPLRegularExpression
 
