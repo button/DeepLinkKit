@@ -6,7 +6,6 @@
  Returns a JSON compatible version of the receiver.
  
  @discussion
- 
  - NSDictionary and NSArray will call `DPLJSONObject' on all of their items.
  - Objects in an NSDictionary not keyed by an NSString will be removed.
  - NSNumbers that are NaN or Inf will be represented by a string.
