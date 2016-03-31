@@ -1,8 +1,6 @@
-#import <Foundation/Foundation.h>
+@import Foundation;
 
-
-@class DPLDeepLink, DPLAppAction;
-
+@class DPLDeepLink;
 
 @interface DPLDeepLink : NSObject <NSCopying, NSMutableCopying>
 
