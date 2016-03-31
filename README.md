@@ -5,8 +5,8 @@
 
 
 <p align="center">
-<a href="https://travis-ci.org/usebutton/DeepLinkKit"><img src="http://img.shields.io/travis/usebutton/DeepLinkKit.svg?style=flat" alt="CI Status" /></a>
-<a href='https://coveralls.io/r/usebutton/DeepLinkKit'><img src='https://coveralls.io/repos/usebutton/DeepLinkKit/badge.svg?branch=master' alt='Coverage Status' /></a>
+<a href="https://travis-ci.org/button/DeepLinkKit"><img src="http://img.shields.io/travis/button/DeepLinkKit.svg?style=flat" alt="CI Status" /></a>
+<a href='https://coveralls.io/r/button/DeepLinkKit'><img src='https://coveralls.io/repos/button/DeepLinkKit/badge.svg?branch=master' alt='Coverage Status' /></a>
 <a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/v/DeepLinkKit.svg?style=flat" alt="Version" /></a>
 <a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/l/DeepLinkKit.svg?style=flat" alt="License" /></a>
 <a href="http://cocoadocs.org/docsets/DeepLinkKit"><img src="https://img.shields.io/cocoapods/p/DeepLinkKit.svg?style=flat" alt="Platform" /></a>
@@ -16,7 +16,7 @@
 
 DeepLink Kit is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this library and a few lines of code will get you on your way.
 
-[Full Documentation](https://github.com/usebutton/DeepLinkKit/wiki/DeepLink-Kit-Integration-Guide)
+[Full Documentation](https://github.com/button/DeepLinkKit/wiki/DeepLink-Kit-Integration-Guide)
 
 [Guide to add Universal Links to your app](https://www.usebutton.com/developers/universal-links/)
 
@@ -35,7 +35,7 @@ the library, simply add the following line to your Podfile:
 pod "DeepLinkKit"
 ```
 
-If you don't use CocoaPods, you can include all of the source files from the [DeepLinkKit directory](https://github.com/usebutton/DeepLinkKit/tree/master/DeepLinkKit) in your project.
+If you don't use CocoaPods, you can include all of the source files from the [DeepLinkKit directory](https://github.com/button/DeepLinkKit/tree/master/DeepLinkKit) in your project.
 
 ## Usage
 Add deep link support to your app in 5 minutes or less following these simple steps.
@@ -101,7 +101,7 @@ _**Note:** If your application supports [Apple's new universal links](https://de
 
 
 
-Learn more about the DeepLinkKit by reading our [Integration Guide](https://github.com/usebutton/DeepLinkKit/wiki/DeepLink-Kit-Integration-Guide).
+Learn more about the DeepLinkKit by reading our [Integration Guide](https://github.com/button/DeepLinkKit/wiki/DeepLink-Kit-Integration-Guide).
 
 ## Route Registration Examples
 
