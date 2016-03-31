@@ -158,6 +158,7 @@
 		DEAD328519E079D3003C8D65 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLink_Private.h; sourceTree = "<group>"; };
 		DEB4EDBD1A4A726200F31D14 /* DeepLinkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkKit.h; sourceTree = "<group>"; };
+		DEC308D71CAD6A05006828A5 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = DeepLinkKit/module.modulemap; sourceTree = "<group>"; };
 		DEC308D91CAD70A5006828A5 /* DeepLinkKit_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkKit_Private.h; sourceTree = "<group>"; };
 		DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLMutableDeepLink.h; sourceTree = "<group>"; };
 		DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLMutableDeepLink.m; sourceTree = "<group>"; };
@@ -314,6 +315,7 @@
 		60FF7A9C1954A5C5007DD14C /* Pod Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				DEC308D71CAD6A05006828A5 /* module.modulemap */,
 				8949A4E8F681A12A47C20775 /* DeepLinkKit.podspec */,
 				E9CA1DB95577CF3689F4B77F /* README.md */,
 				DF9272621ECB6C2824AD5C94 /* LICENSE */,

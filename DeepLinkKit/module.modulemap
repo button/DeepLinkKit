@@ -1,0 +1,16 @@
+framework module DeepLinkKit {
+    umbrella header "DeepLinkKit.h"
+    export *
+    module * { export * }
+    
+    explicit module Private {
+        header "DeepLinkKit_Private.h"
+        export *
+    }
+    
+    explicit module AppLinks {
+        header "AppLinks.h"
+        export *
+    }
+}
+
