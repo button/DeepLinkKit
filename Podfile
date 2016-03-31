@@ -1,6 +1,6 @@
 xcodeproj 'DeepLinkKit.xcodeproj', 'Test' => :debug
 inhibit_all_warnings!
-
+use_frameworks!
 
 target 'SenderDemo', :exclusive => true do
     pod 'DeepLinkKit', :path => '.'

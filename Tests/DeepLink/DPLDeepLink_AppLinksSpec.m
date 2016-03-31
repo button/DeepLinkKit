@@ -1,7 +1,6 @@
 #import "Specta.h"
-#import "DPLDeepLink_Private.h"
-#import "DPLDeepLink+AppLinks.h"
-#import "DPLMutableDeepLink+AppLinks.h"
+@import DeepLinkKit.Private;
+@import DeepLinkKit.AppLinks;
 
 SpecBegin(DPLDeepLink_AppLinks)
 

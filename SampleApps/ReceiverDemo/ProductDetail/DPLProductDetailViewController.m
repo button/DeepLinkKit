@@ -2,8 +2,6 @@
 #import "DPLProductDataSource.h"
 #import "DPLProduct.h"
 
-#import <DeepLinkKit/DPLDeepLink.h>
-
 @interface DPLProductDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
