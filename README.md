@@ -144,6 +144,67 @@ router[@"scheme-one://timeline"] = ^{ … }
 router[@"scheme-two://timeline"] = ^{ … }
 ```
 
+### Regex Route Matching
+You can use regex in your route patterns as well to give you maximum flexibility.
+
+**Match any url**
+
+_The following will match all incoming urls_
+```objc
+router[@".*"] ^(DPLDeepLink *link){
+  // This will match all incoming links
+}
+```
+_**Note:** Routes are matched in the order they're registered so registering this route first will prevent all other more specific routes from matching._
+
+**Match any url with a given scheme**
+
+_The following will match all incoming links with the scheme, `myscheme://`_
+```objc
+router[@"myscheme://.*"] ^(DPLDeepLink *link){
+  // matches all urls with a scheme of `myscheme://`
+}
+```
+
+**You can name your regex groups too**
+
+_The following will match any url with a `host` of `trycaviar.com` and hand you `:path` in the route params._
+```objc
+// Given the url ‘https://trycaviar.com/manhattan/nicoletta-297`
+router[@"trycaviar.com/:path(.*)"] ^(DPLDeepLink *link){
+  // `link[@"path"]` => @"manhattan/nicoletta-297"
+}
+```
+
+**Match multiple path components**
+
+_In this example, you'll get `:city` and `:restaurant` in the route params._
+```objc
+// Given the url ‘https://trycaviar.com/manhattan/nicoletta-297`
+router[@"trycaviar.com/:city([a-zA-Z]+)/:restaurant(.*)"] ^(DPLDeepLink *link){
+  // `link[@"city"]` => @"manhattan"
+  // `link[@"restaurant"]` => @"nicoletta-297"
+}
+```
+_If the restaurant ids are numbers, you could limit your matches as follows._
+```objc
+// Given the url ‘https://trycaviar.com/manhattan/297`
+router[@"trycaviar.com/:city([a-zA-Z]+)/:restaurant([0-9])"] ^(DPLDeepLink *link){
+  // `link[@"city"]` => @"manhattan"
+  // `link[@"restaurant"]` => @"297"
+}
+```
+
+**Name some groups and not others**
+```objc
+// Lets say the url is ‘https://trycaviar.com/manhattan/pizza/nicoletta-297`
+router[@"trycaviar.com/:city([a-zA-Z]+)/[a-z]+/:restaurant(.*)"] ^(DPLDeepLink *link){
+  // `link[@"city"]` => @"manhattan"
+  // `link[@"restaurant"]` => @"nicoletta-297"
+}
+```
+_The above would match ‘https://trycaviar.com/manhattan/pizza/nicoletta-297’ but not ‘https://trycaviar.com/manhattan/PIZZA/nicoletta-297’ or ‘https://trycaviar.com/manhattan/pizza-places/nicoletta-297’, etc_
+
 ## AppLinks Support
 
 Does your app support AppLinks? You can easily handle incoming AppLinks by importing the AppLinks category `DPLDeepLink+AppLinks`. The AppLinks category provides convenience accessors to all AppLinks 1.0 properties.
