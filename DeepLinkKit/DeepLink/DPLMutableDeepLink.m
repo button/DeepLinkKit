@@ -88,14 +88,18 @@
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
-    return [[DPLDeepLink alloc] initWithURL:self.URL];
+    DPLDeepLink *copiedLink = [[DPLDeepLink alloc] initWithURL:self.URL];
+    copiedLink.routeParameters = self.routeParameters;
+    return copiedLink;
 }
 
 
 #pragma mark - NSMutableCopying
 
 - (id)mutableCopyWithZone:(NSZone *)zone {
-    return [[[self class] alloc] initWithString:self.URL.absoluteString];
+    DPLMutableDeepLink *copiedLink = [[[self class] alloc] initWithString:self.URL.absoluteString];
+    copiedLink.routeParameters = self.routeParameters;
+    return copiedLink;
 }
 
 @end
