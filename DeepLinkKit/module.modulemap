@@ -16,6 +16,7 @@ framework module DeepLinkKit {
     exclude header "NSString+DPLQuery.h"
     exclude header "NSString+DPLJSON.h"
     exclude header "NSObject+DPLJSONObject.h"
+    exclude header "UINavigationController+DPLRouting.h"
 }
 
 explicit module DeepLinkKit.Private {

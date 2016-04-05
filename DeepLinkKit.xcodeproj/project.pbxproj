@@ -51,6 +51,7 @@
 		DEAD328B19E079D3003C8D65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327B19E079D3003C8D65 /* InfoPlist.strings */; };
 		DEAD328C19E079D3003C8D65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAD327D19E079D3003C8D65 /* Images.xcassets */; };
 		DEAD328D19E079D3003C8D65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327E19E079D3003C8D65 /* main.m */; };
+		DEB497F71CB441FA005FC580 /* UINavigationController_DPLRoutingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB497F61CB441FA005FC580 /* UINavigationController_DPLRoutingSpec.m */; };
 		DECB32531A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB32521A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m */; };
 		DECB32551A882D1A0071C76E /* DPLMutableDeepLinkSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB32541A882D1A0071C76E /* DPLMutableDeepLinkSpec.m */; };
 		DECB32571A8866700071C76E /* DPLMutableDeepLink_AppLinksSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB32561A8866700071C76E /* DPLMutableDeepLink_AppLinksSpec.m */; };
@@ -125,6 +126,8 @@
 		DE16E9341A4289D500077E18 /* DPLRouteMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLRouteMatcher.h; sourceTree = "<group>"; };
 		DE16E9351A4289D500077E18 /* DPLRouteMatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLRouteMatcher.m; sourceTree = "<group>"; };
 		DE16E9371A4289DF00077E18 /* DPLRouteMatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLRouteMatcherSpec.m; sourceTree = "<group>"; };
+		DE1B5F581CB301300086227F /* UINavigationController+DPLRouting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+DPLRouting.h"; sourceTree = "<group>"; };
+		DE1B5F591CB301300086227F /* UINavigationController+DPLRouting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+DPLRouting.m"; sourceTree = "<group>"; };
 		DE3E61081A3B4485008D6DFC /* NSString+DPLJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DPLJSON.h"; sourceTree = "<group>"; };
 		DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPLJSON.m"; sourceTree = "<group>"; };
 		DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_DPLJSONSpec.m; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 		DEAD328319E079D3003C8D65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DEAD328419E079D3003C8D65 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		DEAD328519E079D3003C8D65 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		DEB497F61CB441FA005FC580 /* UINavigationController_DPLRoutingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationController_DPLRoutingSpec.m; sourceTree = "<group>"; };
 		DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLDeepLink_Private.h; sourceTree = "<group>"; };
 		DEB4EDBD1A4A726200F31D14 /* DeepLinkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkKit.h; sourceTree = "<group>"; };
 		DEC308D71CAD6A05006828A5 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = DeepLinkKit/module.modulemap; sourceTree = "<group>"; };
@@ -471,6 +475,8 @@
 				DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */,
 				DECB32501A87E94B0071C76E /* NSObject+DPLJSONObject.h */,
 				DECB32511A87E94B0071C76E /* NSObject+DPLJSONObject.m */,
+				DE1B5F581CB301300086227F /* UINavigationController+DPLRouting.h */,
+				DE1B5F591CB301300086227F /* UINavigationController+DPLRouting.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 				DE3E610D1A3B4492008D6DFC /* NSString_DPLJSONSpec.m */,
 				DE16E91D1A42733100077E18 /* NSString_DPLTrimSpec.m */,
 				DECB32521A881CA10071C76E /* NSObject_DPLJSONObjectSpec.m */,
+				DEB497F61CB441FA005FC580 /* UINavigationController_DPLRoutingSpec.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1055,6 +1062,7 @@
 				DE058E101A3B485500147C04 /* DPLDeepLinkSpec.m in Sources */,
 				DECB32551A882D1A0071C76E /* DPLMutableDeepLinkSpec.m in Sources */,
 				DE058E0A1A3B46FD00147C04 /* NSString_DPLQuerySpec.m in Sources */,
+				DEB497F71CB441FA005FC580 /* UINavigationController_DPLRoutingSpec.m in Sources */,
 				DECB32571A8866700071C76E /* DPLMutableDeepLink_AppLinksSpec.m in Sources */,
 				2F4988DE1AE71ABC0069EF2B /* DPLRouteHandlerIntegrationTest.m in Sources */,
 				DEA55ADF1A5F2BBC00C312F5 /* DPLDeepLink_AppLinksSpec.m in Sources */,
