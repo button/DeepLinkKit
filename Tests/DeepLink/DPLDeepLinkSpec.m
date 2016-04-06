@@ -61,9 +61,17 @@ describe(@"Copying", ^{
         DPLDeepLink *link2 = [link1 copy];
         
         expect(link2).toNot.beNil();
-        expect(link1.URL).to.equal(link2.URL);
-        expect(link1.queryParameters).to.equal(link2.queryParameters);
-        expect(link1.callbackURL).to.equal(link2.callbackURL);
+        expect(link2.URL).to.equal(link1.URL);
+        expect(link2.queryParameters).to.equal(link1.queryParameters);
+        expect(link2.routeParameters).to.equal(link1.routeParameters);
+        expect(link2.callbackURL).to.equal(link1.callbackURL);
+    });
+    
+    it(@"immutable copy includes route parameters", ^{
+        DPLDeepLink *link1 = [[DPLDeepLink alloc] initWithURL:url];
+        link1.routeParameters = @{ @"type": @"ride" };
+        DPLDeepLink *link2 = [link1 copy];
+        expect(link2.routeParameters).to.equal(link1.routeParameters);
     });
     
     it(@"returns a mutable deep link via mutable copy", ^{
@@ -75,7 +83,15 @@ describe(@"Copying", ^{
         expect(mutableLink.host).to.equal(@"dpl.io");
         expect(mutableLink.path).to.equal(@"/ride/abc123");
         expect(mutableLink.queryParameters).to.equal(link.queryParameters);
+        expect(mutableLink.routeParameters).to.equal(link.routeParameters);
         expect(mutableLink.URL).to.equal(link.URL);
+    });
+    
+    it(@"mutable copy includes route parameters", ^{
+        DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
+        link.routeParameters = @{ @"type": @"ride" };
+        DPLMutableDeepLink *mutableLink = [link mutableCopy];
+        expect(mutableLink.routeParameters).to.equal(link.routeParameters);
     });
 });
 

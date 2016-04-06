@@ -124,17 +124,33 @@ describe(@"Copying", ^{
         expect(link.callbackURL.absoluteString).to.equal(@"dpl://back");
     });
     
+    it(@"immutable copy includes route parameters", ^{
+        NSString *URLString = @"dpl://dpl.com/here?foo=bar&dpl_callback_url=dpl://back";
+        DPLMutableDeepLink *mutableLink = [[DPLMutableDeepLink alloc] initWithString:URLString];
+        mutableLink.routeParameters = @{ @"where": @"here" };
+        DPLDeepLink *link = [mutableLink copy];
+        expect(link.routeParameters).to.equal(mutableLink.routeParameters);
+    });
+    
     it(@"returns a mutable deep link via mutableCopy", ^{
         NSString *URLString = @"dpl://dpl.com/here?foo=bar&dpl_callback_url=dpl://back";
         DPLMutableDeepLink *link1 = [[DPLMutableDeepLink alloc] initWithString:URLString];
         DPLMutableDeepLink *link2 = [link1 mutableCopy];
         
         expect(link2).toNot.beNil();
-        expect(link1.scheme).to.equal(link2.scheme);
-        expect(link1.host).to.equal(link2.host);
-        expect(link1.path).to.equal(link2.path);
-        expect(link1.queryParameters).to.equal(link2.queryParameters);
-        expect(link1.URL).to.equal(link2.URL);
+        expect(link2.scheme).to.equal(link1.scheme);
+        expect(link2.host).to.equal(link1.host);
+        expect(link2.path).to.equal(link1.path);
+        expect(link2.queryParameters).to.equal(link1.queryParameters);
+        expect(link2.URL).to.equal(link1.URL);
+    });
+    
+    it(@"mutable copy includes route parameters", ^{
+        NSString *URLString = @"dpl://dpl.com/here?foo=bar&dpl_callback_url=dpl://back";
+        DPLMutableDeepLink *mutableLink = [[DPLMutableDeepLink alloc] initWithString:URLString];
+        mutableLink.routeParameters = @{ @"where": @"here" };
+        DPLDeepLink *link = [mutableLink mutableCopy];
+        expect(link.routeParameters).to.equal(mutableLink.routeParameters);
     });
 });
 

@@ -106,14 +106,18 @@ NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
-    return [[[self class] alloc] initWithURL:self.URL];
+    DPLDeepLink *copiedLink = [[[self class] alloc] initWithURL:self.URL];
+    copiedLink.routeParameters = self.routeParameters;
+    return copiedLink;
 }
 
 
 #pragma mark - NSMutableCopying
 
 - (id)mutableCopyWithZone:(NSZone *)zone {
-    return [[DPLMutableDeepLink alloc] initWithString:self.URL.absoluteString];
+    DPLMutableDeepLink *copiedLink = [[DPLMutableDeepLink alloc] initWithString:self.URL.absoluteString];
+    copiedLink.routeParameters = self.routeParameters;
+    return copiedLink;
 }
 
 
