@@ -1,4 +1,3 @@
-#import "Specta.h"
 #import "DPLDeepLink.h"
 #import "DPLDeepLink_Private.h"
 #import "DPLMutableDeepLink.h"

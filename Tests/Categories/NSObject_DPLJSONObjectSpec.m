@@ -1,4 +1,3 @@
-#import "Specta.h"
 #import "NSObject+DPLJSONObject.h"
 #import "DPLSerializableObject.h"
 

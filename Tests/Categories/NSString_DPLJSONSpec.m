@@ -1,4 +1,3 @@
-#import "Specta.h"
 #import "NSString+DPLJSON.h"
 
 SpecBegin(NSString_DPLJSON)

@@ -1,4 +1,3 @@
-#import "Specta.h"
 #import "DPLRegularExpression.h"
 
 SpecBegin(DPLRegularExpression)

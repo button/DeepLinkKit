@@ -1,4 +1,3 @@
-#import "Specta.h"
 #import "NSString+DPLQuery.h"
 
 SpecBegin(NSString_DPLQuery)
