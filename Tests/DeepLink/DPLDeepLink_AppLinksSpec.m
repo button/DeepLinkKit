@@ -1,4 +1,3 @@
-#import "Specta.h"
 @import DeepLinkKit.Private;
 @import DeepLinkKit.AppLinks;
 

@@ -1,4 +1,3 @@
-#import "Specta.h"
 #import "DPLDeepLinkRouter.h"
 #import "DPLDeepLinkRouter_Private.h"
 #import "DPLRouteHandler.h"

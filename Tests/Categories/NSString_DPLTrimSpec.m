@@ -1,4 +1,3 @@
-#import "Specta.h"
 #import "NSString+DPLTrim.h"
 
 SpecBegin(NSString_DPLTrim)
