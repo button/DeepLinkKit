@@ -1,4 +1,3 @@
-#import "Specta.h"
 #import "UINavigationController+DPLRouting.h"
 
 @interface VC1 : UIViewController @end
