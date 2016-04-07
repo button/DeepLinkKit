@@ -191,6 +191,7 @@
 		DEEBD4A71AAB7946000BCA84 /* DPLSerializableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPLSerializableObject.h; path = Fixtures/DPLSerializableObject.h; sourceTree = "<group>"; };
 		DEEBD4A81AAB7946000BCA84 /* DPLSerializableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPLSerializableObject.m; path = Fixtures/DPLSerializableObject.m; sourceTree = "<group>"; };
 		DF9272621ECB6C2824AD5C94 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ./LICENSE; sourceTree = "<group>"; };
+		E989F5AC1CB709B8005D51D6 /* NSString+DPLQuery_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DPLQuery_Private.h"; sourceTree = "<group>"; };
 		E9A1891F1CB6E6600029E56B /* DPLArrayRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLArrayRouteHandler.swift; sourceTree = "<group>"; };
 		E9CA1DB95577CF3689F4B77F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ./README.md; sourceTree = "<group>"; };
 		EC3E153594BC11ACCA16FACF /* Pods_ReceiverDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReceiverDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -473,6 +474,7 @@
 				DE16E91C1A42720D00077E18 /* NSString+DPLTrim.h */,
 				DE16E91B1A42720D00077E18 /* NSString+DPLTrim.m */,
 				DE058E071A3B46F500147C04 /* NSString+DPLQuery.h */,
+				E989F5AC1CB709B8005D51D6 /* NSString+DPLQuery_Private.h */,
 				DE058E081A3B46F500147C04 /* NSString+DPLQuery.m */,
 				DE3E61081A3B4485008D6DFC /* NSString+DPLJSON.h */,
 				DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */,

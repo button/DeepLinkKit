@@ -1,6 +1,7 @@
 #import "DPLActionDataSource.h"
 #import "DPLMutableDeepLink.h"
 #import "DPLDemoAction.h"
+#import "NSString+DPLQuery.h"
 
 @interface DPLActionDataSource ()
 
@@ -77,8 +78,7 @@
 
 
 - (DPLDemoAction *)logShoppingList {
-    DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://shoppinglist"];
-    link.path = @"/list[]=Bread&list[]=Candies&list[]=Wine&list[]=Beer";
+    DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://shoppinglist?list%5B%5D%3DBread&list%5B%5D%3DCandies&list%5B%5D%3DWine&list%5B%5D%3DBeer"];
 
     DPLDemoAction *action = [[DPLDemoAction alloc] init];
     action.actionURL = link.URL;

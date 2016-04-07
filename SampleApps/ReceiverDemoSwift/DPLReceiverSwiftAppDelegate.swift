@@ -11,7 +11,7 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
         // Register a class to a route using object subscripting
         self.router["/product/:sku"] = DPLProductRouteHandler.self
 
-        self.router["shoppinglist/:list"] = DPLArrayRouteHandler.self
+        self.router["shoppinglist"] = DPLArrayRouteHandler.self
         
         // Register a class to a route using the explicit registration call
         self.router.registerHandlerClass(DPLMessageRouteHandler.self, forRoute: "/say/:title/:message")

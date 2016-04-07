@@ -44,7 +44,7 @@ static NSString * const DPL_ArrayLiteral = @"[]";
             NSString *value = [pairs[1] DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             if ([key DPL_containsArrayLiteral]) {
                 // e.g. ?items[]=item1&items[]=item2
-                key = [key DPL_removeArrayLiteral];
+                key = [key DPL_stringByRemovingArrayLiteral];
                 if (!paramsDict[key]) {
                     paramsDict[key] = @[value];
                 }
@@ -61,7 +61,7 @@ static NSString * const DPL_ArrayLiteral = @"[]";
             NSObject *value;
             if ([key DPL_containsArrayLiteral]) {
                 // e.g. ?items[]
-                key = [key DPL_removeArrayLiteral];
+                key = [key DPL_stringByRemovingArrayLiteral];
                 value = @[];
             }
             else {
@@ -95,12 +95,7 @@ static NSString * const DPL_ArrayLiteral = @"[]";
 }
 
 
-- (BOOL)DPL_containsArrayLiteralWithKey:(NSString *)key {
-    return [self containsString:[NSString stringWithFormat:@"%@%@", key, DPL_ArrayLiteral]];
-}
-
-
-- (NSString *)DPL_removeArrayLiteral {
+- (NSString *)DPL_stringByRemovingArrayLiteral {
     if ([self DPL_containsArrayLiteral]) {
         return [self substringWithRange:NSMakeRange(0, self.length - DPL_ArrayLiteral.length)];
     }

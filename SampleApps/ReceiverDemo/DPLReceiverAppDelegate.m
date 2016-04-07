@@ -35,7 +35,7 @@
         [navController pushViewController:controller animated:NO];
     };
 
-    self.router[@"shoppinglist/:list"] = ^(DPLDeepLink *link) {
+    self.router[@"shoppinglist"] = ^(DPLDeepLink *link) {
         UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Shopping List", nil)
                                                                              message:NSLocalizedString(@"Please buy the following:", nil)
                                                                       preferredStyle:UIAlertControllerStyleActionSheet];

@@ -34,12 +34,19 @@ describe(@"Matching named components", ^{
                                                         @"that": @"thatvalue" });
     });
 
-    it(@"should match an array", ^{
+    it(@"should match path components", ^{
         DPLRegularExpression *expression = [DPLRegularExpression regularExpressionWithPattern:@"/hello/:list"];
 
         DPLMatchResult *matchResult = [expression matchResultForString:@"/hello/list[]=item1&list[]=item2"];
         expect(matchResult.match).to.beTruthy();
-        expect(matchResult.namedProperties).to.equal(@{ @"list": @[ @"item1", @"item2" ] });
+        expect(matchResult.namedProperties).to.equal(@{ @"list": @"list[]=item1&list[]=item2" });
+    });
+
+    it(@"should not match when there's query instead of path", ^{
+        DPLRegularExpression *expression = [DPLRegularExpression regularExpressionWithPattern:@"/hello/:list"];
+
+        DPLMatchResult *matchResult = [expression matchResultForString:@"/hello?list[]=item1&list[]=item2"];
+        expect(matchResult.match).to.beFalsy();
     });
 
     it(@"should match an parameters with array literal in the middle of a key", ^{
@@ -55,7 +62,7 @@ describe(@"Matching named components", ^{
 
         DPLMatchResult *matchResult = [expression matchResultForString:@"/hello/list[]"];
         expect(matchResult.match).to.beTruthy();
-        expect(matchResult.namedProperties).to.equal(@{ @"list": @[ ] });
+        expect(matchResult.namedProperties).to.equal(@{ @"list": @"list[]" });
     });
 
     it(@"should NOT match named components with regex that does not match", ^{

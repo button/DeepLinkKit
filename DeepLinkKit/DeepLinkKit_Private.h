@@ -8,3 +8,4 @@
 #import "NSString+DPLJSON.h"
 #import "NSObject+DPLJSONObject.h"
 #import "UINavigationController+DPLRouting.h"
+#import "NSString+DPLQuery_Private.h"

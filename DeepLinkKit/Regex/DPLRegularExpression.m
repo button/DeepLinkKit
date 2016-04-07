@@ -1,5 +1,4 @@
 #import "DPLRegularExpression.h"
-#import "NSString+DPLQuery.h"
 
 static NSString * const DPLNamedGroupComponentPattern = @":[a-zA-Z0-9-_][^/]+";
 static NSString * const DPLRouteParameterPattern      = @":[a-zA-Z0-9-_]+";
@@ -41,14 +40,9 @@ static NSString * const DPLURLParameterPattern        = @"([^/]+)";
     for (NSTextCheckingResult *result in matches) {
         // Begin at 1 as first range is the whole match
         for (NSInteger i = 1; i < result.numberOfRanges && i <= self.groupNames.count; i++) {
-            NSString *parameterName  = self.groupNames[i - 1];
-            NSString *parameterValue = [str substringWithRange:[result rangeAtIndex:i]];
-            if ([parameterValue DPL_containsArrayLiteralWithKey:parameterName]) {
-                routeParameters[parameterName] = [parameterValue DPL_parametersFromQueryString][parameterName];
-            }
-            else {
-                routeParameters[parameterName] = parameterValue;
-            }
+            NSString *parameterName         = self.groupNames[i - 1];
+            NSString *parameterValue        = [str substringWithRange:[result rangeAtIndex:i]];
+            routeParameters[parameterName]  = parameterValue;
         }
     }
     

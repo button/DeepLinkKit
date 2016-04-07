@@ -1,4 +1,5 @@
 #import "NSString+DPLQuery.h"
+#import "NSString+DPLQuery_Private.h"
 
 SpecBegin(NSString_DPLQuery)
 
@@ -167,27 +168,17 @@ describe(@"Array literals", ^{
 
     it (@"should delete array literal at the end of a string", ^{
         NSString *key = @"beers[]";
-        expect([key DPL_removeArrayLiteral]).to.equal(@"beers");
+        expect([key DPL_stringByRemovingArrayLiteral]).to.equal(@"beers");
     });
 
     it (@"should return the same string if there's no array literal", ^{
         NSString *key = @"beers";
-        expect([key DPL_removeArrayLiteral]).to.equal(@"beers");
+        expect([key DPL_stringByRemovingArrayLiteral]).to.equal(@"beers");
     });
 
     it (@"should not delete array literal in the middle of a string", ^{
         NSString *key = @"be[]ers";
-        expect([key DPL_removeArrayLiteral]).to.equal(@"be[]ers");
-    });
-
-    it (@"should return YES if string contains key with array literal", ^{
-        NSString *key = @"beers";
-        expect([@"beers[]=ale" DPL_containsArrayLiteralWithKey:key]).to.beTruthy;
-    });
-
-    it (@"should return NO if string doesn't contain key with array literal", ^{
-        NSString *key = @"beers";
-        expect([@"groceries[]=bread" DPL_containsArrayLiteralWithKey:key]).to.beTruthy;
+        expect([key DPL_stringByRemovingArrayLiteral]).to.equal(@"be[]ers");
     });
 
 });
