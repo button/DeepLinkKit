@@ -1,7 +1,6 @@
 #import "DPLActionDataSource.h"
 #import "DPLMutableDeepLink.h"
 #import "DPLDemoAction.h"
-#import "NSString+DPLQuery.h"
 
 @interface DPLActionDataSource ()
 
