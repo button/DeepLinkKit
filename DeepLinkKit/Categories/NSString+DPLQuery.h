@@ -42,4 +42,32 @@
  */
 - (NSString *)DPL_stringByReplacingPercentEscapesUsingEncoding:(NSStringEncoding)encoding;
 
+
+
+///---------------------
+/// @name Array Literals
+///---------------------
+
+
+/**
+ Checks if string ends with array literal ('[]')
+ @return YES if string ends with '[]', NO otherwise
+ */
+- (BOOL)DPL_containsArrayLiteral;
+
+
+/**
+ Checks if string contains key with array literal
+ @return YES if string contains key with '[]' attached (e.g. "key[]"),
+          NO otherwise (e.g. "key")
+ */
+- (BOOL)DPL_containsArrayLiteralWithKey:(NSString *)key;
+
+
+/**
+ Removes array literal ('[]') from the string
+ @return String without array literal ('[]')
+ */
+- (NSString *)DPL_removeArrayLiteral;
+
 @end

@@ -35,6 +35,21 @@
         [navController pushViewController:controller animated:NO];
     };
 
+    self.router[@"shoppinglist/:list"] = ^(DPLDeepLink *link) {
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Shopping List", nil)
+                                                                             message:NSLocalizedString(@"Please buy the following:", nil)
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+        for (NSString *title in link[@"list"]) {
+            [actionSheet addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:NULL]];
+        }
+        [actionSheet addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:NULL]];
+        UIViewController *rootViewController = weakSelf.window.rootViewController;
+        if ([rootViewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
+            [rootViewController dismissViewControllerAnimated:NO completion:NULL];
+        }
+        [rootViewController presentViewController:actionSheet animated:YES completion:NULL];
+    };
+
     return YES;
 }
 

@@ -16,7 +16,21 @@ describe(@"Initialization", ^{
         expect(link.URL).to.equal(url);
         expect(link.queryParameters).to.equal(@{ @"partner": @"uber" });
     });
-    
+
+    it(@"returns a deep link when passed a URL with array", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.io/shoppinglist?list[]=item1&list[]=item2"];
+        DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
+        expect(link.URL).to.equal(url);
+        expect(link.queryParameters).to.equal(@{ @"list": @[ @"item1", @"item2" ] });
+    });
+
+    it(@"returns a deep link when passed a URL with empty array", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.io/shoppinglist?list[]"];
+        DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
+        expect(link.URL).to.equal(url);
+        expect(link.queryParameters).to.equal(@{ @"list": @[ ] });
+    });
+
     it(@"returns nil when passed nil", ^{
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:nil];
         expect(link).to.beNil();

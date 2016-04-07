@@ -63,6 +63,7 @@
 		DEE40E5F1A42B0530097EA33 /* DPLActionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE40E5D1A42ABE80097EA33 /* DPLActionDataSource.m */; };
 		DEE40E601A42B0580097EA33 /* DPLDemoAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE40E581A42A3F50097EA33 /* DPLDemoAction.m */; };
 		DEEBD4A91AAB7946000BCA84 /* DPLSerializableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEBD4A81AAB7946000BCA84 /* DPLSerializableObject.m */; };
+		E9A189201CB6E6600029E56B /* DPLArrayRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A1891F1CB6E6600029E56B /* DPLArrayRouteHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 		DEEBD4A71AAB7946000BCA84 /* DPLSerializableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPLSerializableObject.h; path = Fixtures/DPLSerializableObject.h; sourceTree = "<group>"; };
 		DEEBD4A81AAB7946000BCA84 /* DPLSerializableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPLSerializableObject.m; path = Fixtures/DPLSerializableObject.m; sourceTree = "<group>"; };
 		DF9272621ECB6C2824AD5C94 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ./LICENSE; sourceTree = "<group>"; };
+		E9A1891F1CB6E6600029E56B /* DPLArrayRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLArrayRouteHandler.swift; sourceTree = "<group>"; };
 		E9CA1DB95577CF3689F4B77F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ./README.md; sourceTree = "<group>"; };
 		EC3E153594BC11ACCA16FACF /* Pods_ReceiverDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReceiverDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB774EA6D84A50233F032ADC /* Pods-ReceiverDemoSwift.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemoSwift.test.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift.test.xcconfig"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			children = (
 				62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */,
 				62891E8A1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift */,
+				E9A1891F1CB6E6600029E56B /* DPLArrayRouteHandler.swift */,
 			);
 			path = RouteHandlers;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */,
+				E9A189201CB6E6600029E56B /* DPLArrayRouteHandler.swift in Sources */,
 				62EE96F51B570AF4003D7564 /* DPLProductDetailViewController.m in Sources */,
 				62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */,
 				62891E8B1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift in Sources */,
