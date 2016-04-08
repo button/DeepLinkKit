@@ -77,7 +77,8 @@
 
 
 - (DPLDemoAction *)logShoppingList {
-    DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://shoppinglist?list%5B%5D%3DBread&list%5B%5D%3DCandies&list%5B%5D%3DWine&list%5B%5D%3DBeer"];
+    NSURL *url = [NSURL URLWithString:@"dpl://shoppinglist?list[]=Bread&list[]=Candies&list[]=Wine&list[]=Beer"];
+    DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:url.absoluteString];
 
     DPLDemoAction *action = [[DPLDemoAction alloc] init];
     action.actionURL = link.URL;
