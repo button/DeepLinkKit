@@ -73,16 +73,13 @@ describe(@"Dictionary to Query String", ^{
     it(@"should serialize multiple arrays from dictionary into the query string", ^{
         NSDictionary *params = @{ @"beers": @[ @"stout", @"ale" ], @"liquors": @[ @"vodka", @"whiskey" ] };
         NSString *query = [NSString DPL_queryStringWithParameters:params];
+        expect(query).to.equal(@"beers[]=stout&beers[]=ale&liquors[]=vodka&liquors[]=whiskey");
+    });
 
-        NSString *queryStringToMatch;
-        NSString *queryStringPartBeers = @"beers[]=stout&beers[]=ale";
-        NSString *queryStringPartLiquors = @"liquors[]=vodka&liquors[]=whiskey";
-        if ([[params allKeys][0] isEqualToString:@"beers"]) {
-            queryStringToMatch = [NSString stringWithFormat:@"%@&%@", queryStringPartBeers, queryStringPartLiquors];
-        } else {
-            queryStringToMatch = [NSString stringWithFormat:@"%@&%@", queryStringPartLiquors, queryStringPartBeers];
-        }
-        expect(query).to.equal(queryStringToMatch);
+    it(@"should serialize multiple arrays from dictionary into the query string and preserve order", ^{
+        NSDictionary *params = @{ @"liquors": @[ @"vodka", @"whiskey" ], @"beers": @[ @"stout", @"ale" ] };
+        NSString *query = [NSString DPL_queryStringWithParameters:params];
+        expect(query).to.equal(@"beers[]=stout&beers[]=ale&liquors[]=vodka&liquors[]=whiskey");
     });
 
     it(@"should percent encode parameters from dictionary into the query array", ^{

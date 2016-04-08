@@ -6,7 +6,8 @@ static NSString * const DPL_ArrayLiteral = @"[]";
 
 + (NSString *)DPL_queryStringWithParameters:(NSDictionary *)parameters {
     NSMutableString *query = [NSMutableString string];
-    [[parameters allKeys] enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
+    NSArray *sortedParameters = [[parameters allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    [sortedParameters enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
         NSString *value = @"";
         if ([parameters[key] isKindOfClass:[NSArray class]]) {
             NSString *keyValuePair = nil;
