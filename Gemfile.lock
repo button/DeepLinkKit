@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.4)
+    activesupport (4.2.6)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -42,13 +42,18 @@ GEM
     fuzzy_match (2.0.4)
     i18n (0.7.0)
     json (1.8.3)
-    minitest (5.8.1)
-    molinillo (0.4.0)
-    nap (1.0.0)
+    mini_portile2 (2.0.0)
+    minitest (5.8.4)
+    molinillo (0.4.4)
+    nap (1.1.0)
     netrc (0.7.8)
-    slather (1.3.0)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
+    rouge (1.10.1)
+    slather (2.1.0)
       clamp (~> 0.6)
-      xcodeproj (~> 0.17)
+      nokogiri (~> 1.6.3)
+      xcodeproj (>= 0.28.2, < 1.1.0)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -56,7 +61,8 @@ GEM
       activesupport (>= 3)
       claide (~> 0.9.1)
       colored (~> 1.2)
-    xcpretty (0.1.12)
+    xcpretty (0.2.2)
+      rouge (~> 1.8)
 
 PLATFORMS
   ruby
@@ -67,4 +73,4 @@ DEPENDENCIES
   xcpretty
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
