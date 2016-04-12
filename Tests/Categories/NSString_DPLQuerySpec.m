@@ -61,31 +61,36 @@ describe(@"Dictionary to Query String", ^{
     it(@"should serialize array from dictionary into the query string", ^{
         NSDictionary *params = @{ @"beers": @[ @"stout", @"ale" ] };
         NSString *query = [NSString DPL_queryStringWithParameters:params];
+        query = [query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         expect(query).to.equal(@"beers[]=stout&beers[]=ale");
     });
 
     it(@"should serialize empty array from dictionary into the query string", ^{
         NSDictionary *params = @{ @"beers": @[ ] };
         NSString *query = [NSString DPL_queryStringWithParameters:params];
+        query = [query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         expect(query).to.equal(@"beers[]");
     });
 
     it(@"should serialize multiple arrays from dictionary into the query string", ^{
         NSDictionary *params = @{ @"beers": @[ @"stout", @"ale" ], @"liquors": @[ @"vodka", @"whiskey" ] };
         NSString *query = [NSString DPL_queryStringWithParameters:params];
+        query = [query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         expect(query).to.equal(@"beers[]=stout&beers[]=ale&liquors[]=vodka&liquors[]=whiskey");
     });
 
     it(@"should serialize multiple arrays from dictionary into the query string and preserve order", ^{
         NSDictionary *params = @{ @"liquors": @[ @"vodka", @"whiskey" ], @"beers": @[ @"stout", @"ale" ] };
         NSString *query = [NSString DPL_queryStringWithParameters:params];
+        query = [query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         expect(query).to.equal(@"beers[]=stout&beers[]=ale&liquors[]=vodka&liquors[]=whiskey");
     });
 
     it(@"should percent encode parameters from dictionary into the query array", ^{
         NSDictionary *params = @{ @"one": @"a one", @"two": @[ @"http://www.example.com?foo=bar", @"a two" ] };
         NSString *query = [NSString DPL_queryStringWithParameters:params];
-        expect(query).to.equal(@"one=a%20one&two[]=http%3A%2F%2Fwww.example.com%3Ffoo%3Dbar&two[]=a%20two");
+        query = [query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        expect(query).to.equal(@"one=a one&two[]=http://www.example.com?foo=bar&two[]=a two");
     });
 
 });
@@ -95,14 +100,14 @@ describe(@"Query String to Dictionary", ^{
    
     it(@"should parse a valid query string into a dictionary", ^{
         NSString *query = @"one=1&two=2";
-        NSDictionary *params = [query DPL_parametersFromQueryString];
+        NSDictionary *params = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_ParametersValuesDictionaryKey];
         expect(params[@"one"]).to.equal(@"1");
         expect(params[@"two"]).to.equal(@"2");
     });
     
     it(@"does NOT discard incomplete pairs in a query string", ^{
         NSString *query = @"one=1&two&three=3";
-        NSDictionary *params = [query DPL_parametersFromQueryString];
+        NSDictionary *params = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_ParametersValuesDictionaryKey];
         expect(params[@"one"]).to.equal(@"1");
         expect(params[@"two"]).to.equal(@"");
         expect(params[@"three"]).to.equal(@"3");
@@ -110,14 +115,14 @@ describe(@"Query String to Dictionary", ^{
     
     it(@"should decode query parameters into a dictionary", ^{
         NSString *query = @"one=a%20one&two=http%3A%2F%2Fwww.example.com%3Ffoo%3Dbar";
-        NSDictionary *params = [query DPL_parametersFromQueryString];
+        NSDictionary *params = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_ParametersValuesDictionaryKey];
         expect(params[@"one"]).to.equal(@"a one");
         expect(params[@"two"]).to.equal(@"http://www.example.com?foo=bar");
     });
 
     it(@"should decode array query parameters into an array preserving order", ^{
         NSString *query = @"beers[]=stout&beers[]=ale";
-        NSDictionary *params = [query DPL_parametersFromQueryString];
+        NSDictionary *params = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_ParametersValuesDictionaryKey];
         expect(params[@"beers"]).notTo.beNil;
         expect([params[@"beers"] isKindOfClass:[NSArray class]]).to.beTruthy;
         expect([params[@"beers"] count]).to.equal(2);
@@ -127,7 +132,7 @@ describe(@"Query String to Dictionary", ^{
 
     it(@"should decode mixed arrays query parameters into appropriate arrays preserving order", ^{
         NSString *query = @"beers[]=stout&liquors[]=vodka&beers[]=ale&liquors[]=whiskey";
-        NSDictionary *params = [query DPL_parametersFromQueryString];
+        NSDictionary *params = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_ParametersValuesDictionaryKey];
         expect(params[@"beers"]).notTo.beNil;
         expect(params[@"liquors"]).notTo.beNil;
         expect([params[@"beers"] isKindOfClass:[NSArray class]]).to.beTruthy;
@@ -142,10 +147,56 @@ describe(@"Query String to Dictionary", ^{
 
     it (@"should decode empty array in case values were not provided", ^{
         NSString *query = @"beers[]";
-        NSDictionary *params = [query DPL_parametersFromQueryString];
+        NSDictionary *params = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_ParametersValuesDictionaryKey];
         expect(params[@"beers"]).notTo.beNil;
         expect([params[@"beers"] isKindOfClass:[NSArray class]]).to.beTruthy;
         expect([params[@"beers"] count]).to.equal(0);
+    });
+
+});
+
+describe(@"Query Parameters Order Preservation", ^{
+
+    it(@"should preserve an order of  a valid query string", ^{
+        NSString *query = @"one=1&two=2";
+        NSOrderedSet *paramsOrder = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_OrderedParameterNamesSetKey];
+        expect(paramsOrder).to.haveCountOf(2);
+        expect(paramsOrder[0]).to.equal(@"one");
+        expect(paramsOrder[1]).to.equal(@"two");
+    });
+
+    it(@"should preserve an order of incomplete pairs in a query string", ^{
+        NSString *query = @"one=1&two&three=3";
+        NSOrderedSet *paramsOrder = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_OrderedParameterNamesSetKey];
+        expect(paramsOrder).to.haveCountOf(3);
+        expect(paramsOrder[0]).to.equal(@"one");
+        expect(paramsOrder[1]).to.equal(@"two");
+        expect(paramsOrder[2]).to.equal(@"three");
+    });
+
+    it(@"should preserve an order of decoded parameters", ^{
+        NSString *query = @"one=a%20one&two=http%3A%2F%2Fwww.example.com%3Ffoo%3Dbar";
+        NSOrderedSet *paramsOrder = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_OrderedParameterNamesSetKey];
+        expect(paramsOrder).to.haveCountOf(2);
+        expect(paramsOrder[0]).to.equal(@"one");
+        expect(paramsOrder[1]).to.equal(@"two");
+    });
+
+    it(@"should preserve an order of arrays in a query", ^{
+        NSString *query = @"beers[]=ale&beers[]=stout&liquors[]=vodka&liquors[]=whiskey";
+        NSOrderedSet *paramsOrder = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_OrderedParameterNamesSetKey];
+        expect(paramsOrder).to.haveCountOf(2);
+        expect(paramsOrder[0]).to.equal(@"beers");
+        expect(paramsOrder[1]).to.equal(@"liquors");
+    });
+
+    it(@"should preserve an order of empty arrays in a query", ^{
+        NSString *query = @"beers[]&liquors[]&breads[]";
+        NSOrderedSet *paramsOrder = [query DPL_parametersDictionaryAndOrderFromQueryString][DPL_OrderedParameterNamesSetKey];
+        expect(paramsOrder).to.haveCountOf(3);
+        expect(paramsOrder[0]).to.equal(@"beers");
+        expect(paramsOrder[1]).to.equal(@"liquors");
+        expect(paramsOrder[2]).to.equal(@"breads");
     });
 
 });

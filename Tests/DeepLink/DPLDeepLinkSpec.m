@@ -15,6 +15,8 @@ describe(@"Initialization", ^{
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
         expect(link.URL).to.equal(url);
         expect(link.queryParameters).to.equal(@{ @"partner": @"uber" });
+        expect(link.orderedParameterNames).to.haveCountOf(1);
+        expect(link.orderedParameterNames).to.contain(@"partner");
     });
 
     it(@"returns a deep link when passed a URL with array", ^{
@@ -22,6 +24,8 @@ describe(@"Initialization", ^{
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
         expect(link.URL).to.equal(url);
         expect(link.queryParameters).to.equal(@{ @"list": @[ @"item1", @"item2" ] });
+        expect(link.orderedParameterNames).to.haveCountOf(1);
+        expect(link.orderedParameterNames).to.contain(@"list");
     });
 
     it(@"returns a deep link when passed a URL with empty array", ^{
@@ -29,6 +33,8 @@ describe(@"Initialization", ^{
         DPLDeepLink *link = [[DPLDeepLink alloc] initWithURL:url];
         expect(link.URL).to.equal(url);
         expect(link.queryParameters).to.equal(@{ @"list": @[ ] });
+        expect(link.orderedParameterNames).to.haveCountOf(1);
+        expect(link.orderedParameterNames).to.contain(@"list");
     });
 
     it(@"returns nil when passed nil", ^{
@@ -96,6 +102,7 @@ describe(@"Copying", ^{
         expect(mutableLink.host).to.equal(@"dpl.io");
         expect(mutableLink.path).to.equal(@"/ride/abc123");
         expect(mutableLink.queryParameters).to.equal(link.queryParameters);
+        expect(mutableLink.orderedParameterNames).to.equal(link.orderedParameterNames);
         expect(mutableLink.routeParameters).to.equal(link.routeParameters);
         expect(mutableLink.URL).to.equal(link.URL);
     });

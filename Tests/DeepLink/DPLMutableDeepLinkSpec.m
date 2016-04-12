@@ -1,5 +1,6 @@
 #import "DPLMutableDeepLink.h"
 #import "DPLDeepLink_Private.h"
+#import "NSString+DPLQuery.h"
 
 SpecBegin(DPLMutableDeepLink)
 
@@ -54,6 +55,53 @@ describe(@"Serialization", ^{
 });
 
 
+describe(@"Re-serialization", ^{
+
+    it (@"should preserve the parameter order after reserialization, two arrays, case 1", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.com?liquors[]=vodka&liquors[]=whiskey&beers[]=stout&beers[]=ale"];
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:url.absoluteString];
+        NSString *query = [link.URL.query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        expect(query).to.equal(@"liquors[]=vodka&liquors[]=whiskey&beers[]=stout&beers[]=ale");
+    });
+
+    it (@"should preserve the parameter order after reserialization, two arrays, case 2", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.com?beers[]=stout&beers[]=ale&liquors[]=vodka&liquors[]=whiskey"];
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:url.absoluteString];
+        NSString *query = [link.URL.query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        expect(query).to.equal(@"beers[]=stout&beers[]=ale&liquors[]=vodka&liquors[]=whiskey");
+    });
+
+    it (@"should preserve the parameter order after reserialization, one array and one empty parameter, case 1", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.com?beers[]=stout&beers[]=ale&noliquor"];
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:url.absoluteString];
+        NSString *query = [link.URL.query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        expect(query).to.equal(@"beers[]=stout&beers[]=ale&noliquor");
+    });
+
+    it (@"should preserve the parameter order after reserialization, one array and one empty parameter, case 2", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.com?noliquor&beers[]=stout&beers[]=ale"];
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:url.absoluteString];
+        NSString *query = [link.URL.query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        expect(query).to.equal(@"noliquor&beers[]=stout&beers[]=ale");
+    });
+
+    it (@"should preserve the parameter order after reserialization, two not empty string parameters, case 1", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.com?foo=bar&here=there"];
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:url.absoluteString];
+        NSString *query = [link.URL.query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        expect(query).to.equal(@"foo=bar&here=there");
+    });
+
+    it (@"should preserve the parameter order after reserialization, two not empty string parameters, case 2", ^{
+        NSURL *url = [NSURL URLWithString:@"dpl://dpl.com?here=there&foo=bar"];
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:url.absoluteString];
+        NSString *query = [link.URL.query DPL_stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        expect(query).to.equal(@"here=there&foo=bar");
+    });
+
+});
+
+
 describe(@"Mutating Deep Links", ^{
     
     it(@"allows changing the query params", ^{
@@ -62,11 +110,19 @@ describe(@"Mutating Deep Links", ^{
         link.queryParameters[@"id"] = @"abc123";
         expect(link.URL.absoluteString).to.equal(@"dpl://dpl.com/here?foo=baz&id=abc123");
     });
+
+    it(@"allows changing the query param from array to string", ^{
+        NSString *urlString = [[NSURL URLWithString:@"dpl://dpl.com/here?foo[]=bar&foo[]=baz"] absoluteString];
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:urlString];
+        link.queryParameters[@"foo"] = @"qux";
+        expect(link.URL.absoluteString).to.equal(@"dpl://dpl.com/here?foo=qux");
+    });
     
     it(@"allows setting query params when there are none to start", ^{
         DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
         link.queryParameters[@"id"] = @"abc123";
         expect(link.URL.absoluteString).to.equal(@"dpl://dpl.com?id=abc123");
+        expect(link.orderedParameterNames).to.haveCountOf(0);
     });
     
     it(@"allows changing the scheme", ^{
@@ -92,6 +148,7 @@ describe(@"Mutating Deep Links", ^{
         expect(link.queryParameters[@"293147"]).to.equal(@"");
         expect(link.URL.absoluteString).to.equal(@"seamlessapp://menu?293147");
     });
+
 });
 
 
@@ -101,12 +158,25 @@ describe(@"Object Subscripting", ^{
         DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
         link[@"foo"] = @"bar";
         expect(link.queryParameters[@"foo"]).to.equal(@"bar");
+        expect(link.orderedParameterNames).to.haveCountOf(1);
+        expect(link.orderedParameterNames).to.contain(@"foo");
     });
     
     it(@"allows getting query params via object subscripting", ^{
         DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com?foo=bar"];
         expect(link[@"foo"]).to.equal(@"bar");
+        expect(link.orderedParameterNames).to.haveCountOf(1);
+        expect(link.orderedParameterNames).to.contain(@"foo");
     });
+
+    it(@"allows setting array query params via object subscripting", ^{
+        DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
+        link[@"foo"] = @[ @"bar", @"baz" ];
+        expect(link.queryParameters[@"foo"]).to.equal(@[ @"bar", @"baz" ]);
+        expect(link.orderedParameterNames).to.haveCountOf(1);
+        expect(link.orderedParameterNames).to.contain(@"foo");
+    });
+
 });
 
 
@@ -120,6 +190,7 @@ describe(@"Copying", ^{
         expect(link).toNot.beNil();
         expect(link.URL).to.equal(mutableLink.URL);
         expect(link.queryParameters).to.equal(mutableLink.queryParameters);
+        expect(link.orderedParameterNames).to.equal(mutableLink.orderedParameterNames);
         expect(link.callbackURL.absoluteString).to.equal(@"dpl://back");
     });
     
@@ -141,6 +212,7 @@ describe(@"Copying", ^{
         expect(link2.host).to.equal(link1.host);
         expect(link2.path).to.equal(link1.path);
         expect(link2.queryParameters).to.equal(link1.queryParameters);
+        expect(link2.orderedParameterNames).to.equal(link2.orderedParameterNames);
         expect(link2.URL).to.equal(link1.URL);
     });
     
@@ -151,6 +223,7 @@ describe(@"Copying", ^{
         DPLDeepLink *link = [mutableLink mutableCopy];
         expect(link.routeParameters).to.equal(mutableLink.routeParameters);
     });
+
 });
 
 
@@ -172,6 +245,23 @@ describe(@"Equality", ^{
         
         expect(link1).toNot.equal(link2);
     });
+
+    it(@"two identical deep links with array query params are equal", ^{
+        NSString *urlString = [[NSURL URLWithString:@"dpl://dpl.io/foo[]=bar&foo[]=baz"] absoluteString];
+        DPLMutableDeepLink *link1 = [[DPLMutableDeepLink alloc] initWithString:urlString];
+        DPLMutableDeepLink *link2 = [[DPLMutableDeepLink alloc] initWithString:urlString];
+
+        expect(link1).to.equal(link2);
+    });
+
+    it(@"two deep links with array query params (different order) are inequal", ^{
+        NSString *urlStringArray1 = [[NSURL URLWithString:@"dpl://dpl.io/foo[]=bar&foo[]=baz"] absoluteString];
+        NSString *urlStringArray2 = [[NSURL URLWithString:@"dpl://dpl.io/foo[]=baz&foo[]=bar"] absoluteString];
+        DPLMutableDeepLink *link1 = [[DPLMutableDeepLink alloc] initWithString:urlStringArray1];
+        DPLMutableDeepLink *link2 = [[DPLMutableDeepLink alloc] initWithString:urlStringArray2];
+
+        expect(link1).notTo.equal(link2);
+    });
     
     it(@"nil is not equal to a deep link", ^{
         DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:urlString1];
@@ -192,6 +282,7 @@ describe(@"Equality", ^{
         
         expect(link1).to.equal(link2);
     });
+
 });
 
 SpecEnd

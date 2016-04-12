@@ -25,6 +25,13 @@
 
 
 /**
+ The order of query parameter names parsed from the incoming URL.
+ @note If the URL conforms to the App Link standard, this will be the order of query parameters found on `target_url'.
+ */
+@property (nonatomic, copy, readonly) NSOrderedSet *orderedParameterNames;
+
+
+/**
  A dictionary of values keyed by their parameterized route component matched in the deep link URL path.
  @note Given a route `alert/:title/:message' and a path `button://alert/hello/world',
  the route parameters dictionary would be `@{ @"title": @"hello", @"message": @"world" }'.

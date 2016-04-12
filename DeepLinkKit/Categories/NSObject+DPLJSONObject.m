@@ -84,3 +84,24 @@
 }
 
 @end
+
+
+@implementation NSOrderedSet (DPLJSONObject)
+
+- (id)DPL_JSONObject {
+    if ([NSJSONSerialization isValidJSONObject:self]) {
+        return self;
+    }
+
+    NSMutableOrderedSet *mutableSet = [NSMutableOrderedSet orderedSet];
+
+    for (id value in self) {
+        if (![value isEqual:[NSNull null]]) {
+            [mutableSet addObject:[value DPL_JSONObject]];
+        }
+    }
+
+    return [NSOrderedSet orderedSetWithOrderedSet:mutableSet];
+}
+
+@end

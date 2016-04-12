@@ -16,6 +16,7 @@
 
 @dynamic scheme, host, path;
 @synthesize queryParameters=_queryParameters;
+@synthesize orderedParameterNames=_orderedParameterNames;
 
 - (instancetype)initWithString:(NSString *)URLString {
     
@@ -26,9 +27,11 @@
     
     self = [super init];
     if (self) {
-        _URLComponents       = components;
-        _queryParameters     = [[self.URLComponents.query DPL_parametersFromQueryString] mutableCopy];
-        _URLComponents.query = nil;
+        _URLComponents                   = components;
+        NSDictionary *parametersAndOrder = [self.URLComponents.query DPL_parametersDictionaryAndOrderFromQueryString];
+        _queryParameters                 = [parametersAndOrder[DPL_ParametersValuesDictionaryKey] mutableCopy];
+        _orderedParameterNames           = [parametersAndOrder[DPL_OrderedParameterNamesSetKey] mutableCopy];
+        _URLComponents.query             = nil;
     }
     return self;
 }
@@ -42,6 +45,14 @@
 }
 
 
+- (NSMutableOrderedSet *)orderedParameterNames {
+    if (!_orderedParameterNames) {
+        _orderedParameterNames = [NSMutableOrderedSet orderedSet];
+    }
+    return _orderedParameterNames;
+}
+
+
 - (NSURL *)URL {
 
     NSDictionary *cleanParameters          = [self.queryParameters DPL_JSONObject];
@@ -49,9 +60,17 @@
     NSMutableArray *JSONEncodedFieldNames  = [NSMutableArray array];
     
     [cleanParameters enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
-        if ([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]]) {
+        if ([value isKindOfClass:[NSDictionary class]]) {
             mutableParameters[key] = [NSString DPL_stringWithJSONObject:value];
             [JSONEncodedFieldNames addObject:key];
+        }
+        else if ([value isKindOfClass:[NSArray class]]) {
+            NSPredicate *notStringPredicate = [NSPredicate predicateWithFormat: @"NOT self isKindOfClass: %@", [NSString class]];
+            NSArray *notStrings = [value filteredArrayUsingPredicate:notStringPredicate];
+            if (notStrings.count) {
+                mutableParameters[key] = [NSString DPL_stringWithJSONObject:value];
+                [JSONEncodedFieldNames addObject:key];
+            }
         }
     }];
     
@@ -61,8 +80,9 @@
     }
     
     cleanParameters = [NSDictionary dictionaryWithDictionary:mutableParameters];
-    
-    NSString *queryString = [NSString DPL_queryStringWithParameters:cleanParameters];
+    NSOrderedSet *cleanParameterNames = [_orderedParameterNames DPL_JSONObject];
+
+    NSString *queryString = [NSString DPL_queryStringWithParameters:cleanParameters orderedParameterNames:cleanParameterNames];
     self.URLComponents.percentEncodedQuery = queryString;
     
     return self.URLComponents.URL;
@@ -74,6 +94,7 @@
 - (void)setObject:(id)obj forKeyedSubscript:(NSString *)key {
     if ([key isKindOfClass:[NSString class]] && key.length) {
         self.queryParameters[key] = obj;
+        [self.orderedParameterNames addObject:key];
     }
 }
 

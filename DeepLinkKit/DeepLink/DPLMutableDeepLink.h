@@ -28,6 +28,10 @@
 @property (nonatomic, copy, readwrite) NSMutableDictionary *queryParameters;
 
 
+/// The ordered parameter names from the query as a mutable ordered set. Default is empty.
+@property (nonatomic, copy, readwrite) NSMutableOrderedSet *orderedParameterNames;
+
+
 /// A URL object derived from the mutable deep link components.
 @property (nonatomic, copy, readonly) NSURL *URL;
 

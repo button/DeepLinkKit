@@ -20,9 +20,11 @@ NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
     
     self = [super init];
     if (self) {
-        
-        _URL             = url;
-        _queryParameters = [[_URL query] DPL_parametersFromQueryString];
+
+        _URL                             = url;
+        NSDictionary *parametersAndOrder = [[_URL query] DPL_parametersDictionaryAndOrderFromQueryString];
+        _queryParameters                 = parametersAndOrder[DPL_ParametersValuesDictionaryKey];
+        _orderedParameterNames           = parametersAndOrder[DPL_OrderedParameterNamesSetKey];
         
         NSMutableDictionary *mutableQueryParams = [_queryParameters mutableCopy];
         NSArray *JSONEncodedFields = [mutableQueryParams[DPLJSONEncodedFieldNamesKey] DPL_decodedJSONObject];
@@ -56,6 +58,7 @@ NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
             @"\n<%@ %p\n"
             @"\t URL: \"%@\"\n"
             @"\t queryParameters: \"%@\"\n"
+            @"\t orderedParameterNames: \"%@\"\n"
             @"\t routeParameters: \"%@\"\n"
             @"\t callbackURL: \"%@\"\n"
             @">",
@@ -63,6 +66,7 @@ NSString * const DPLJSONEncodedFieldNamesKey = @"dpl:json-encoded-fields";
             self,
             [self.URL description],
             self.queryParameters,
+            self.orderedParameterNames,
             self.routeParameters,
             [self.callbackURL description]];
 }
