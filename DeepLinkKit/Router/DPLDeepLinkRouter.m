@@ -105,6 +105,10 @@
 #pragma mark - Routing Deep Links
 
 - (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler {
+    return [self handleURL:url withUserInfo:nil completion:completionHandler];
+}
+
+- (BOOL)handleURL:(NSURL *)url withUserInfo:(NSDictionary *)userInfo completion:(DPLRouteCompletionBlock)completionHandler {
     if (!url) {
         return NO;
     }
@@ -113,13 +117,18 @@
         [self completeRouteWithSuccess:NO error:nil completionHandler:completionHandler];
         return NO;
     }
-
+    
     NSError      *error;
     DPLDeepLink  *deepLink;
     __block BOOL isHandled = NO;
     for (NSString *route in self.routes) {
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];
+        if (userInfo) {
+            DPLMutableDeepLink *mutableDeepLink = deepLink.mutableCopy;
+            mutableDeepLink.queryParameters = userInfo.copy;
+            deepLink = mutableDeepLink;
+        }
         if (deepLink) {
             isHandled = [self handleRoute:route withDeepLink:deepLink error:&error];
             break;
@@ -138,49 +147,15 @@
 
 
 - (BOOL)handleUserActivity:(NSUserActivity *)userActivity withCompletion:(DPLRouteCompletionBlock)completionHandler {
+    return [self handleUserActivity:userActivity withUserInfo:nil completion:completionHandler];
+}
+
+- (BOOL)handleUserActivity:(NSUserActivity *)userActivity withUserInfo:(NSDictionary *)userInfo completion:(DPLRouteCompletionBlock)completionHandler {
     if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-        return [self handleURL:userActivity.webpageURL withCompletion:completionHandler];
+        return [self handleURL:userActivity.webpageURL withUserInfo:userInfo completion:completionHandler];
     }
     
     return NO;
-}
-
-
-- (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
-    id handler = self[route];
-    
-    if ([handler isKindOfClass:NSClassFromString(@"NSBlock")]) {
-        DPLRouteHandlerBlock routeHandlerBlock = handler;
-        routeHandlerBlock(deepLink);
-    }
-    else if (class_isMetaClass(object_getClass(handler)) &&
-             [handler isSubclassOfClass:[DPLRouteHandler class]]) {
-        DPLRouteHandler *routeHandler = [[handler alloc] init];
-
-        if (![routeHandler shouldHandleDeepLink:deepLink]) {
-            return NO;
-        }
-        
-        UIViewController *presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
-        UIViewController <DPLTargetViewController> *targetViewController = [routeHandler targetViewController];
-        
-        if (targetViewController) {
-            [targetViewController configureWithDeepLink:deepLink];
-            [routeHandler presentTargetViewController:targetViewController inViewController:presentingViewController];
-        }
-        else {
-            
-            NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The matched route handler does not specify a target view controller.", nil)};
-
-            if (error) {
-                *error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteHandlerTargetNotSpecifiedError userInfo:userInfo];
-            }
-            
-            return NO;
-        }
-    }
-    
-    return YES;
 }
 
 

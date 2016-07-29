@@ -97,6 +97,30 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 - (BOOL)handleUserActivity:(NSUserActivity *)userActivity withCompletion:(DPLRouteCompletionBlock)completionHandler;
 
 
+/**
+ Attempts to handle an incoming URL.
+ @param url The incoming URL from `application:openURL:sourceApplication:annotation:'
+ @param userInfo Parameters cannot pass by url or cannot be serialized
+ @param completionHandler A block executed after the deep link has been handled.
+ @return YES if the incoming URL is handled, otherwise NO.
+ 
+ @see DPLRouteCompletionBlock
+ */
+- (BOOL)handleURL:(NSURL *)url withUserInfo:(NSDictionary *)userInfo completion:(DPLRouteCompletionBlock)completionHandler;
+
+
+/**
+ Attempts to handle an incoming user activity.
+ @param userActivity The incoming user activity from `application:continueUserActivity:restorationHandler:'
+ @param userInfo Parameters cannot pass by url or cannot be serialized
+ @param completionHandler A block executed after the user activity has been handled.
+ @return YES if the incoming user activity is handled, otherwise NO.
+ 
+ @see DPLRouteCompletionBlock
+ */
+- (BOOL)handleUserActivity:(NSUserActivity *)userActivity withUserInfo:(NSDictionary *)userInfo completion:(DPLRouteCompletionBlock)completionHandler;
+
+
 ///--------------------
 /// @name Configuration
 ///--------------------
