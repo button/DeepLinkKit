@@ -1,6 +1,7 @@
 #import "DPLDeepLinkRouter.h"
 #import "DPLRouteMatcher.h"
 #import "DPLDeepLink.h"
+#import "DPLMutableDeepLink.h"
 #import "DPLRouteHandler.h"
 #import "DPLErrors.h"
 #import <objc/runtime.h>
