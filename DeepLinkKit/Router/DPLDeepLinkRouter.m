@@ -159,6 +159,42 @@
     return NO;
 }
 
+- (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
+    id handler = self[route];
+    
+    if ([handler isKindOfClass:NSClassFromString(@"NSBlock")]) {
+        DPLRouteHandlerBlock routeHandlerBlock = handler;
+        routeHandlerBlock(deepLink);
+    }
+    else if (class_isMetaClass(object_getClass(handler)) &&
+             [handler isSubclassOfClass:[DPLRouteHandler class]]) {
+        DPLRouteHandler *routeHandler = [[handler alloc] init];
+
+        if (![routeHandler shouldHandleDeepLink:deepLink]) {
+            return NO;
+        }
+        
+        UIViewController *presentingViewController = [routeHandler viewControllerForPresentingDeepLink:deepLink];
+        UIViewController <DPLTargetViewController> *targetViewController = [routeHandler targetViewController];
+        
+        if (targetViewController) {
+            [targetViewController configureWithDeepLink:deepLink];
+            [routeHandler presentTargetViewController:targetViewController inViewController:presentingViewController];
+        }
+        else {
+            
+            NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The matched route handler does not specify a target view controller.", nil)};
+
+            if (error) {
+                *error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteHandlerTargetNotSpecifiedError userInfo:userInfo];
+            }
+            
+            return NO;
+        }
+    }
+    
+    return YES;
+}
 
 - (void)completeRouteWithSuccess:(BOOL)handled error:(NSError *)error completionHandler:(DPLRouteCompletionBlock)completionHandler {
     if (completionHandler) {
