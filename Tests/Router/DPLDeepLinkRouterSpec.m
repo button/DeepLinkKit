@@ -29,8 +29,18 @@ describe(@"Registering Routes", ^{
         expect(router[route]).to.equal([DPLRouteHandler class]);
     });
     
+    it(@"registers a class for a route with registerHandlerClass:forRoute:", ^{
+        [router registerHandlerClass:[DPLRouteHandler class] forRoute:route];
+        expect(router[route]).to.equal([DPLRouteHandler class]);
+    });
+    
     it(@"does NOT register a class not conforming to DPLRouteHandler protocol", ^{
         router[route] = [NSObject class];
+        expect(router[route]).to.beNil();
+    });
+    
+    it(@"does NOT register not a subclass of DPLRouteHandler with registerHandlerClass:forRoute:", ^{
+        [router registerHandlerClass:[NSObject class] forRoute:route];
         expect(router[route]).to.beNil();
     });
     
