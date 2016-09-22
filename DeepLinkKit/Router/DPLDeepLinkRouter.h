@@ -1,7 +1,6 @@
 @import Foundation;
 
-@class    DPLDeepLink;
-@protocol DPLRouteHandler;
+@class DPLDeepLink;
 
 
 /**
@@ -48,7 +47,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  For example, you can register a class for a route as follows:
  @code deepLinkRouter[@"table/book/:id"] = [MyBookingRouteHandler class]; @endcode
  */
-- (void)registerHandlerClass:(Class <DPLRouteHandler>)handlerClass forRoute:(NSString *)route;
+- (void)registerHandlerClass:(Class)handlerClass forRoute:(NSString *)route;
 
 
 /**

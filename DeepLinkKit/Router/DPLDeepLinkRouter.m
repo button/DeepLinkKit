@@ -42,9 +42,9 @@
 
 #pragma mark - Registering Routes
 
-- (void)registerHandlerClass:(Class <DPLRouteHandler>)handlerClass forRoute:(NSString *)route {
+- (void)registerHandlerClass:(Class)handlerClass forRoute:(NSString *)route {
 
-    if (handlerClass && [route length]) {
+    if (handlerClass && [handlerClass isSubclassOfClass:[DPLRouteHandler class]] && [route length]) {
         [self.routes addObject:route];
         [self.blocksByRoute removeObjectForKey:route];
         self.classesByRoute[route] = handlerClass;
