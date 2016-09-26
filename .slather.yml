@@ -1,3 +1,7 @@
 coverage_service: coveralls
 xcodeproj: DeepLinkKit.xcodeproj
-source_directory: DeepLinkKit
+workspace: DeepLinkKit.xcworkspace
+scheme: ReceiverDemo
+ignore:
+  - Pods/*
+  - Tests/*
