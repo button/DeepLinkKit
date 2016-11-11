@@ -125,12 +125,16 @@
     for (NSString *route in self.routes) {
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];
-        if (userInfo) {
-            DPLMutableDeepLink *mutableDeepLink = deepLink.mutableCopy;
-            mutableDeepLink.queryParameters = userInfo.copy;
-            deepLink = mutableDeepLink;
-        }
         if (deepLink) {
+            if (userInfo) {
+                DPLMutableDeepLink *mutableDeepLink = deepLink.mutableCopy;
+                NSMutableDictionary *newUserInfo = userInfo.mutableCopy;
+                for (NSString *key in deepLink.queryParameters.allKeys) {
+                    newUserInfo[key] = deepLink.queryParameters[key];
+                }
+                mutableDeepLink.queryParameters = newUserInfo.copy;
+                deepLink = mutableDeepLink;
+            }
             isHandled = [self handleRoute:route withDeepLink:deepLink error:&error];
             break;
         }
