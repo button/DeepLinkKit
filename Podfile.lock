@@ -8,15 +8,11 @@ PODS:
   - Specta (1.0.5)
 
 DEPENDENCIES:
-  - DeepLinkKit (from `.`)
+  - DeepLinkKit
   - Expecta
   - KIF
   - OCMock
   - Specta
-
-EXTERNAL SOURCES:
-  DeepLinkKit:
-    :path: .
 
 SPEC CHECKSUMS:
   DeepLinkKit: 4c3a713b7ecc6c6e25ba56c87d0c728f6035a9ef
@@ -25,4 +21,6 @@ SPEC CHECKSUMS:
   OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: cecee7c3c8bb0ef49d3e2de3643a641518c47fd1
+
+COCOAPODS: 1.1.1
