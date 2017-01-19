@@ -14,7 +14,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataSource = [[DPLProductDataSource alloc] init];
+    self.dataSource = [[DPLProductDataSource alloc] initWithSourceType:DPLProductDataSourceTypePrice];
     self.tableView.dataSource = self.dataSource;
 }
 

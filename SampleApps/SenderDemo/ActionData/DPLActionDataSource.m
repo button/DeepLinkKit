@@ -16,6 +16,7 @@
     if (self) {
         _actions = @[[self loadBeersAction],
                      [self loadOktoberfestAction],
+                     [self loadProductInventory],
                      [self logHelloWorldAction]];
     }
     return self;
@@ -64,6 +65,15 @@
     return action;
 }
 
+- (DPLDemoAction *)loadProductInventory {
+    DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com"];
+    link.path = @"/inventory";
+    
+    DPLDemoAction *action = [[DPLDemoAction alloc] init];
+    action.actionURL  = link.URL;
+    action.actionName = @"Show: Product Inventory";
+    return action;
+}
 
 - (DPLDemoAction *)logHelloWorldAction {
     DPLMutableDeepLink *link = [[DPLMutableDeepLink alloc] initWithString:@"dpl://dpl.com/say/Hello/World"];
