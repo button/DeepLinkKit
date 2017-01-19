@@ -33,6 +33,12 @@
  */
 - (BOOL)preferModalPresentation;
 
+/**
+ If you prefer to present the target view controller asynchronously using 
+ `targetViewControllerWithCompletionHandler:`, override this method and return YES. The default is NO.
+ */
+- (BOOL)preferAsynchronous;
+
 
 /**
  The view controller that will be presented as a result of the deep link.
@@ -40,6 +46,15 @@
  @note Subclasses MUST override this method.
  */
 - (UIViewController <DPLTargetViewController> *)targetViewController;
+
+/**
+ The view controller that will be presented as a result of the deep link.
+ @param completionHandler A block that will be called when the view controller is ready to be returned.
+ @note This method will ONLY be called if subclasses have overridden the method `preferAsynchronous` and
+ it returns YES.  In this case, the method `targetViewController` will not be called.
+ */
+- (void)targetViewControllerWithCompletion:(void(^)(UIViewController <DPLTargetViewController>*))completionHandler;
+
 
 
 /**

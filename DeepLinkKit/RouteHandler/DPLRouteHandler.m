@@ -12,9 +12,16 @@
     return NO;
 }
 
+- (BOOL)preferAsynchronous {
+    return NO;
+}
 
 - (UIViewController <DPLTargetViewController> *)targetViewController {
     return nil;
+}
+
+- (void)targetViewControllerWithCompletion:(void(^)(UIViewController <DPLTargetViewController>*))completionHandler {
+    completionHandler(nil);
 }
 
 

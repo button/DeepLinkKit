@@ -1,5 +1,6 @@
 #import "DPLReceiverAppDelegate.h"
 #import "DPLProductRouteHandler.h"
+#import "DPLInventoryRouteHandler.h"
 
 @import DeepLinkKit;
 
@@ -17,8 +18,11 @@
     self.router = [[DPLDeepLinkRouter alloc] init];
    
     
-    // Route registration.
+    // Route registration using the synchronous router
     self.router[@"/product/:sku"] = [DPLProductRouteHandler class];
+    
+    // Route registration using the asynchronous route
+    self.router[@"/inventory"] = [DPLInventoryRouteHandler class];
     
     self.router[@"/say/:title/:message"] = ^(DPLDeepLink *link) {
         [[[UIAlertView alloc] initWithTitle:link[@"title"]

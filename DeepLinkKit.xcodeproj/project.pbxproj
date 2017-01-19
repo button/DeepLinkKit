@@ -27,6 +27,10 @@
 		62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = DE87B1F01A5DF49F00204A35 /* DPLProduct.m */; };
 		62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327A19E079D3003C8D65 /* DPLProductTableViewController.m */; };
 		67C46D94DC68E22D70018D4A /* Pods_SenderDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26835292B4AF23266C39DDA9 /* Pods_SenderDemo.framework */; };
+		70B73A051E30FE3D00F1DC10 /* DPLInventoryRouteHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B73A041E30FE3D00F1DC10 /* DPLInventoryRouteHandler.m */; };
+		70B73A081E31077800F1DC10 /* DPLInventoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B73A071E31077800F1DC10 /* DPLInventoryTableViewController.m */; };
+		70B73A0B1E31221C00F1DC10 /* DPLInventoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B73A071E31077800F1DC10 /* DPLInventoryTableViewController.m */; };
+		70B73A0C1E31233200F1DC10 /* DPLInventoryRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B73A091E3121F100F1DC10 /* DPLInventoryRouteHandler.swift */; };
 		885BF817236F484E7F5F73E2 /* Pods_ReceiverDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5DF65B06CA8F8FF3D9C377 /* Pods_ReceiverDemo.framework */; };
 		C4DC1B03379071F87259E123 /* Pods_ReceiverDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EA2BDC55F6B8A61FDF5848 /* Pods_ReceiverDemoSwift.framework */; };
 		DE025EB11A5F0D37007C4F3A /* DPLProductDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */; };
@@ -99,6 +103,11 @@
 		62EE96F11B57011D003D7564 /* ReceiverDemoSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReceiverDemoSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLProductRouteHandler.swift; sourceTree = "<group>"; };
 		67EA2BDC55F6B8A61FDF5848 /* Pods_ReceiverDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReceiverDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B73A031E30FE3D00F1DC10 /* DPLInventoryRouteHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLInventoryRouteHandler.h; sourceTree = "<group>"; };
+		70B73A041E30FE3D00F1DC10 /* DPLInventoryRouteHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLInventoryRouteHandler.m; sourceTree = "<group>"; };
+		70B73A061E31077800F1DC10 /* DPLInventoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLInventoryTableViewController.h; sourceTree = "<group>"; };
+		70B73A071E31077800F1DC10 /* DPLInventoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLInventoryTableViewController.m; sourceTree = "<group>"; };
+		70B73A091E3121F100F1DC10 /* DPLInventoryRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLInventoryRouteHandler.swift; sourceTree = "<group>"; };
 		7EA840098917BE391CCC70A3 /* Pods-ReceiverDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemoSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 		83D34C3B1B03ECAD00BA6EF1 /* DPLMatchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLMatchResult.h; sourceTree = "<group>"; };
 		83D34C3C1B03ECAD00BA6EF1 /* DPLMatchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPLMatchResult.m; sourceTree = "<group>"; };
@@ -343,6 +352,7 @@
 			children = (
 				62EE96F31B570891003D7564 /* DPLProductRouteHandler.swift */,
 				62891E8A1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift */,
+				70B73A091E3121F100F1DC10 /* DPLInventoryRouteHandler.swift */,
 			);
 			path = RouteHandlers;
 			sourceTree = "<group>";
@@ -524,6 +534,8 @@
 			children = (
 				DE87B1EC1A5DEFD400204A35 /* DPLProductRouteHandler.h */,
 				DE87B1ED1A5DEFD400204A35 /* DPLProductRouteHandler.m */,
+				70B73A031E30FE3D00F1DC10 /* DPLInventoryRouteHandler.h */,
+				70B73A041E30FE3D00F1DC10 /* DPLInventoryRouteHandler.m */,
 			);
 			path = RouteHandlers;
 			sourceTree = "<group>";
@@ -542,6 +554,8 @@
 			children = (
 				DEAD327919E079D3003C8D65 /* DPLProductTableViewController.h */,
 				DEAD327A19E079D3003C8D65 /* DPLProductTableViewController.m */,
+				70B73A061E31077800F1DC10 /* DPLInventoryTableViewController.h */,
+				70B73A071E31077800F1DC10 /* DPLInventoryTableViewController.m */,
 			);
 			path = ProductList;
 			sourceTree = "<group>";
@@ -767,6 +781,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Button, Inc.";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						LastSwiftMigration = 0820;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -1040,7 +1057,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B73A051E30FE3D00F1DC10 /* DPLInventoryRouteHandler.m in Sources */,
 				DE87B1F51A5E193100204A35 /* DPLProductDetailViewController.m in Sources */,
+				70B73A081E31077800F1DC10 /* DPLInventoryTableViewController.m in Sources */,
 				DEAD328A19E079D3003C8D65 /* DPLProductTableViewController.m in Sources */,
 				DE025EB11A5F0D37007C4F3A /* DPLProductDataSource.m in Sources */,
 				DE87B1F11A5DF49F00204A35 /* DPLProduct.m in Sources */,
@@ -1078,9 +1097,11 @@
 				62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */,
 				62EE96F51B570AF4003D7564 /* DPLProductDetailViewController.m in Sources */,
 				62335E031B57007F00E3818C /* DPLReceiverSwiftAppDelegate.swift in Sources */,
+				70B73A0B1E31221C00F1DC10 /* DPLInventoryTableViewController.m in Sources */,
 				62891E8B1B57FE5A00C2AF4F /* DPLMessageRouteHandler.swift in Sources */,
 				62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */,
 				62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */,
+				70B73A0C1E31233200F1DC10 /* DPLInventoryRouteHandler.swift in Sources */,
 				62EE96F41B570891003D7564 /* DPLProductRouteHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1224,12 +1245,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Prefix.pch";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1242,12 +1267,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Prefix.pch";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1305,6 +1333,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1327,6 +1356,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Test;
@@ -1349,6 +1379,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApps/ReceiverDemoSwift/ReceiverDemoSwift-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1400,13 +1431,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "SampleApps/ReceiverDemo/SupportingFiles/ReceiverDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usebutton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

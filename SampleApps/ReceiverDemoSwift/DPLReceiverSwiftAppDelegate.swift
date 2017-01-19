@@ -14,6 +14,9 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
         // Register a class to a route using the explicit registration call
         self.router.registerHandlerClass(DPLMessageRouteHandler.self, forRoute: "/say/:title/:message")
         
+        // Register a class to route using an asynchronous target view controller request
+        self.router["/inventory"] = DPLInventoryRouteHandler.self
+        
         return true
     }
     

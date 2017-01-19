@@ -3,15 +3,15 @@ inhibit_all_warnings!
 use_frameworks!
 
 target 'SenderDemo' do
-    pod 'DeepLinkKit'
+    pod 'DeepLinkKit', :path => '.'
 end
 
 target 'ReceiverDemo' do
-    pod 'DeepLinkKit'
+    pod 'DeepLinkKit', :path => '.'
 end
 
 target 'ReceiverDemoSwift' do
-    pod 'DeepLinkKit'
+    pod 'DeepLinkKit', :path => '.'
 end
 
 target 'Tests' do
