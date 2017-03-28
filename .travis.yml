@@ -4,12 +4,12 @@ branches:
   only:
     master
 before_install:
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-  - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
+  # - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  # - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
   - bundle install
   - pod repo update --silent
   - pod install
 script:
-  - travis_retry $(xcodebuild build test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 7,OS=latest' -enableCodeCoverage YES | xcpretty)
+  - travis_retry xcodebuild build test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 7,OS=latest'
 after_success:
   - slather
