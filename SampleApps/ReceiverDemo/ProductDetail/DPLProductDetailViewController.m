@@ -15,7 +15,9 @@
     [super viewDidLoad];
 
     self.nameLabel.text  = self.product.name;
+    self.nameLabel.accessibilityLabel = self.product.name;
     self.priceLabel.text = [@(self.product.price / 100.0) stringValue];
+    self.priceLabel.accessibilityLabel = self.priceLabel.text;
 }
 
 
