@@ -13,7 +13,19 @@ Pod::Spec.new do |s|
 
   s.platform         = :ios, '7.0'
   s.requires_arc     = true
-  s.module_map       = 'DeepLinkKit/module.modulemap'
 
-  s.source_files     = 'DeepLinkKit/**/*.{h,m}'
+  s.source_files        = 'DeepLinkKit/**/*.{h,m}'
+  s.private_header_files = [
+    "DeepLinkKit/**/DeepLinkKit_Private.h",
+    "DeepLinkKit/**/DPLDeepLink_Private.h",
+    "DeepLinkKit/**/DPLSerializable.h",
+    "DeepLinkKit/**/DPLMatchResult.h",
+    "DeepLinkKit/**/DPLRouteMatcher.h",
+    "DeepLinkKit/**/DPLRegularExpression.h",
+    "DeepLinkKit/**/NSString+DPLTrim.h",
+    "DeepLinkKit/**/NSString+DPLQuery.h",
+    "DeepLinkKit/**/NSString+DPLJSON.h",
+    "DeepLinkKit/**/NSObject+DPLJSONObject.h",
+    "DeepLinkKit/**/UINavigationController+DPLRouting.h",
+]
 end
