@@ -1,12 +1,15 @@
 language: objective-c
+osx_image: xcode8.3
 branches:
   only:
     master
 install:
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
   - bundle install
   - pod repo update --silent
   - pod install
 script:
-  - xctool test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xcodebuild build test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=latest' | xcpretty
 after_success:
   - slather
