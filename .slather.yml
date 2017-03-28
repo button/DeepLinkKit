@@ -1,3 +1,5 @@
 coverage_service: coveralls
 xcodeproj: DeepLinkKit.xcodeproj
+workspace: DeepLinkKit.xcworkspace
+scheme: ReceiverDemo
 source_directory: DeepLinkKit

@@ -10,6 +10,6 @@ before_install:
   - pod repo update --silent
   - pod install
 script:
-  - xcodebuild build test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=latest' | xcpretty
+  - xcodebuild build test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 7,OS=latest' -enableCodeCoverage YES | xcpretty
 after_success:
   - slather
