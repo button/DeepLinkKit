@@ -2,8 +2,8 @@ language: objective-c
 branches:
   only:
     master
-before_install:
-  - bundle
+install:
+  - bundle install
   - pod repo update --silent
   - pod install
 script:
