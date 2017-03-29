@@ -4,8 +4,6 @@ branches:
   only:
     master
 before_install:
-  # - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-  # - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
   - bundle install
   - pod repo update --silent
   - pod install
