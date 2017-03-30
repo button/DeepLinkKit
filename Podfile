@@ -1,20 +1,21 @@
-xcodeproj 'DeepLinkKit.xcodeproj', 'Test' => :debug
+project 'DeepLinkKit.xcodeproj', 'Test' => :debug
 inhibit_all_warnings!
 use_frameworks!
 
-target 'SenderDemo', :exclusive => true do
+target 'SenderDemo' do
     pod 'DeepLinkKit', :path => '.'
 end
 
-target 'ReceiverDemo', :exclusive => true do
+target 'ReceiverDemo' do
     pod 'DeepLinkKit', :path => '.'
 end
 
-target 'ReceiverDemoSwift', :exclusive => true do
+target 'ReceiverDemoSwift' do
     pod 'DeepLinkKit', :path => '.'
 end
 
-target 'Tests', :exclusive => true do
+target 'Tests' do
+    pod 'DeepLinkKit', :path => '.'
     pod 'Specta'
     pod 'Expecta'
     pod 'OCMock'

@@ -1,11 +1,16 @@
 language: objective-c
+osx_image: xcode8.3
+cache:
+  - bundler
+  - cocoapods
 branches:
   only:
     master
 before_install:
-  - bundle
+  - bundle install
+  - pod repo update --silent
   - pod install
 script:
-  - xctool test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - travis_retry xcodebuild build test -workspace DeepLinkKit.xcworkspace -scheme ReceiverDemo -sdk iphonesimulator -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 7,OS=latest'
 after_success:
   - slather

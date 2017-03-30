@@ -1,4 +1,7 @@
-@import DeepLinkKit.Private;
+#import "DPLDeepLink_Private.h"
+#import "DPLMutableDeepLink.h"
+#import "DPLMutableDeepLink+AppLinks.h"
+@import DeepLinkKit;
 @import DeepLinkKit.AppLinks;
 
 SpecBegin(DPLDeepLink_AppLinks)
