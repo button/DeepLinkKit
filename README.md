@@ -14,6 +14,8 @@
 
 ## Overview
 
+[![Join the chat at https://gitter.im/usebutton/DeepLinkKit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/usebutton/DeepLinkKit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 DeepLink Kit is a splendid route-matching, block-based way to handle your deep links. Rather than decide how to format your URLs, parse them, pass data, and navigate to specific content or perform actions, this library and a few lines of code will get you on your way.
 
 [Full Documentation](https://github.com/button/DeepLinkKit/wiki/DeepLink-Kit-Integration-Guide)
