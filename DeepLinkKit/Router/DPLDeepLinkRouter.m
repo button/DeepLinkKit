@@ -137,7 +137,7 @@
 }
 
 
-- (DPLDeepLink *)deepLinkForURL:(NSURL *)url {
+- (nullable DPLDeepLink *)deepLinkForURL:(NSURL *)url {
 	for (NSString *route in self.routes) {
 		DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
 		DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];

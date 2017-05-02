@@ -70,7 +70,7 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
 /**
  Returns a Deep link for the given URL, if one exists. Returns `nil` if no matching routes are found for the URL.
  */
-- (DPLDeepLink *)deepLinkForURL:(NSURL *)url;
+- (nullable DPLDeepLink *)deepLinkForURL:(NSURL *)url;
 
 ///-------------------------
 /// @name Routing Deep Links
