@@ -137,6 +137,19 @@
 }
 
 
+- (DPLDeepLink *)deepLinkForURL:(NSURL *)url {
+	for (NSString *route in self.routes) {
+		DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
+		DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+		if (deepLink) {
+			return deepLink;
+		}
+	}
+	
+	return nil;
+}
+
+
 - (BOOL)handleUserActivity:(NSUserActivity *)userActivity withCompletion:(DPLRouteCompletionBlock)completionHandler {
     if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
         return [self handleURL:userActivity.webpageURL withCompletion:completionHandler];
