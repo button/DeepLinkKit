@@ -4,7 +4,7 @@ task :spec do
 end
 
 desc "Synchronizes Xcode project folder with Xcode groups"
-task :sync do
+task :synx do
   sh "synx -e '/Pod Metadata' -e '/Pods' DeepLinkKit.xcodeproj"
 end
 
