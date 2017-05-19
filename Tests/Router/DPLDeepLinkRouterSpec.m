@@ -110,6 +110,37 @@ describe(@"Registering Routes", ^{
     });
 });
 
+describe(@"Checking Routes", ^{
+	
+	NSURL *url = [NSURL URLWithString:@"dlc://dlc.com/say/hello"];
+	
+	__block DPLDeepLinkRouter *router;
+	beforeEach(^{
+		router = [[DPLDeepLinkRouter alloc] init];
+	});
+	
+	it(@"returns a Deep Link object when given a matching URL", ^{
+		NSString *route = @"/say/hello";
+		router[route] = ^(DPLDeepLink *deepLink){};
+		
+		expect([router deepLinkForURL:url]).toNot.beNil();
+	});
+	
+	it(@"returns a Deep Link object when given a matching URL with a pattern", ^{
+		NSString *route = @"/say/:word";
+		router[route] = ^(DPLDeepLink *deepLink){};
+		
+		expect([router deepLinkForURL:url]).toNot.beNil();
+	});
+	
+	it(@"returns nil for a Deep Link when given a URL it can't route", ^{
+		NSString *route = @"/an/incorrect/route";
+		router[route] = ^(DPLDeepLink *deepLink){};
+		
+		expect([router deepLinkForURL:url]).to.beNil();
+	});
+});
+
 
 describe(@"Handling Routes", ^{
 

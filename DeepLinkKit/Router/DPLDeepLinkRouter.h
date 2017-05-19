@@ -67,7 +67,12 @@ typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
  */
 - (void)registerBlock:(DPLRouteHandlerBlock)routeHandlerBlock forRoute:(NSString *)route;
 
-
+/**
+ Evaluates the given URL to determine if it matches a registered route.
+ @param url The URL to be evaluated against registered routes.
+ @return A `DPLDeepLink` representing the URL if it matches a registered route.
+ */
+- (nullable DPLDeepLink *)deepLinkForURL:(nonnull NSURL *)url;
 
 ///-------------------------
 /// @name Routing Deep Links

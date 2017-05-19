@@ -117,15 +117,13 @@
     NSError      *error;
     DPLDeepLink  *deepLink;
     __block BOOL isHandled = NO;
-    for (NSString *route in self.routes) {
-        DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
-        deepLink = [matcher deepLinkWithURL:url];
-        if (deepLink) {
-            isHandled = [self handleRoute:route withDeepLink:deepLink error:&error];
-            break;
-        }
-    }
-    
+	
+	NSArray *deepLinkAndRoute = [self deepLinkAndRouteForURL:url];
+	if ([deepLinkAndRoute count] == 2) {
+		deepLink = [deepLinkAndRoute firstObject];
+		isHandled = [self handleRoute:[deepLinkAndRoute lastObject] withDeepLink:deepLink error:&error];
+	}
+	
     if (!deepLink) {
         NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"The passed URL does not match a registered route.", nil) };
         error = [NSError errorWithDomain:DPLErrorDomain code:DPLRouteNotFoundError userInfo:userInfo];
@@ -134,6 +132,28 @@
     [self completeRouteWithSuccess:isHandled error:error completionHandler:completionHandler];
     
     return isHandled;
+}
+
+
+- (nullable DPLDeepLink *)deepLinkForURL:(nonnull NSURL *)url {
+	return [[self deepLinkAndRouteForURL:url] firstObject];
+}
+
+/**
+ Private method which returns an array containing two items: the deep link and the route for the given URL.
+ @param url The URL to be evaluated against registered routes.
+ @return An array containing two items: `DPLDeepLink` representing the URL and the route, if it matches a registered route.
+ */
+- (nullable NSArray *)deepLinkAndRouteForURL:(nonnull NSURL *)url {
+	for (NSString *route in self.routes) {
+		DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
+		DPLDeepLink *deepLink = [matcher deepLinkWithURL:url];
+		if (deepLink) {
+			return @[deepLink, route];
+		}
+	}
+	
+	return nil;
 }
 
 
