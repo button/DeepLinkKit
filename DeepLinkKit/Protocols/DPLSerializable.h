@@ -12,14 +12,14 @@
 
 /**
  Initializes an object with the provided dictionary representation.
- @param An NSDictionary representation of the object to be created.
+ @param dictionary NSDictionary representation of the object to be created.
  */
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 
 /**
  Updates the receiver with the provided dictionary representation.
- @param An NSDictionary representation of the object.
+ @param dictionary NSDictionary representation of the object.
  */
 - (void)updateWithRepresentation:(NSDictionary *)dictionary;
 
