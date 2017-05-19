@@ -1,6 +1,7 @@
 #import "DPLDeepLinkRouter.h"
 #import "DPLRouteMatcher.h"
 #import "DPLDeepLink.h"
+#import "DPLMutableDeepLink.h"
 #import "DPLRouteHandler.h"
 #import "DPLErrors.h"
 #import <objc/runtime.h>
@@ -105,6 +106,10 @@
 #pragma mark - Routing Deep Links
 
 - (BOOL)handleURL:(NSURL *)url withCompletion:(DPLRouteCompletionBlock)completionHandler {
+    return [self handleURL:url withUserInfo:nil completion:completionHandler];
+}
+
+- (BOOL)handleURL:(NSURL *)url withUserInfo:(NSDictionary *)userInfo completion:(DPLRouteCompletionBlock)completionHandler {
     if (!url) {
         return NO;
     }
@@ -113,7 +118,7 @@
         [self completeRouteWithSuccess:NO error:nil completionHandler:completionHandler];
         return NO;
     }
-
+    
     NSError      *error;
     DPLDeepLink  *deepLink;
     __block BOOL isHandled = NO;
@@ -121,6 +126,15 @@
         DPLRouteMatcher *matcher = [DPLRouteMatcher matcherWithRoute:route];
         deepLink = [matcher deepLinkWithURL:url];
         if (deepLink) {
+            if (userInfo) {
+                DPLMutableDeepLink *mutableDeepLink = deepLink.mutableCopy;
+                NSMutableDictionary *newUserInfo = userInfo.mutableCopy;
+                for (NSString *key in deepLink.queryParameters.allKeys) {
+                    newUserInfo[key] = deepLink.queryParameters[key];
+                }
+                mutableDeepLink.queryParameters = newUserInfo.copy;
+                deepLink = mutableDeepLink;
+            }
             isHandled = [self handleRoute:route withDeepLink:deepLink error:&error];
             break;
         }
@@ -138,13 +152,16 @@
 
 
 - (BOOL)handleUserActivity:(NSUserActivity *)userActivity withCompletion:(DPLRouteCompletionBlock)completionHandler {
+    return [self handleUserActivity:userActivity withUserInfo:nil completion:completionHandler];
+}
+
+- (BOOL)handleUserActivity:(NSUserActivity *)userActivity withUserInfo:(NSDictionary *)userInfo completion:(DPLRouteCompletionBlock)completionHandler {
     if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-        return [self handleURL:userActivity.webpageURL withCompletion:completionHandler];
+        return [self handleURL:userActivity.webpageURL withUserInfo:userInfo completion:completionHandler];
     }
     
     return NO;
 }
-
 
 - (BOOL)handleRoute:(NSString *)route withDeepLink:(DPLDeepLink *)deepLink error:(NSError *__autoreleasing *)error {
     id handler = self[route];
@@ -182,7 +199,6 @@
     
     return YES;
 }
-
 
 - (void)completeRouteWithSuccess:(BOOL)handled error:(NSError *)error completionHandler:(DPLRouteCompletionBlock)completionHandler {
     if (completionHandler) {
