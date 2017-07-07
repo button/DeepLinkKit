@@ -122,7 +122,9 @@
         deepLink = [matcher deepLinkWithURL:url];
         if (deepLink) {
             isHandled = [self handleRoute:route withDeepLink:deepLink error:&error];
-            break;
+            if (isHandled) {
+                break;
+            }
         }
     }
     
