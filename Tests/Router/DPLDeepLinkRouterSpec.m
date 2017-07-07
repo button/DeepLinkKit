@@ -3,6 +3,7 @@
 #import "DPLRouteHandler.h"
 #import "DPLDeepLink.h"
 #import "DPLErrors.h"
+#import "DPLWontHandleRouteHandler.h"
 
 SpecBegin(DPLDeepLinkRouter)
 
@@ -139,6 +140,25 @@ describe(@"Handling Routes", ^{
         });
     });
     
+    it(@"continues looking for a match which will handle the route, even if the first match chooses not to handle it", ^{
+        waitUntil(^(DoneCallback done) {
+            [router registerHandlerClass:[DPLWontHandleRouteHandler class] forRoute:@"/say/hello"];
+
+            __block BOOL didMatchOnSecondRegistration = NO;
+            router[@"/say/:word"] = ^{
+                didMatchOnSecondRegistration = YES;
+            };
+            
+            BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
+                expect(handled).to.beTruthy();
+                expect(error).to.beNil();
+                done();
+            }];
+            expect(didMatchOnSecondRegistration).to.beTruthy();
+            expect(isHandled).to.beTruthy();
+        });
+    });
+    
     it(@"matches less specfic routes first when they are registered first", ^{
         waitUntil(^(DoneCallback done) {
             router[@"/say/:word"] = ^(DPLDeepLink *deepLink) {
@@ -157,7 +177,7 @@ describe(@"Handling Routes", ^{
             expect(isHandled).to.beTruthy();
         });
     });
-    
+
     it(@"produces an error when a URL has no matching route", ^{
         waitUntil(^(DoneCallback done) {
             BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
@@ -168,12 +188,12 @@ describe(@"Handling Routes", ^{
             expect(isHandled).to.beFalsy();
         });
     });
-    
+
     it(@"produces an error when a route handler does not specify a target view controller", ^{
         waitUntil(^(DoneCallback done) {
-            
+
             router[@"/say/:word"] = [DPLRouteHandler class];
-            
+
             BOOL isHandled = [router handleURL:url withCompletion:^(BOOL handled, NSError *error) {
                 expect(handled).to.beFalsy();
                 expect(error.code).to.equal(DPLRouteHandlerTargetNotSpecifiedError);
