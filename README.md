@@ -29,13 +29,23 @@ pod try "DeepLinkKit"
 
 ## Installation
 
+### CocoaPods
 DeepLinkKit is available through [CocoaPods](http://cocoapods.org). To install
 the library, simply add the following line to your Podfile:
+
 ```ruby
 pod "DeepLinkKit"
 ```
 
-If you don't use CocoaPods, you can include all of the source files from the [DeepLinkKit directory](https://github.com/button/DeepLinkKit/tree/master/DeepLinkKit) in your project.
+### Carthage
+To install via Carthage, add the following line to your `Cartfile`:
+
+```text
+github "button/DeepLinkKit"
+```
+
+### Other
+If you don't use CocoaPods or Carthage, you can include all of the source files from the [DeepLinkKit directory](https://github.com/button/DeepLinkKit/tree/master/DeepLinkKit) in your project.
 
 ## Usage
 Add deep link support to your app in 5 minutes or less following these simple steps.
