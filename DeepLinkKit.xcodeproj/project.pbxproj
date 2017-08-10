@@ -43,6 +43,13 @@
 		BFDB97021F3C0011001AE303 /* DPLMutableDeepLink+AppLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB324C1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.m */; };
 		BFDB97031F3C0011001AE303 /* DPLDeepLink.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E0D1A3B484A00147C04 /* DPLDeepLink.m */; };
 		BFDB97041F3C0011001AE303 /* DPLMutableDeepLink.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */; };
+		BFDB97051F3C0048001AE303 /* DeepLinkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DEB4EDBD1A4A726200F31D14 /* DeepLinkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFDB97061F3C0048001AE303 /* DPLTargetViewControllerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DE99EF781A3B83D100CE3449 /* DPLTargetViewControllerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFDB97071F3C0048001AE303 /* DPLErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = DEAC406E1A5D97EE004A9095 /* DPLErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFDB97081F3C0048001AE303 /* DPLDeepLinkRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = DE16E9201A42882F00077E18 /* DPLDeepLinkRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFDB97091F3C0048001AE303 /* DPLRouteHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DEAC40701A5DA86A004A9095 /* DPLRouteHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFDB970A1F3C0048001AE303 /* DPLDeepLink.h in Headers */ = {isa = PBXBuildFile; fileRef = DE058E0C1A3B484A00147C04 /* DPLDeepLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFDB970B1F3C0048001AE303 /* DPLMutableDeepLink.h in Headers */ = {isa = PBXBuildFile; fileRef = DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C63116DB33AD849960B2EA55 /* Pods_SenderDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA7EE926AA6053C8315A931 /* Pods_SenderDemo.framework */; };
 		DE025EB11A5F0D37007C4F3A /* DPLProductDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */; };
 		DE058E0A1A3B46FD00147C04 /* NSString_DPLQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E091A3B46FD00147C04 /* NSString_DPLQuerySpec.m */; };
@@ -703,6 +710,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDB97071F3C0048001AE303 /* DPLErrors.h in Headers */,
+				BFDB97051F3C0048001AE303 /* DeepLinkKit.h in Headers */,
+				BFDB97081F3C0048001AE303 /* DPLDeepLinkRouter.h in Headers */,
+				BFDB97091F3C0048001AE303 /* DPLRouteHandler.h in Headers */,
+				BFDB97061F3C0048001AE303 /* DPLTargetViewControllerProtocol.h in Headers */,
+				BFDB970B1F3C0048001AE303 /* DPLMutableDeepLink.h in Headers */,
+				BFDB970A1F3C0048001AE303 /* DPLDeepLink.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
