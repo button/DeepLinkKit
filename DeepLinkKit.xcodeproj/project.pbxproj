@@ -792,7 +792,6 @@
 				BFDB96E91F3BFF8E001AE303 /* Sources */,
 				BFDB96EA1F3BFF8E001AE303 /* Frameworks */,
 				BFDB96EB1F3BFF8E001AE303 /* Headers */,
-				BFDB96EC1F3BFF8E001AE303 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -896,13 +895,6 @@
 			files = (
 				62891E891B57FA9D00C2AF4F /* Images.xcassets in Resources */,
 				62891E881B57FA7F00C2AF4F /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BFDB96EC1F3BFF8E001AE303 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
