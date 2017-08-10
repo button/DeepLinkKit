@@ -29,6 +29,7 @@
 		62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */; };
 		62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = DE87B1F01A5DF49F00204A35 /* DPLProduct.m */; };
 		62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327A19E079D3003C8D65 /* DPLProductTableViewController.m */; };
+		BFDB96F21F3BFF8E001AE303 /* DeepLinkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BFDB96F01F3BFF8E001AE303 /* DeepLinkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C63116DB33AD849960B2EA55 /* Pods_SenderDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA7EE926AA6053C8315A931 /* Pods_SenderDemo.framework */; };
 		DE025EB11A5F0D37007C4F3A /* DPLProductDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */; };
 		DE058E0A1A3B46FD00147C04 /* NSString_DPLQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E091A3B46FD00147C04 /* NSString_DPLQuerySpec.m */; };
@@ -107,6 +108,9 @@
 		A12E3C55EEAB8A1FC1C6C397 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A9F173BA2E66B42CE6D24BF4 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08420F70F2F29CEBA0D7B49 /* Pods-ReceiverDemoSwift.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemoSwift.test.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift.test.xcconfig"; sourceTree = "<group>"; };
+		BFDB96EE1F3BFF8E001AE303 /* DeepLinkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeepLinkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFDB96F01F3BFF8E001AE303 /* DeepLinkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeepLinkKit.h; sourceTree = "<group>"; };
+		BFDB96F11F3BFF8E001AE303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7BB11C353B6743FCCEC7DAA /* Pods-SenderDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenderDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SenderDemo/Pods-SenderDemo.release.xcconfig"; sourceTree = "<group>"; };
 		DE025EAF1A5F0D37007C4F3A /* DPLProductDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLProductDataSource.h; sourceTree = "<group>"; };
 		DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLProductDataSource.m; sourceTree = "<group>"; };
@@ -229,6 +233,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BFDB96EA1F3BFF8E001AE303 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEDB148A1A3F944D00A837F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +277,7 @@
 				60FF7A9C1954A5C5007DD14C /* Pod Metadata */,
 				DE5DD32C19E0643F007FD439 /* DeepLinkKit */,
 				DEAD328119E079D3003C8D65 /* Tests */,
+				BFDB96EF1F3BFF8E001AE303 /* DeepLinkKit */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				B7B006899D7C26BAA24F6B7E /* Pods */,
@@ -279,6 +291,7 @@
 				6003F5AE195388D20070C39A /* Tests.xctest */,
 				DEDB148D1A3F944D00A837F8 /* SenderDemo.app */,
 				62335DD61B57003300E3818C /* ReceiverDemoSwift.app */,
+				BFDB96EE1F3BFF8E001AE303 /* DeepLinkKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -356,6 +369,15 @@
 				A12E3C55EEAB8A1FC1C6C397 /* Pods-Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BFDB96EF1F3BFF8E001AE303 /* DeepLinkKit */ = {
+			isa = PBXGroup;
+			children = (
+				BFDB96F01F3BFF8E001AE303 /* DeepLinkKit.h */,
+				BFDB96F11F3BFF8E001AE303 /* Info.plist */,
+			);
+			path = DeepLinkKit;
 			sourceTree = "<group>";
 		};
 		DE025EAC1A5F0CD3007C4F3A /* ProductDetail */ = {
@@ -673,6 +695,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		BFDB96EB1F3BFF8E001AE303 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFDB96F21F3BFF8E001AE303 /* DeepLinkKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		6003F589195388D20070C39A /* ReceiverDemo */ = {
 			isa = PBXNativeTarget;
@@ -736,6 +769,24 @@
 			productReference = 62335DD61B57003300E3818C /* ReceiverDemoSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BFDB96ED1F3BFF8E001AE303 /* DeepLinkKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFDB96F61F3BFF8E001AE303 /* Build configuration list for PBXNativeTarget "DeepLinkKit" */;
+			buildPhases = (
+				BFDB96E91F3BFF8E001AE303 /* Sources */,
+				BFDB96EA1F3BFF8E001AE303 /* Frameworks */,
+				BFDB96EB1F3BFF8E001AE303 /* Headers */,
+				BFDB96EC1F3BFF8E001AE303 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeepLinkKit;
+			productName = DeepLinkKit;
+			productReference = BFDB96EE1F3BFF8E001AE303 /* DeepLinkKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		DEDB148C1A3F944D00A837F8 /* SenderDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEDB14AD1A3F944E00A837F8 /* Build configuration list for PBXNativeTarget "SenderDemo" */;
@@ -773,6 +824,10 @@
 					62335DD51B57003300E3818C = {
 						CreatedOnToolsVersion = 6.4;
 					};
+					BFDB96ED1F3BFF8E001AE303 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
 					DEDB148C1A3F944D00A837F8 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -795,6 +850,7 @@
 				62335DD51B57003300E3818C /* ReceiverDemoSwift */,
 				DEDB148C1A3F944D00A837F8 /* SenderDemo */,
 				6003F5AD195388D20070C39A /* Tests */,
+				BFDB96ED1F3BFF8E001AE303 /* DeepLinkKit */,
 			);
 		};
 /* End PBXProject section */
@@ -824,6 +880,13 @@
 			files = (
 				62891E891B57FA9D00C2AF4F /* Images.xcassets in Resources */,
 				62891E881B57FA7F00C2AF4F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFDB96EC1F3BFF8E001AE303 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,6 +1145,13 @@
 				62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */,
 				62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */,
 				62EE96F41B570891003D7564 /* DPLProductRouteHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFDB96E91F3BFF8E001AE303 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1353,6 +1423,101 @@
 			};
 			name = Release;
 		};
+		BFDB96F31F3BFF8E001AE303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = DeepLinkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usebutton.DeepLinkKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BFDB96F41F3BFF8E001AE303 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = DeepLinkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usebutton.DeepLinkKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Test;
+		};
+		BFDB96F51F3BFF8E001AE303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = DeepLinkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usebutton.DeepLinkKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		DEA2AD611A4A8B0100F32289 /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1534,6 +1699,15 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BFDB96F61F3BFF8E001AE303 /* Build configuration list for PBXNativeTarget "DeepLinkKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFDB96F31F3BFF8E001AE303 /* Debug */,
+				BFDB96F41F3BFF8E001AE303 /* Test */,
+				BFDB96F51F3BFF8E001AE303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		DEDB14AD1A3F944E00A837F8 /* Build configuration list for PBXNativeTarget "SenderDemo" */ = {
 			isa = XCConfigurationList;
