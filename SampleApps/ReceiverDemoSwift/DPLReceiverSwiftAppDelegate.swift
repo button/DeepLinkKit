@@ -8,11 +8,27 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // Register a block to a route (matches dpl:///product/93598)
+        self.router.register("/product/:sku") { link in
+            print("\(link!.url.absoluteString)")
+            
+            if let rootViewController = application.keyWindow?.rootViewController as? UINavigationController {
+                if let storyboard = rootViewController.storyboard {
+                    if let controller = storyboard.instantiateViewController(withIdentifier: "detail") as? DPLTargetViewController {
+                        controller.configure(with: link)
+                        rootViewController.pushViewController(controller as! UIViewController, animated: false)
+                    }
+                }
+            }
+        }
         
-        // Register a class to a route using object subscripting
-        self.router["/product/:sku"] = DPLProductRouteHandler.self
+        self.router.register("/log/:message") { link in
+            if let link = link {
+                print("\(String(describing: link.routeParameters["message"]))")
+            }
+        }
         
-        // Register a class to a route using the explicit registration call
+        // Register a class to a route.
         self.router.registerHandlerClass(DPLMessageRouteHandler.self, forRoute: "/say/:title/:message")
         
         return true

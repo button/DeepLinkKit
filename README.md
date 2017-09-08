@@ -79,11 +79,22 @@ Add deep link support to your app in 5 minutes or less following these simple st
 <br />
 **4. Register a route handler**
 
+Objective-C
 ````objc
 self.router[@"/log/:message"] = ^(DPLDeepLink *link) {
   NSLog(@"%@", link.routeParameters[@"message"]);
 };
 ````
+
+Swift
+````swift
+self.router.register("/log/:message") { link in
+    if let link = link {
+        print("\(link.routeParameters["message"])")
+    }
+}
+````
+
 <br />
 **5. Pass incoming URLs to the router**
 
