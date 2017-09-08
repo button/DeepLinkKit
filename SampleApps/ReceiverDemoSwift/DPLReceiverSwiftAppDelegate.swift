@@ -6,7 +6,8 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     lazy var router: DPLDeepLinkRouter = DPLDeepLinkRouter()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         
         // Register a class to a route using object subscripting
         self.router["/product/:sku"] = DPLProductRouteHandler.self
@@ -17,18 +18,18 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        self.router.handleURL(url, withCompletion: nil)
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        self.router.handle(url, withCompletion: nil)
         return true
     }
     
-    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        self.router.handleURL(url, withCompletion: nil)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        self.router.handle(url, withCompletion: nil)
         return true
     }
     
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        self.router.handleUserActivity(userActivity, withCompletion: nil)
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        self.router.handle(userActivity, withCompletion: nil)
         return true
     }
 }
