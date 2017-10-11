@@ -38,6 +38,9 @@
     
     DPLDeepLink *deepLink       = [[DPLDeepLink alloc] initWithURL:url];
     NSString *deepLinkString    = [NSString stringWithFormat:@"%@%@", deepLink.URL.host, deepLink.URL.path];
+    if (deepLink.URL.query != nil && deepLink.URL.query.length > 0) {
+        deepLinkString = [NSString stringWithFormat:@"%@%@?%@", deepLink.URL.host, deepLink.URL.path, deepLink.URL.query];
+    }
     
     if (self.scheme.length && ![self.scheme isEqualToString:deepLink.URL.scheme]) {
         return nil;
