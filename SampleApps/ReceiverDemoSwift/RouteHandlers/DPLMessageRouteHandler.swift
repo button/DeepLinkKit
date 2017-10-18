@@ -1,9 +1,9 @@
 import Foundation
 
-public class DPLMessageRouteHandler: DPLRouteHandler {
-    public override func shouldHandleDeepLink(deepLink: DPLDeepLink!) -> Bool {
+open class DPLMessageRouteHandler: DPLRouteHandler {
+    open override func shouldHandle(_ deepLink: DPLDeepLink!) -> Bool {
         if let title = deepLink.routeParameters["title"] as? String,
-            message = deepLink.routeParameters["message"] as? String {
+            let message = deepLink.routeParameters["message"] as? String {
             UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK").show()
         }
         return false

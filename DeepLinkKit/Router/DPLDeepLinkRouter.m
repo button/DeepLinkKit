@@ -62,6 +62,11 @@
 }
 
 
+- (void)register:(NSString *)route routeHandlerBlock:(DPLRouteHandlerBlock)routeHandlerBlock {
+    [self registerBlock:routeHandlerBlock forRoute:route];
+}
+
+
 #pragma mark - Registering Routes via Object Subscripting
 
 - (id)objectForKeyedSubscript:(NSString *)key {

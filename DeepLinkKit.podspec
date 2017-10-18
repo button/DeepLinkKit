@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DeepLinkKit"
-  s.version          = "1.4.0"
+  s.version          = "1.5.0"
   s.summary          = "A splendid route-matching, block-based way to handle your deep links."
   s.description      = <<-DESC
                        DeepLink Kit is a splendid route-handling block-based way to handle deep links. Use DeepLink Kit to parse incoming URLs, extract parameters from the host, url etc.. and even build outgoing deep links. All with a simple, block-based interface.

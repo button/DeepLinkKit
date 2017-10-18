@@ -6,29 +6,46 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     lazy var router: DPLDeepLinkRouter = DPLDeepLinkRouter()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // Register a class to a route using object subscripting
-        self.router["/product/:sku"] = DPLProductRouteHandler.self
+        // Register a block to a route (matches dpl:///product/93598)
+        self.router.register("/product/:sku") { link in
+            print("\(link!.url.absoluteString)")
+            
+            if let rootViewController = application.keyWindow?.rootViewController as? UINavigationController {
+                if let storyboard = rootViewController.storyboard {
+                    if let controller = storyboard.instantiateViewController(withIdentifier: "detail") as? DPLTargetViewController {
+                        controller.configure(with: link)
+                        rootViewController.pushViewController(controller as! UIViewController, animated: false)
+                    }
+                }
+            }
+        }
         
-        // Register a class to a route using the explicit registration call
+        self.router.register("/log/:message") { link in
+            if let link = link {
+                print("\(String(describing: link.routeParameters["message"]))")
+            }
+        }
+        
+        // Register a class to a route.
         self.router.registerHandlerClass(DPLMessageRouteHandler.self, forRoute: "/say/:title/:message")
         
         return true
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        self.router.handleURL(url, withCompletion: nil)
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        self.router.handle(url, withCompletion: nil)
         return true
     }
     
-    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        self.router.handleURL(url, withCompletion: nil)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        self.router.handle(url, withCompletion: nil)
         return true
     }
     
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        self.router.handleUserActivity(userActivity, withCompletion: nil)
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        self.router.handle(userActivity, withCompletion: nil)
         return true
     }
 }
