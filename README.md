@@ -54,18 +54,14 @@ Add deep link support to your app in 5 minutes or less following these simple st
 
 
 
-<br /><br />
 **1. Make sure you have a URL scheme registered for your app in your Info.plist**
 <img src="https://cloud.githubusercontent.com/assets/1057077/5710380/8d913f3e-9a6f-11e4-83a2-49f6564d7a8f.png" width="410" />
-
-<br />
 
 **2. Import DeepLinkKit**
 
 ```objc
 #import <DeepLinkKit/DeepLinkKit.h>
 ```
-<br />
 
 **3. Create an instance of `DPLDeepLinkRouter` in your app delegate**
 
@@ -78,7 +74,6 @@ Add deep link support to your app in 5 minutes or less following these simple st
   return YES;
 }
 ````
-<br />
 
 **4. Register a route handler**
 
@@ -98,8 +93,6 @@ self.router.register("/log/:message") { link in
 }
 ````
 
-<br />
-
 **5. Pass incoming URLs to the router**
 
 ```objc
@@ -113,7 +106,7 @@ self.router.register("/log/:message") { link in
 ```
 
 **6. Passing `NSUserActivity` objects to the router** (optional)
-<br/>
+
 _**Note:** If your application supports [Apple's new universal links](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_2), implement the following in your app delegate:_
 
 ```objc
