@@ -40,7 +40,26 @@ describe(@"Matching named components", ^{
         DPLMatchResult *matchResult = [expression matchResultForString:@"/hello/dovalue/thisvalue/and/thatvalue"];
         expect(matchResult.match).to.beFalsy();
     });
-    
+
+    it(@"should match named components without regex but case insensitive", ^{
+        DPLRegularExpression *expression = [DPLRegularExpression regularExpressionWithPattern:@"/hello/:do/:this/and/:that"];
+
+        DPLMatchResult *matchResult = [expression matchResultForString:@"/hEllo/dOvalue/Thisvalue/and/THATvalue"];
+        expect(matchResult.match).to.beTruthy();
+        expect(matchResult.namedProperties).to.equal(@{ @"do": @"dOvalue",
+                                                        @"this": @"Thisvalue",
+                                                        @"that": @"THATvalue" });
+    });
+
+    it(@"should match named components with regex case insensitive", ^{
+        DPLRegularExpression *expression = [DPLRegularExpression regularExpressionWithPattern:@"/hello/:do([a-zA-Z]+)/:this([a-zA-Z]+)/and/:that([a-zA-Z]+)"];
+
+        DPLMatchResult *matchResult = [expression matchResultForString:@"/hEllo/dOvalue/Thisvalue/and/THATvalue"];
+        expect(matchResult.match).to.beTruthy();
+        expect(matchResult.namedProperties).to.equal(@{ @"do": @"dOvalue",
+                                                        @"this": @"Thisvalue",
+                                                        @"that": @"THATvalue" });
+    });
 });
 
 SpecEnd
