@@ -7,7 +7,7 @@ static NSString * const DPLURLParameterPattern        = @"([^/]+)";
 @implementation DPLRegularExpression
 
 + (instancetype)regularExpressionWithPattern:(NSString *)pattern {
-    return [[self alloc] initWithPattern:pattern options:0 error:nil];
+    return [[self alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
 }
 
 
