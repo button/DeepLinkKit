@@ -29,6 +29,27 @@
 		62EE96F61B570B10003D7564 /* DPLProductDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE025EB01A5F0D37007C4F3A /* DPLProductDataSource.m */; };
 		62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = DE87B1F01A5DF49F00204A35 /* DPLProduct.m */; };
 		62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD327A19E079D3003C8D65 /* DPLProductTableViewController.m */; };
+		A982D6482164636100FDFCCF /* DPLDeepLink+AppLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA55ADC1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.m */; };
+		A982D6492164636100FDFCCF /* UINavigationController+DPLRouting.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1B5F591CB301300086227F /* UINavigationController+DPLRouting.m */; };
+		A982D64A2164636100FDFCCF /* NSString+DPLTrim.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E91B1A42720D00077E18 /* NSString+DPLTrim.m */; };
+		A982D64B2164636100FDFCCF /* DPLDeepLink.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E0D1A3B484A00147C04 /* DPLDeepLink.m */; };
+		A982D64C2164636100FDFCCF /* NSString+DPLJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */; };
+		A982D64D2164636100FDFCCF /* DPLRouteMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9351A4289D500077E18 /* DPLRouteMatcher.m */; };
+		A982D64E2164636100FDFCCF /* DPLDeepLinkRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E9211A42882F00077E18 /* DPLDeepLinkRouter.m */; };
+		A982D64F2164636100FDFCCF /* DPLRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D34C3E1B03ECAD00BA6EF1 /* DPLRegularExpression.m */; };
+		A982D6502164636100FDFCCF /* DPLMatchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D34C3C1B03ECAD00BA6EF1 /* DPLMatchResult.m */; };
+		A982D6512164636100FDFCCF /* DPLMutableDeepLink.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */; };
+		A982D6522164636100FDFCCF /* NSString+DPLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E081A3B46F500147C04 /* NSString+DPLQuery.m */; };
+		A982D6532164636100FDFCCF /* DPLRouteHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAC40711A5DA86A004A9095 /* DPLRouteHandler.m */; };
+		A982D6542164636100FDFCCF /* NSObject+DPLJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB32511A87E94B0071C76E /* NSObject+DPLJSONObject.m */; };
+		A982D6552164636100FDFCCF /* DPLMutableDeepLink+AppLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = DECB324C1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.m */; };
+		A982D6582164636100FDFCCF /* DPLErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = DEAC406E1A5D97EE004A9095 /* DPLErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A982D6592164636100FDFCCF /* DeepLinkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DEB4EDBD1A4A726200F31D14 /* DeepLinkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A982D65A2164636100FDFCCF /* DPLDeepLinkRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = DE16E9201A42882F00077E18 /* DPLDeepLinkRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A982D65B2164636100FDFCCF /* DPLRouteHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DEAC40701A5DA86A004A9095 /* DPLRouteHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A982D65C2164636100FDFCCF /* DPLTargetViewControllerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DE99EF781A3B83D100CE3449 /* DPLTargetViewControllerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A982D65D2164636100FDFCCF /* DPLMutableDeepLink.h in Headers */ = {isa = PBXBuildFile; fileRef = DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A982D65E2164636100FDFCCF /* DPLDeepLink.h in Headers */ = {isa = PBXBuildFile; fileRef = DE058E0C1A3B484A00147C04 /* DPLDeepLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFDB96F71F3C0011001AE303 /* NSString+DPLTrim.m in Sources */ = {isa = PBXBuildFile; fileRef = DE16E91B1A42720D00077E18 /* NSString+DPLTrim.m */; };
 		BFDB96F81F3C0011001AE303 /* NSString+DPLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DE058E081A3B46F500147C04 /* NSString+DPLQuery.m */; };
 		BFDB96F91F3C0011001AE303 /* NSString+DPLJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E61091A3B4485008D6DFC /* NSString+DPLJSON.m */; };
@@ -126,6 +147,7 @@
 		8949A4E8F681A12A47C20775 /* DeepLinkKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = DeepLinkKit.podspec; path = ./DeepLinkKit.podspec; sourceTree = "<group>"; };
 		95CF8D51CDFA096695B92552 /* Pods-ReceiverDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemo/Pods-ReceiverDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A12E3C55EEAB8A1FC1C6C397 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A982D6632164636100FDFCCF /* DeepLinkKit-tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "DeepLinkKit-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F173BA2E66B42CE6D24BF4 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08420F70F2F29CEBA0D7B49 /* Pods-ReceiverDemoSwift.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiverDemoSwift.test.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiverDemoSwift/Pods-ReceiverDemoSwift.test.xcconfig"; sourceTree = "<group>"; };
 		BFDB96EE1F3BFF8E001AE303 /* DeepLinkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeepLinkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +274,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A982D6562164636100FDFCCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFDB96EA1F3BFF8E001AE303 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +339,7 @@
 				DEDB148D1A3F944D00A837F8 /* SenderDemo.app */,
 				62335DD61B57003300E3818C /* ReceiverDemoSwift.app */,
 				BFDB96EE1F3BFF8E001AE303 /* DeepLinkKit.framework */,
+				A982D6632164636100FDFCCF /* DeepLinkKit-tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -706,6 +736,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		A982D6572164636100FDFCCF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A982D6582164636100FDFCCF /* DPLErrors.h in Headers */,
+				A982D6592164636100FDFCCF /* DeepLinkKit.h in Headers */,
+				A982D65A2164636100FDFCCF /* DPLDeepLinkRouter.h in Headers */,
+				A982D65B2164636100FDFCCF /* DPLRouteHandler.h in Headers */,
+				A982D65C2164636100FDFCCF /* DPLTargetViewControllerProtocol.h in Headers */,
+				A982D65D2164636100FDFCCF /* DPLMutableDeepLink.h in Headers */,
+				A982D65E2164636100FDFCCF /* DPLDeepLink.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFDB96EB1F3BFF8E001AE303 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -784,6 +828,23 @@
 			productName = ReceiverDemoSwift;
 			productReference = 62335DD61B57003300E3818C /* ReceiverDemoSwift.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A982D6462164636100FDFCCF /* DeepLinkKit-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A982D65F2164636100FDFCCF /* Build configuration list for PBXNativeTarget "DeepLinkKit-tvOS" */;
+			buildPhases = (
+				A982D6472164636100FDFCCF /* Sources */,
+				A982D6562164636100FDFCCF /* Frameworks */,
+				A982D6572164636100FDFCCF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DeepLinkKit-tvOS";
+			productName = DeepLinkKit;
+			productReference = A982D6632164636100FDFCCF /* DeepLinkKit-tvOS.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		BFDB96ED1F3BFF8E001AE303 /* DeepLinkKit */ = {
 			isa = PBXNativeTarget;
@@ -867,6 +928,7 @@
 				DEDB148C1A3F944D00A837F8 /* SenderDemo */,
 				6003F5AD195388D20070C39A /* Tests */,
 				BFDB96ED1F3BFF8E001AE303 /* DeepLinkKit */,
+				A982D6462164636100FDFCCF /* DeepLinkKit-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -1154,6 +1216,27 @@
 				62EE96F81B570B16003D7564 /* DPLProductTableViewController.m in Sources */,
 				62EE96F71B570B13003D7564 /* DPLProduct.m in Sources */,
 				62EE96F41B570891003D7564 /* DPLProductRouteHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A982D6472164636100FDFCCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A982D6482164636100FDFCCF /* DPLDeepLink+AppLinks.m in Sources */,
+				A982D6492164636100FDFCCF /* UINavigationController+DPLRouting.m in Sources */,
+				A982D64A2164636100FDFCCF /* NSString+DPLTrim.m in Sources */,
+				A982D64B2164636100FDFCCF /* DPLDeepLink.m in Sources */,
+				A982D64C2164636100FDFCCF /* NSString+DPLJSON.m in Sources */,
+				A982D64D2164636100FDFCCF /* DPLRouteMatcher.m in Sources */,
+				A982D64E2164636100FDFCCF /* DPLDeepLinkRouter.m in Sources */,
+				A982D64F2164636100FDFCCF /* DPLRegularExpression.m in Sources */,
+				A982D6502164636100FDFCCF /* DPLMatchResult.m in Sources */,
+				A982D6512164636100FDFCCF /* DPLMutableDeepLink.m in Sources */,
+				A982D6522164636100FDFCCF /* NSString+DPLQuery.m in Sources */,
+				A982D6532164636100FDFCCF /* DPLRouteHandler.m in Sources */,
+				A982D6542164636100FDFCCF /* NSObject+DPLJSONObject.m in Sources */,
+				A982D6552164636100FDFCCF /* DPLMutableDeepLink+AppLinks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1475,6 +1558,107 @@
 			};
 			name = Release;
 		};
+		A982D6602164636100FDFCCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = DeepLinkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usebutton.DeepLinkKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A982D6612164636100FDFCCF /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = DeepLinkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usebutton.DeepLinkKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Test;
+		};
+		A982D6622164636100FDFCCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = DeepLinkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usebutton.DeepLinkKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		BFDB96F31F3BFF8E001AE303 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1759,6 +1943,16 @@
 				62335DF21B57003400E3818C /* Debug */,
 				62335DF31B57003400E3818C /* Test */,
 				62335DF41B57003400E3818C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A982D65F2164636100FDFCCF /* Build configuration list for PBXNativeTarget "DeepLinkKit-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A982D6602164636100FDFCCF /* Debug */,
+				A982D6612164636100FDFCCF /* Test */,
+				A982D6622164636100FDFCCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
