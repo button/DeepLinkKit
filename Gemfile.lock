@@ -83,6 +83,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 2.0)
   cocoapods
   slather
   xcpretty
