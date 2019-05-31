@@ -40,7 +40,16 @@ describe(@"Matching named components", ^{
         DPLMatchResult *matchResult = [expression matchResultForString:@"/hello/dovalue/thisvalue/and/thatvalue"];
         expect(matchResult.match).to.beFalsy();
     });
-    
+
+    it(@"should match named components with single character", ^{
+        DPLRegularExpression *expression = [DPLRegularExpression regularExpressionWithPattern:@"/hello/:a/:b/and/:c"];
+
+        DPLMatchResult *matchResult = [expression matchResultForString:@"/hello/dovalue/thisvalue/and/thatvalue"];
+        expect(matchResult.match).to.beTruthy();
+        expect(matchResult.namedProperties).to.equal(@{ @"a": @"dovalue",
+                                                        @"b": @"thisvalue",
+                                                        @"c": @"thatvalue" });
+    });
 });
 
 SpecEnd
