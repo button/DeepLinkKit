@@ -1,6 +1,8 @@
 @import UIKit;
 #import "DPLTargetViewControllerProtocol.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class DPLDeepLink;
 
 /**
@@ -39,7 +41,7 @@
  @return A view controller conforming to the `DPLTargetViewController' protocol.
  @note Subclasses MUST override this method.
  */
-- (UIViewController <DPLTargetViewController> *)targetViewController;
+- (nullable UIViewController <DPLTargetViewController> *)targetViewController;
 
 
 /**
@@ -49,7 +51,7 @@
  @param deepLink A deep link instance.
  @return A view controller for presenting a target view controller.
  */
-- (UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink;
+- (nullable UIViewController *)viewControllerForPresentingDeepLink:(DPLDeepLink *)deepLink;
 
 
 /**
@@ -69,3 +71,5 @@
                    inViewController:(UIViewController *)presentingViewController;
 
 @end
+
+NS_ASSUME_NONNULL_END
