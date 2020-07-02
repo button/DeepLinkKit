@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  The query parameters parsed from the incoming URL.
  @note If the URL conforms to the App Link standard, this will be the query parameters found on `target_url'.
  */
-@property (nonatomic, copy, readonly, nullable) NSDictionary *queryParameters;
+@property (nonatomic, copy, readonly) NSDictionary *queryParameters;
 
 
 /**
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  @note Given a route `alert/:title/:message' and a path `button://alert/hello/world',
  the route parameters dictionary would be `@{ @"title": @"hello", @"message": @"world" }'.
  */
-@property (nonatomic, copy, readonly, nullable) NSDictionary *routeParameters;
+@property (nonatomic, copy, readonly) NSDictionary *routeParameters;
 
 
 /** 
