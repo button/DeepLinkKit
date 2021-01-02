@@ -50,7 +50,7 @@
 
 - (BOOL)application:(UIApplication *)application
     continueUserActivity:(NSUserActivity *)userActivity
-    restorationHandler:(void (^ _Nonnull __strong)(NSArray<id<UIUserActivityRestoring>> * _Nullable __strong))restorationHandler {
+    restorationHandler:(void(^)(NSArray * __nullable restorableObjects))restorationHandler {
     
     return [self.router handleUserActivity:userActivity withCompletion:NULL];
 }
