@@ -10,7 +10,7 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
         
         // Register a block to a route (matches dpl:///product/93598)
         self.router.register("/product/:sku") { link in
-            print("\(link!.url.absoluteString)")
+            print("\(link.url.absoluteString)")
             
             if let rootViewController = application.keyWindow?.rootViewController as? UINavigationController {
                 if let storyboard = rootViewController.storyboard {
@@ -23,9 +23,7 @@ class DPLReceiverSwiftAppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.router.register("/log/:message") { link in
-            if let link = link {
-                print("\(String(describing: link.routeParameters["message"]))")
-            }
+            print("\(String(describing: link.routeParameters["message"]))")
         }
         
         // Register a class to a route.

@@ -2,6 +2,8 @@
 
 @class DPLDeepLink;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DPLDeepLink : NSObject <NSCopying, NSMutableCopying>
 
 
@@ -42,7 +44,7 @@
  dpl://dpl.io/say/hello?dpl_callback_url=btn%3A%2F%2Fdpl.io%2Fsay%2Fhi
  @endcode
  */
-@property (nonatomic, strong, readonly) NSURL *callbackURL;
+@property (nonatomic, strong, readonly, nullable) NSURL *callbackURL;
 
 
 
@@ -57,7 +59,7 @@
  @endcode
  @note If the key is contained in both queryParameters and routeParameters, the value from routeParameters is returned.
  */
-- (id)objectForKeyedSubscript:(NSString *)key;
+- (nullable id)objectForKeyedSubscript:(NSString *)key;
 
 
 
@@ -73,3 +75,5 @@
 - (BOOL)isEqualToDeepLink:(DPLDeepLink *)deepLink;
 
 @end
+
+NS_ASSUME_NONNULL_END

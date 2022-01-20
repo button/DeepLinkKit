@@ -2,6 +2,8 @@
 
 @class DPLDeepLink;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DPLRouteMatcher : NSObject
 
 /**
@@ -17,6 +19,8 @@
  @param url The url to be compared with the route.
  @return A DPLDeepLink instance if the URL matched the route, otherwise nil.
  */
-- (DPLDeepLink *)deepLinkWithURL:(NSURL *)url;
+- (nullable DPLDeepLink *)deepLinkWithURL:(NSURL *)url;
 
 @end
+
+NS_ASSUME_NONNULL_END
