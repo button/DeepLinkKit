@@ -6,6 +6,6 @@ open class DPLProductRouteHandler: DPLRouteHandler {
             return storyboard.instantiateViewController(withIdentifier: "detail") as! DPLProductDetailViewController
         }
         
-        return super.targetViewController()
+        return super.targetViewController()!
     }
 }

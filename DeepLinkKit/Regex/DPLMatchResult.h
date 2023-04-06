@@ -3,6 +3,6 @@
 @interface DPLMatchResult : NSObject
 
 @property (nonatomic, assign, getter=isMatch) BOOL match;
-@property (nonatomic, strong) NSDictionary *namedProperties;
+@property (nonatomic, strong, nullable) NSDictionary *namedProperties;
 
 @end
