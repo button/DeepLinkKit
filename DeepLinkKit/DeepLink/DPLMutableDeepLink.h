@@ -1,4 +1,4 @@
-#import "DPLDeepLink.h"
+#import <DeepLinkKit/DPLDeepLink.h>
 
 /**
  A mutable deep link for constructing deep links.
