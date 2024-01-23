@@ -27,8 +27,7 @@ typedef BOOL(^DPLApplicationCanHandleDeepLinksBlock)(void);
  @param handled Indicates whether or not the deep link was handled.
  @param error An error if one occurred while handling a deep link URL.
  */
-typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError *error);
-
+typedef void(^DPLRouteCompletionBlock)(BOOL handled, NSError * _Nullable error);
 
 
 @interface DPLDeepLinkRouter : NSObject
