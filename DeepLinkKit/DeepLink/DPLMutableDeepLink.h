@@ -1,4 +1,4 @@
-#import "DPLDeepLink.h"
+#import <DeepLinkKit/DPLDeepLink.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
