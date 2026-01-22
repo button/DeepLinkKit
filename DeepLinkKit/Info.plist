@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>MinimumOSVersion</key>
-	<string>9.0</string>
+	<string>$(DEPLOYMENT_TARGET)</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 </dict>
