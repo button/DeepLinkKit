@@ -25,3 +25,7 @@ DerivedData
 .bundle
 
 Pods/
+
+# Swift Package Manager
+.build/
+.swiftpm/

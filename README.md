@@ -37,6 +37,21 @@ the library, simply add the following line to your Podfile:
 pod "DeepLinkKit"
 ```
 
+### Swift Package Manager
+DeepLinkKit is available through [Swift Package Manager](https://swift.org/package-manager/).
+Add the package from Xcode via *File › Add Package Dependencies…* using the repository
+URL, or add it to the `dependencies` of your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/button/DeepLinkKit.git", from: "1.5.1")
+```
+
+Then add `DeepLinkKit` to the targets that need it:
+
+```swift
+.target(name: "MyApp", dependencies: ["DeepLinkKit"])
+```
+
 ### Carthage
 To install via Carthage, add the following line to your `Cartfile`:
 
