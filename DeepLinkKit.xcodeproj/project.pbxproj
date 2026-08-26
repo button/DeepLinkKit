@@ -456,9 +456,7 @@
 			children = (
 				DECB32481A87C6270071C76E /* AppLinks */,
 				DEB4EDBC1A4A036D00F31D14 /* DPLDeepLink_Private.h */,
-				DE058E0C1A3B484A00147C04 /* DPLDeepLink.h */,
 				DE058E0D1A3B484A00147C04 /* DPLDeepLink.m */,
-				DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */,
 				DECB324A1A87C64E0071C76E /* DPLMutableDeepLink.m */,
 			);
 			path = DeepLink;
@@ -488,7 +486,6 @@
 		DE16E91F1A42882F00077E18 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				DE16E9201A42882F00077E18 /* DPLDeepLinkRouter.h */,
 				DE16E9211A42882F00077E18 /* DPLDeepLinkRouter.m */,
 			);
 			path = Router;
@@ -567,16 +564,39 @@
 			name = BuildScripts;
 			sourceTree = "<group>";
 		};
+		DE1000000000000000000001 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DE1000000000000000000002 /* DeepLinkKit */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		DE1000000000000000000002 /* DeepLinkKit */ = {
+			isa = PBXGroup;
+			children = (
+				DEB4EDBD1A4A726200F31D14 /* DeepLinkKit.h */,
+				DE4128901A8BBE500089DAA2 /* AppLinks.h */,
+				DE058E0C1A3B484A00147C04 /* DPLDeepLink.h */,
+				DEA55ADB1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.h */,
+				DECB32491A87C64E0071C76E /* DPLMutableDeepLink.h */,
+				DECB324B1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.h */,
+				DE16E9201A42882F00077E18 /* DPLDeepLinkRouter.h */,
+				DEAC40701A5DA86A004A9095 /* DPLRouteHandler.h */,
+				DEAC406E1A5D97EE004A9095 /* DPLErrors.h */,
+				DE99EF781A3B83D100CE3449 /* DPLTargetViewControllerProtocol.h */,
+			);
+			path = DeepLinkKit;
+			sourceTree = "<group>";
+		};
 		DE5DD32C19E0643F007FD439 /* DeepLinkKit */ = {
 			isa = PBXGroup;
 			children = (
 				BFDB96F11F3BFF8E001AE303 /* Info.plist */,
-				DEB4EDBD1A4A726200F31D14 /* DeepLinkKit.h */,
+				DE1000000000000000000001 /* include */,
 				DEC308D91CAD70A5006828A5 /* DeepLinkKit_Private.h */,
-				DE4128901A8BBE500089DAA2 /* AppLinks.h */,
 				DE99EF6A1A3B6CDD00CE3449 /* Protocols */,
 				DE3E61071A3B4485008D6DFC /* Categories */,
-				DEB4EDBB1A49CEA400F31D14 /* Errors */,
 				83D34C3A1B03ECAD00BA6EF1 /* Regex */,
 				DE16E91F1A42882F00077E18 /* Router */,
 				DEAC406F1A5DA7B8004A9095 /* RouteHandler */,
@@ -598,7 +618,6 @@
 		DE99EF6A1A3B6CDD00CE3449 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				DE99EF781A3B83D100CE3449 /* DPLTargetViewControllerProtocol.h */,
 				DEEBD4A51AAB6FBB000BCA84 /* DPLSerializable.h */,
 			);
 			path = Protocols;
@@ -627,7 +646,6 @@
 		DEAC406F1A5DA7B8004A9095 /* RouteHandler */ = {
 			isa = PBXGroup;
 			children = (
-				DEAC40701A5DA86A004A9095 /* DPLRouteHandler.h */,
 				DEAC40711A5DA86A004A9095 /* DPLRouteHandler.m */,
 			);
 			path = RouteHandler;
@@ -665,14 +683,6 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		DEB4EDBB1A49CEA400F31D14 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				DEAC406E1A5D97EE004A9095 /* DPLErrors.h */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
 		DEC1B07F1A365213002BB838 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,9 +696,7 @@
 		DECB32481A87C6270071C76E /* AppLinks */ = {
 			isa = PBXGroup;
 			children = (
-				DEA55ADB1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.h */,
 				DEA55ADC1A5F1A0700C312F5 /* DPLDeepLink+AppLinks.m */,
-				DECB324B1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.h */,
 				DECB324C1A87C6750071C76E /* DPLMutableDeepLink+AppLinks.m */,
 			);
 			name = AppLinks;

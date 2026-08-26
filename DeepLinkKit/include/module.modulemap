@@ -1,0 +1,11 @@
+module DeepLinkKit {
+    umbrella header "DeepLinkKit/DeepLinkKit.h"
+
+    // Opt-in AppLinks support. Not pulled in by the umbrella header, but still
+    // part of the module so it is reachable from Swift.
+    header "DeepLinkKit/AppLinks.h"
+    header "DeepLinkKit/DPLDeepLink+AppLinks.h"
+    header "DeepLinkKit/DPLMutableDeepLink+AppLinks.h"
+
+    export *
+}
